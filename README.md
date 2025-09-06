@@ -90,3 +90,4 @@ Complete project description available [here](./term_project.md).
 | 1.2 Hello HTML   | A single HTML file with CSS & JS      | [View Demo](https://github.com/Web-Engineering-KFUPM/demo_1.2_hello_html)  |
 | 2.1 HTML Basics  | Basic HTML Elements and Structure      | [View Demo](https://classroom.github.com/a/XpMBPV7Q)  |
 | 2.2 More HTML | Links, Containers and Forms | [View Demo](https://classroom.github.com/a/uGuRT48H) |
+| 3.1 CSS Fundamentals | Linking CSS, basic selectors, grouping, simple box model, and a gentle `:hover` | [View Demo](#) | 
