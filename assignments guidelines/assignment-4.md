@@ -100,7 +100,7 @@ Professional Demonstration of the Application.
 - **Practice**: Rehearse your presentation multiple times
 - **Backup Plan**: Have screenshots or videos as backup
 - **Time Management**: Stay within the 5-7 minute limit
-- **Engagement**: Make eye contact and speak clearly
+- **Engagement**: Use clear visuals, smooth transitions, and highlight key features effectively
 - **Technical Preparation**: Ensure your application works smoothly
 
 ### 6. AI Showcase

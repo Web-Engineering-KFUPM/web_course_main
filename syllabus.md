@@ -20,8 +20,8 @@ This course is designed to provide you with the conceptual and practical knowled
 ### How You Will Be Assessed
 - **In-Lab Participation** 10%
 - **Assignments** 8%
-- **Quizzes:** 12%
-- **Mid-term:** 20%
+- **Quizzes:** 9%
+- **Mid-term:** 23%
 - **Project:** 25%
 - **Final:** 25%
 
