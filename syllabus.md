@@ -6,15 +6,15 @@ This course is designed to provide you with the conceptual and practical knowled
 ### Class Details
 | Section | Time            | Days | Venue | Instructor  |
 |---------|-----------------|------|--------|------------|
-| 01      | 08:00 – 09:15   | MW   | 22-334 | Hasan Alkaf         |
-| 03      | 11:00 – 12:15   | UT   | 22-334 | Omar Hammad         |
-| F04     | 11:00 – 12:15   | MW   | 22-334 | Khadijah AlSafwan   |
+| 01, 02      | 08:00 – 09:15   | MW   | 22-333 | FAISAL ABDURRAZZAK         |
+| 03      | 11:00 – 12:15   | MW   | 22-333 | Hasan Al-Kaf         |
+| F04     | 11:00 – 12:15   | MW   | 22-339 | Khadijah AlSafwan   |
 
 ### Instructors
 | Professor           | Office | Email                    | Office Hours   |
 |---------------------|--------|--------------------------|----------------|
-| Dr. Muhammad Faisal Abdulrazzak | Online | omarjh@kfupm.edu.sa      |      TBA       |
-| Dr. Hasan Al-Kaf    | Online | hassan.alkaf@kfupm.edu.sa |      TBA              |
+| Dr. Muhammad Faisal Abdulrazzak | Online- Msteams or email | mfaisal@kfupm.edu.sa      |      TBA       |
+| Dr. Hasan Al-Kaf    | Online- Msteams or email | hassan.alkaf@kfupm.edu.sa |      TBA              |
 | Dr. Khadijah Al Safwan| 22-330-1 | khadijah.safwan@kfupm.edu.sa |      MW 1:00-2:00       |
 
 ### How You Will Be Assessed
