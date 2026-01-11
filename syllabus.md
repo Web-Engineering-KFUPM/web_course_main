@@ -1,4 +1,4 @@
-# SWE 363 Syllabus (Term 241)
+# SWE 363 Syllabus (Term 252)
 ## Web Engineering & Development
 
 This course is designed to provide you with the conceptual and practical knowledge and skills required to develop web applications.
