@@ -13,12 +13,12 @@ This course is designed to provide you with the conceptual and practical knowled
 ### Instructors
 | Professor           | Office | Email                    | Office Hours   |
 |---------------------|--------|--------------------------|----------------|
-| Dr. Omar Hammad     | 22-329 | omarjh@kfupm.edu.sa      |      SU 10:00-11:00       |
-| Dr. Hasan Al-Kaf    | 22-147 | hassan.alkaf@kfupm.edu.sa |      TBA              |
+| Dr. Muhammad Faisal Abdulrazzak | Online | omarjh@kfupm.edu.sa      |      TBA       |
+| Dr. Hasan Al-Kaf    | Online | hassan.alkaf@kfupm.edu.sa |      TBA              |
 | Dr. Khadijah Al Safwan| 22-330-1 | khadijah.safwan@kfupm.edu.sa |      MW 1:00-2:00       |
 
 ### How You Will Be Assessed
-- **In-Lab Participation** 10%
+- **In-Lab Attendance and Participation** 10%
 - **Assignments** 8%
 - **Quizzes:** 9%
 - **Mid-term:** 23%
@@ -29,7 +29,7 @@ This course is designed to provide you with the conceptual and practical knowled
 - Come prepared to class.
 - Always be on time (for class and assignment deadlines).
 - Practice, practice, and practice.
-- Pay attention to Blackboard & This repo.
+- Pay attention to Blackboard & this repo.
 
 ### Course Outcomes
 After completing this course, you should be able to:
