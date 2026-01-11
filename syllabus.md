@@ -13,8 +13,8 @@ This course is designed to provide you with the conceptual and practical knowled
 ### Instructors
 | Professor           | Office | Email                    | Office Hours   |
 |---------------------|--------|--------------------------|----------------|
-| Dr. Muhammad Faisal Abdulrazzak | Online- Msteams or email | mfaisal@kfupm.edu.sa      |      TBA       |
-| Dr. Hasan Al-Kaf    | Online- Msteams or email | hassan.alkaf@kfupm.edu.sa |      TBA              |
+| Dr. Muhammad Faisal Abdulrazzak | Online (MS Teams or email) | mfaisal@kfupm.edu.sa      |      TBA       |
+| Dr. Hasan Al-Kaf    | Online (MS Teams or email) | hassan.alkaf@kfupm.edu.sa |      TBA              |
 | Dr. Khadijah Al Safwan| 22-330-1 | khadijah.safwan@kfupm.edu.sa |      MW 1:00-2:00       |
 
 ### How You Will Be Assessed
