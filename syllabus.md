@@ -21,7 +21,7 @@ This course is designed to provide you with the conceptual and practical knowled
 
 ### How You Will Be Assessed
 - **In-Lab Attendance and Participation** 10%
-- **Assignments** 8%
+- **Portfolio Assignments** 8%
 - **Quizzes:** 12%
 - **Mid-term:** 20%
 - **Project:** 25%
