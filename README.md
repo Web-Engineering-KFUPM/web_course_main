@@ -20,32 +20,27 @@ The full course syllabus is available [here](./syllabus.md).
 ## Course Materials
 This repository serves as the main course reference. All materials are organized in the following structure:
 
-- **Slides**: PowerPoint presentations for each chapter in the `slides/` directory
+- **Slides**: PDF presentations for each lecture in the `slides/` directory
+- **Portfolio Assignments Guidelines**: Detailed assignment documentation in `portfolio assignments guidelines/`
 - **Project Guidelines**: Detailed project documentation in `project guidelines/`
-- **Course Documents**: Syllabus, assignments, and participation guidelines
-- **Examples**: Code examples and starter templates
+- **Course Documents**: Syllabus, assignments, project, and participation guidelines
+- **Demos**: Code examples and starter templates
 
 Navigate through the folders to access all course materials and resources.
 
 ## In-Lab Participation
 Hands-on coding demonstrations during class time (10% total grade):
-- 20 demos throughout semester (0.5% each)
+- ~20 demos throughout the semester (0.5% each)
 - 30-minute lab sessions with structured activities
 - GitHub practice and version control skills
 - All work must be completed during class time
-- See demos table at the bottom of the page
+- See demos table [here](./demos.md) 
 
-## Assignments
-Detailed guidelines available [here](./assignments.md).
+## Portfolio Assignments
+Overview of the portfolio assignments available [here](./portfolio%20assignments.md) and detailed portfolio assignments guidelines available [here](./portfolio%20assignments%20guidelines).
 
 ## Term Project
-Team-based web application project (25% total grade) with multiple phases:
-- Project proposal and requirements
-- Front-end and back-end implementation
-- Deployment and documentation
-- Final presentation
-
-Complete project description available [here](./term_project.md).
+Overview of the term project available [here](./term_project.md) and detailed term project guidelines available [here](./term_project%20guidelines.md). 
 
 ## Useful Links
 - [FreeCodeCamp](https://www.freecodecamp.org/)
@@ -78,30 +73,3 @@ Complete project description available [here](./term_project.md).
 1. **Clone**: `git clone [repository link]`
 2. **Explore**: Navigate folders for course materials
 3. **Stay Updated**: Pull latest changes regularly
-
-
-# Demos table
-
-| Demo Title       | Idea                                | Link                        |
-|------------------|-------------------------------------|-----------------------------|
-| 1.1 Hello Web    | A sample full stack web app using Nodejs    | [View Demo](https://github.com/Web-Engineering-KFUPM/demo_1.1_hello_web) |
-| 1.2 Hello HTML   | A single HTML file with CSS & JS      | [View Demo](https://github.com/Web-Engineering-KFUPM/demo_1.2_hello_html)  |
-| 2.1 HTML Basics  | Basic HTML Elements and Structure      | [View Demo](https://classroom.github.com/a/XpMBPV7Q)  |
-| 2.2 More HTML | Links, Containers and Forms | [View Demo](https://classroom.github.com/a/uGuRT48H) |
-| 3.1 CSS Basics | Using CSS, Selectors | [View Demo](https://classroom.github.com/a/AmqNvXqN) |
-| 3.2 More CSS | Variables, Flexbox & Positioning | [View Demo](https://classroom.github.com/a/UgtyIKLp) |
-| 4.1 JS Basics | Variables, operations, conditions, loops, arrays | [View Demo](https://classroom.github.com/a/do3A9tGZ) |
-| 4.2 JS Advanved | Objects, Map, String Object, Date & Math Objects, Exception Handling, Regular Expressions | [View Demo](https://classroom.github.com/a/J0-Up346) |
-| 5.1 DOM Manipulation and API | DOM manipulation, fetch from json, third party API | [View Demo](https://classroom.github.com/a/MWp12_By) |
-| 5.2 React Starter | Intro to React, JSX syntax, components, props, rendering | [View Demo](https://classroom.github.com/a/09PRaIoj) |
-| 5.3 More React | Event handling, States | [View Demo](https://classroom.github.com/a/wiJZiwXu) |
-| 5.4 More React | Conditional rendering, Lists | [View Demo](https://classroom.github.com/a/4OG8kbSm) |
-| 5.5 React Advance | Forms, Controlled inputs, Routes | [View Demo](https://classroom.github.com/a/gd4XBP3Q) |
-| 5.6 React Styling & Fetching | CSS, Bootstrap, Fetch data | [View Demo](https://classroom.github.com/a/wtcNr7U4) |
-| 5.7 Back-end Fundamentals | full-stack fundamentals, node, express, routes, server, data flow | [View Demo](https://classroom.github.com/a/dPJyHr9V) |
-| 6.1 Introduction to Node | node, modules, package.json files | [View Demo](https://classroom.github.com/a/uGr0A5GN) |
-| 6.2 Express | express, middleware functions, routes, cors, request & response | [View Demo](https://classroom.github.com/a/RFGnUwlL) |
-| 6.3 Request Data in Express | query parmeters, routes, middleware functions | [View Demo](https://classroom.github.com/a/f7Xq_C38) |
-| 7.1 mongoDB | mongoDB cloud, mongosh, mongoose | [View Demo](https://classroom.github.com/a/yWib5URO) |
-| 7.2 RESTful APIs | CRUD operations, fetch | [View Demo](https://classroom.github.com/a/b5Rjx0N4) |
-| 8.1 Third-Party APIs and Authentication | Third-Party API, Token based authentication, password hasing | [View Demo](https://classroom.github.com/a/x9kxDulw) |
