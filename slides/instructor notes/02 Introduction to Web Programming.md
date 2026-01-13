@@ -40,53 +40,131 @@ style: |
         border-radius: 5px;
         overflow-x: auto;
     }
-footer: 'SWE 363 | 251 | Sec 3 | KFUPM'
+footer: 'SWE 363 | 252 | KFUPM'
 
 
 ---
 
 Web Engineering & Development (SWE 363) 
 # Introduction to Web Development  
-### Dr. Omar Hammad
+
 
 ---
 
-<!-- 
-
-Goal: Give introduction to some important concepts.
-- Ip addresses
-- DNS
-- URLs
-- HTTP
-- HTML, CSS & JS 
-
-How: Give them the whole journey from a request until a response 
-
-Practical: Let them investigate the request <> response journey themselves 
-
-Subgoals: Join Slack, Notice BB, Start looking for groups.  
- 
--->
 
 # Announcements 📣
 
-- Join Slack
-- Join the Common section 
-- Start looking for a project team 
+- Clone the course repository from [GitHub](https://github.com/Web-Engineering-KFUPM/web_course_main)
+- Join Blackboard Common section 
+- Start looking for a project team (3-4 students)
 
 
 ---
 
 # Today's plan: 
 
-We will explore the journey of an HTTP request. In particular: 
+We will get to know the web, explore the journey of an HTTP request, and build a simple web application.
 
-- HTTP Requests
-- HTTP Responses
+- The world wide web (WWW)
+- Infrastructure of the web
+- HTTP Requests and Responses
 - IP addresses
 - DNS (Domain names system)
 - URLs (Uniform Resource Locator)
 - intro to HTML, CSS & JS
+
+
+---
+
+
+<!-- So what is the web? or the world wide web -->
+
+So .. 
+# What is the web?
+*aka World Wide Web or WWW*
+
+
+---
+
+<!-- _class: light -->
+
+# The web 
+*A vast network of interconnected documents and resources, accessible via the **internet**, that allows users to share and access information globally.*
+![bg right](./web3.png)
+
+---
+
+<!-- Ok what technologies make the web possible? -->
+
+# What technologies makes the web possible?
+
+---
+
+<!-- _class: boxes -->
+ 
+
+# What technologies makes the web possible?
+- Internet
+- HTTP 
+- Servers 
+- Clients 
+- HTML 
+- URLs
+
+<!--  
+
+---
+
+Internet: A global network of interconnected computers that communicate using standardized protocols.
+// 
+HTTP: Hypertext Transfer Protocol, the foundation of data communication on the web, used for transmitting web pages.
+// 
+Servers: Computers or systems that provide resources, data, services, or programs to other computers, known as clients, over a network.
+// 
+Clients: Devices or programs that request and use resources or services from a server.
+// 
+HTML: Hypertext Markup Language, the standard language for creating and designing web pages and web applications.
+// 
+URLs: Uniform Resource Locators, the addresses used to access resources on the internet. 
+
+---
+
+-->
+
+---
+
+<!-- This is a simple architecture of the web -->
+
+# What makes a web application?
+A web application is a software application that runs on a **web server** and is accessed through a **web client**. 
+
+---
+
+### Architecture of a simple web app
+<!-- _class: graph -->
+<!-- footer: | -->
+
+```
+┌─────────────────┐    HTTP Request     ┌─────────────────┐
+│                 │ ──────────────────► │                 │
+│    CLIENT       │                     │    SERVER       │
+│   (Browser)     │                     │   (Python/      │
+│                 │                     │    Node.js/     │
+│ ┌─────────────┐ │                     │    etc.)        │
+│ │   HTML      │ │                     │                 │
+│ │   CSS       │ │                     │ ┌─────────────┐ │
+│ │ JavaScript  │ │                     │ │   Routes    │ │
+│ └─────────────┘ │                     │ │   Logic     │ │
+│                 │                     │ │   Database  │ │
+│ ┌─────────────┐ │                     │ └─────────────┘ │
+│ │ User Input  │ │                     │                 │
+│ │ Interactions│ │                     │ ┌─────────────┐ │
+│ └─────────────┘ │                     │ │   API       │ │
+│                 │    HTTP Response    │ │ Endpoints   │ │
+│                 │ ◄────────────────── │ └─────────────┘ │
+└─────────────────┘                     └─────────────────┘
+```
+
 
 
 ---
@@ -228,16 +306,26 @@ Response is returned in HTML, CSS and JS
 ---
 
 <!-- _class: demo -->
->30 mins
+> Demo ~15m
 # Build a simple HTML page 
-- Pull the latest changes from the Repo
-- Go to demo 1.2 hello html
+- Go to our repo (also found in BB)
+- Go to demos folder and open 1.2 hello html
 - Read the instrutions in the README.md file
+---
+
+<!-- _class: demo -->
+
+> Demo ~15m
+# Building a real web app
+- Go to our repo (also found in BB)
+- Go to demos folder and open 1.1 Hello Web
+- Fork the repository to your own Github account
+- Read the instructions in the README.md file 
+- Complete the code and push to Github 
 
 ---
 
-# Thank you
-Next class:
+# Next class:
 - HTML Document
 - Basic HTML Tags
 - HTML Lists

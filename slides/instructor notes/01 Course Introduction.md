@@ -40,7 +40,7 @@ style: |
         border-radius: 5px;
         overflow-x: auto;
     }
-footer: 'SWE 363 | 251 | Sec F04 | KFUPM'
+footer: 'SWE 363 | 252 | KFUPM'
 ---
 
 <!-- 
@@ -74,7 +74,6 @@ Thank you for beign here today
 
 
 # Web Engineering & Development (SWE 363) 
-### Dr. Khadijah Al Safwan
 
 
  ---
@@ -86,11 +85,16 @@ Before we start let's get to know you ..
 <!-- _class: activity -->
 
 
-> Activity ~15 mins
+> Activity
 # Knowing each other 
 - Name, Major 
 - What is something interesting about you? 
 
+---
+<!-- _class: light -->
+
+# Course Repository
+[https://github.com/Web-Engineering-KFUPM/web_course_main](https://github.com/Web-Engineering-KFUPM/web_course_main)    
 
 ---
 
@@ -106,102 +110,20 @@ By the end of this course you will be able to :
 5. Incorporate best practices to boost the **sustainability, usability, and accessibility** of web applications.
 
 ---
+# Web development tools and technologies to explore
 
-
-<!-- So what is the web? or the world wide web -->
-
-So .. 
-# What is the web?
-*aka World Wide Web or WWW*
-
-
----
-
-<!-- _class: light -->
-
-# The web 
-*A vast network of interconnected documents and resources, accessible via the **internet**, that allows users to share and access information globally.*
-![bg right](./img/web3.png)
-
----
-
-<!-- Ok what technologies make the web possible? -->
-
-# What technologies makes the web possible?
-
----
-
-<!-- _class: boxes -->
- 
-
-# What technologies makes the web possible?
-- Internet
-- HTTP 
-- Servers 
-- Clients 
-- HTML 
-- URLs
-
-<!--  
-
----
-
-Internet: A global network of interconnected computers that communicate using standardized protocols.
-// 
-HTTP: Hypertext Transfer Protocol, the foundation of data communication on the web, used for transmitting web pages.
-// 
-Servers: Computers or systems that provide resources, data, services, or programs to other computers, known as clients, over a network.
-// 
-Clients: Devices or programs that request and use resources or services from a server.
-// 
-HTML: Hypertext Markup Language, the standard language for creating and designing web pages and web applications.
-// 
-URLs: Uniform Resource Locators, the addresses used to access resources on the internet. 
-
----
-
--->
-
----
-
-<!-- This is a simple architecture of the web -->
-
-# What makes a web application?
-A web application is a software application that runs on a **web server** and is accessed through a **web client**. 
-
----
-
-### Architecture of a simple web app
-<!-- _class: graph -->
-<!-- footer: | -->
-
-```
-┌─────────────────┐    HTTP Request     ┌─────────────────┐
-│                 │ ──────────────────► │                 │
-│    CLIENT       │                     │    SERVER       │
-│   (Browser)     │                     │   (Python/      │
-│                 │                     │    Node.js/     │
-│ ┌─────────────┐ │                     │    etc.)        │
-│ │   HTML      │ │                     │                 │
-│ │   CSS       │ │                     │ ┌─────────────┐ │
-│ │ JavaScript  │ │                     │ │   Routes    │ │
-│ └─────────────┘ │                     │ │   Logic     │ │
-│                 │                     │ │   Database  │ │
-│ ┌─────────────┐ │                     │ └─────────────┘ │
-│ │ User Input  │ │                     │                 │
-│ │ Interactions│ │                     │ ┌─────────────┐ │
-│ └─────────────┘ │                     │ │   API       │ │
-│                 │    HTTP Response    │ │ Endpoints   │ │
-│                 │ ◄────────────────── │ └─────────────┘ │
-└─────────────────┘                     └─────────────────┘
-```
-
+- Browser (e.g., [Chrome](https://www.google.com/chrome/), [Firefox](https://www.mozilla.org/en-US/firefox/new/), [Safari](https://www.apple.com/safari/), etc.)
+- Revision control with Git (e.g., [Git](https://git-scm.com/), [GitHub](https://github.com/), [GitLab](https://gitlab.com/), etc.)
+- Integrated Development Environment (IDE) (e.g., [Visual Studio Code](https://code.visualstudio.com/), [WebStorm](https://www.jetbrains.com/webstorm/), [cursor](https://www.cursor.com/), etc.)
+- Front-end development (e.g., [HTML](https://www.w3schools.com/html/), [CSS](https://www.w3schools.com/css/), [JavaScript](https://www.w3schools.com/js/), [React](https://react.dev/), etc.)
+- Back-end development (e.g., [Node.js](https://nodejs.org/en/), [Express](https://expressjs.com/), etc.)
+- Database (e.g., [MongoDB](https://www.mongodb.com/) etc.)
 
 ---
 
 <!-- _class: activity -->
 
-> Activty ~10m
+> Activty
 
 ## github.com/Web-Engineering-KFUPM/web_course_main
 - visit the link
@@ -209,27 +131,4 @@ A web application is a software application that runs on a **web server** and is
 - Explore the repository 
 - Read the syllabus 
 - Ask questions 
-
----
-
-<!-- _class: demo -->
-
-> Demo ~30m
-# Building a real web app
-- Go to our repo (also found in BB)
-- Clone the project 
-- Run the starter 
-- Complete the code 
-- Push to Github 
-
-
----
-
-# Next Class 
-
-- History of the web 
-- HTML, CSS & JS 
-- Infrastructure of the web
-
-
 
