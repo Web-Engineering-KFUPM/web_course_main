@@ -3,8 +3,8 @@
 |------------------|-------------------------------------|-----------------------------|
 | 1.1 Hello Web    | A sample full stack web app using Nodejs    | [View Demo](https://github.com/Web-Engineering-KFUPM/demo_1.1_hello_web) |
 | 1.2 Hello HTML   | A single HTML file with CSS & JS      | [View Demo](https://github.com/Web-Engineering-KFUPM/demo_1.2_hello_html)  |
-| 2.1 HTML Basics  | Basic HTML Elements and Structure      | [View Demo](https://classroom.github.com/a/XpMBPV7Q)  |
-| 2.2 More HTML | Links, Containers and Forms | [View Demo](https://classroom.github.com/a/uGuRT48H) |
+| 2.1 HTML Basics  | Basic HTML Elements and Structure      | [View Demo](https://classroom.github.com/a/xt8-iwCA)  |
+| 2.2 More HTML | Links, Containers and Forms | [View Demo](https://classroom.github.com/a/EKFD40qa) |
 | 3.1 CSS Basics | Using CSS, Selectors | [View Demo](https://classroom.github.com/a/AmqNvXqN) |
 | 3.2 More CSS | Variables, Flexbox & Positioning | [View Demo](https://classroom.github.com/a/UgtyIKLp) |
 | 4.1 JS Basics | Variables, operations, conditions, loops, arrays | [View Demo](https://classroom.github.com/a/do3A9tGZ) |
