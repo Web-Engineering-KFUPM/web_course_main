@@ -24,115 +24,181 @@ Hands-on coding demonstrations and collaborative exercises during class time. 20
 ### What is GitHub Classroom?
 GitHub Classroom is a tool that automatically creates individual repositories for each student when they accept an assignment. This eliminates the need for manual forking and simplifies the submission process.
 
+### How to Accept and Submit the Assignment (GitHub Classroom)
+
+Please **read these instructions carefully**. Incorrect acceptance or submission will result in **marks deduction**.
+
+---
+
+### Important Rules (Read First)
+
+- You must **accept the assignment only via the GitHub Classroom link** provided in **`demos.md`**.
+- **Do NOT fork** the assignment repository manually from `Web-Engineering-KFUPM` or anywhere else.
+- **Do NOT push** your work to your personal GitHub repositories.
+- **Pushing the assignment anywhere other than your GitHub Classroom repository will result in marks deduction.**
+
+---
+
 ### Initial Setup (One-time)
-1. **Accept the assignment** by clicking the GitHub Classroom link provided by your instructor
-2. **Authorize GitHub Classroom** to access your GitHub account
-3. **Your individual repository** will be automatically created and ready for use
+
+1. Open the **`demos.md`** file in this repository.
+2. Locate the **Demo Table**.
+3. Click the **GitHub Classroom invitation link** for your lab.
+4. **Accept the assignment** using that link.
+5. **Authorize GitHub Classroom** to access your GitHub account (if prompted).
+
+After acceptance, **your individual repository** will be automatically created.
+
+### Repository Naming Format After Accepting Assignment
+
+```
+Demos_Repo_Name_<your_github_username>
+```
+
+**Example:**
+```
+2-1-html-basics-jawwad183
+```
+
+This is the **only valid repository** for submission.
+
+---
 
 ### Before Each Lab Session
-1. **Clone your assignment repository** (if not already done):
-   ```bash
-   git clone https://github.com/Web-Engineering-KFUPM/[ASSIGNMENT-NAME]-[YOUR-USERNAME].git
-   cd [ASSIGNMENT-NAME]-[YOUR-USERNAME]
-   ```
-2. **Pull any updates** from the remote repository:
-   ```bash
-   git pull origin main
-   ```
 
-## How to Submit Your Work
+1. **Clone your assignment repository** (only once):
 
-### During Lab Sessions
-1. **Complete the assigned tasks** in your local repository
-2. **Add and commit your changes** with descriptive messages:
-   ```bash
-   git add .
-   git commit -m "Complete lab exercise: [brief description]"
-   ```
-3. **Push your changes** to your assignment repository:
-   ```bash
-   git push origin main
-   ```
+```bash
+git clone https://github.com/Web-Engineering-KFUPM/[ASSIGNMENT-NAME]-[YOUR-USERNAME].git
+cd [ASSIGNMENT-NAME]-[YOUR-USERNAME]
+```
+
+2. **Pull the latest updates** (if any):
+
+```bash
+git pull origin main
+```
+
+---
+
+### During Lab Sessions (How to Submit Your Work)
+
+1. **Complete all assigned tasks and TODOs** in your local repository.
+2. **Add and commit your changes** using clear, descriptive messages:
+
+```bash
+git add .
+git commit -m "Complete lab exercise: [brief description]"
+```
+
+3. **Push your changes** to your GitHub Classroom repository:
+
+```bash
+git push origin main
+```
+
+This push is your **official submission**.
+
+---
 
 ### Submission Requirements
-- **Timing**: Must be pushed during class time
-- **Content**: Include all required files and changes
-- **Quality**: Code should be functional and well-formatted
+
+- **Timing**: Must be pushed **before the due date and time**
+- **Content**: All required files and **all TODOs must be completed**
+- **Quality**: Code must be functional and properly formatted
 - **Documentation**: Add comments where appropriate
-- **Commit Messages**: Use descriptive, professional language
+- **Commit Messages**: Use descriptive and professional messages
 
-### Optional: GitHub Setup Assignment
-Students who are new to Git and GitHub can complete an optional setup assignment to familiarize themselves with:
-- Basic Git commands (add, commit, push, pull)
-- GitHub repository navigation
-- Creating and managing branches
-- Resolving merge conflicts
+**Full marks** are awarded only if **all conditions above are met**.
 
-This assignment is **not graded** but highly recommended for students with limited Git experience.
+---
 
+### Mistakes Students Commonly Make
 
+Forking the assignment repository manually
 
-## Support Resources
+Accepting the assignment correctly but:
+- Pushing to your **personal GitHub repository**
+- Pushing to a **forked repository**
+- Pushing to **any repository not created by GitHub Classroom**
 
-- Instructor office hours
-- Teaching assistants during lab sessions
-- Online documentation and tutorials
-- Peer collaboration during lab time
-- [GitHub Starter Course](https://github.com/Web-Engineering-KFUPM/github-starter-course) - Learn the basics of Git and GitHub
-
-## Getting the most out of it
-
-- Review course materials and slides
-- Arrive on time with necessary materials
-- Ask questions when needed
-
-## Conclusion
-Active participation in lab sessions is crucial for mastering web development. Approach each session with enthusiasm and curiosity. The skills developed here will serve as the foundation for your future web development endeavors.
-
+**Only the GitHub Classroom repository will be graded.**
 
 ---
 
 ## GitHub Classroom Troubleshooting (Quick Guide)
 
-1) Verify correct GitHub account
-- Use the GitHub account registered with your KFUPM email (the one linked in Classroom).
-- If unsure, ask your instructor which email is registered.
+### 1) Verify Correct GitHub Account
+- Use the GitHub account registered with your **KFUPM email**.
+- If unsure, confirm with your instructor or TA.
 
-2) Clear browser authentication
-- Sign out of all GitHub accounts in your browser.
-- Clear cache, cookies, and saved logins.
-- Log in again with your KFUPM-registered account.
-- If still blocked, try Incognito/Private Mode or a different browser.
+### 2) Clear Browser Authentication
+- Sign out of all GitHub accounts.
+- Clear browser cache and cookies.
+- Log in again using your KFUPM-registered account.
+- If needed, try Incognito/Private Mode or a different browser.
 
-3) Access the lab link
-- Open the provided GitHub Classroom link.
-- If successful, create a fork of the repository and copy the fork URL.
+### 3) Accept the Lab Link
+- Open the GitHub Classroom link from `demos.md`.
+- If successful, your private assignment repository will be created.
 
-4) Clone your fork
+### 4) Clone the Repository
+
 ```bash
-git clone <fork_link>
+git clone <classroom_repo_link>
 ```
 
-5) Make changes and prepare commit
+### 5) Make Changes and Commit
+
 ```bash
 git status
 git add .
 git commit -m "Your commit message"
 ```
 
-6) Fix push/commit issues
-- If `git push` fails, set your Git identity (must match a registered GitHub email):
+### 6) Fix Push / Commit Issues
+
+If `git push` fails, configure your Git identity:
+
 ```bash
 git config --global user.name "Your GitHub Name"
 git config --global user.email "your_kfupm_email@example.com"
 ```
 
-7) Push changes
+### 7) Push Your Changes
+
 ```bash
 git push origin main
 ```
 
-8) If problems persist
-- Confirm you’re using the GitHub account tied to Classroom.
-- Re-authenticate GitHub on your computer (log out/in, reset credentials).
-- Ask the instructor/TA to confirm your account mapping in GitHub Classroom.
+### 8) Still Having Issues?
+- Confirm you are using the GitHub account linked to Classroom
+- Re-authenticate GitHub on your machine
+- Contact the instructor or TA to verify Classroom account mapping
+
+---
+
+## Optional: GitHub Setup Assignment
+
+Students new to Git and GitHub are encouraged to complete the **optional GitHub setup assignment**, which covers:
+
+- Basic Git commands (`add`, `commit`, `push`, `pull`)
+- GitHub repository navigation
+- Branching basics
+- Resolving merge conflicts
+
+This assignment is **not graded**, but **highly recommended**.
+
+---
+
+## Support Resources
+
+- Instructor office hours
+- Teaching assistants during lab sessions
+- Peer collaboration during lab time
+- Online documentation and tutorials
+- **GitHub Starter Course**: https://github.com/Web-Engineering-KFUPM/github-starter-course
+
+---
+
+
