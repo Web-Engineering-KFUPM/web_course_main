@@ -1,4 +1,4 @@
-# SWE 363 - 251 In-Lab Participation
+# SWE 363 - 252 In-Lab Participation
 
 ## Overview
 Hands-on coding demonstrations and collaborative exercises during class time. 20 demos throughout the semester, each worth 0.5% of final grade.
