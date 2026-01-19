@@ -43,14 +43,12 @@ style: |
     }
     section.center {text-align:center}
     section.big-code pre {font-size:2rem}
-footer: 'SWE 363 | 251 | Sec F04 | KFUPM'
+footer: 'SWE 363 | 252 | KFUPM'
 ---
 
 
 Web Engineering & Development (SWE 363) 
-# 2.2 More HTML (Hypertext Markup Language) 
-### Created by: Dr. Omar Hammad
-### Lectured by: Dr. Khadijah Al Safwan
+# More HTML (Hypertext Markup Language) 
 
 ---
 
@@ -69,21 +67,9 @@ How:
 
  -->
 
- Announcements 📣
- - We allow teams of 4 but with higher expectations 
- - Inform us about your Github account: https://forms.office.com/r/HuvttUTp0A 
- - Graders assigned and will be looking into your code
- - Welcome Qurrat Ul Ain Naheed to the team!
+ # Announcements 📣
+ - We allow teams of 3-4 members, teams of 4 members will be given higher expectations 
 
- ---
- # GitHub Classroom's Repository Push Issue: 
-Set Your Git Username and Email to Match GitHub
-```
-git config --add --global user.name "Your GitHub Name"
-git config --add --global user.email "your_email@kfupm.edu.sa"
-```
-**Why This Matters?**
-GitHub links commits to your account using the email in your Git config. If the email doesn’t match any email in your GitHub account, your commits won’t be linked to your profile 
 
  ---
  # In today's Lecture: 
@@ -125,7 +111,7 @@ Connect different pages together
 
  <!-- _class: activity -->
  
- >Board activity:
+ >Activity:
  # How can we link to a page located in the same directory?
 
  ---
@@ -180,7 +166,7 @@ Connect different pages together
 
 <!-- _class: activity -->
 
->Board Challenge:
+>Activity:
 # How would you structure this page using containers?
 
 ---
@@ -298,9 +284,7 @@ name=John
 # Let's build a social media app
 
 
-Starter code at: https://github.com/Web-Engineering-KFUPM/demo_2.2_social_app
-
-GitHub Classroom invite: https://classroom.github.com/a/uGuRT48H
+GitHub Classroom invite: https://classroom.github.com/a/EKFD40qa
 
 ---
 

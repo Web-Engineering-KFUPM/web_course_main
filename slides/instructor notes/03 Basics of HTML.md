@@ -43,15 +43,13 @@ style: |
     }
     section.center {text-align:center}
     section.big-code pre {font-size:2rem}
-footer: 'SWE 363 | 251 | Sec F04 | KFUPM'
+footer: 'SWE 363 | 252 | KFUPM'
 
 
 ---
 
 Web Engineering & Development (SWE 363) 
-# 2.1 Basics of HTML (Hypertext Markup Language) 
-### Created by: Dr. Omar Hammad
-### Lectured by: Dr. Khadijah Al Safwan
+# Basics of HTML (Hypertext Markup Language) 
 
 ---
 
@@ -60,15 +58,14 @@ Web Engineering & Development (SWE 363)
 0. Understand the basic principles of HTML
 1. Understand the structure of HTML 
 2. Be able to write a simple HTML including Lists, Tables & Images
-3. Understand the basics of Github & be able to fork, 
+3. Understand the basics of Github  
 
  -->
 
 
-Announcements 📣
-- Project Assignment #1 is due This Thursday at 11:59 PM
-- New Demos structure (Github Classrooms)
-- Attendance starts from today 
+# Announcements 📣
+- Project Assignment #1 is due This Saturday at 11:59 PM
+- Demos structure (Github Classrooms), instructions in [in lab participation]()
 
 ---
 
@@ -192,7 +189,7 @@ Examples include: ```href```, ```src```, ```alt```, ```class```, ```id```, ```st
 ---
 
 <!-- _class: activity -->
-```Board Challenge: write the html code for the following:```
+```Activity: write the html code for the following:```
 
 # SWE 363
 ## Introduction to HTML 
@@ -290,7 +287,19 @@ Examples: ```<img>```, ```<br>```, ```<hr>```, ```<input>```, ```<link>```, ```<
 <!-- _class: activity -->
 
 # Let's build a rich html page 
-GitHub Classroom Assignment: https://classroom.github.com/a/XpMBPV7Q
+GitHub Classroom Assignment: https://classroom.github.com/a/xt8-iwCA
+
+
+ ---
+ # GitHub Classroom's Repository Push Issue: 
+Set Your Git Username and Email to Match GitHub
+```
+git config --add --global user.name "Your GitHub Name"
+git config --add --global user.email "your_email@kfupm.edu.sa"
+```
+**Why This Matters?**
+GitHub links commits to your account using the email in your Git config. If the email doesn’t match any email in your GitHub account, your commits won’t be linked to your profile 
+
 
 ---
 
