@@ -92,7 +92,7 @@ style: |
       flex: 1;
       padding: 20px;
     }
-footer: 'SWE 363 | 251 | Sec F04 | KFUPM'
+footer: 'SWE 363 | 252 | KFUPM'
 ---
 
 

@@ -44,7 +44,7 @@ style: |
     section.center {text-align:center}
     section.big-code pre {font-size:2rem}
     pre {font-size:0.8rem}
-footer: 'SWE 363 | 251 | Sec F04 | KFUPM'
+footer: 'SWE 363 | 252 | KFUPM'
 ---
 
 
