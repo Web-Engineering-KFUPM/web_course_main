@@ -68,7 +68,9 @@ How:
  -->
 
  # Announcements 📣
- - We allow teams of 3-4 members, teams of 4 members will be given higher expectations 
+ - Project Phase 1: Project Groups and Idea is due on **Jan 24th** at 11:59 PM
+ - Project teams should be consist of 3-4 members
+ - For the project ideas, develop real-world apps that solve problems, benefit society, and generate revenue.
 
 
  ---
@@ -284,7 +286,7 @@ name=John
 # Let's build a social media app
 
 
-GitHub Classroom invite: https://classroom.github.com/a/EKFD40qa
+GitHub Classroom invite: https://classroom.github.com/a/-49FiLQY
 
 ---
 
