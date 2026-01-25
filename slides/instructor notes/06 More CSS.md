@@ -98,7 +98,8 @@ https://www.raycast.com
 ---
 
 # Box model 
-<img src="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/boxmodel.png" alt="Box model Image" width="500">
+
+<img src="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Box_model/boxmodel.png" alt="Box model Image" width="500">
 
 [The Box Model Game](https://preview.webflow.com/preview/the-box-model-game-ca6721?utm_medium=preview_link&utm_source=designer&utm_content=the-box-model-game-ca6721&preview=3e6d150df85e31264571f886d38b8468&workflow=)
 
@@ -121,7 +122,7 @@ https://www.raycast.com
 
 >30m
 # Demo
-Starter code at: web-engineering-kfupm-classroom-3-2-css-properties/
+3.2 More CSS
 
 ---
 

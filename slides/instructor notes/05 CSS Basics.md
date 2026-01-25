@@ -52,9 +52,10 @@ Web Engineering & Development (SWE 363)
 ---
 
  Announcements 📣
- - Reminder of the projects submissions 
- - SWE 363 Midterm date: Tuesday, November 4th
- - Github submission issues - useage of templates forks 
+ - Reminder of the projects submissions
+    - Contract form should be filled by individual students
+ - Tentative SWE 363 Midterm date: Thursday, April 2nd
+ - Tentative SWE 363 Schedule link posted on Blackboard
 
  ---
 
@@ -264,9 +265,7 @@ decendant, psudo-class
 <!-- _class: demo -->
 >30m
 # Let's practice CSS selectors
-
-Starter code at: https://github.com/Web-Engineering-KFUPM/web-engineering-kfupm-classroom-3-1-css-basics-3.1-css-basics
-https://classroom.github.com/a/AmqNvXqN
+3.1 CSS Basics
 
 ---
 
