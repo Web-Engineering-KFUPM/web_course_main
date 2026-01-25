@@ -57,7 +57,6 @@ Todays goals:
 
 Web Engineering & Development (SWE 363) 
 # 3.2 CSS Properties
-### Created by: Dr. Omar Hammad and Dr. Khadijah Al Safwan
 
 ---
 

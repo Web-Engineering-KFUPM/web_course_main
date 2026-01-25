@@ -48,8 +48,6 @@ footer: 'SWE 363 | 252 | KFUPM'
 
 Web Engineering & Development (SWE 363) 
 # 3.1 Intro to CSS
-### Created by: Dr. Omar Hammad
-### Lectured by: Dr. Khadijah Al Safwan
 
 ---
 

@@ -98,7 +98,6 @@ footer: 'SWE 363 | 252 | KFUPM'
 
 Web Engineering & Development (SWE 363) 
 # Full-Stack Development Advanced Concepts
-### Dr. Khadijah Al Safwan
 
 ---
 

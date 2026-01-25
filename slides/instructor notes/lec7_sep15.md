@@ -60,8 +60,6 @@ Todays goals:
 
 Web Engineering & Development (SWE 363) 
 # 4.1 JavaScript Fundamentals
-### Created by: Dr. Omar Hammad
-### Lectured by: Dr. Khadijah Al Safwan
 
 ---
 

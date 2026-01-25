@@ -98,7 +98,6 @@ footer: 'SWE 363 | 252 | KFUPM'
 
 Web Engineering & Development (SWE 363) 
 # Interactive Front-End Development
-### Dr. Khadijah Al Safwan
 
 ---
 

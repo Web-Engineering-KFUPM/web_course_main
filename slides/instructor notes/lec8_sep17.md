@@ -50,7 +50,6 @@ footer: 'SWE 363 | 252 | KFUPM'
 
 Web Engineering & Development (SWE 363) 
 # 4.1 JavaScript Fundamentals
-### Dr. Khadijah Al Safwan
 
 ---
 

@@ -98,7 +98,6 @@ footer: 'SWE 363 | 252 | KFUPM'
 
 Web Engineering & Development (SWE 363) 
 # MongoDB
-### Dr. Khadijah Al Safwan
 
 ---
 
