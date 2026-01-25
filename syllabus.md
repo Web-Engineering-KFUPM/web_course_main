@@ -17,7 +17,7 @@ This course is designed to provide you with the conceptual and practical knowled
 |---------------------|--------|--------------------------|----------------|
 | Dr. Muhammad Faisal Abdulrazzak | Online (MS Teams or email) | mfaisal@kfupm.edu.sa      |      TBA       |
 | Dr. Hasan Al-Kaf    | Online (MS Teams or email) | hassan.alkaf@kfupm.edu.sa |      TBA              |
-| Dr. Khadijah Al Safwan| 22-330-1 | khadijah.safwan@kfupm.edu.sa |      TBA       |
+| Dr. Khadijah Al Safwan| 22-330-1 | khadijah.safwan@kfupm.edu.sa |      Sundays 2-3 PM (or by appointment)       |
 
 ### How You Will Be Assessed
 - **In-Lab Attendance and Participation** 10%
@@ -55,7 +55,7 @@ After completing this course, you should be able to:
 | 9  | Hands-on + Quiz | - |
 | 10 | Back-end Development Fundamentals | Lec1: 6.1, Lec2: 6.2-6.3 |
 | 11 | Back-End Nodejs & Express | Lec1: 6.4, Lec2: 6.5 |
-| 12 | MongoDB | Lec1: 7.1-7.2, Lec2: 7.3-7.4 |
+| 12 | MongoDB | Lec1: 7.1-7.2, Lec2: 7.3-7.5 |
 | 13 | Web Security | Lec1: 8.1, Lec2: 8.2-8.3 |
 | 14 | Hands-on + Quiz | - |
 | 15 | Exam Review & Presentations | - |
