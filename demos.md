@@ -6,7 +6,7 @@
 | 2.1 HTML Basics  | Basic HTML Elements and Structure      | [View Demo](https://classroom.github.com/a/xt8-iwCA)  |
 | 2.2 More HTML | Links, Containers and Forms | [View Demo](https://classroom.github.com/a/-49FiLQY) |
 | 3.1 CSS Basics | Using CSS, Selectors | [View Demo](https://classroom.github.com/a/cZgUOt-t) |
-| 3.2 More CSS | Variables, Flexbox & Positioning | [View Demo](#) |
+| 3.2 More CSS | Variables, Flexbox & Positioning | [View Demo](https://classroom.github.com/a/iH4J_z2C) |
 | 4.1 JS Basics | Variables, operations, conditions, loops, arrays | [View Demo](#) |
 | 4.2 JS Advanved | Objects, Map, String Object, Date & Math Objects, Exception Handling, Regular Expressions | [View Demo](#) |
 | 5.1 DOM Manipulation and API | DOM manipulation, fetch from json, third party API | [View Demo](#) |
