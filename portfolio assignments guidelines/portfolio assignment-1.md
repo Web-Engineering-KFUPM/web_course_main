@@ -15,8 +15,7 @@ Build a simple, responsive personal portfolio web application as the starting po
 
 ## 1. Repository Setup
 - Create a public GitHub repository named **`id-name-assignment1`**  
-  (replace `id` with your student ID and `name` with your First and last name).
-- The assignment name is **Assignment 1**.
+  (replace `id` with your student ID and `name` with your first and last name with no space).
 - Maintain a clear folder structure, meaningful commit history, and a well-written `README.md`.
 - Use branches if needed.
 
