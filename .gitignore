@@ -93,3 +93,4 @@ complete/
 
 demos
 .DS_Store
+.cursor/*
