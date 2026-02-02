@@ -48,7 +48,7 @@ footer: 'SWE 363 | 252 | KFUPM'
 ---
 
 # Announcements 📣
-- Project Assignment #1 is due This Thursday at 11:59 PM
+- Project Phase #2 is due this Saturday at 11:59 PM
 - Commit each TODO in the demo to the repository
 
 ---
