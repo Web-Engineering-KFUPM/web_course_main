@@ -8,7 +8,7 @@
 | 3.1 CSS Basics | Using CSS, Selectors | [View Demo](https://classroom.github.com/a/cZgUOt-t) |
 | 3.2 More CSS | Variables, Flexbox & Positioning | [View Demo](https://classroom.github.com/a/iH4J_z2C) |
 | 4.1 JS Basics | Variables, operations, conditions, loops, arrays | [View Demo](https://classroom.github.com/a/kwCJvtlM) |
-| 4.2 JS Advanved | Objects, Map, String Object, Date & Math Objects, Exception Handling, Regular Expressions | [View Demo](https://classroom.github.com/a/oc8IJ0Yc) |
+| 4.2 JS Advanved | Objects, Map, String Object, Date & Math Objects, Exception Handling, Regular Expressions | [View Demo](https://classroom.github.com/a/tohWnDdq) |
 | 5.1 DOM Manipulation and API | DOM manipulation, fetch from json, third party API | [View Demo](#) |
 | 5.2 React Starter | Intro to React, JSX syntax, components, props, rendering | [View Demo](#) |
 | 5.3 More React | Event handling, States | [View Demo](#) |
