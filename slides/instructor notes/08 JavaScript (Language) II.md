@@ -49,7 +49,7 @@ footer: 'SWE 363 | 252 | KFUPM'
 # Announcements 📣
 - Project Phase #2 Project Proposal is due this week Saturday at 11:59 PM
 - Individual assignments released due end of next week
-- Quiz 1 next class 
+- Quiz 1 next Wednesday 
 
 ---
 
@@ -441,6 +441,7 @@ console.log(formatPhone("1234567890"));            // "(123) 456-7890"
 
 ---
 
-# Next Class
+# Next Classes
 
-- Quiz
+- Proposal review session
+- Quiz on HTML & CSS & JS
