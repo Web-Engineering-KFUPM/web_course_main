@@ -77,3 +77,4 @@ After completing this course, you should be able to:
 - **Project Phases Late Submission:** Late submissions are not allowed unless there is a valid execuse. 
 - **Academic Honesty:** Abide by university regulations on academic honesty. Cheating will result in severe penalties, including an F grade.
 - **Courtesy:** Be courteous to the instructor and classmates. Cell phones must be turned off during class and exams.
+
