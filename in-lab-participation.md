@@ -1,12 +1,12 @@
 # SWE 363 - 252 In-Lab Participation
 
 ## Overview
-Hands-on coding demonstrations and collaborative exercises during class time. 20 demos throughout the semester, each worth 0.5% of final grade.
+Hands-on coding demonstrations and collaborative exercises during class time. About 20 demos throughout the semester, each worth about 0.5% of final grade.
 
 
 ## Requirements
 
-- **Timing**: Complete during class time only (no late submissions)
+- **Timing**: Complete during class time only (no submissions outside class time are allowed)
 - **Format**: Live coding with instructor and peers observing
 - **Mandatory**: Class attendance, active engagement
 
@@ -84,7 +84,7 @@ git pull origin main
 ### During Lab Sessions (How to Submit Your Work)
 
 1. **Complete all assigned tasks and TODOs** in your local repository.
-2. **Add and commit your changes** using clear, descriptive messages:
+2. **Add and commit your changes** for each TODOusing clear, descriptive messages:
 
 ```bash
 git add .
@@ -103,7 +103,7 @@ This push is your **official submission**.
 
 ### Submission Requirements
 
-- **Timing**: Must be pushed **before the due date and time**
+- **Timing**: Must be pushed **before the due date and section time**
 - **Content**: All required files and **all TODOs must be completed**
 - **Quality**: Code must be functional and properly formatted
 - **Documentation**: Add comments where appropriate
