@@ -406,8 +406,6 @@ element.remove();
 # Fun Examples
 ### Repository: 
 https://github.com/bradtraversy/50projects50days?tab=readme-ov-file
-### Website
-https://50projects50days.com/
 
 
 ---
@@ -560,8 +558,7 @@ async function getData() {
 # Fun Examples
 ### Repository: 
 https://github.com/bradtraversy/50projects50days?tab=readme-ov-file
-### Website
-https://50projects50days.com/
+
 
 
 
@@ -843,7 +840,7 @@ try {
 
 >30m
 # Demo
-Starter code at: https://classroom.github.com/a/MWp12_By
+## 5.1 DOM Manipulation and API
 
 API Key: 9c29da573838fd8cdd561179419142d7
 API Key: d51f2f00c3b137ccfd135bd8f9dd50aa
