@@ -529,7 +529,7 @@ useEffect(() => {
 
 >30m
 # Demo
-Starter code at: https://classroom.github.com/a/wtcNr7U4
+5.6 React Styling & Fetching 
 
 ---
 

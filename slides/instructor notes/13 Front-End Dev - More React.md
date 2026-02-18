@@ -386,7 +386,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 >30m
 # Demo: Student Registration Portal
-Starter code at: https://classroom.github.com/a/gd4XBP3Q
+5.5 React Advance
 
 ## What we'll build:
 - **3 pages** with React Router

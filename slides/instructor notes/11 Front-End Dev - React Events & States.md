@@ -103,9 +103,9 @@ Web Engineering & Development (SWE 363)
 
 # Announcements 📣
 - Midterm Exam 
-  - Date: Nov 4th
-  - Time: 6:00-7:30 (pm)
-  - Location: B22 (Rooms TBA)
+  - Date: April 2nd
+  - Time: 7:00-9:00 (pm)
+  - Location: B22 (Rooms 119, 125,127, 130, 134)
 - Command to get admin access in the lab PCs
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
@@ -559,7 +559,7 @@ function handleChange(field, value) {
 
 >30m
 # Demo
-Starter code at: https://classroom.github.com/a/wiJZiwXu
+5.4 More React
 
 ---
 

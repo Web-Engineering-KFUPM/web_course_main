@@ -79,18 +79,19 @@ style: |
     section.big-code pre {font-size:2rem}
     pre {font-size:0.8rem}
 footer: 'SWE 363 | 252 | KFUPM'
+
+---
+
+# Announcements
+- Ramadan Mubark!
+- Demo submission, commit each TODO
+- Demo grading issues, communicate with your section TA and course instructor
+
 ---
 
 
 Web Engineering & Development (SWE 363) 
 # Interactive Front-End Development
-
----
-
-# Announcements
-- Demo submission, commit each TODO
-- Demo grading issue, send email to Muhannad Mufti <g202392310@kfupm.edu.sa> and copy Dr. Al Safwan and Qurratulain
-
 
 ---
 
@@ -698,7 +699,7 @@ function StudentCard({ name, id, department, grades, schedule }) {
 
 >30m
 # Demo
-Starter code at: https://classroom.github.com/a/09PRaIoj
+5.2 React Starter
 
 ---
 

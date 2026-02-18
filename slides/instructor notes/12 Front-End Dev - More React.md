@@ -101,17 +101,6 @@ Web Engineering & Development (SWE 363)
 
 ---
 
-# Announcements
-- Midterm Exam 
-  - Date: Nov 4th
-  - Time: 6:00-7:30 (pm)
-  - Location: B22 (Rooms TBA)
-- Command to get admin access in the lab PCs
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-```
----
-
 # In today's lecture:
 
 - Conditional Rendering
@@ -354,7 +343,7 @@ const menuItems = ['Home', 'About', 'Contact'];
 
 >30m
 # Demo
-Starter code at: https://classroom.github.com/a/4OG8kbSm
+5.4 More React
 
 ---
 
