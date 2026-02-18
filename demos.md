@@ -10,7 +10,7 @@
 | 4.1 JS Basics | Variables, operations, conditions, loops, arrays | [View Demo](https://classroom.github.com/a/kwCJvtlM) |
 | 4.2 JS Advanved | Objects, Map, String Object, Date & Math Objects, Exception Handling, Regular Expressions | [View Demo](https://classroom.github.com/a/bJ12v8OD) |
 | 5.1 DOM Manipulation and API | DOM manipulation, fetch from json, third party API | [View Demo](https://classroom.github.com/a/ZcR_N4wM) |
-| 5.2 React Starter | Intro to React, JSX syntax, components, props, rendering | [View Demo](#) |
+| 5.2 React Starter | Intro to React, JSX syntax, components, props, rendering | [View Demo](https://classroom.github.com/a/WkaJcm3N) |
 | 5.3 More React | Event handling, States | [View Demo](#) |
 | 5.4 More React | Conditional rendering, Lists | [View Demo](#) |
 | 5.5 React Advance | Forms, Controlled inputs, Routes | [View Demo](#) |
