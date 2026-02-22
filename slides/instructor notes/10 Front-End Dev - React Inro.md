@@ -145,7 +145,7 @@ React is a **JavaScript library** for building user interfaces
 
 # React.js: The Documentary
 
-[How A Small Team of Developers Created React at Facebook](https://www.youtube.com/embed/8pDqJVdNa44?si=2LVEC6lqvFA9bJgy)
+[How A Small Team of Developers Created React at Facebook](https://youtu.be/8pDqJVdNa44?si=canWSoxN79Y9IB8q)
 
 ---
 
@@ -700,6 +700,10 @@ function StudentCard({ name, id, department, grades, schedule }) {
 >30m
 # Demo
 5.2 React Starter
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
 
 ---
 

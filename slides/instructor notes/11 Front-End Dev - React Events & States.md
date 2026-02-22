@@ -95,21 +95,21 @@ style: |
 footer: 'SWE 363 | 252 | KFUPM'
 ---
 
-
-Web Engineering & Development (SWE 363) 
-# Interactive Front-End Development
-
----
-
 # Announcements 📣
 - Midterm Exam 
   - Date: April 2nd
   - Time: 7:00-9:00 (pm)
   - Location: B22 (Rooms 119, 125,127, 130, 134)
-- Command to get admin access in the lab PCs
+- Command to get process access in the lab PCs
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
+---
+
+
+Web Engineering & Development (SWE 363) 
+# Interactive Front-End Development
+
 ---
 
 # In today's lecture:
