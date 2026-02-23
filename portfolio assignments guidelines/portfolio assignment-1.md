@@ -1,9 +1,9 @@
-# Assignment 1️⃣ – Foundation & AI Integration
+# Assignment 1 – Foundation & AI Integration
 
 ## **Due: Week 5 | Weight: 2%**
 
 
-# 🎯 Objective
+# Objective
 
 Build a simple, responsive personal portfolio web application as the starting point of your professional portfolio.  
 
@@ -14,9 +14,10 @@ Build a simple, responsive personal portfolio web application as the starting po
 - Write clear **documentation**  
 
 ## 1. Repository Setup
-- Create a public GitHub repository named **`assignment-1`**.  
-- Maintain a clear folder structure, meaningful commit history, and a well-written `README.md`.  
-- Use branches if needed.  
+- Create a public GitHub repository named **`id-name-assignment1`**  
+  (replace `id` with your student ID and `name` with your first and last name with no space).
+- Maintain a clear folder structure, meaningful commit history, and a well-written `README.md`.
+- Use branches if needed.
 
 ### Suggested Structure
 
@@ -46,8 +47,8 @@ Your portfolio site should have at least **three sections**:
 - **Projects** → at least 2 projects (title, short description, placeholder image).  
 - **Contact** → form with Name, Email, Message (no backend needed).  
 
-⚡ You may add extra sections (skills, hobbies, achievements).  
-💡 Tip: Explore real portfolio sites for inspiration.  
+You may add extra sections (skills, hobbies, achievements).  
+Tip: Explore real portfolio sites for inspiration (`search for additional samples`).  
 
 ---
 
@@ -68,23 +69,39 @@ Add at least **one JavaScript feature**, such as:
 ---
 
 ## 5. AI Integration
-Use at least one AI tool (e.g., GitHub Copilot, ChatGPT, Claude). Possible uses:  
+Use at least one AI tool (e.g., GitHub Copilot, ChatGPT, Claude,...). Possible uses:  
 - Code generation, debugging, or code review  
 - Documentation support  
 - UI/UX design suggestions  
 
 ### Document in `docs/ai-usage-report.md`:
-- Tools used & use cases  
-- Benefits & challenges  
-- Learning outcomes  
-- How you modified AI suggestions responsibly  
+
+- **Tools Used & Use Cases**  
+  List the AI tools you used (e.g., ChatGPT, Copilot) and explain how you used each tool during the assignment.
+  - **Recommended AI Tools**
+    - GitHub Copilot → Code completion & generation  
+    - ChatGPT / Claude → Problem-solving & explanations  
+    - Cursor → AI-powered code editor  
+    - Replit → AI-assisted online IDE  
+    - AWS CodeWhisperer → AI code generation 
+
+- **Benefits & Challenges**  
+  Describe how using AI helped you and any difficulties or limitations you faced while using it.
+
+- **Learning Outcomes**  
+  Explain what you learned from using AI while completing this assignment (technical skills, concepts, or workflow improvements).
+
+- **Responsible Use & Modifications**  
+  Explain how you reviewed, modified, and improved the AI-generated suggestions to ensure correctness, originality, and academic integrity.
 
 ---
 
 ## 6. Code Quality
-- Clean, consistent, well-indented code with logical file separation.  
-- Add comments for clarity.  
-- Avoid unused code, broken links, or clutter.  
+- Code must be clean, consistent, and properly indented.
+- Organize code into clear and logical files.
+- Add comments to explain important parts of your code.
+- Remove unused code and avoid clutter.
+- Ensure there are no broken links or errors.
 
 ---
 
@@ -97,15 +114,7 @@ Your `README.md` should include:
 
 ---
 
-## 📦 Deliverables
-- Complete web app hosted on GitHub  
-- `README.md` with documentation  
-- AI usage report (`ai-usage-report.md`)  
-- Optional live demo link  
-
----
-
-## 📂 Submission Process
+## 8. Submission Process
 1. Create a new GitHub repository for the assignment.  
 2. Develop and test all required features.  
 3. Update `README.md` and technical documentation.  
@@ -114,40 +123,24 @@ Your `README.md` should include:
 
 ---
 
-## 🛠 Support & Resources
-You can use the following to guide your work:  
-- **Office Hours**: Attend for technical support.  
-- **Discussion Board**: Peer-to-peer help and Q&A.  
-- **Course Docs & References**: Review provided materials.  
-- **AI Tools**: For coding, debugging, and design assistance.  
-
-### Recommended AI Tools
-- GitHub Copilot → Code completion & generation  
-- ChatGPT / Claude → Problem-solving & explanations  
-- Cursor → AI-powered code editor  
-- Replit → AI-assisted online IDE  
-- AWS CodeWhisperer → AI code generation  
-
----
-
-## 📜 Academic Integrity
-### ✅ Allowed
+## 9. Academic Integrity
+### Allowed
 - AI-assisted tools  
 - Peer discussion of ideas  
 - Sharing setup guides or references  
 - High-level feedback  
 
-### ❌ Not Allowed
+### Not Allowed
 - Copying code from classmates  
 - Plagiarism or misrepresentation  
 - Unauthorized collaboration  
 - Submitting unmodified AI output as your own  
 
-⚡ Always be transparent: document how you used AI or peer help, and ensure you understand your solution.  
+`Always be transparent: document how you used AI or peer help, and ensure you understand your solution.`  
 
-## 💯 Grading Rubric
+## 10. Grading Rubric
 
-The submission will be graded out of 100 points, divided as follows:
+The submission will be graded out of `100 points`, divided as follows:
 
 | **Criteria** (points)        | **Excellent** (90–100%)                                      | **Very Good** (80–89%)                 | **Good** (70–79%)                         | **Acceptable** (60–69%)              | **Poor** (0–59%)                 |
 | ---------------------------- | ------------------------------------------------------------ | -------------------------------------- | ----------------------------------------- | ------------------------------------ | -------------------------------- |
@@ -167,15 +160,15 @@ The submission will be graded out of 100 points, divided as follows:
 | Understanding (5)            | Strong comprehension of AI outputs/ adaptations.             | Good understanding; minor gaps.        | Partial understanding shown.              | Weak comprehension.                  | No understanding demonstrated.   |
 | Innovation (5)               | Creative, innovative use of AI for problem-solving.          | Some creativity and innovation.        | Limited innovation.                       | Minimal innovation.                  | No innovation.                   |
 
-## 📝 Notes
+## Notes
 
 - Keep this assignment simple, focus on clarity and structure, not over-design.
 - This assignment is worth 2% of your grade.
 - Use AI responsibly, your report should clearly show your learning process.
 - This foundation will expand into a professional portfolio website in later assignments.
 
-## 🎉 Wrapping Up
+## Wrapping Up
 
 Think of these guidelines as a help guide with ideas to get you started. You don’t have to follow every example, feel free to explore and shape the web application in a way that reflects your own interests. Creativity and originality are welcome as long as the core requirements of the assignment are met.
 
-Most importantly, enjoy building, experimenting, and making the web application your own! 🚀
+Most importantly, enjoy building, experimenting, and making the web application your own! 
