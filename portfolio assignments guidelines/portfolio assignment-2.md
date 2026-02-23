@@ -1,29 +1,38 @@
-# Assignment 2️⃣ – Interactive Features
+# Assignment 2 – Interactive Features
 
 ## **Due: Week 9 | Weight: 2%**
 
-## 🎯 Objective
+## Objective 
 
-This is your next step in developing your personal portfolio web application. The goal here is to expand your skills by introducing interactivity and modern enhancements. In this assignment you will:
+In this assignment, you will continue developing your personal portfolio website by improving the work you completed in Assignment 1.
 
-- Build upon foundational skills from Assignment 1
-- Implement advanced interactive features
-- Explore modern web development techniques
-- Enhance user experience through dynamic content
+Your main goal is to make your website more interactive and modern.
 
-By the end of this, you will have an enhanced web application with interactive elements and AI-assisted improvements, building directly on your Assignment 1 foundation.
+In this assignment, you are required to:
 
-## 🥋 Instructions
+- Use your Assignment 1 portfolio as the starting point
+
+- Add interactivity (for example: buttons, dynamic content, or user actions)
+
+- Apply modern web development techniques
+
+- Improve the user experience using JavaScript and dynamic behavior
+
+- Use AI-assisted tools when appropriate to enhance your work
+
+By the end of this assignment:
+
+You should have a portfolio website that is more interactive, more engaging, and clearly shows progress beyond Assignment 1.
+
+## Instructions
 
 ### 1. Repository Setup
 
-- **Public Repository**: Create a public GitHub repository called `assignment-2`.
-- **Clear Structure**: Well-organized file and folder structure
-- **Documentation**: Comprehensive README.md files
-- **Commit History**: Meaningful commit messages showing development progress
-- **Branching**: Use of feature branches for development (recommended)
-- Organize your files in a simple structure like this:
-
+- Create a public GitHub repository named **`id-name-assignment2`**  
+  (replace `id` with your student ID and `name` with your first and last name with no space).
+- Maintain a clear folder structure, meaningful commit history, and a well-written `README.md`.
+- Use branches (recommended).
+### Suggested Structure
 ```
 assignment-2/
 ├── README.md
@@ -39,150 +48,146 @@ assignment-2/
 │   └── technical-documentation.md
 └── .gitignore
 ```
-
+---
 ### 2. Dynamic Content
 
-Your web application must include at least one feature where the content changes based on user interaction.
-The examples below are few suggestions to help you get started, you don’t have to do these exact ones, but you should create something similar that fits your portfolio.
+Your web application **must include at least one dynamic feature** where the content changes based on **user interaction**.
 
-- Add a personalized greeting that updates based on time of day or a stored username.
-- Create a project list that can be filtered (for example: "Show only Web Projects") or sorted (for example: by date or title).
-- Add buttons that let users switch between different sections of information (for example: "About Me," "Projects," "Contact").
-- Make a section that can expand and collapse when clicked (for example: clicking a project title shows or hides the project details).
-- Include a live search bar where typing filters results in real time.
+#### Requirement
+Implement **at least ONE** of the following (or something similar):
 
-⚡ Guideline: This feature should make your site more interactive and useful, not just decorative.
+- Display content that updates based on user input (e.g., a greeting using a name or time of day)
+- Filter or sort content (e.g., show specific projects or reorder them)
+- Switch between sections using buttons or tabs (e.g., About, Projects, Contact)
+- Show or hide content when clicked (expand / collapse sections)
+- Filter content live while typing (simple search functionality)
 
-💡 Pro Tip: Look at websites like [Apple](https://www.apple.com/) or [Airbnb](https://www.airbnb.com/). Notice how sections change smoothly when you scroll, hover, or click. Even a small interactive element will make your web application feel more professional.
+> You do **not** need to implement all options.  
+> Choose **one feature** that fits your portfolio website.
 
+#### Guideline
+- The feature must respond to user actions (click, type, select, etc.)
+- It should make the site **more interactive and useful**
+- It should **not** be purely decorative
+
+#### Tip
+Explore professional websites (e.g., [Apple](https://www.apple.com/), [Airbnb](https://www.airbnb.com/)) and observe how content changes when users interact.  
+Even a **simple interactive feature** is sufficient if it works correctly and is clearly implemented.
+
+---
 ### 3. Data Handling
 
-Demonstrate data handling in your project by working with local storage, APIs, or form submissions.
+Your project must demonstrate **basic data handling** using JavaScript.
 
-- Use local storage to save preferences like dark/light theme or user input.
-- Fetch data from a public API (for example: your playlist, favorite books, sports interests, or fun facts about yourself).
-- Create a simple contact form that validates inputs and shows a confirmation message.
+#### Requirement  
+Implement **at least ONE** of the following:
 
-⚡ Guideline: Always provide fallback behavior if data fails to load (for example: display a friendly error message).
+- Use **localStorage** to save user preferences (e.g., dark or light theme , name, settings)
+- Fetch and display data from a **public API** (e.g., books, music, sports, fun facts)
+- Create a **simple form** that validates user input and shows a confirmation message
+
+#### Guideline
+- If data fails to load, show a **clear and friendly error message**
+- Do not leave the user without feedback
+
+---
 
 ### 4. Animation and Transitions
 
-Include CSS animations or JavaScript-based transitions that improve the user experience.
+Use **simple animations or transitions** to improve the user experience.
 
-- Add smooth transitions when switching between sections.
-- Use hover animations on buttons, cards, or links.
-- Make text or images fade in or slide in when they appear on the page.
-- Animate success or error messages so they are noticeable.
+#### Requirement  
+Add **at least ONE** of the following:
 
-⚡ Guideline: Use simple, smooth animations that guide attention. Avoid effects that distract or slow down your website.
+- Smooth transitions when switching sections
+- Hover effects on buttons, cards, or links
+- Fade-in or slide-in effects for text or images
+- Animated success or error messages
+
+#### Guideline
+- Animations should be **smooth and helpful**
+- Avoid distracting or heavy effects
+
+---
 
 ### 5. Error Handling and User Feedback
 
-Implement proper error handling and user feedback.
+Your application must clearly communicate with the user.
 
-- Show inline messages when form fields are left empty or invalid.
-- Display a friendly message if an API request fails, and allow users to retry.
-- Use loading states such as spinners or “Loading…” text when fetching data.
-- Add empty states (for example: “No projects found”) when there is nothing to display.
+#### Requirement  
+Include **basic user feedback**, such as:
 
-⚡ Guideline: Always tell users what went wrong and how they can fix it.
+- Error messages for invalid or empty form inputs
+- Friendly messages when an API request fails
+- A loading indicator (e.g., “Loading…”) when fetching data
+- Empty state messages (e.g., “No projects found”)
+
+#### Guideline
+- Always tell the user **what happened** and **what to do next**
+
+---
 
 ### 6. AI Enhancement
 
-Include at least one feature in your portfolio that uses AI to either improve what’s already there or add something new.
+You must use **AI tools** to assist with at least **one part** of this assignment.
+  List the AI tools you used (e.g., ChatGPT, Copilot) and explain how you used each tool during the assignment.
+  - **Recommended AI Tools**
+    - GitHub Copilot → Code completion & generation  
+    - ChatGPT / Claude → Problem-solving & explanations  
+    - Cursor → AI-powered code editor  
+    - Replit → AI-assisted online IDE  
+    - AWS CodeWhisperer → AI code generation 
 
-- Use AI to draft text for things like form fields, help messages, or quick instructions.
-- Summarize or reformat data from an API with the help of AI.
-- Ask AI to suggest improvements for accessibility or performance and apply them.
+#### Acceptable AI Uses
+- Code generation or suggestions
+- Debugging help
+- Code review or improvements
+- Writing documentation or text
+- UI/UX or accessibility suggestions
 
-Examples of acceptable use include:
+#### Requirements
+- You must **understand** any AI-generated code
+- You must **edit or improve** the AI output
+- AI should support learning, not replace it
 
-- **Code Generation**: GitHub Copilot, ChatGPT, Claude, etc.
-- **Debugging**: AI-powered debugging assistants
-- **Code Review**: AI tools for code quality improvement
-- **Documentation**: AI assistance for writing documentation
-- **Design**: AI tools for UI/UX suggestions
+#### Documentation (Required)
+You must include a report at:`docs/ai-usage-report.md`
 
-For every use of AI:
 
-- **Documentation**: Clearly document how AI was used in each assignment
-- **Understanding**: Demonstrate understanding of AI-generated code
-- **Modification**: Show ability to modify and improve AI suggestions
-- **Ethics**: Use AI responsibly and ethically
-- **Learning**: Use AI as a learning tool, not a replacement for understanding
-
-The assignment must include a report detailing:
-
-- **Tools Used**: List of AI tools and services utilized
-- **Use Cases**: Specific ways AI was employed in development
-- **Benefits**: How AI improved the development process
-- **Challenges**: Difficulties encountered with AI tools
-- **Learning Outcomes**: Skills gained through AI-assisted development
-
-⚡ Guideline: You must document all AI usage in `docs/ai-usage-report.md`. Include the tool you used, the prompt, the output, your edits, and what you learned.
 
 ### 7. Documentation
+Your `README.md` should include:  
+- Project description  
+- Setup instructions (how to run locally)  
+- Short summary of AI use (detailed in `ai-usage-report.md`)  
+- Optional live deployment link (GitHub Pages, Netlify, Vercel)  
 
-Your `README.md` should include:
+---
 
-- A description of the project.
-- Instructions on how to run it locally.
-- A short summary of AI tools used (with the detailed log kept in `ai-usage-report.md`).
-- Optional: a link to a live deployment (GitHub Pages, Netlify, or Vercel).
+### 8. Submission Process
+1. Create a new GitHub repository for the assignment.  
+2. Develop and test all required features.  
+3. Update `README.md` and technical documentation.  
+4. Review to ensure all requirements are met.  
+5. Submit your repository link through Blackboard.  
 
-## 📦 Deliverables
 
-- Enhanced web application with new interactive features
-- Updated documentation reflecting new functionality
-- Technical report on AI-assisted improvements
-- Performance analysis and optimization notes
+### 9. Academic Integrity
+#### Allowed
+- AI-assisted tools  
+- Peer discussion of ideas  
+- Sharing setup guides or references  
+- High-level feedback  
 
-## 📂 Submission Process
+#### Not Allowed
+- Copying code from classmates  
+- Plagiarism or misrepresentation  
+- Unauthorized collaboration  
+- Submitting unmodified AI output as your own  
 
-1. **Repository Setup**: Create a new repository for the assignment
-2. **Development**: Complete all requirements and testing
-3. **Documentation**: Update README and technical documentation
-4. **Final Review**: Ensure all requirements are met
-5. **Submission**: Submit repository link through Blackboard
+`Always be transparent: document how you used AI or peer help, and ensure you understand your solution.`  
 
-## 🛠 Support and Resources
-
-Take advantage of the following resources to guide and support your learning:
-
-### Available Help
-
-- Office Hours: Attend regular instructor office hours for technical support.
-- Discussion Board: Use the course discussion board for peer-to-peer help, sharing ideas, or asking questions.
-- Documentation: Review the course materials and recommended external resources.
-- AI Tools: For coding assistance, debugging, and exploration (see recommended tools below).
-
-### Recommended AI Tools
-
-- **GitHub Copilot**: Code completion and generation
-- **ChatGPT/Claude**: Problem-solving and code explanation
-- **Cursor**: AI-powered code editor
-- **Replit**: AI-assisted online development environment
-- **CodeWhisperer**: AWS AI code generators
-
-## 📜 Academic Integrity
-
-### Permitted Collaboration
-
-- AI Tools: You may fully use AI-assisted development tools.
-- Peer Discussion: Talking about concepts, approaches, and general ideas is allowed.
-- Documentation: You may share setup guides or documentation references.
-- Code Review: Providing or receiving high-level feedback is acceptable.
-
-### Prohibited Activities
-
-- Direct Code Sharing: Do not copy/paste code from classmates.
-- Plagiarism: Do not submit work that is not your own.
-- Unauthorized Collaboration: Do not work jointly on individual assignments.
-- Misrepresentation: Do not present unmodified AI-generated work as entirely your own.
-
-⚡ Guideline: Always be transparent about your workflow. If AI or peers helped, document it. What matters most is that you understand your solution and can explain it clearly.
-
-## 💯 Grading Rubric
+### 10. Grading Rubric
 
 The submission will be graded out of 100 points, divided as follows:
 
@@ -204,15 +209,15 @@ The submission will be graded out of 100 points, divided as follows:
 | Understanding (5)            | Strong comprehension of AI outputs/ adaptations.             | Good understanding; minor gaps.        | Partial understanding shown.              | Weak comprehension.                  | No understanding demonstrated.   |
 | Innovation (5)               | Creative, innovative use of AI for problem-solving.          | Some creativity and innovation.        | Limited innovation.                       | Minimal innovation.                  | No innovation.                   |
 
-## 📝 Notes
+##  Notes
 
 - Keep this assignment focused on adding interactivity and usability rather than trying to build a perfect design.
 - This assignment is worth 2% of your grade.
 - Use AI responsibly, your documentation should clearly explain how AI supported your work and learning process.
 - The features you build here will become part of your professional portfolio website in later assignments, so aim for clarity, good structure, and functionality you can expand on.
 
-## 🎉 Wrapping Up
+##  Wrapping Up
 
 Think of these guidelines as a help guide with ideas to get you started. You don’t have to follow every example, feel free to explore and shape the web application in a way that reflects your own interests. Creativity and originality are welcome as long as the core requirements of the assignment are met.
 
-Most importantly, enjoy building, experimenting, and making the web application your own! 🚀
+Most importantly, enjoy building, experimenting, and making the web application your own! 
