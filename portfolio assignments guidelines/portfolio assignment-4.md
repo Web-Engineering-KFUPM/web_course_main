@@ -24,7 +24,7 @@ By the end of this assignment, you will have a complete and fully polished portf
 - Organize your files in a simple structure like this:
 
 ```
-assignment-4/
+id-name-assignment4/
 ├── README.md
 ├── index.html
 ├── css/
