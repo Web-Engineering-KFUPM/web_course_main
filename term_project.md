@@ -24,7 +24,7 @@ This project will be conducted in groups comprising 5 students. Each group is ta
 - Join a group in blackborad common section with all team members.
 - Fill the team contract form after you create a group in BB (https://forms.office.com/r/2LbQWckmv8) 
 - All Team members should be in the same section. 
-- Each team should consist of 5 members. 
+- Each team should consist of 3-4 members. 
   
 ### 2. Proposal
 - Think of an idea that contributes to solving a real problem AND can be built during the semester (be ambitious and realistic).
@@ -45,11 +45,11 @@ Something useful that covers the basic web concepts and requires ~100 hours to c
 - **How many categories of users are required?** It needs to have at least two user categories.
 
 - **What is the range of functionalities expected? Is there a specific number of features/functionalities required?** 
-- At least 5 functionalities.
+- At least 2 functionalities for each group member.
 
 - **Can you provide an example of what the wireframes should look like?**
 
-There is no one way to do wireframes, but if they google wireframes, they will find various approaches. In general, a good wireframe should:
+There is no one way to do wireframes, but google wireframes, and you will find various approaches. In general, a good wireframe should:
 
 1. Visually represent the structure of a page or screen without focusing on the final look.
 2. Include the placement of key elements, such as headers, buttons, forms, images, and navigation menus.
