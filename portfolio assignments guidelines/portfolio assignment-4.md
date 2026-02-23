@@ -21,7 +21,6 @@ By the end of this assignment, you will have a complete and fully polished portf
   (replace `id` with your student ID and `name` with your first and last name with no space).
 - Maintain a clear folder structure, meaningful commit history, and a well-written `README.md`.
 - Use branches if needed.
-
 - Organize your files in a simple structure like this:
 
 ```
