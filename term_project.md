@@ -10,13 +10,13 @@ This project will be conducted in groups comprising 5 students. Each group is ta
 
 | Phase              | Milestone                   | Points | Due     | Deliverables                           |
 |--------------------|-----------------------------|--------|---------|----------------------------------------|
-| 1                  | Project Groups and Idea     | 2      | Week 2  | Join a group in BB + Fill Contract     |
-| 2                  | Project Proposal            | 2      | Week 4  | Submit Slides (.ppt)                   |
-| 3                  | Project Requirments         | 2      | Week 7  | Submit Slides (.ppt)                   |
-| 4                  | Project Front_End           | 8      | Week 11 | Push to Github + submit github repo    |
-| 5                  | Project Back_End            | 7      | Week 13 | Push to Github                         |
-| 6                  | Project Deployment          | 1      | Week 13 | Submit Domain link                     |
-| 7                  | Project Documentation       | 3      | Week 14 | Submit Demo and report                 |
+| 1                  | Project Groups and Idea     | 8      | Week 2  | Join a group in BB + Fill Contract     |
+| 2                  | Project Proposal            | 8      | Week 4  | Submit Slides (.ppt)                   |
+| 3                  | Project Requirments         | 8      | Week 7  | Submit Slides (.ppt)                   |
+| 4                  | Project Front_End           | 32      | Week 10 | Push to Github + submit github repo    |
+| 5                  | Project Back_End            | 28     | Week 14 | Push to Github                         |
+| 6                  | Project Deployment          | 4      | Week 14 | Submit Domain link                     |
+| 7                  | Project Documentation       | 12      | Week 15 | Submit Demo and report                 |
 
 ## Project Phases Details
 
@@ -69,16 +69,8 @@ There is no one way to do wireframes, but google wireframes, and you will find v
     - Your wireframes should be clearly sketched and covers all part of the system (imagine you will hand them to a UI designer)
   - **Note**: Your scope should cover the basic concepts covered in class, such as forms, responsiveness, use of APIs, a database, a back-end. Too simple ideas will be rejected.
 
-### 4. User Interface Design
-- Based on your initial wireframe from the previous step, design ALL the screens and use cases using Figma.
-- The design should be as close to the end product as possible.
-- The design should have both desktop and mobile view
-- The design should cover all screens and all cases (errors, empty data, loading, etc.)
-- In Figma, go to “Prototype” and link all the screens with each other.
-- Submit the Figma prototype link to blackboard.
-
-### 5. Front-End Implementation
-- Based on your Figma design, implement the front-end part of your system using HTML, CSS, and JavaScript.
+### 4. Front-End Implementation
+- Based on your wireframes (and optionally a Figma design), implement the front-end part of your system using HTML, CSS, and JavaScript.
 - You are free to use any CSS framework such as Bootstrap, Tailwind, etc.
 - You are required to use React as the front-end framework.
 - Create a GitHub repository for your project and submit the link to blackboard.
@@ -92,18 +84,18 @@ There is no one way to do wireframes, but google wireframes, and you will find v
   - The contribution of each team member will be graded from github's contribution to the repository (don't push from one account).
 
 
-### 6. Back-End Implementation
+### 5. Back-End Implementation
 - Based on your requirements, implement your functionality using NodeJS and Express.
 - You have to use MongoDB as the Database. 
 - Push your code to your same repository.
 - Same notes for previous phase apply.
 
-### 7. Deployment
+### 6. Deployment
 - Use any deployment platform to publish your website (Make it real!!!!!).
 - You are free to use any platform.
 - Submit the link of your live website to BB.
 
-### 8. Documentation
+### 7. Documentation
 - **Demo**
   - Before you start recording, plan your demo very well (imagine yourself in a conference in front of a large audience).
   - Record a 5 to 7-minute long video showing the different parts of your project.

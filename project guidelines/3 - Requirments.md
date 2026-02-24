@@ -102,8 +102,8 @@ Your wireframes should cover essential workflows and functionalities of the syst
 5. **Confirmation / Feedback Screens** – Success messages, error handling, and system responses.
 
 Note:
-- Use **Figma** to design your wireframes.
-- Make sure the design is able to be preview and operate on the Figma  
+- Use tools like **Figma** to design your wireframes.
+- Make sure the design is able to be preview to view sequences of actions.
 
 ### 5. Submission Guidelines:
 - Prepare a single PDF document that includes:
@@ -112,7 +112,7 @@ Note:
   3. Requirements:
      - Functional requirements.
      - Non-functional requirements and constraints.
-  4. Wireframes: Clear sketches or digital designs covering all main parts of the system. Put the Figma's URL here so we are able to evaluate easily
+  4. Wireframes: Clear sketches or digital designs covering all **main parts** of the system. Put the protoype (e.g.Figma's URL) so we are able to evaluate easily
 - Submit the PDF via Blackboard under the designated submission area.
 
 ### Late Submission Policy:
@@ -128,3 +128,31 @@ The submission will be graded out of 100 points, divided as follows:
 | **Non-functional Requirements (20)** | Clearly defines all key non-functional aspects (e.g., performance, security, constraints) with strong justification. | Covers most relevant non-functional requirements but lacks some depth or explanation. | Some non-functional aspects are defined, but others are vague or incomplete. | Non-functional requirements are minimal, with unclear relevance or weak justification. | Non-functional requirements are missing, unclear, or entirely irrelevant. |
 | **Wireframe Completeness (25)** | Wireframes cover **all core screens, interactions, and workflows**, including normal, error, and edge cases. | Wireframes cover most key screens and interactions but lack some edge cases or alternate flows. | Wireframes include essential screens but **miss several critical interactions or key UI components**. | Wireframes are incomplete, covering only **basic** screens with major missing elements. | Wireframes are missing or fail to depict the system meaningfully. |
 | **Actionable Wireframe Implementation (25)** | Wireframes **map directly to functional requirements**, ensuring a smooth transition to UI/UX design and development. Includes user flows, button behaviors, form inputs, and interactive elements. | Wireframes mostly align with functional requirements but miss **minor interactive details**. | Wireframes align with some functional requirements but **lack detailed interactive flows** or key UI/UX elements. | Wireframes **loosely** represent functional requirements, requiring **significant interpretation** to implement. | Wireframes **do not** align with functional requirements or are completely unstructured. |
+
+---
+
+## FAQ (Frequently Asked Questions)
+
+**Q: How many wireframes do we need to create?**  
+A: The number depends on your system. Your wireframes should cover all core functionalities identified in your functional requirements. Focus on essential workflows (login/sign-up, main pages, feature-specific screens, forms, and confirmation/feedback).
+
+**Q: Do we need both desktop and mobile wireframes?**  
+A: No. At this milestone, you only need to create either a desktop or mobile version—not both. Keep your chosen platform consistent across all screens.
+
+**Q: What counts as "medium-fidelity" for wireframes?**  
+A: Medium-fidelity means more than simple sketches: include clear screen structure, defined content placement, UI components (buttons, inputs, navigation, modals), and annotations for interactions (clickable areas, dropdowns, validation messages). You do not need final colors or detailed styling.
+![Medium-fidelity wireframes](https://d3h2k7ug3o5pb3.cloudfront.net/image/2020-12-07/2dc08460-3876-11eb-bcbe-7daa1ab28fd4.jpg)
+![Medium-fidelity wireframes](https://mentormate.com/wp-content/uploads/2018/05/all-wireframes-1030x585.jpg)
+
+
+**Q: Can we use tools other than Figma for wireframes?**  
+A: Yes, you are allowed to use other tools. If you use another tool, ensure you provide a shareable link or clickable prototype that graders can view and interact with the wireframes.
+
+The following are examples of prototyping tools that you can use:
+[Balsamiq Wireframes](https://balsamiq.com/product/desktop/#), [Axure RP](https://www.axure.com/), [Miro](https://miro.com/products/prototypes/), etc.
+
+**Q: How detailed should the step-by-step flows in functional requirements be?**  
+A: Each functionality should include a normal flow (numbered steps), validation points (e.g., unique email, password strength), and system responses (e.g., confirmations, error messages). Enough detail so that someone can understand how the feature works in practice.
+
+**Q: What if we submit late?**  
+A: Late submissions are not allowed unless there is a valid excuse. Contact your instructor as early as possible if you have exceptional circumstances.
