@@ -95,6 +95,12 @@ style: |
 footer: 'SWE 363 | 252 | KFUPM'
 ---
 
+# Announcements 📣
+- Phase 3 of the project is due this week Saturday at 11:59 PM
+- Quiz 2 (React) on Monday, **March 9th**
+
+---
+
 
 Web Engineering & Development (SWE 363) 
 # Interactive Front-End Development
@@ -345,6 +351,10 @@ const menuItems = ['Home', 'About', 'Contact'];
 # Demo
 5.4 More React
 
+- Command to get process access in the lab PCs
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
 ---
 
 # Next Class
