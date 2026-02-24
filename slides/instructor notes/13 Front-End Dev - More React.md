@@ -95,15 +95,17 @@ style: |
 footer: 'SWE 363 | 252 | KFUPM'
 ---
 
+# Announcements
+- Quiz 2 (React) on Monday, **March 9th**
+
+
+---
+
 
 Web Engineering & Development (SWE 363) 
 # Interactive Front-End Development
 
----
 
-# Announcements
-- Please use the following link to inform us about your Github account: https://forms.office.com/r/HuvttUTp0A
-- Quiz next Monday, Oct 20th on React
 ---
 
 <!-- _class: activity -->
