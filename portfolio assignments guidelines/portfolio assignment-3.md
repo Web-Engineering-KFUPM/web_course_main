@@ -1,31 +1,30 @@
-# Assignment 3️⃣ – Advanced Functionality
+# Assignment 3️ – Advanced Functionality
 
 ## **Due: Week 13 | Weight: 2%**
 
-## 🎯 Objective
+## Objective
 
-This is your third step in developing your personal portfolio web application. The goal here is to expand your skills further and demonstrating stronger programming practices. In this assignment you will:
-
-- Implement complex web application features
+The goal of this assignment is to strengthen your programming skills by implementing advanced features and best practices.
+In this assignment, you will:
+- Add more complex web application features
 - Integrate external APIs and services
-- Demonstrate advanced JavaScript programming
-- Showcase problem-solving and debugging skills
+- Apply advanced JavaScript concepts
+- Demonstrate problem-solving and debugging skills
 
-By the end of this assignment, you will have a more powerful and feature-rich portfolio web application that highlights your ability to work with advanced functionality and external integrations, building on the foundations from Assignments 1 and 2.
-
-## 🥋 Instructions
+By the end, you will have a more powerful and feature-rich portfolio application that builds on Assignments 1 and 2 and showcases your ability to handle advanced functionality and integrations.
+## Instructions
 
 ### 1. Repository Setup
 
-- **Public Repository**: Create a public GitHub repository called `assignment-3`.
-- **Clear Structure**: Well-organized file and folder structure
-- **Documentation**: Comprehensive README.md files
-- **Commit History**: Meaningful commit messages showing development progress
-- **Branching**: Use of feature branches for development (recommended)
+- Create a public GitHub repository named **`id-name-assignment3`**  
+  (replace `id` with your student ID and `name` with your first and last name with no space).
+- Maintain a clear folder structure, meaningful commit history, and a well-written `README.md`.
+- Use branches if needed.
+
 - Organize your files in a simple structure like this:
 
 ```
-assignment-3/
+id-name-assignment3/
 ├── README.md
 ├── index.html
 ├── css/
@@ -42,39 +41,38 @@ assignment-3/
 
 ### 2. API Integration
 
-Your web application must connect to at least one external API to fetch and display data in a meaningful way. The examples below are a few suggestions to help you get started, choose an API that makes sense for your portfolio.
+Your web application must connect to at least one external API to fetch and display meaningful data related to your portfolio.
 
-- Display your latest GitHub repositories using the GitHub API.
-- Show current weather information using a free weather API.
-- Fetch and display inspirational quotes from a quotes API.
-- Pull in images or icons from a public image API (for example: Unsplash or Pexels).
-- Integrate a news or article feed that updates dynamically.
+Examples include:
 
-⚡ Guideline: Always handle errors gracefully (for example: if the API is unavailable, show a friendly message instead of leaving a blank section).
+- Displaying your GitHub repositories
+- Showing current weather information
+- Fetching inspirational quotes
+- Displaying images from a public image API (e.g., Unsplash or Pexels)
+- Integrating a dynamic news feed
 
-💡 Pro Tip: Many APIs offer free versions with no signup required. Start with something simple and relevant to your portfolio. For instance, fetching your GitHub projects can make your website feel “live” and up-to-date.
+⚡ Guideline: Handle errors properly by showing a user-friendly message if the API fails.
 
+💡 Tip: Use a simple, free API that fits your portfolio. For example, displaying your GitHub projects can make your website feel dynamic and up-to-date.
 ### 3. Complex Logic
 
-Implement sophisticated application logic in your project by adding features that use conditions, rules, or multiple steps of logic. This does not need to be complicated, the goal is to show that you can think beyond one-click interactions.
-
+Implement advanced application logic by adding features that use conditions, rules, or multiple steps. The goal is to show thoughtful programming beyond simple one-click actions.
 - Create a project list that can be both filtered and sorted (for example: “Show Web Projects” and then sort them by date).
 - Add a contact form with extra checks (for example: make sure fields are not empty, confirm the email looks valid, and only then allow submission).
 - Show different messages or sections depending on user choices (for example: if a visitor selects “Beginner,” show beginner projects; if “Advanced,” show advanced ones).
 - Add a timer or counter (for example: display how long a visitor has been on your site, or count down to an event).
 
-⚡ Guideline: Focus on clear, step-by-step logic that improves your portfolio. Even small features can feel “sophisticated” if they combine more than one condition or rule.
-
+⚡ Guideline: Focus on clear, step-by-step logic. Even small features can feel sophisticated when they combine multiple conditions or rules.
 ### 4. State Management
 
-Handle application state effectively so your web application remembers and updates information as users interact with it.
+Manage application state so your web app updates and remembers information as users interact with it.
+Examples:
+- Toggle and remember light/dark mode.
+- Simulate login/logout status.
+- Show or hide sections with buttons.
+- Store and display a visitor’s name.
 
-- Keep track of whether the site is in light mode or dark mode and update it instantly.
-- Remember if a user is logged in or logged out (you can simulate this with a simple toggle).
-- Show or hide a section based on a button click (for example: click "Show Projects" to display, and "Hide Projects" to remove it).
-- Remember a visitor’s name after they type it once, and display it in a greeting message.
-
-⚡ Guideline: Good state management makes your application feel consistent and reliable. Focus on small but useful features that show you can store and update information correctly.
+⚡ Guideline: Good state management makes your app consistent and reliable. Focus on simple features that demonstrate storing and updating data correctly.
 
 ### 5. Performance
 
@@ -87,98 +85,81 @@ Optimize your web application for speed and efficiency so it loads quickly and r
 
 ⚡ Guideline: Focus on easy steps that reduce load time and create a smoother experience for visitors.
 
-### 6. AI Innovation
+---
 
-Use AI to create unique features or solve complex problems in your web application. Examples of acceptable use include:
+## 6. AI Integration
+Use at least one AI tool (e.g., GitHub Copilot, ChatGPT, Claude,...). Possible uses:  
+- Code generation, debugging, or code review  
+- Documentation support  
+- UI/UX design suggestions  
 
-- **Code Generation**: GitHub Copilot, ChatGPT, Claude, etc.
-- **Debugging**: AI-powered debugging assistants
-- **Code Review**: AI tools for code quality improvement
-- **Documentation**: AI assistance for writing documentation
-- **Design**: AI tools for UI/UX suggestions
+### Document in `docs/ai-usage-report.md`:
 
-For every use of AI:
+- **Tools Used & Use Cases**  
+  List the AI tools you used (e.g., ChatGPT, Copilot) and explain how you used each tool during the assignment.
+  - **Recommended AI Tools**
+    - GitHub Copilot → Code completion & generation  
+    - ChatGPT / Claude → Problem-solving & explanations  
+    - Cursor → AI-powered code editor  
+    - Replit → AI-assisted online IDE  
+    - AWS CodeWhisperer → AI code generation 
 
-- **Documentation**: Clearly document how AI was used in each assignment
-- **Understanding**: Demonstrate understanding of AI-generated code
-- **Modification**: Show ability to modify and improve AI suggestions
-- **Ethics**: Use AI responsibly and ethically
-- **Learning**: Use AI as a learning tool, not a replacement for understanding
+- **Benefits & Challenges**  
+  Describe how using AI helped you and any difficulties or limitations you faced while using it.
 
-The assignment must include a report detailing:
+- **Learning Outcomes**  
+  Explain what you learned from using AI while completing this assignment (technical skills, concepts, or workflow improvements).
 
-- **Tools Used**: List of AI tools and services utilized
-- **Use Cases**: Specific ways AI was employed in development
-- **Benefits**: How AI improved the development process
-- **Challenges**: Difficulties encountered with AI tools
-- **Learning Outcomes**: Skills gained through AI-assisted development
+- **Responsible Use & Modifications**  
+  Explain how you reviewed, modified, and improved the AI-generated suggestions to ensure correctness, originality, and academic integrity.
 
-⚡ Guideline: You must document all AI usage in `docs/ai-usage-report.md`. Include the tool you used, the prompt, the output, your edits, and what you learned.
+---
 
-### 7. Documentation
+## 7. Code Quality
+- Code must be clean, consistent, and properly indented.
+- Organize code into clear and logical files.
+- Add comments to explain important parts of your code.
+- Remove unused code and avoid clutter.
+- Ensure there are no broken links or errors.
 
-Your `README.md` should include:
+---
 
-- A description of the project.
-- Instructions on how to run it locally.
-- A short summary of AI tools used (with the detailed log kept in `ai-usage-report.md`).
-- Optional: a link to a live deployment (GitHub Pages, Netlify, or Vercel).
+## 8. Documentation
+Your `README.md` should include:  
+- Project description  
+- Setup instructions (how to run locally)  
+- Short summary of AI use (detailed in `ai-usage-report.md`)  
+- Optional live deployment link (GitHub Pages, Netlify, Vercel)  
 
-## 📦 Deliverables
+---
 
-- Advanced web application with API integration
-- Comprehensive technical documentation
-- API integration report and usage examples
-- Performance benchmarks and optimization strategies
+## 9. Submission Process
+1. Create a new GitHub repository for the assignment.  
+2. Develop and test all required features.  
+3. Update `README.md` and technical documentation.  
+4. Review to ensure all requirements are met.  
+5. Submit your repository link through Blackboard.  
 
-## 📂 Submission Process
+---
 
-1. **Repository Setup**: Create a new repository for the assignment
-2. **Development**: Complete all requirements and testing
-3. **Documentation**: Update README and technical documentation
-4. **Final Review**: Ensure all requirements are met
-5. **Submission**: Submit repository link through Blackboard
+## 10. Academic Integrity
+### Allowed
+- AI-assisted tools  
+- Peer discussion of ideas  
+- Sharing setup guides or references  
+- High-level feedback  
 
-## 🛠 Support and Resources
+### Not Allowed
+- Copying code from classmates  
+- Plagiarism or misrepresentation  
+- Unauthorized collaboration  
+- Submitting unmodified AI output as your own  
 
-Take advantage of the following resources to guide and support your learning:
+`Always be transparent: document how you used AI or peer help, and ensure you understand your solution.`  
 
-### Available Help
+## 11. Grading Rubric
 
-- Office Hours: Attend regular instructor office hours for technical support.
-- Discussion Board: Use the course discussion board for peer-to-peer help, sharing ideas, or asking questions.
-- Documentation: Review the course materials and recommended external resources.
-- AI Tools: For coding assistance, debugging, and exploration (see recommended tools below).
-
-### Recommended AI Tools
-
-- **GitHub Copilot**: Code completion and generation
-- **ChatGPT/Claude**: Problem-solving and code explanation
-- **Cursor**: AI-powered code editor
-- **Replit**: AI-assisted online development environment
-- **CodeWhisperer**: AWS AI code generators
-
-## 📜 Academic Integrity
-
-### Permitted Collaboration
-
-- AI Tools: You may fully use AI-assisted development tools.
-- Peer Discussion: Talking about concepts, approaches, and general ideas is allowed.
-- Documentation: You may share setup guides or documentation references.
-- Code Review: Providing or receiving high-level feedback is acceptable.
-
-### Prohibited Activities
-
-- Direct Code Sharing: Do not copy/paste code from classmates.
-- Plagiarism: Do not submit work that is not your own.
-- Unauthorized Collaboration: Do not work jointly on individual assignments.
-- Misrepresentation: Do not present unmodified AI-generated work as entirely your own.
-
-⚡ Guideline: Always be transparent about your workflow. If AI or peers helped, document it. What matters most is that you understand your solution and can explain it clearly.
-
-## 💯 Grading Rubric
-
-The submission will be graded out of 100 points, divided as follows:
+The submission will be graded out of `100 points`, divided as follows:
 
 | **Criteria** (points)        | **Excellent** (90–100%)                                      | **Very Good** (80–89%)                 | **Good** (70–79%)                         | **Acceptable** (60–69%)              | **Poor** (0–59%)                 |
 | ---------------------------- | ------------------------------------------------------------ | -------------------------------------- | ----------------------------------------- | ------------------------------------ | -------------------------------- |
@@ -198,15 +179,15 @@ The submission will be graded out of 100 points, divided as follows:
 | Understanding (5)            | Strong comprehension of AI outputs/ adaptations.             | Good understanding; minor gaps.        | Partial understanding shown.              | Weak comprehension.                  | No understanding demonstrated.   |
 | Innovation (5)               | Creative, innovative use of AI for problem-solving.          | Some creativity and innovation.        | Limited innovation.                       | Minimal innovation.                  | No innovation.                   |
 
-## 📝 Notes
+## Notes
 
-- Keep this assignment focused on implementing advanced functionality and solving problems.
+- Keep this assignment simple, focus on clarity and structure, not over-design.
 - This assignment is worth 2% of your grade.
-- Use AI responsibly, your documentation should clearly explain how AI supported your work and learning process.
-- The advanced features you add here will continue building your professional portfolio website, so aim for clarity, strong logic, and functionality you can showcase with confidence.
+- Use AI responsibly, your report should clearly show your learning process.
+- This foundation will expand into a professional portfolio website in later assignments.
 
-## 🎉 Wrapping Up
+## Wrapping Up
 
 Think of these guidelines as a help guide with ideas to get you started. You don’t have to follow every example, feel free to explore and shape the web application in a way that reflects your own interests. Creativity and originality are welcome as long as the core requirements of the assignment are met.
 
-Most importantly, enjoy building, experimenting, and making the web application your own! 🚀
+Most importantly, enjoy building, experimenting, and making the web application your own! 

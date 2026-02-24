@@ -1,8 +1,8 @@
-# Assignment 4️⃣ – Personal Web Application
+# Assignment 4️ – Personal Web Application
 
 ## **Due: Week 15 | Weight: 2%**
 
-## 🎯 Objective
+## Objective
 
 This is your final step in developing your personal portfolio web application. The goal here is to bring everything together into a polished, professional project that demonstrates your full range of skills. In this assignment you will:
 
@@ -13,19 +13,18 @@ This is your final step in developing your personal portfolio web application. T
 
 By the end of this assignment, you will have a complete and fully polished portfolio website that is ready to share with others. This is the last assignment and your final step; from here, the website will be all yours to keep, improve, and showcase proudly.
 
-## 🥋 Instructions
+## Instructions
 
 ### 1. Repository Setup
 
-- **Public Repository**: Create a public GitHub repository called `assignment-4`.
-- **Clear Structure**: Well-organized file and folder structure
-- **Documentation**: Comprehensive README.md files
-- **Commit History**: Meaningful commit messages showing development progress
-- **Branching**: Use of feature branches for development (recommended)
+- Create a public GitHub repository named **`id-name-assignment4`**  
+  (replace `id` with your student ID and `name` with your first and last name with no space).
+- Maintain a clear folder structure, meaningful commit history, and a well-written `README.md`.
+- Use branches if needed.
 - Organize your files in a simple structure like this:
 
 ```
-assignment-4/
+id-name-assignment4/
 ├── README.md
 ├── index.html
 ├── css/
@@ -55,12 +54,12 @@ Deliver a full featured, funtional, deployed web app that ties everything togeth
 Production-ready code and design. Your web application should look and feel like a polished, real-world application. This means writing clean code, following best practices, and presenting a professional design.
 
 - Use consistent formatting, indentation, and naming conventions.
-- Apply responsive, user-friendly design principles.
+- Apply responsive and user-friendly design.
 - Handle errors gracefully (e.g., show helpful messages instead of breaking).
 - Optimize performance (minimize unused code, compress images).
 - Test across devices and browsers to ensure compatibility.
 
-⚡ Guideline: Aim for a level of quality that could be shown as a finished product.
+⚡ Guideline: Deliver a professional-quality application ready to be presented as a finished product.
 
 ### 4. Innovation
 
@@ -87,7 +86,10 @@ Professional Demonstration of the Application.
 
 3. **Technical Deep Dive** (1-2 minutes)
 
-   - Most challenging aspects
+   - Most challenging aspects:
+      - Resolved and implemented in the web application
+      - Unresolved and not implemented in the web application
+      - Planned for future work
    - Innovative solutions implemented
    - Lessons learned
 
@@ -103,35 +105,44 @@ Professional Demonstration of the Application.
 - **Engagement**: Use clear visuals, smooth transitions, and highlight key features effectively
 - **Technical Preparation**: Ensure your application works smoothly
 
-### 6. AI Showcase
+## 6. AI Integration
+Use at least one AI tool (e.g., GitHub Copilot, ChatGPT, Claude,...). Possible uses:  
+- Code generation, debugging, or code review  
+- Documentation support  
+- UI/UX design suggestions  
 
-Comprehensive use of AI throughout development. Examples of acceptable use include:
+### Document in `docs/ai-usage-report.md`:
 
-- **Code Generation**: GitHub Copilot, ChatGPT, Claude, etc.
-- **Debugging**: AI-powered debugging assistants
-- **Code Review**: AI tools for code quality improvement
-- **Documentation**: AI assistance for writing documentation
-- **Design**: AI tools for UI/UX suggestions
+- **Tools Used & Use Cases**  
+  List the AI tools you used (e.g., ChatGPT, Copilot) and explain how you used each tool during the assignment.
+  - **Recommended AI Tools**
+    - GitHub Copilot → Code completion & generation  
+    - ChatGPT / Claude → Problem-solving & explanations  
+    - Cursor → AI-powered code editor  
+    - Replit → AI-assisted online IDE  
+    - AWS CodeWhisperer → AI code generation 
 
-For every use of AI:
+- **Benefits & Challenges**  
+  Describe how using AI helped you and any difficulties or limitations you faced while using it.
 
-- **Documentation**: Clearly document how AI was used in each assignment
-- **Understanding**: Demonstrate understanding of AI-generated code
-- **Modification**: Show ability to modify and improve AI suggestions
-- **Ethics**: Use AI responsibly and ethically
-- **Learning**: Use AI as a learning tool, not a replacement for understanding
+- **Learning Outcomes**  
+  Explain what you learned from using AI while completing this assignment (technical skills, concepts, or workflow improvements).
 
-The assignment must include a report detailing:
+- **Responsible Use & Modifications**  
+  Explain how you reviewed, modified, and improved the AI-generated suggestions to ensure correctness, originality, and academic integrity.
 
-- **Tools Used**: List of AI tools and services utilized
-- **Use Cases**: Specific ways AI was employed in development
-- **Benefits**: How AI improved the development process
-- **Challenges**: Difficulties encountered with AI tools
-- **Learning Outcomes**: Skills gained through AI-assisted development
+---
 
-⚡ Guideline: You must document all AI usage in `docs/ai-usage-report.md`. Include the tool you used, the prompt, the output, your edits, and what you learned.
+## 7. Code Quality
+- Code must be clean, consistent, and properly indented.
+- Organize code into clear and logical files.
+- Add comments to explain important parts of your code.
+- Remove unused code and avoid clutter.
+- Ensure there are no broken links or errors.
 
-### 7. Documentation
+---
+
+### 8. Documentation
 
 Your `README.md` should include:
 
@@ -156,44 +167,24 @@ Your `README.md` should include:
 5. **Submission**: Submit repository link through Blackboard
 6. **Presentation**: Prepare and deliver presentation
 
-## 🛠 Support and Resources
+---
 
-Take advantage of the following resources to guide and support your learning:
+## 9. Academic Integrity
+### Allowed
+- AI-assisted tools  
+- Peer discussion of ideas  
+- Sharing setup guides or references  
+- High-level feedback  
 
-### Available Help
+### Not Allowed
+- Copying code from classmates  
+- Plagiarism or misrepresentation  
+- Unauthorized collaboration  
+- Submitting unmodified AI output as your own  
 
-- Office Hours: Attend regular instructor office hours for technical support.
-- Discussion Board: Use the course discussion board for peer-to-peer help, sharing ideas, or asking questions.
-- Documentation: Review the course materials and recommended external resources.
-- AI Tools: For coding assistance, debugging, and exploration (see recommended tools below).
+`Always be transparent: document how you used AI or peer help, and ensure you understand your solution.`  
 
-### Recommended AI Tools
-
-- **GitHub Copilot**: Code completion and generation
-- **ChatGPT/Claude**: Problem-solving and code explanation
-- **Cursor**: AI-powered code editor
-- **Replit**: AI-assisted online development environment
-- **CodeWhisperer**: AWS AI code generators
-
-## 📜 Academic Integrity
-
-### Permitted Collaboration
-
-- AI Tools: You may fully use AI-assisted development tools.
-- Peer Discussion: Talking about concepts, approaches, and general ideas is allowed.
-- Documentation: You may share setup guides or documentation references.
-- Code Review: Providing or receiving high-level feedback is acceptable.
-
-### Prohibited Activities
-
-- Direct Code Sharing: Do not copy/paste code from classmates.
-- Plagiarism: Do not submit work that is not your own.
-- Unauthorized Collaboration: Do not work jointly on individual assignments.
-- Misrepresentation: Do not present unmodified AI-generated work as entirely your own.
-
-⚡ Guideline: Always be transparent about your workflow. If AI or peers helped, document it. What matters most is that you understand your solution and can explain it clearly.
-
-## 💯 Grading Rubric
+## 10 Grading Rubric
 
 The submission will be graded out of 100 points, divided as follows:
 
@@ -220,15 +211,15 @@ The submission will be graded out of 100 points, divided as follows:
 | Q&A Handling (5)             | Confident, accurate responses.                               | Good answers; minor gaps.              | Partial answers; some uncertainty.        | Weak answers; little confidence.     | Unable to answer questions.      |
 | Visual Aids (5)              | Professional, polished materials.                            | Clear but basic visuals.               | Adequate visuals; limited polish.         | Minimal or cluttered visuals.        | No or poor visuals.              |
 
-## 📝 Notes
+## Notes
 
-- This final assignment emphasizes professional quality, clear documentation, responsible AI integration, and a confident presentation.
-- It is worth 2% of your grade.
-- Use AI thoughtfully and explain its role in your documentation.
-- Treat this as your chance to present a production-ready application and showcase your ability to communicate your work clearly.
+- Keep this assignment simple, focus on clarity and structure, not over-design.
+- This assignment is worth 2% of your grade.
+- Use AI responsibly, your report should clearly show your learning process.
+- This foundation will expand into a professional portfolio website in later assignments.
 
-## 🎉 Wrapping Up
+## Wrapping Up
 
-This is the capstone step in your portfolio assignment. Think of these guidelines as a help guide. Focus on delivering a polished, well-documented application that you can confidently demonstrate. Creativity and originality are welcome as long as the core requirements of the assignment are met.
+Think of these guidelines as a help guide with ideas to get you started. You don’t have to follow every example, feel free to explore and shape the web application in a way that reflects your own interests. Creativity and originality are welcome as long as the core requirements of the assignment are met.
 
-We hope you enjoyed building, experimenting, and making this web application your own! 🚀
+Most importantly, enjoy building, experimenting, and making the web application your own! 
