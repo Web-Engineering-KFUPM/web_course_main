@@ -13,7 +13,7 @@
 | 5.2 React Starter | Intro to React, JSX syntax, components, props, rendering | [View Demo](https://classroom.github.com/a/WkaJcm3N) |
 | 5.3 More React | Event handling, States | [View Demo](https://classroom.github.com/a/bNhCHFaB) |
 | 5.4 More React | Conditional rendering, Lists | [View Demo](https://classroom.github.com/a/FKaUT_xS) |
-| 5.5 React Advance | Forms, Controlled inputs, Routes | [View Demo](#) |
+| 5.5 React Advance | Forms, Controlled inputs, Routes | [View Demo](https://classroom.github.com/a/dX913UJj) |
 | 5.6 React Styling & Fetching | CSS, Bootstrap, Fetch data | [View Demo](#) |
 | 5.7 Back-end Fundamentals | full-stack fundamentals, node, express, routes, server, data flow | [View Demo](#) |
 | 6.1 Introduction to Node | node, modules, package.json files | [View Demo](#) |
