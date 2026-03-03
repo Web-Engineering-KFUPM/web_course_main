@@ -95,15 +95,16 @@ style: |
 footer: 'SWE 363 | 252 | KFUPM'
 ---
 
+# Announcements
+- Quiz 2 (React) on Monday, **March 9th**
+- Portfolio Assignment 2 due on **March 14th**
+---
+
 
 Web Engineering & Development (SWE 363) 
 # Interactive Front-End Development
 
----
 
-# Announcements
-- Quiz 2 next Wednesday, **Oct 22nd**, on React (Chapter 5)
-- Portfolio Assignment 2 due on **Oct 23rd**
 ---
 
 # In today's lecture:
@@ -535,4 +536,4 @@ useEffect(() => {
 
 # Next Class
 
-- More on React
+- Quiz 2
