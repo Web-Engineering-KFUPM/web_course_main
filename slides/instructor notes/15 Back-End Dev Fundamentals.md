@@ -97,14 +97,14 @@ footer: 'SWE 363 | 252 | KFUPM'
 
 
 Web Engineering & Development (SWE 363) 
-# Back-end Development Fundamentals
+# Back-End Development Fundamentals
 
 ---
 
 # Announcements
-- Midterm and Quiz 2 on Tuesday, **Nov 4th**
-  - 6:00-8:00 (pm)
-  - Location: B22
+- Midterm on Thursday, **April 2nd**
+  - 7:00-9:00 PM
+  - Location: B22 (Rooms 119, 125, 127, 130, 134)
 
 ---
 
@@ -416,7 +416,7 @@ http://localhost:3000/api/students
 
 >30m
 # Demo
-Starter code at: https://classroom.github.com/a/wtcNr7U4
+6.1 Introduction to Node
 
 ---
 
