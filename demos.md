@@ -16,7 +16,7 @@
 | 5.5 React Advance | Forms, Controlled inputs, Routes | [View Demo](https://classroom.github.com/a/dX913UJj) |
 | 5.6 React Styling & Fetching | CSS, Bootstrap, Fetch data | [View Demo](https://classroom.github.com/a/yE1ZBsQj) |
 | 6.1 Back-end Fundamentals | full-stack fundamentals, node, express, routes, server, data flow | [View Demo](https://classroom.github.com/a/7tBkFdO0) |
-| 6.2 Introduction to Node | node, modules, package.json files | [View Demo](#https://classroom.github.com/a/ZnTlKcNR) |
+| 6.2 Introduction to Node | node, modules, package.json files | [View Demo](https://classroom.github.com/a/ZnTlKcNR) |
 | 6.3 Express | express, middleware functions, routes, cors, request & response | [View Demo](#) |
 | 6.4 Request Data in Express | query parmeters, routes, middleware functions | [View Demo](#) |
 | 7.1 mongoDB | mongoDB cloud, mongosh, mongoose | [View Demo](#) |
