@@ -613,7 +613,7 @@ const nums = parseNumbers(["5", "10", "15"]);
 
 >30m
 # Demo
-Starter code at: https://classroom.github.com/a/uGr0A5GN
+6.2 Introduction to Node
 
 **Build a CLI calculator using:**
 - Node.js command line arguments
