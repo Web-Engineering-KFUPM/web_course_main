@@ -572,4 +572,4 @@ res.status(404).json({
 
 >30m
 # Demo
-Starter code at: https://classroom.github.com/a/f7Xq_C38
+6.4 Request Data in Express
