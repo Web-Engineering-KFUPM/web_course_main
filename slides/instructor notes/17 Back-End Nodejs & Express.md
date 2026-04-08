@@ -627,7 +627,7 @@ app.get("/api/data", (req, res) => {
 
 >30m
 # Demo
-Starter code at: https://classroom.github.com/a/RFGnUwlL
+6.3 Express
 
 - Set up Express server
 - Create routes
