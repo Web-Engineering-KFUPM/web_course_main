@@ -106,7 +106,7 @@ Web Engineering & Development (SWE 363)
 - Using RESTful Web APIs with Fetch
 
 ### Reference: 
-- Zybook: 7.3, 7.4
+- Zybook: 7.3, 7.5
 ---
 # Creating RESTful Web APIs (Node)
 
@@ -666,7 +666,6 @@ curl -X POST http://localhost:3000/api/songs \
 
 >30m
 # Demo
-
-**https://classroom.github.com/a/b5Rjx0N4**
+7.2 RESTful APIs
 
 

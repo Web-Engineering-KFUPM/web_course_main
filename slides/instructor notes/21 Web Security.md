@@ -97,7 +97,7 @@ footer: 'SWE 363 | 252 | KFUPM'
 
 
 Web Engineering & Development (SWE 363) 
-# Full-Stack Development Advanced Concepts
+# Web Security
 
 ---
 
@@ -107,7 +107,7 @@ Web Engineering & Development (SWE 363)
 - Password hashing
 
 ### Reference: 
-- Zybook: 8.1, 8.2, 8.3
+- Zybook: 8.1-8.3
 ---
 # Third-party web APIs 
 
@@ -920,7 +920,6 @@ res.json({ token });
 >30m
 # Demo
 
-**https://classroom.github.com/a/x9kxDulw**
-
+8.1 Third-Party APIs and Authentication
 
 

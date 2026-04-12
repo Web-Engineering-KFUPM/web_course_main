@@ -97,7 +97,7 @@ footer: 'SWE 363 | 252 | KFUPM'
 
 
 Web Engineering & Development (SWE 363) 
-# Back-end Development Fundamentals
+# MongoDB
 
 ---
 
@@ -697,6 +697,7 @@ await mongoose.connection.close();
 >30m
 # Demo
 
+7.1 mongoDB
 **MongoDB & Mongoose Hands-on**
 
 - MongoDB Atlas setup
