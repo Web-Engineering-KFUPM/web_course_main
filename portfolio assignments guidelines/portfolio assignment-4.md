@@ -207,8 +207,7 @@ The submission will be graded out of 100 points, divided as follows:
 | **Presentation**             |                                                              |                                        |                                           |                                      |                                  |
 | Professional Delivery (5)    | Clear and engaging presentation.                             | Mostly clear; minor lapses.            | Adequate but not confident.               | Minimal clarity/engagement.          | Unclear or unprofessional.       |
 | Technical Demonstration (5)  | Features showcased effectively and smoothly.                 | Most features shown; minor gaps.       | Some features shown; incomplete.          | Few features shown.                  | No meaningful demo.              |
-| Q&A Handling (5)             | Confident, accurate responses.                               | Good answers; minor gaps.              | Partial answers; some uncertainty.        | Weak answers; little confidence.     | Unable to answer questions.      |
-| Visual Aids (5)              | Professional, polished materials.                            | Clear but basic visuals.               | Adequate visuals; limited polish.         | Minimal or cluttered visuals.        | No or poor visuals.              |
+| Visual Aids (10)              | Professional, polished materials.                            | Clear but basic visuals.               | Adequate visuals; limited polish.         | Minimal or cluttered visuals.        | No or poor visuals.              |
 
 ## Notes
 
