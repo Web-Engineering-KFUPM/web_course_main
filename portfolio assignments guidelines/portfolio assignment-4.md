@@ -44,7 +44,7 @@ id-name-assignment4/
 
 ### 2. Complete Application
 
-Deliver a full featured, funtional, deployed web app that ties everything together.
+Deliver a full-featured, functional, deployed web app that ties everything together.
 
 - Ensure it is responsive and polished.
 - Deploy to a live server so it’s publicly accessible.
@@ -100,7 +100,6 @@ Professional Demonstration of the Application.
 #### Presentation Tips
 
 - **Practice**: Rehearse your presentation multiple times
-- **Backup Plan**: Have screenshots or videos as backup
 - **Time Management**: Stay within the 5-7 minute limit
 - **Engagement**: Use clear visuals, smooth transitions, and highlight key features effectively
 - **Technical Preparation**: Ensure your application works smoothly
@@ -154,7 +153,7 @@ Your `README.md` should include:
 ## 📦 Deliverables
 
 - Complete personal web application
-- Professional presentation (5-7 minutes)
+- Professional video presentation (5-7 minutes)
 - Comprehensive documentation and user guide
 - Technical portfolio showcasing all skills learned
 
@@ -165,7 +164,7 @@ Your `README.md` should include:
 3. **Documentation**: Update README and technical documentation
 4. **Final Review**: Ensure all requirements are met
 5. **Submission**: Submit repository link through Blackboard
-6. **Presentation**: Prepare and deliver presentation
+6. **Presentation**: Prepare and submit video presentation
 
 ---
 
