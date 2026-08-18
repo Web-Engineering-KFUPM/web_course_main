@@ -6,25 +6,24 @@ This course is designed to provide you with the conceptual and practical knowled
 ### Class Details
 | Section | Time            | Days | Venue | Instructor  |
 |---------|-----------------|------|--------|------------|
-| 01      | 08:00 – 09:15   | MW   | 22-333 | FAISAL ABDURRAZZAK         |
-| 02      | 09:30 – 10:45   | MW   | 22-333 | FAISAL ABDURRAZZAK         |
-| 03      | 11:00 – 12:15   | MW   | 22-333 | Hasan Al-Kaf         |
-| F11     | 11:00 – 12:15   | MW   | 22-339 | Khadijah AlSafwan   |
-| F12     | 12:30 – 13:45   | MW   | 22-339 | Khadijah AlSafwan   |
+| 01      | 08:00 – 09:15   | MW   | 22-231 | FAISAL ABDURRAZZAK         |
+| 02      | 09:30 – 10:45   | MW   | 22-231 | FAISAL ABDURRAZZAK         |
+| F11     | 08:00 – 09:15   | MW   | 22-334 | Khadijah AlSafwan   |
+| F12     | 09:30 – 10:45   | MW   | 22-334 | Khadijah AlSafwan   |
 
 ### Instructors
 | Professor           | Office | Email                    | Office Hours   |
 |---------------------|--------|--------------------------|----------------|
-| Dr. Muhammad Faisal Abdulrazzak | Online (MS Teams or email) | mfaisal@kfupm.edu.sa      |      TBA       |
-| Dr. Hasan Al-Kaf    | Online (MS Teams or email) | hasan.alkaf@kfupm.edu.sa |      TBA              |
-| Dr. Khadijah Al Safwan| 22-330-1 | khadijah.safwan@kfupm.edu.sa |      Sundays 2-3 PM (or by appointment)       |
+| Dr. Muhammad Faisal Abdulrazzak | 22-333-3 | mfaisal@kfupm.edu.sa      |      TBA       |
+| Dr. Khadijah Al Safwan| 22-330-1 | khadijah.safwan@kfupm.edu.sa |      TBA       |
 
 ### How You Will Be Assessed
-- **In-Lab Attendance and Participation** 10%
-- **Portfolio Assignments** 8%
-- **Quizzes:** 12%
+- **Attendance** 5%
+- **Active Learning Efforts** 10%
+- **Portfolio Assignments** 5%
+- **Quizzes:** 15%
 - **Mid-term:** 20%
-- **Project:** 25%
+- **Project:** 20%
 - **Final:** 25%
 
 ### How to Get the Most Out of This Class
@@ -41,7 +40,7 @@ After completing this course, you should be able to:
 4. Build and publish cross-platform, data-driven, and dynamic web applications.
 5. Incorporate best practices to boost the sustainability, usability, and accessibility of web applications.
 
-### **Tentative** Lectures Plan (Based on Zybooks Sections)
+### **Tentative** Lecture Plan (Based on Zybooks Sections)
 |Week|Topic|Zybook Sections|
 |-----|------|---------------|
 | 1  | Introduction to Web Programming | Lec1: 1.1-1.3, Lec2: 1.4-1.6 |
@@ -71,10 +70,10 @@ After completing this course, you should be able to:
 ### Course Policies & Guidelines
 - **Attendance:** Regular attendance is a university requirement. Attendance will be checked at the beginning of each class. Two late arrivals will be considered as one absence. More than 6 unexcused absences will result in a DN grade.
 - **Blackboard:** Will be used for posting assignments, and grades. Utilize the discussion board by raising or answering questions.
-- **Emails:** Use the format `242-SWE363-[sec_number]` in the "Subject" field of your email. Not following this format may result in a delayed or no response.
+- **Emails:** Use the format `261-SWE363-[sec_number]` in the "Subject" field of your email. Not following this format may result in a **delayed or no response**. Make your request clear and include all details when communicating any questions/concerns. 
 - **Makeup Policy:** No makeup for homework, quizzes, or exams unless there is a valid excuse.
-- **Re-grading Policy:** Complaints about grades must be discussed within a week of grade distribution. For final exams, an office hour will be announced on Blackboard.
-- **Project Phases Late Submission:** Late submissions are not allowed unless there is a valid execuse. 
-- **Academic Honesty:** Abide by university regulations on academic honesty. Cheating will result in severe penalties, including an F grade.
+- **Re-grading Policy:** Complaints about grades must be discussed within **ONE week** of grade distribution through official email requests. For final exams, office hours will be announced on Blackboard.
+- **Project Phases Late Submission:** Late submissions are not allowed unless there is a valid excuse. 
+- **Academic Honesty:** Abide by university regulations on academic honesty. Cheating will result in severe penalties, including an F grade. The University maintains **zero tolerance** for cheating, academic misconduct, or attempts to cheat during examinations or quizzes.
 - **Courtesy:** Be courteous to the instructor and classmates. Cell phones must be turned off during class and exams.
 
