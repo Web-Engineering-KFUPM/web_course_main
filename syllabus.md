@@ -68,7 +68,7 @@ After completing this course, you should be able to:
 - We will be using [Blackboard](https://kfupm.blackboard.com/) as our learning management system for announcements and assignment submissions. 
 
 ### Course Policies & Guidelines
-- **Attendance:** Regular attendance is a university requirement. Attendance will be checked at the beginning of each class. Two late arrivals will be considered as one absence. More than 6 unexcused absences will result in a DN grade.
+- **Attendance:** Regular attendance is a university requirement. Attendance will be checked at the beginning of each class. Two late arrivals will be considered as one absence. More than 5 unexcused absences will result in a DN grade. Each student will have 2 free absences after which they will lose attendance marks. 
 - **Blackboard:** Will be used for posting assignments, and grades. Utilize the discussion board by raising or answering questions.
 - **Emails:** Use the format `261-SWE363-[sec_number]` in the "Subject" field of your email. Not following this format may result in a **delayed or no response**. Make your request clear and include all details when communicating any questions/concerns. 
 - **Makeup Policy:** No makeup for homework, quizzes, or exams unless there is a valid excuse.
