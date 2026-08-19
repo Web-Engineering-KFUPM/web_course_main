@@ -28,13 +28,13 @@ This repository serves as the main course reference. All materials are organized
 
 Navigate through the folders to access all course materials and resources.
 
-## In-Lab Participation
+<!-- ## In-Lab Participation
 Hands-on coding demonstrations during class time (10% total grade):
 - ~20 demos throughout the semester (0.5% each)
 - 30-minute lab sessions with structured activities
 - GitHub practice and version control skills
 - All work must be completed during class time
-- See demos table [here](./demos.md) 
+- See demos table [here](./demos.md)  -->
 
 ## Portfolio Assignments
 Overview of the portfolio assignments available [here](./portfolio%20assignments.md) and detailed portfolio assignments guidelines available [here](./portfolio%20assignments%20guidelines).
