@@ -8,20 +8,20 @@ This project will be conducted in groups comprising 5 students. Each group is ta
 
 ## Phases
 
-| Phase              | Milestone                   | Points | Due     | Deliverables                           |
+| Phase              | Milestone                   | Weight (%) | Due     | Deliverables                           |
 |--------------------|-----------------------------|--------|---------|----------------------------------------|
-| 1                  | Project Groups and Idea     | 8      | Week 2  | Join a group in BB + Fill Contract     |
-| 2                  | Project Proposal            | 8      | Week 4  | Submit Slides (.ppt)                   |
-| 3                  | Project Requirments         | 8      | Week 7  | Submit Slides (.ppt)                   |
-| 4                  | Project Front_End           | 32      | Week 10 | Push to Github + submit github repo    |
-| 5                  | Project Back_End            | 28     | Week 14 | Push to Github                         |
-| 6                  | Project Deployment          | 4      | Week 14 | Submit Domain link                     |
-| 7                  | Project Documentation       | 12      | Week 15 | Submit Demo and report                 |
+| 1                  | Project Groups and Idea     | 8%      | Week 2  | Join a group in BB + Fill Contract     |
+| 2                  | Project Proposal            | 8%      | Week 4  | Submit Slides (.ppt)                   |
+| 3                  | Project Requirments         | 8%      | Week 7  | Submit Slides (.ppt)                   |
+| 4                  | Project Front_End           | 32%      | Week 10 | Push to Github + submit github repo    |
+| 5                  | Project Back_End            | 28%     | Week 14 | Push to Github                         |
+| 6                  | Project Deployment          | 4%      | Week 14 | Submit Domain link                     |
+| 7                  | Project Documentation       | 12%      | Week 15 | Submit Demo and report                 |
 
 ## Project Phases Details
 
 ### 1. Team Formation
-- Join a group in blackborad common section with all team members.
+- Join a group in the Blackboard common section with all team members.
 - Fill the team contract form after you create a group in BB (https://forms.office.com/r/2LbQWckmv8) 
 - All Team members should be in the same section. 
 - Each team should consist of 3-4 members. 
