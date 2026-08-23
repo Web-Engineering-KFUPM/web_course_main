@@ -25,27 +25,30 @@ Hands-on learning using exercises and pracive material is essential for masterin
 - Github account, GitHub CLI
 
 ## Classroom50 Instructions
+
+The full Classroom50 student guide (setup, screenshots, tag submission, and troubleshooting) is in [`Classroom50 Student Guide.md`](./exercises%20guidelines/Classroom50%20Student%20Guide.md).
+
 ### Important Rules (Read First)
 
-- You must **accept the assignment via the Classroom50 link** provided in **`demos.md`**.
+- You must **accept the assignment via the Classroom50 link** provided in **`exercises.md`**.
 - **Do NOT fork** the assignment repository manually from `Web-Engineering-KFUPM` or anywhere else.
 
 ---
 
 ### Initial Setup (One-time)
 
-1. Open the **`demos.md`** file in this repository.
-2. Locate the **Demo Table**.
-3. Click the **GitHub Classroom invitation link** for your lab.
+1. Open the **`exercises.md`** file in this repository.
+2. Locate the **exercises Table**.
+3. Click the **Classroom50 invitation link** for your lab.
 4. **Accept the assignment** using that link.
-5. **Authorize GitHub Classroom** to access your GitHub account (if prompted).
+5. **Authorize Classroom50** to access your GitHub account (if prompted).
 
 After acceptance, **your individual repository** will be automatically created.
 
 ### Repository Naming Format After Accepting Assignment
 
 ```
-Demos_Repo_Name_<your_github_username>
+Exercises_Repo_Name_<your_github_username>
 ```
 
 **Example:**
@@ -57,7 +60,7 @@ This is the **only valid repository** for submission.
 
 ---
 
-### Before Each Lab Session
+### Before Each Exercise Session
 
 1. **Clone your assignment repository** (only once):
 
@@ -74,7 +77,7 @@ git pull origin main
 
 ---
 
-### During Lab Sessions (How to Submit Your Work)
+### During Exercise Sessions (How to Submit Your Work)
 
 1. **Complete all assigned tasks and TODOs** in your local repository.
 2. **Add and commit your changes** for each TODOusing clear, descriptive messages:
@@ -84,7 +87,7 @@ git add .
 git commit -m "Complete lab exercise: [brief description]"
 ```
 
-3. **Push your changes** to your GitHub Classroom repository:
+3. **Push your changes** to your Classroom50 repository:
 
 ```bash
 git push origin main
@@ -132,7 +135,7 @@ Accepting the assignment correctly but:
 - If needed, try Incognito/Private Mode or a different browser.
 
 ### 3) Accept the Lab Link
-- Open the GitHub Classroom link from `demos.md`.
+- Open the Classroom50 link from `demos.md`.
 - If successful, your private assignment repository will be created.
 
 ### 4) Clone the Repository

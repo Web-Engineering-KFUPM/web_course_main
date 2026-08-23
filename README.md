@@ -23,6 +23,7 @@ This repository serves as the main course reference. All materials are organized
 - **Slides**: PDF presentations for each lecture in the `slides/` directory
 - **Portfolio Assignments Guidelines**: Detailed assignment documentation in `portfolio assignments guidelines/`
 - **Project Guidelines**: Detailed project documentation in `project guidelines/`
+- **Exercises Guidelines**: Classroom50 student lab guide in `exercises guidelines/`
 - **Course Documents**: Syllabus, assignments, project, and participation guidelines
 - **Demos**: Code examples and starter templates
 
@@ -40,10 +41,10 @@ Hands-on coding demonstrations during class time (10% total grade):
 Overview of the portfolio assignments available [here](./portfolio%20assignments.md) and detailed portfolio assignments guidelines available [here](./portfolio%20assignments%20guidelines).
 
 ## Term Project
-Overview of the term project available [here](./term_project.md) and detailed term project guidelines available [here](./term_project%20guidelines.md). 
+Overview of the term project available [here](./term_project.md) and detailed term project guidelines available [here](./project%20guidelines). 
 
 ## Active Learning  
-Overview of the active learning efforts available [here](./active_learning.md) and active learning exercises available [here](./exercises.md).
+Overview of the active learning efforts available [here](./active_learning.md), and detailed learning exercises guidelines available [here](./exercises%20guidelines).
 
 ## Useful Links
 - [FreeCodeCamp](https://www.freecodecamp.org/)
