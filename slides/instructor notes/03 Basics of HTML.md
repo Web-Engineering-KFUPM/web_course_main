@@ -287,11 +287,11 @@ Examples: ```<img>```, ```<br>```, ```<hr>```, ```<input>```, ```<link>```, ```<
 <!-- _class: activity -->
 
 # Let's build a rich html page 
-GitHub Classroom Assignment: https://classroom.github.com/a/xt8-iwCA
+Classroom50 Assignment: [2.1 HTML Basics](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/2-1-html-basics/accept?k=swe363)
 
 
  ---
- # GitHub Classroom's Repository Push Issue: 
+ # Classroom's Repository Push Issue: 
 Set Your Git Username and Email to Match GitHub
 ```
 git config --add --global user.name "Your GitHub Name"

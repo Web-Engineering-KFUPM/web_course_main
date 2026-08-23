@@ -1,9 +1,9 @@
 
 | Exercise Title       | Idea                                | Link                        |
 |------------------|-------------------------------------|-----------------------------|
-| 1.1 Hello Web    | A sample full stack web app using Nodejs    | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/1-1-hello-web/accept?k=swe363) |
-| 1.2 Hello HTML   | A single HTML file with CSS & JS      | [View Exercise]()  |
-| 2.1 HTML Basics  | Basic HTML Elements and Structure      | [View Exercise]()  |
+| 1.1 Hello HTML   | A single HTML file with CSS & JS      | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/1-1-hello-html/accept?k=swe363)  |
+| 1.2 Hello Web    | A sample full stack web app using Nodejs    | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/1-1-hello-web/accept?k=swe363) |
+| 2.1 HTML Basics  | Basic HTML Elements and Structure      | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/2-1-html-basics/accept?k=swe363)  |
 | 2.2 More HTML | Links, Containers and Forms | [View Exercise]() |
 | 3.1 CSS Basics | Using CSS, Selectors | [View Exercise]() |
 | 3.2 More CSS | Variables, Flexbox & Positioning | [View Exercise]() |

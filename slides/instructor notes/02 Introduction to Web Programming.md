@@ -308,8 +308,8 @@ Response is returned in HTML, CSS and JS
 <!-- _class: demo -->
 > Demo ~15m
 # Build a simple HTML page 
-- Go to our repo (also found in BB)
-- Go to demos folder and open 1.2 hello html
+- Go to our repo (repo link is also found in BB)
+- Go to exercises guidelines folder and open 1.1 Hello HTML
 - Read the instrutions in the README.md file
 ---
 
@@ -317,8 +317,8 @@ Response is returned in HTML, CSS and JS
 
 > Demo ~15m
 # Building a real web app
-- Go to our repo (also found in BB)
-- Go to demos folder and open 1.1 Hello Web
+- Go to our repo (repo link is also found in BB)
+- Go to exercises guidelines folder and open 1.2 Hello Web
 - Fork the repository to your own Github account
 - Read the instructions in the README.md file 
 - Complete the code and push to Github 
