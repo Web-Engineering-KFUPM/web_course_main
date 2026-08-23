@@ -42,6 +42,9 @@ Overview of the portfolio assignments available [here](./portfolio%20assignments
 ## Term Project
 Overview of the term project available [here](./term_project.md) and detailed term project guidelines available [here](./term_project%20guidelines.md). 
 
+## Active Learning  
+Overview of the active learning efforts available [here](./active_learning.md) and active learning exercises available [here](./exercises.md).
+
 ## Useful Links
 - [FreeCodeCamp](https://www.freecodecamp.org/)
 - [CodeCademy](https://www.codecademy.com/)

@@ -1,41 +1,34 @@
-# SWE 363 - 252 In-Lab Participation
+# SWE 363 - 261 Active Learning
 
 ## Overview
-Hands-on coding demonstrations and collaborative exercises during class time. About 20 demos throughout the semester, each worth about 0.5% of final grade.
-
+Hands-on learning using exercises and pracive material is essential for mastering the course material. 
 
 ## Requirements
+### How to get the active learning efforts marks?
+- **Mandatory**: Class attendance, active engagement, visiable in-lab learning efforts.
+- **Format**: Live coding with instructor, peers observing, hands-on exercises, practice material, etc.
+- **Timing**: Complete exercies and practice by assigned deadlines(no submissions after dedline are allowed)
 
-- **Timing**: Complete during class time only (no submissions outside class time are allowed)
-- **Format**: Live coding with instructor and peers observing
-- **Mandatory**: Class attendance, active engagement
-
+### How to lose the active learning efforts marks?
+- Not attending the class.
+- Leaving the class early after the lecture part is completed.
+- Not completing the exercises and practice material by assigned deadlines.
+- Not following the instructions provided in the active learning efforts guidelines.
 
 ## Technical Requirements
 
-- Code editor (Cursor, VS Code, Sublime Text, etc.)
-- Web browser with developer tools
+- Code editor (e.g. Cursor, WebStorm, VS Code, Sublime Text, etc.)
+- Web browser with developer tools (e.g. Chrome, Firefox, Edge, etc.)
 - Git (latest version)
-- Node.js for JavaScript development
-- Terminal/Command Prompt access
+- Node.js for JavaScript development (e.g. Node.js, npm, npx, etc.)
+- Terminal/Command Prompt access (e.g. Terminal, Command Prompt, PowerShell, etc.)
+- Github account, GitHub CLI
 
-## GitHub Classroom Instructions
-
-### What is GitHub Classroom?
-GitHub Classroom is a tool that automatically creates individual repositories for each student when they accept an assignment. This eliminates the need for manual forking and simplifies the submission process.
-
-### How to Accept and Submit the Assignment (GitHub Classroom)
-
-Please **read these instructions carefully**. Incorrect acceptance or submission will result in **marks deduction**.
-
----
-
+## Classroom50 Instructions
 ### Important Rules (Read First)
 
-- You must **accept the assignment only via the GitHub Classroom link** provided in **`demos.md`**.
+- You must **accept the assignment via the Classroom50 link** provided in **`demos.md`**.
 - **Do NOT fork** the assignment repository manually from `Web-Engineering-KFUPM` or anywhere else.
-- **Do NOT push** your work to your personal GitHub repositories.
-- **Pushing the assignment anywhere other than your GitHub Classroom repository will result in marks deduction.**
 
 ---
 
@@ -101,9 +94,9 @@ This push is your **official submission**.
 
 ---
 
-### Submission Requirements
+### Submission notes
 
-- **Timing**: Must be pushed **before the due date and section time**
+- **Timing**: Must be pushed **before the due date**
 - **Content**: All required files and **all TODOs must be completed**
 - **Quality**: Code must be functional and properly formatted
 - **Documentation**: Add comments where appropriate
@@ -120,13 +113,13 @@ Forking the assignment repository manually
 Accepting the assignment correctly but:
 - Pushing to your **personal GitHub repository**
 - Pushing to a **forked repository**
-- Pushing to **any repository not created by GitHub Classroom**
+- Pushing to **any repository not created by Classroom50**
 
-**Only the GitHub Classroom repository will be graded.**
+**Only the Classroom50 repository will be graded.**
 
 ---
 
-## GitHub Classroom Troubleshooting (Quick Guide)
+## Classroom50 Troubleshooting (Quick Guide)
 
 ### 1) Verify Correct GitHub Account
 - Use the GitHub account registered with your **KFUPM email**.
@@ -178,23 +171,10 @@ git push origin main
 
 ---
 
-## Optional: GitHub Setup Assignment
-
-Students new to Git and GitHub are encouraged to complete the **optional GitHub setup assignment**, which covers:
-
-- Basic Git commands (`add`, `commit`, `push`, `pull`)
-- GitHub repository navigation
-- Branching basics
-- Resolving merge conflicts
-
-This assignment is **not graded**, but **highly recommended**.
-
----
-
 ## Support Resources
 
 - Instructor office hours
-- Teaching assistants during lab sessions
+- Teaching assistants office hours
 - Peer collaboration during lab time
 - Online documentation and tutorials
 - **GitHub Starter Course**: https://github.com/Web-Engineering-KFUPM/github-starter-course
