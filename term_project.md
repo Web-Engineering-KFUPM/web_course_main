@@ -1,4 +1,4 @@
-# SWE 363 - 242 Web App Project
+# SWE 363 - 261 Web App Project
 
 ## Introduction
 
@@ -10,13 +10,13 @@ This project will be conducted in groups comprising 5 students. Each group is ta
 
 | Phase              | Milestone                   | Weight (%) | Due     | Deliverables                           |
 |--------------------|-----------------------------|--------|---------|----------------------------------------|
-| 1                  | Project Groups and Idea     | 8%      | Week 2  | Join a group in BB + Fill Contract     |
-| 2                  | Project Proposal            | 8%      | Week 4  | Submit Slides (.ppt)                   |
+| 1                  | Project Groups and Idea     | 8%      | Week 3  | Join a group in BB + Fill Contract     |
+| 2                  | Project Proposal            | 8%      | Week 5  | Submit Slides (.ppt)                   |
 | 3                  | Project Requirments         | 8%      | Week 7  | Submit Slides (.ppt)                   |
-| 4                  | Project Front_End           | 32%      | Week 10 | Push to Github + submit github repo    |
-| 5                  | Project Back_End            | 28%     | Week 14 | Push to Github                         |
-| 6                  | Project Deployment          | 4%      | Week 14 | Submit Domain link                     |
-| 7                  | Project Documentation       | 12%      | Week 15 | Submit Demo and report                 |
+| 4                  | Project Front_End           | 32%      | Week 11 | Push to Github + submit github repo    |
+| 5                  | Project Back_End            | 28%     | Week 15 | Push to Github                         |
+| 6                  | Project Deployment          | 4%      | Week 15 | Submit Domain link                     |
+| 7                  | Project Documentation       | 12%      | Week 16 | Submit Demo and report                 |
 
 ## Project Phases Details
 

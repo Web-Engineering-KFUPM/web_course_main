@@ -1,4 +1,4 @@
-# SWE 363 - 251 Course Assignments
+# SWE 363 - 261 Course Assignments
 
 The purpose of these course assignments is to provide you aspiring developers with practical experience in web development through hands-on projects that incorporate AI-assisted development techniques. Each assignment builds upon the previous one, creating a comprehensive learning experience that prepares you for real-world web development challenges.
 
@@ -24,9 +24,9 @@ By the end of this series of assignments, you will have:
 
 | Assignment | Focus Area                  | Weight | Due Date | Submission Format                     |
 | ---------- | --------------------------- | ------ | -------- | ------------------------------------- |
-| 1          | Foundation & AI Integration | 2%     | Week 5   | GitHub Repository Link                |
-| 2          | Interactive Features        | 2%     | Week 9   | GitHub Repository Link                |
-| 3          | Advanced Functionality      | 2%     | Week 13  | GitHub Repository Link                |
-| 4          | Personal Web Application    | 2%     | Week 15  | GitHub Repository Link + Presentation |
+| 1          | Foundation & AI Integration | 25%     | Week 5   | GitHub Repository Link                |
+| 2          | Interactive Features        | 25%     | Week 9   | GitHub Repository Link                |
+| 3          | Advanced Functionality      | 25%     | Week 12  | GitHub Repository Link                |
+| 4          | Personal Web Application    | 25%     | Week 14  | GitHub Repository Link + Presentation |
 
-**Total Weight: 8% of Final Grade**
+**Total Weight: 5% of Final Grade**
