@@ -25,7 +25,7 @@ Establish project teams and define the initial idea for your web application pro
       - Target users/audience of the application.
 
 4. Submission:
-   - Completed team contract form.
+   - Every team member should complete the team contract form individually.
    - The submission file (submitted via Blackboard) should consists:
       - Project title (tentative)
       - Group member (and their roles)
