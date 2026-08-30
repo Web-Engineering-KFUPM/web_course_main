@@ -47,24 +47,25 @@ After completing this course, you should be able to:
 4. Build and publish cross-platform, data-driven, and dynamic web applications.
 5. Incorporate best practices to boost the sustainability, usability, and accessibility of web applications.
 
-### **Tentative** Lecture Plan (Based on Zybooks Sections)
-|Week|Topic|Zybook Sections|
-|-----|------|---------------|
-| 1  | Introduction to Web Programming | Lec1: 1.1-1.3, Lec2: 1.4-1.6 |
-| 2  | HTML  | Lec1: 2.1-2.6, Lec2: 2.7-2.9 |
-| 3  | CSS | Lec1: 3.1-3.4, Lec2: 3.5-3.8 |
-| 4  | JavaScript (Language) | Lec1: 4.1-4.8, Lec2: 4.9-4.15 |
-| 5  | Hands-on + Quiz | - |
-| 6  | Interactive Front-End Dev | Lec1: 5.1-5.4, Lec2: 5.5-5.7 |
-| 7  | Front-End Development (React)| Lec1: 5.8-5.9, Lec2: 5.10-5.11 |
-| 8  | Front-End Development (React) | Lec1: 5.12-5.14, Lec2: 5.15-5.17 |
-| 9  | Hands-on + Quiz | - |
-| 10 | Back-end Development Fundamentals | Lec1: 6.1, Lec2: 6.2-6.3 |
-| 11 | Back-End Nodejs & Express | Lec1: 6.4, Lec2: 6.5 |
-| 12 | MongoDB | Lec1: 7.1-7.2, Lec2: 7.3-7.5 |
-| 13 | Web Security + Quiz| Lec1: 8.1-8.3 |
-| 14 | Hands-on  | - |
-| 15 | Exam Review & Presentations + Quiz | - |
+### **Tentative** Lecture Plan
+|Week|Topic|
+|-----|------|
+| 1  | Course Introduction |
+| 2  | Introduction to Web Programming |
+| 3  | HTML |
+| 4  | CSS |
+| 5  | JavaScript (Language) |
+| 6  | Hands-on + Quiz 01|
+| 7  | Interactive Front-End Dev |
+| 8  | Front-End Development (React) |
+| 9  | Front-End Development (React) |
+| 10 | Hands-on + Quiz 02|
+| 11 | Back-end Development Fundamentals |
+| 12 | Back-End Nodejs & Express |
+| 13 | MongoDB |
+| 14 | Quiz 03 |
+| 15 | Web Security + Hands-on  |
+| 16 | Quiz 04 + Presentations |
 
 ### Reference Materials
 - This repository  
