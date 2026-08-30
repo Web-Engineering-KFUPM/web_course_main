@@ -64,8 +64,9 @@ Web Engineering & Development (SWE 363)
 
 
 # Announcements 📣
-- Project Assignment #1 is due This Saturday at 11:59 PM
-- Demos structure (Github Classrooms), instructions in [in lab participation]()
+- Project Assignment #1 is due this Saturday at 11:59 PM
+ - Project teams should be consist of 3-4 members
+ - For the project ideas, develop real-world apps that solve problems, benefit society, and generate revenue.
 
 ---
 
