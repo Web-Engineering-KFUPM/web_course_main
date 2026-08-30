@@ -14,7 +14,7 @@ This course is designed to provide you with the conceptual and practical knowled
 ### Instructors
 | Professor           | Office | Email                    | Office Hours   |
 |---------------------|--------|--------------------------|----------------|
-| Dr. Muhammad Faisal Abdulrazzak | 22-333-3 | mfaisal@kfupm.edu.sa      |      TBA       |
+| Dr. Muhammad Faisal Abdulrazzak | 22-333-3 | mfaisal@kfupm.edu.sa      |      MW 11:00AM - 12:00PM or by appointment       |
 | Dr. Khadijah Al Safwan| 22-330-1 | khadijah.safwan@kfupm.edu.sa |      Mondays 11:00AM - 01:00PM or by appointment       |
 
 ### Teaching Assistants
