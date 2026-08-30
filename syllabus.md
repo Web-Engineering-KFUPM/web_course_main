@@ -15,7 +15,14 @@ This course is designed to provide you with the conceptual and practical knowled
 | Professor           | Office | Email                    | Office Hours   |
 |---------------------|--------|--------------------------|----------------|
 | Dr. Muhammad Faisal Abdulrazzak | 22-333-3 | mfaisal@kfupm.edu.sa      |      TBA       |
-| Dr. Khadijah Al Safwan| 22-330-1 | khadijah.safwan@kfupm.edu.sa |      TBA       |
+| Dr. Khadijah Al Safwan| 22-330-1 | khadijah.safwan@kfupm.edu.sa |      Mondays 11:00AM - 01:00PM or by appointment       |
+
+### Teaching Assistants
+| Teaching Assistant| Email                    | Office Hours   |
+|---------------------|--------------------------|----------------|
+| SAFA ASGAR| g202427120@kfupm.edu.sa |      TBA       |
+| REEBA ZAHID| g202601080@kfupm.edu.sa |      TBA       |
+| MARYAM GHAURI| g202525950@kfupm.edu.sa |      TBA       |
 
 ### How You Will Be Assessed
 - **Attendance** 5%
