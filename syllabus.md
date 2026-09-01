@@ -21,8 +21,8 @@ This course is designed to provide you with the conceptual and practical knowled
 | Teaching Assistant| Email                    | Office Hours   |
 |---------------------|--------------------------|----------------|
 | SAFA ASGAR| g202427120@kfupm.edu.sa |      Mondays 11:00AM - 01:00PM or by appointment       |
-| REEBA ZAHID| g202601080@kfupm.edu.sa |      TBA       |
-| MARYAM GHAURI| g202525950@kfupm.edu.sa |      TBA       |
+| REEBA ZAHID| g202601080@kfupm.edu.sa |      MW 11:00AM - 01:00PM or by appointment       |
+| MARYAM GHAURI| g202525950@kfupm.edu.sa |      UT 12:00PM - 02:00PM or by appointment       |
 
 ### How You Will Be Assessed
 - **Attendance** 5%
