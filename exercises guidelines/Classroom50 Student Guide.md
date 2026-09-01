@@ -349,6 +349,45 @@ The following screenshot shows a clone that has started but is waiting. If this 
 
 ![Clone waiting for authentication](media/image26.png)
 
+### Problem: `fatal: repository '...' not found` (shared / lab PC)
+
+If the URL is correct and the repository exists, but cloning returns:
+
+```bash
+Cloning into 'my-repo'...
+fatal: repository 'https://github.com/owner/repo.git/' not found
+```
+
+this usually means Git is authenticating as the **wrong account**. On a shared lab PC, a previous user's GitHub credential is often still cached by **Git Credential Manager**, so Git silently sends a token that does not have access to your repository. GitHub returns `not found` (not "access denied") for private repos the authenticated user cannot see.
+
+To fix it, remove the cached GitHub credential so you are prompted to log in with your own account.
+
+**Option A — Credential Manager (GUI):**
+
+1. Open **Start** → **Credential Manager** → **Windows Credentials**.
+2. Under **Stored user names**, find the entry `git:https://github.com`.
+3. Select it and choose **Remove**. Delete every GitHub entry if more than one exists.
+
+**Option B — Command line:**
+
+```bat
+cmdkey /list
+cmdkey /delete:git:https://github.com
+```
+
+Then verify the credential is gone and re-authenticate with your **KFUPM** account:
+
+```bash
+cmdkey /list | findstr /i "github"
+git config --global user.name  "Your GitHub Name"
+git config --global user.email "your_kfupm_email@example.com"
+git clone https://github.com/owner/repo.git
+```
+
+Complete the GitHub browser prompt (or enter your username and a **personal access token**) using the account registered with your KFUPM email. See *Verify the correct GitHub account* below.
+
+> **Tip:** On shared lab machines, clear your GitHub credentials before logging off so the next user does not hit this error.
+
 ### Problem: destination path already exists
 
 This usually means an earlier clone attempt created the folder. Check the folder before deleting anything. If it is empty and is not a Git repository, remove it from the parent directory and clone again.
