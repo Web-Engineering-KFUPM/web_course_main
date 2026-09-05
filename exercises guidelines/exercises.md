@@ -6,7 +6,7 @@
 | 2.1 HTML Basics  | Basic HTML Elements and Structure      | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/2-1-html-basics/accept?k=swe363)  |
 | 2.2 More HTML | Links, Containers and Forms | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/2-2-more-html/accept?k=swe363) |
 | 3.1 CSS Basics | Using CSS, Selectors | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/3-1-css-basics/accept?k=swe363) |
-| 3.2 More CSS | Variables, Flexbox & Positioning | [View Exercise]() |
+| 3.2 More CSS | Variables, Flexbox & Positioning | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/3-2-more-css/accept?k=swe363) |
 | 4.1 JS Basics | Variables, operations, conditions, loops, arrays | [View Exercise]() |
 | 4.2 JS Advanved | Objects, Map, String Object, Date & Math Objects, Exception Handling, Regular Expressions | [View Exercise]() |
 | 5.1 DOM Manipulation and API | DOM manipulation, fetch from json, third party API | [View Exercise]() |
