@@ -57,12 +57,7 @@ Todays goals:
 
 Web Engineering & Development (SWE 363) 
 # 3.2 CSS Properties
-
----
-
-# Announcements 📣
-- Phase 2 added 
-- Grading started 
+ 
 
 ---
 

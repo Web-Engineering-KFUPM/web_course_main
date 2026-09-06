@@ -54,7 +54,6 @@ Web Engineering & Development (SWE 363)
  Announcements 📣
  - Reminder of the projects submissions
     - Contract form should be filled by individual students
- - Tentative SWE 363 Midterm date: Thursday, April 2nd
  - Tentative SWE 363 Schedule link posted on Blackboard
 
  ---
