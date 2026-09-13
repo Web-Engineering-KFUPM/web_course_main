@@ -48,8 +48,8 @@ footer: 'SWE 363 | 252 | KFUPM'
 ---
 # Announcements 📣
 - Project Phase #2 Project Proposal is due this week Saturday at 11:59 PM
-- Individual assignments released due end of next week
-- Quiz 1 next Wednesday 
+- Individual assignment 1 released due end this week Saturday at 11:59 PM
+- Quiz 1 next Monday 
 
 ---
 

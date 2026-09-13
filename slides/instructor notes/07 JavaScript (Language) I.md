@@ -49,6 +49,7 @@ footer: 'SWE 363 | 252 | KFUPM'
 
 # Announcements 📣
 - Project Phase #2 is due this Saturday at 11:59 PM
+- Individual assignment 1 released due end this week Saturday at 11:59 PM
 - Commit each TODO in the demo to the repository
 
 ---
@@ -251,19 +252,14 @@ let day = 3;
 let dayName;
 
 switch (day) {
-    case 1:
-        dayName = "Monday";
-        break;
-    case 2:
-        dayName = "Tuesday";
-        break;
-    case 3:
-        dayName = "Wednesday";
-        break;
-    default:
-        dayName = "Unknown";
+    case 1: dayName = "Monday";
+            break;
+    case 2: dayName = "Tuesday";
+            break;
+    case 3: dayName = "Wednesday";
+            break;
+    default: dayName = "Unknown";
 }
-
 console.log(dayName);  // "Wednesday"
 ```
 
