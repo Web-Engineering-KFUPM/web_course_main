@@ -8,7 +8,7 @@
 | 3.1 CSS Basics | Using CSS, Selectors | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/3-1-css-basics/accept?k=swe363) |
 | 3.2 More CSS | Variables, Flexbox & Positioning | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/3-2-more-css/accept?k=swe363) |
 | 4.1 JS Basics | Variables, operations, conditions, loops, arrays | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/4-1-js-fundamentals/accept?k=swe363) |
-| 4.2 JS Advanved | Objects, Map, String Object, Date & Math Objects, Exception Handling, Regular Expressions | [View Exercise]() |
+| 4.2 JS Advanved | Objects, Map, String Object, Date & Math Objects, Exception Handling, Regular Expressions | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/4-2-js-advance/accept?k=swe363) |
 | 5.1 DOM Manipulation and API | DOM manipulation, fetch from json, third party API | [View Exercise]() |
 | 5.2 React Starter | Intro to React, JSX syntax, components, props, rendering | [View Exercise]() |
 | 5.3 More React | Event handling, States | [View Exercise]() |
