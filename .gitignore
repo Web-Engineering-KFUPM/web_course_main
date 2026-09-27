@@ -94,3 +94,4 @@ complete/
 demos
 .DS_Store
 .cursor/*
+comparable_courses/*
