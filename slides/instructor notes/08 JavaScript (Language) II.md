@@ -150,8 +150,8 @@ console.log(calculator.getResult()); // 17
 // Creating a Map
 const studentGrades = {
     "Ahmed": 95,
-    "Sara", 87,
-    "Omar", 92
+    "Sara": 87,
+    "Omar": 92
 };
 
 // Accessing values
@@ -366,7 +366,7 @@ function divide(a, b) {
 
 ```javascript
 // Creating regex
-const pattern1 = /hello/;
+const pattern1 = /hello/i;
 const pattern2 = new RegExp("hello");
 
 // Basic matching
