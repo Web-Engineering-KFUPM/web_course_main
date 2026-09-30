@@ -83,7 +83,7 @@ footer: 'SWE 363 | 252 | KFUPM'
 ---
 
 # Announcements
-- Ramadan Mubark!
+- Project Phase 2 grades are posted
 - Demo submission, commit each TODO
 - Demo grading issues, communicate with your section TA and course instructor
 
@@ -386,18 +386,13 @@ function GoodComponent() {
 ```jsx
 // WRONG
 <div class="container">Content</div>
-
 // CORRECT
 <div className="container">Content</div>
 ```
----
-
-# JSX Rules
 ## 3. **Self-Closing Tags Must Have `/`**
 ```jsx
 //  WRONG
 <img src="image.jpg">
-
 //  CORRECT
 <img src="image.jpg" />
 ```
@@ -610,35 +605,6 @@ function App() {
 - **Read-only** - child can't change props
 - Like **function parameters** but for components
 
-
----
-
-# Component Types 
-
-## 1. **Function Components** (Modern & Recommended):
-```jsx
-function Welcome({ name }) {
-  return <h1>Hello, {name}!</h1>;
-}
-```
-
-## 2. **Arrow Function Components**:
-```jsx
-const Welcome = ({ name }) => {
-  return <h1>Hello, {name}!</h1>;
-};
-```
----
-
-# Component Types 
-## 3. **Class Components** (Older, still works):
-```jsx
-class Welcome extends React.Component {
-  render() {
-    return <h1>Hello, {this.props.name}!</h1>;
-  }
-}
-```
 
 ---
 
