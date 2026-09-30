@@ -30,7 +30,7 @@ Your submission must include the following slides:
   - At least three distinct types of users (three roles) who will interact with your application.
 - Functionalities for Each User Type:
   - Provide a list of key functionalities each user type can perform (e.g., "Admins can delete user accounts", "Admins can edit the user accounts information", "Users can browse and purchase items", etc.).
-  - For each role needs to have `2 x number of people in your team` functionally. For example, if your team consist of 5 people then you need to have at 10 functionalities.
+  - For each role needs to have `2 x number of people in your team` functionally. For example, if your team consist of 4 people then 4 members x 3 roles (min) X 2 functionalities= 24 functionalities .
   - Note: you can review the well-known concept in software engineering, which is **use case**.
 - Storyboard Sketch ([See example](https://www.nngroup.com/articles/storyboards-visualize-ideas/)):
   - Imagine a real use case where your solution will solve a real world problem.
