@@ -11,10 +11,10 @@
 | 4.2 JS Advanved | Objects, Map, String Object, Date & Math Objects, Exception Handling, Regular Expressions | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/4-2-js-advance/accept?k=swe363) |
 | 5.1 DOM Manipulation and API | DOM manipulation, fetch from json, third party API | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/5-1-dom-manipulation-and-api/accept?k=swe363) |
 | 5.2 React Starter | Intro to React, JSX syntax, components, props, rendering | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/5-2-react-starter/accept?k=swe363) |
-| 5.3 More React | Event handling, States | [View Exercise]() |
-| 5.4 More React | Conditional rendering, Lists | [View Exercise]() |
-| 5.5 React Advance | Forms, Controlled inputs, Routes | [View Exercise]() |
-| 5.6 React Styling & Fetching | CSS, Bootstrap, Fetch data | [View Exercise]() |
+| 5.3 More React | Event handling, States | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/5-3-more-react/accept?k=swe363) |
+| 5.4 More React | Conditional rendering, Lists | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/5-4-more-react/accept?k=swe363) |
+| 5.5 React Advance | Forms, Controlled inputs, Routes | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/5-5-react-advance/accept?k=swe363) |
+| 5.6 React Styling & Fetching | CSS, Bootstrap, Fetch data | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/5-6-react-styling-and-fetching/accept?k=swe363) |
 | 6.1 Back-end Fundamentals | full-stack fundamentals, node, express, routes, server, data flow | [View Exercise]() |
 | 6.2 Introduction to Node | node, modules, package.json files | [View Exercise]() |
 | 6.3 Express | express, middleware functions, routes, cors, request & response | [View Exercise]() |
