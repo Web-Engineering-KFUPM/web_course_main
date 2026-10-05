@@ -97,7 +97,7 @@ footer: 'SWE 363 | 252 | KFUPM'
 
 # Announcements 📣
 - Phase 3 of the project is due this week Saturday at 11:59 PM
-- Quiz 2 (React) on Monday, **March 9th**
+- Quiz 2 (React) on Monday, **October 26th**
 
 ---
 

@@ -97,9 +97,9 @@ footer: 'SWE 363 | 252 | KFUPM'
 
 # Announcements 📣
 - Midterm Exam 
-  - Date: April 2nd
-  - Time: 7:00-9:00 (pm)
-  - Location: B22 (Rooms 119, 125,127, 130, 134)
+  - Date: October 29th
+  - Time: 5:30-7:00 (PM)
+  - Location: B57 Rooms 321, 323 
 - Command to get process access in the lab PCs
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
@@ -401,25 +401,22 @@ setName('John');
 const [age, setAge] = useState(0);
 setAge(25);
 ```
----
-
-# State with Different Data Types
 
 ### Boolean State:
 ```jsx
 const [isVisible, setIsVisible] = useState(false);
 setIsVisible(true);
 ```
+---
 
+# State with Objects
 ### Array State:
 ```jsx
 const [items, setItems] = useState([]);
 setItems(['item1', 'item2']);
 ```
 
----
 
-# State with Objects
 
 ### Object State:
 ```jsx
