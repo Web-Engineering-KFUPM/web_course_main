@@ -93,12 +93,11 @@ style: |
       padding: 20px;
     }
 footer: 'SWE 363 | 252 | KFUPM'
+
 ---
 
 # Announcements
-- Quiz 2 (React) on Monday, **March 9th**
-
-
+- Portfolio Assignment 2 is due **Saturday 11:59PM**
 ---
 
 

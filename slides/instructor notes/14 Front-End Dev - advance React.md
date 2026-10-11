@@ -95,11 +95,6 @@ style: |
 footer: 'SWE 363 | 252 | KFUPM'
 ---
 
-# Announcements
-- Quiz 2 (React) on Monday, **March 9th**
-- Portfolio Assignment 2 due on **March 14th**
----
-
 
 Web Engineering & Development (SWE 363) 
 # Interactive Front-End Development
