@@ -1,4 +1,4 @@
-# SWE 363 - 261 Course Assignments
+# SWE 363 - 261 AI-assisted Protfolio Assignments
 
 The purpose of these course assignments is to provide you aspiring developers with practical experience in web development through hands-on projects that incorporate AI-assisted development techniques. Each assignment builds upon the previous one, creating a comprehensive learning experience that prepares you for real-world web development challenges.
 
