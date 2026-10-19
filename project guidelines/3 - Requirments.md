@@ -1,9 +1,9 @@
-# Milestone 3️⃣ Requirements
+# Milestone 3 Requirements
 
-## 🎯 Objective:
+## Objective:
 Define the foundational requirements of your web application by identifying its motivation, target users, and key functional and non-functional requirements. Develop clear and actionable wireframes to visually represent the system's layout and functionality.
 
-## 🥋 Instructions:
+## Instructions:
 
 ### 1. Motivation:
 - Provide a brief description (1–2 paragraphs) of the main motivation behind your project.
@@ -66,7 +66,7 @@ Develop a list of requirements for your application, divided into the following 
           3. Guest follows the User Registration steps described above.
       - and so on..
 
-📌 Note: Each functionality should include:
+Note: Each functionality should include:
   - A normal flow of actions (step-by-step process).
   - Validation points (e.g., checking unique email during registration).
   - System responses (e.g., confirmation messages, database updates).
@@ -114,11 +114,23 @@ Note:
      - Non-functional requirements and constraints.
   4. Wireframes: Clear sketches or digital designs covering all **main parts** of the system. Put the protoype (e.g.Figma's URL) so we are able to evaluate easily
 - Submit the PDF via Blackboard under the designated submission area.
+- The **AI Usage Declaration** (see below).
 
-### Late Submission Policy:
-- Late submissions are not allowed unless there is a valid execuse.
+## AI Usage Declaration:
+- Every submission for this milestone **must** include an AI Usage Declaration, following the [AI Usage Guidelines](./0%20-%20AI%20Usage%20Guidelines.md).
+- Submit via Blackboard:
+  1. `Team [N] SWE 363-[SEC] - Phase 1 - AI Declaration.pdf`, with an individual declaration from **every** team member, signed by all members.
+  2. `Team [N] SWE 363-[SEC] - Phase 1 - AI Evidence.zip`, containing **full copies of all AI conversations and intermediate artifacts** (required if any member used AI).
+- If no member used AI, you must still submit the declaration, with each member choosing the **"I did not use any AI tools"** option.
+- **No declaration = 0 for this milestone.** A declaration that reports AI use without the full conversations and artifacts is treated as missing.
+- A false "No AI" declaration, or undeclared AI use, will be treated as a **plagiarism case** and handled according to KFUPM regulations.
 
-## 📊 Grading Rubric:
+
+## Grading Rubric:
+> The AI Usage Declaration is a mandatory requirement. Without it, the grade for this milestone is **0**, regardless of the rubric below.
+
+> Late submissions are not allowed unless there is a valid execuse.
+
 The submission will be graded out of 100 points, divided as follows:
 
 | **Criteria (Points)** | **Excellent (90-100%)** | **Very Good (80-89%)** | **Good (70-79%)** | **Acceptable (60-69%)** | **Poor (0-59%)** |
@@ -142,7 +154,6 @@ A: No. At this milestone, you only need to create either a desktop or mobile ver
 **Q: What counts as "medium-fidelity" for wireframes?**  
 A: Medium-fidelity means more than simple sketches: include clear screen structure, defined content placement, UI components (buttons, inputs, navigation, modals), and annotations for interactions (clickable areas, dropdowns, validation messages). You do not need final colors or detailed styling.
 ![Medium-fidelity wireframes](https://d3h2k7ug3o5pb3.cloudfront.net/image/2020-12-07/2dc08460-3876-11eb-bcbe-7daa1ab28fd4.jpg)
-![Medium-fidelity wireframes](https://mentormate.com/wp-content/uploads/2018/05/all-wireframes-1030x585.jpg)
 
 
 **Q: Can we use tools other than Figma for wireframes?**  
@@ -153,6 +164,9 @@ The following are examples of prototyping tools that you can use:
 
 **Q: How detailed should the step-by-step flows in functional requirements be?**  
 A: Each functionality should include a normal flow (numbered steps), validation points (e.g., unique email, password strength), and system responses (e.g., confirmations, error messages). Enough detail so that someone can understand how the feature works in practice.
+
+**Q: Do we need to submit an AI Usage Declaration if we did not use AI?**  
+A: Yes. Every member must declare "I did not use any AI tools" and sign. Without a declaration, the grade for this milestone is 0. See the [AI Usage Declaration Guidelines](./0%20-%20AI%20Usage%20Guidelines.md).
 
 **Q: What if we submit late?**  
 A: Late submissions are not allowed unless there is a valid excuse. Contact your instructor as early as possible if you have exceptional circumstances.

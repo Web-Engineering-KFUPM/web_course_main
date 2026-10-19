@@ -1,9 +1,9 @@
-# Milestone 7️⃣ Project Documentation (Demo and Report)
+# Milestone 7 Project Documentation (Demo and Report)
 
-## 🎯 Objective:
+## Objective:
 Deliver a comprehensive final presentation of your project, showcasing its features, functionality, and technical implementation. This milestone combines a demo video and a final report to evaluate the project's outcomes, the development process, and team contributions.
 
-## 🥋 Instructions:
+## Instructions:
 
 ### 1. Demo Video:
 - Plan Your Demo:
@@ -19,10 +19,6 @@ Deliver a comprehensive final presentation of your project, showcasing its featu
     - Technical Insights: Briefly explain how major functionalities are implemented.
   - Use screen recording tools (e.g., OBS, Camtasia, or built-in OS recorders).
   - Ensure good audio and video quality.
-
-- Submission:
-  - Upload the video to YouTube (set visibility to "Unlisted" or "Public").
-  - Submit the YouTube link via Blackboard.
 
 ### 2. Final Report:
 Prepare a professional PDF report (use consistent formatting and structure) covering the following sections:
@@ -61,12 +57,33 @@ Prepare a professional PDF report (use consistent formatting and structure) cove
   - Contributions made by each team member.
   - Hours spent on each task.
 
-### 3. Submission Guidelines:
-- Upload the following to Blackboard:
-  1. YouTube Link: Submit the URL of your demo video.
-  2. PDF Report: Upload the final report in PDF format.
+#### h. AI Usage Statement:
+- Summarize how AI tools were used across the **whole project** (Milestones 1–7): which tools, for what purposes, and which parts of the system or documents were affected.
+- Reflect briefly on what worked well with AI, where it produced errors, and how your team verified its output.
+- Reference your `AI_USAGE.md` file and the AI declarations submitted in each milestone.
 
-## 📊 Grading Rubric:
+### 3. Submission Guidelines:
+
+#### 3.1 Demo Video:
+- Upload the video to YouTube (set visibility to "Unlisted" or "Public").
+- Submit the YouTube link via Blackboard.
+
+#### 3.2 Final Report:
+- Upload the final report in PDF format to Blackboard.
+
+#### 3.3 AI Usage Declaration (Required):
+- Every submission for this milestone **must** include an AI Usage Declaration, following the [AI Usage Declaration Guidelines](./0%20-%20AI%20Usage%20Guidelines.md).
+- Submit via Blackboard:
+  1. `Team [N] SWE 363-[SEC] - Phase 7 - AI Declaration.pdf`, with an individual declaration from **every** team member, signed by all members.
+  2. `Team [N] SWE 363-[SEC] - Phase 7 - AI Evidence.zip`, containing **full copies of all AI conversations and intermediate artifacts** (required if any member used AI).
+- Declare any AI used for the **report** (writing, editing, translation) and for the **demo video** (script, voice-over, editing, subtitles, generated visuals).
+- If no member used AI, you must still submit the declaration, with each member choosing the **"I did not use any AI tools"** option.
+- **No declaration = 0 for this milestone.** A declaration that reports AI use without the full conversations and artifacts is treated as missing.
+- A false "No AI" declaration, or undeclared AI use, will be treated as a **plagiarism case** and handled according to KFUPM regulations.
+
+## Grading Rubric:
+> The AI Usage Declaration is a mandatory requirement. Without it, the grade for this milestone is **0**, regardless of the rubric below.
+
 The submission will be graded out of 100 points, divided as follows:
 
 | **Criteria (Points)** | **Excellent (90-100%)** | **Very Good (80-89%)** | **Good (70-79%)** | **Acceptable (60-69%)** | **Poor (0-59%)** |

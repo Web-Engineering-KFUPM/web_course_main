@@ -1,9 +1,9 @@
-# Milestone 5️⃣ Back-End Implementation
+# Milestone 5 Back-End Implementation
 
-## 🎯 Objective:
+## Objective:
 Develop the back-end of your web application using Node.js and Express.js. Integrate a MongoDB database to manage your application data. This milestone focuses on building and implementing the server-side logic, database interactions, and APIs required for your application.
 
-## 🥋 Instructions:
+## Instructions:
 
 ### 1. Back-End Implementation:
 - Use Node.js and Express.js as your back-end framework to implement the functionality defined in your project requirements (Milestone 3).
@@ -18,39 +18,55 @@ Develop the back-end of your web application using Node.js and Express.js. Integ
 - Implement error handling and return appropriate HTTP status codes for success and failure scenarios.
 
 ### 3. Repository Management:
+
+#### 3.1 Collaboration:
 - Use the same GitHub repository created for the project.
-  - Push all back-end code to the repository.
-  - Ensure proper folder structure. Actually there is no the correct folder structure for every NodeJS project because every project has their own characteristic. But please consider these references to structuring your files:
-      - [Reference 1](https://mr-alien.medium.com/folder-structure-for-nodejs-expressjs-project-56be9ec35548)
-      - [Reference 2](https://blog.logrocket.com/organizing-express-js-project-structure-better-productivity/)
-      - [Reference 3](https://www.geeksforgeeks.org/folder-structure-for-a-node-js-project/)
-      - [Reference 4](https://medium.com/@ibrahimhz/my-node-js-express-js-project-folder-structure-for-maintainability-and-scalability-2c578eb863f2)
-      - [Reference 5](https://dev.to/nermine-slimane/how-to-structure-your-express-and-nodejs-project-3bl)
+- Contributions will be monitored via GitHub, so ensure all team members participate actively in coding. We can see the contributors from the Github's commit histories.
+
+#### 3.2 Documentation:
+- Update the README.md to include:
+  - Clear instructions for setting up and running the back-end server.
+  - Details about the environment variables required for the database connection or other configurations.
+  - API documentation (routes, methods, request/response structure), including example requests and responses.
+
+#### 3.3 Best Practices:
+- Ensure proper folder structure. Actually there is no the correct folder structure for every NodeJS project because every project has their own characteristic. But please consider these references to structuring your files:
+    - [Reference 1](https://mr-alien.medium.com/folder-structure-for-nodejs-expressjs-project-56be9ec35548)
+    - [Reference 2](https://blog.logrocket.com/organizing-express-js-project-structure-better-productivity/)
+    - [Reference 3](https://www.geeksforgeeks.org/folder-structure-for-a-node-js-project/)
+    - [Reference 4](https://medium.com/@ibrahimhz/my-node-js-express-js-project-folder-structure-for-maintainability-and-scalability-2c578eb863f2)
+    - [Reference 5](https://dev.to/nermine-slimane/how-to-structure-your-express-and-nodejs-project-3bl)
   - Structuring your files is benefiting you when you are working on large group and real-world project.
-  - Update the README.md to include:
-    - Instructions for running the back-end server.
-    - Details about the environment variables required for the database connection or other configurations.
-    - API documentation (routes, methods, request/response structure).
+- Follow best practices for version control:
+  - Make regular commits with clear commit messages.
+  - Avoid pushing sensitive information (e.g., API keys, database credentials) to the repository.
+  - Use `.gitignore` to exclude unnecessary files like `node_modules` and sensitive configuration files.
 
 ### 4. Integration:
 - Ensure your back-end APIs can communicate effectively with the front-end prototype developed in Milestone 4.
 - Test all API endpoints using tools like **[Postman](https://www.postman.com/downloads/) or cURL** before integrating them with the front end. To get to know quickly about Postman and cURL, kindly check the tutorial [here Postman](https://www.geeksforgeeks.org/postman-tutorial/) and [here (cURL)](https://www.geeksforgeeks.org/using-curl-to-make-rest-api-requests/).
 
 ### 5. Submission Guidelines:
-- Push all code changes to the GitHub repository created for your project.
-- Update the README.md file with:
-  - Clear instructions for setting up and running the back-end.
-  - API documentation, including example requests and responses.
+
+#### 5.1 Code:
+- Push all back-end code changes to the GitHub repository created for your project.
 - Submit the GitHub repository link via Blackboard under the designated assignment.
 
-### 6. Notes:
-- Follow best practices for version control:
-  - Make regular commits with clear commit messages.
-  - Avoid pushing sensitive information (e.g., API keys, database credentials) to the repository.
-  - Use `.gitignore` to exclude unnecessary files like `node_modules` and sensitive configuration files.
-- Contributions will be monitored via GitHub, so ensure all team members participate actively in coding. We can see the contributors from the Github's commit histories.
+#### 5.2 AI Usage Declaration:
+- Every submission for this milestone **must** include an AI Usage Declaration, following the [AI Usage  Guidelines](./0%20-%20AI%20Usage%20Guidelines.md).
+- Submit via Blackboard:
+  1. `Team [N] SWE 363-[SEC] - Phase 5 - AI Declaration.pdf`, with an individual declaration from **every** team member, signed by all members.
+  2. `Team [N] SWE 363-[SEC] - Phase 5 - AI Evidence.zip`, containing **full copies of all AI conversations and intermediate artifacts** (required if any member used AI).
+- In your GitHub repository, **append** a **"Phase 5 – Back-End"** section to `AI_USAGE.md` (do not overwrite the Phase 4 section).
+- **Never** paste database connection strings, API keys, or `.env` content into AI tools or into the logs. Redact them as `[REDACTED]`.
+- If no member used AI, you must still submit the declaration, with each member choosing the **"I did not use any AI tools"** option, and state this in `AI_USAGE.md`.
+- **No declaration = 0 for this milestone.** A declaration that reports AI use without the full conversations and artifacts is treated as missing.
+- A false "No AI" declaration, or undeclared AI use, will be treated as a **plagiarism case** and handled according to KFUPM regulations.
+- Every member must be able to explain the code they committed, including AI-assisted code.
 
-## 📊 Grading Rubric:
+## Grading Rubric:
+> The AI Usage Declaration is a mandatory requirement. Without it, the grade for this milestone is **0**, regardless of the rubric below.
+
 The submission will be graded out of 100 points, divided as follows:
 
 | **Criteria (Points)** | **Excellent (90-100%)** | **Very Good (80-89%)** | **Good (70-79%)** | **Acceptable (60-69%)** | **Poor (0-59%)** |

@@ -1,9 +1,9 @@
-# Milestone 2️⃣ Project Proposal
+# Milestone 2 Project Proposal
 
-## 🎯 Objective:
+## Objective:
 Develop and present a well-defined project proposal that outlines your team's web application idea. The proposal must articulate the problem your application aims to solve, identify its target users, and provide an overview of the system's intended functionalities and use cases.
 
-## 🥋 Instructions:
+## Instructions:
 
 ### 1. Define/Review the Project Idea:
 - Based on the previous milestone submission, finalize your team idea that addresses a real-world problem and provides meaningful value to its users.
@@ -44,13 +44,21 @@ Your submission must include the following slides:
   - High-Level Description (Users, Functionalities, and Storyboard Sketch).
 - Ensure your submission is professional, clear, and concise.
 - Late submissions are not allowed unless there is a valid execuse.
+- The **AI Usage Declaration** (see below).
 
-## 💡 FAQs
+## AI Usage Declaration:
+- Every submission for this milestone **must** include an AI Usage Declaration, following the [AI Usage Guidelines](./0%20-%20AI%20Usage%20Guidelines.md).
+- Submit via Blackboard:
+  1. `Team [N] SWE 363-[SEC] - Phase 1 - AI Declaration.pdf`, with an individual declaration from **every** team member, signed by all members.
+  2. `Team [N] SWE 363-[SEC] - Phase 1 - AI Evidence.zip`, containing **full copies of all AI conversations and intermediate artifacts** (required if any member used AI).
+- If no member used AI, you must still submit the declaration, with each member choosing the **"I did not use any AI tools"** option.
+- **No declaration = 0 for this milestone.** A declaration that reports AI use without the full conversations and artifacts is treated as missing.
+- A false "No AI" declaration, or undeclared AI use, will be treated as a **plagiarism case** and handled according to KFUPM regulations.
 
-- **What is an acceptable scope for the project, in terms of ideas?**
-Something useful that covers the basic web concepts and requires ~100 hours to complete (collectively by all members)
 
-## 📊 Grading Rubric:
+## Grading Rubric:
+> The AI Usage Declaration is a mandatory requirement. Without it, the grade for this milestone is **0**, regardless of the rubric below.
+
 The submission will be graded out of 100 points, divided as follows:
 
 | **Criteria (Points)** | **Excellent (90-100%)** | **Very Good (80-89%)** | **Good (70-79%)** | **Acceptable (60-69%)** | **Poor (0-59%)** |
@@ -62,3 +70,8 @@ The submission will be graded out of 100 points, divided as follows:
 | **Storyboard Sketch (15)** | Highly detailed, realistic, and relevant storyboard showcasing a practical use case. | Clear and relevant, but slightly less detailed or realistic. | Adequate storyboard but lacks depth or connection to a real-world scenario. | Minimal storyboard provided, with unclear or irrelevant context. | No storyboard, or it is entirely unrelated to the project. |
 | **Uniqueness of Idea (15)** | The idea is highly original, presents a novel approach, and offers a clear competitive advantage. | The idea is somewhat unique, with minor similarities to existing solutions but notable improvements. | The idea has some originality but is largely similar to existing solutions with limited differentiation. | The idea shows minimal originality, relying heavily on existing concepts without meaningful innovation. | The idea is entirely unoriginal, lacks differentiation, or is a direct replication of existing solutions. |
 | **File Formatting (10)** | Slides are exceptionally professional, well-organized, and adhere fully to guidelines. | Slides are professional and well-organized, with minor formatting issues. | Slides are adequately organized but lack visual appeal or have minor formatting errors. | Slides are poorly organized or fail to follow several formatting guidelines. | Slides are disorganized, unprofessional, or completely ignore submission guidelines. |
+
+## FAQs
+
+- **What is an acceptable scope for the project, in terms of ideas?**
+Something useful that covers the basic web concepts and requires ~100 hours to complete (collectively by all members)

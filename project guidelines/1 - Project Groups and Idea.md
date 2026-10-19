@@ -1,9 +1,9 @@
-# Milestone 1️⃣ Project Groups and Idea
+# Milestone 1 Project Groups and Idea
 
-## 🎯 Objective:
+## Objective:
 Establish project teams and define the initial idea for your web application project. Make sure your team already has an idea of what they want to do for this project. The ideas collected at this initial milestone are not something that is rigid because we want to know at least an initial picture of the project you are making. Make sure your project idea at the second milestone are final and approved by all team members. 
 
-## 🥋 Instructions:
+## Instructions:
 
 1. Group Formation:
    - Join a project group through the Blackboard Common Section.
@@ -35,8 +35,20 @@ Establish project teams and define the initial idea for your web application pro
       - `Team 3 SWE 363-02.pdf`
       - `Team 2 SWE 363-F06.pdf`
    - Late submissions are not allowed unless there is a valid execuse.
+   - The **AI Usage Declaration** (see below) is submitted as a separate file and does not count toward the 1-page limit.
 
-## 💯 Grading policy:
+## AI Usage Declaration:
+- Every submission for this milestone **must** include an AI Usage Declaration, following the [AI Usage Guidelines](./0%20-%20AI%20Usage%20Guidelines.md).
+- Submit via Blackboard:
+  1. `Team [N] SWE 363-[SEC] - Phase 1 - AI Declaration.pdf`, with an individual declaration from **every** team member, signed by all members.
+  2. `Team [N] SWE 363-[SEC] - Phase 1 - AI Evidence.zip`, containing **full copies of all AI conversations and intermediate artifacts** (required if any member used AI).
+- If no member used AI, you must still submit the declaration, with each member choosing the **"I did not use any AI tools"** option.
+- **No declaration = 0 for this milestone.** A declaration that reports AI use without the full conversations and artifacts is treated as missing.
+- A false "No AI" declaration, or undeclared AI use, will be treated as a **plagiarism case** and handled according to KFUPM regulations.
+
+## Grading policy:
+> The AI Usage Declaration is a mandatory requirement. Without it, the grade for this milestone is **0**, regardless of the rubric below.
+
 The submission will be graded out of 100 points, based on the following criteria:
 
 | **Criteria** | **Excellent (90-100%)** | **Very Good (80-89%)** | **Good (70-79%)** | **Acceptable (60-69%)** | **Poor (0-59%)** |
@@ -47,5 +59,5 @@ The submission will be graded out of 100 points, based on the following criteria
 | **5 Main Features (20 points)** | All 5 features are described with high clarity, relevance, and practicality for the target audience. | 5 features are described with good clarity and relevance, but with minor gaps in practicality. | 5 features are listed, but some may be vague or not fully practical for the target audience. | Less than 5 features, or the ones included are unclear or not relevant to the target audience. | Missing or incomplete features; features are irrelevant or impractical for the target audience. |
 | **Relevance to Target Audience (10 points)** | The project idea is highly relevant and tailored to the specific needs of the target audience. | The project is mostly relevant to the target audience, with some minor mismatches. | The idea is relevant but could be better tailored to meet audience needs. | The project idea has limited relevance to the target audience. | The project idea is not relevant to the target audience at all. |
 
-### 📝 Postscript:
+### Postscript:
 If you do this project seriously then this will be one of the good portfolios for you and make it easier for you in the selection/recruitment process, God willing. This project also will be evaluated by teaching assistants who have experience in the industry as software engineers. Best of luck!

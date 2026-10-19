@@ -4,113 +4,55 @@
 
 The purpose of the term project is to provide students with the opportunity to put into practice the knowledge and skills they've gained in the classroom by engaging in a real-world project.
 
-This project will be conducted in groups comprising 5 students. Each group is tasked with choosing a Web Application project that piques their interest. It is imperative that you adhere to industry best practices throughout the development process to ensure the delivery of a high-quality product, one that can readily accommodate future feature enhancements or be adapted for use in related contexts.
+This project will be conducted in groups. Each group is tasked with choosing a Web Application project that piques their interest. It is imperative that you adhere to industry best practices throughout the development process to ensure the delivery of a high-quality product, one that can readily accommodate future feature enhancements or be adapted for use in related contexts.
 
 ## Phases
 
-| Phase              | Milestone                   | Weight (%) | Due     | Deliverables                           |
-|--------------------|-----------------------------|--------|---------|----------------------------------------|
-| 1                  | Project Groups and Idea     | 8%      | Week 3  | Join a group in BB + Fill Contract     |
-| 2                  | Project Proposal            | 8%      | Week 5  | Submit Slides (.ppt)                   |
-| 3                  | Project Requirments         | 8%      | Week 7  | Submit Slides (.ppt)                   |
-| 4                  | Project Front_End           | 32%      | Week 11 | Push to Github + submit github repo    |
-| 5                  | Project Back_End            | 28%     | Week 15 | Push to Github                         |
-| 6                  | Project Deployment          | 4%      | Week 15 | Submit Domain link                     |
-| 7                  | Project Documentation       | 12%      | Week 16 | Submit Demo and report                 |
+| Phase | Milestone | Weight (%) | Due | Deliverables |
+|-------|-----------|------------|-----|--------------|
+| 1 | [Project Groups and Idea](project%20guidelines/1%20-%20Project%20Groups%20and%20Idea.md) | 8% | Week 3 | Join a group in BB + Team contract form + Idea description (.pdf) + AI Declaration |
+| 2 | [Project Proposal](project%20guidelines/2%20-%20Project%20Proposal.md) | 8% | Week 5 | Proposal slides (.pdf) + AI Declaration |
+| 3 | [Project Requirements](project%20guidelines/3%20-%20Requirments.md) | 8% | Week 7 | Requirements document with wireframes (.pdf) + AI Declaration |
+| 4 | [Project Front-End](project%20guidelines/4%20-%20Front_End%20Prototype.md) | 32% | Week 11 | GitHub repository link + Figma link (optional) + AI Declaration |
+| 5 | [Project Back-End](project%20guidelines/5%20-%20Back_End.md) | 28% | Week 15 | GitHub repository link + AI Declaration |
+| 6 | [Project Deployment](project%20guidelines/6%20-%20Deployment.md) | 4% | Week 15 | Live application URL + Short video + AI Declaration |
+| 7 | [Project Documentation](project%20guidelines/7%20-%20Project%20documentation.md) | 12% | Week 16 | Demo video (YouTube link) + Final report (.pdf) + AI Declaration |
+
+## AI Usage Declaration (Required for All Phases)
+- Every phase submission **must** include an AI Usage Declaration from every team member, following the [AI Usage Guidelines](project%20guidelines/0%20-%20AI%20Usage%20Guidelines.md) and using the [AI Declaration Template](project%20guidelines/0%20-%20AI%20Declaration%20Template.md).
+- If AI was used, the declaration must include **full copies of the AI conversations and the intermediate artifacts**.
+- If AI was not used, every member must still **explicitly declare** that no AI tools were used.
+- **A phase submitted without a declaration receives a grade of 0.**
+- A false "No AI" declaration, or undeclared AI use, will be treated as a **plagiarism case** and handled according to KFUPM regulations.
 
 ## Project Phases Details
+Each phase has its own guidelines file with full instructions, submission requirements, and grading rubric.
 
-### 1. Team Formation
-- Join a group in the Blackboard common section with all team members.
-- Fill the team contract form after you create a group in BB (https://forms.office.com/r/2LbQWckmv8) 
-- All Team members should be in the same section. 
-- Each team should consist of 3-4 members. 
-  
-### 2. Proposal
-- Think of an idea that contributes to solving a real problem AND can be built during the semester (be ambitious and realistic).
-- Submit a PowerPoint presentation in blackboard that includes the following parts:
-  - **Project Title**
-  - **Team Members**
-  - **Executive Summary**: A brief one-paragraph description of the work you are proposing. It must describe what you are planning to do, not how you are going to implement it.
-  - **High-Level Description**: Include the following:
-    - Users of the system
-    - Functionalities for each user type
-    - A storyboard sketch of a real scenario where a real person uses your system in a real context.
-   
-#### FAQs
+### 1. [Project Groups and Idea](project%20guidelines/1%20-%20Project%20Groups%20and%20Idea.md)
+- Form a group of 3-4 members (same section or same instructor) in Blackboard and fill the team contract form.
+- Submit a 1-page description of your initial idea, its features, and its target users.
 
-- **What is an acceptable scope for the project, in terms of ideas?**
-Something useful that covers the basic web concepts and requires ~100 hours to complete (collectively by all members)
+### 2. [Project Proposal](project%20guidelines/2%20-%20Project%20Proposal.md)
+- Finalize an idea that solves a real-world problem and can be built during the semester.
+- Submit slides (as PDF) with the executive summary, user types, functionalities for each user type, and a storyboard sketch.
 
-- **How many categories of users are required?** It needs to have at least two user categories.
+### 3. [Requirements](project%20guidelines/3%20-%20Requirments.md)
+- Submit a PDF with the project motivation, user categories, functional and non-functional requirements, and medium-fidelity wireframes (with a prototype link).
 
-- **What is the range of functionalities expected? Is there a specific number of features/functionalities required?** 
-- At least 2 functionalities for each group member.
+### 4. [Front-End Implementation](project%20guidelines/4%20-%20Front_End%20Prototype.md)
+- Implement a fully interactive, responsive front-end using React, based on your Figma design.
+- Use a shared GitHub repository with all members contributing from their own accounts.
 
-- **Can you provide an example of what the wireframes should look like?**
+### 5. [Back-End Implementation](project%20guidelines/5%20-%20Back_End.md)
+- Implement RESTful APIs using Node.js and Express, with MongoDB as the database, and integrate them with the front-end.
+- Push your code to the same GitHub repository.
 
-There is no one way to do wireframes, but google wireframes, and you will find various approaches. In general, a good wireframe should:
+### 6. [Deployment](project%20guidelines/6%20-%20Deployment.md)
+- Deploy the front-end and back-end to any hosting platform and submit the URL of the live application.
 
-1. Visually represent the structure of a page or screen without focusing on the final look.
-2. Include the placement of key elements, such as headers, buttons, forms, images, and navigation menus.
-3. Keep things simple by focusing on functionality and layout rather than design details like color or fonts.
-4. Provide an idea of how the user interacts with the interface, showing the path they will follow.
-5. Label all elements clearly so that both designers and developers understand what each element is.
-
-
-### 3. Requirements
-- Submit a PDF file that includes the following:
-  - **Identification of the project's main motivation.**
-  - **Users of the web app**: Define user categories and develop descriptions for each category.
-  - **Requirements Modeling**:
-    - Elicit all functional requirements.
-    - Elicit all non-functional requirements and constraints (internal and external).
-  - **Wireframe**: Use one of the design tools (Pencil and paper accepted) to sketch the wireframe of your web app.
-    - Your wireframes should be clearly sketched and covers all part of the system (imagine you will hand them to a UI designer)
-  - **Note**: Your scope should cover the basic concepts covered in class, such as forms, responsiveness, use of APIs, a database, a back-end. Too simple ideas will be rejected.
-
-### 4. Front-End Implementation
-- Based on your wireframes (and optionally a Figma design), implement the front-end part of your system using HTML, CSS, and JavaScript.
-- You are free to use any CSS framework such as Bootstrap, Tailwind, etc.
-- You are required to use React as the front-end framework.
-- Create a GitHub repository for your project and submit the link to blackboard.
-- Make sure to document your repository clearly.
-- Create a github repository with all of the team members added.
-- Submit your repositoty link to BB assignment.
-- Push your code to GitHub before the deadline (Make sure to ignore libraries and sensitive information).
-- Notes:
-  - Make sure that you github repository is documented very well (including installation instrutions).
-  - Make sure to ignore libraries and sensitive information.
-  - The contribution of each team member will be graded from github's contribution to the repository (don't push from one account).
-
-
-### 5. Back-End Implementation
-- Based on your requirements, implement your functionality using NodeJS and Express.
-- You have to use MongoDB as the Database. 
-- Push your code to your same repository.
-- Same notes for previous phase apply.
-
-### 6. Deployment
-- Use any deployment platform to publish your website (Make it real!!!!!).
-- You are free to use any platform.
-- Submit the link of your live website to BB.
-
-### 7. Documentation
-- **Demo**
-  - Before you start recording, plan your demo very well (imagine yourself in a conference in front of a large audience).
-  - Record a 5 to 7-minute long video showing the different parts of your project.
-  - The video should follow a narrative that highlights the core value of your system AND explain the technical part.
-  - Upload the video to YouTube and submit a link to blackboard.
-- **Final Report**
-  - Submit a report (.pdf) that contains the following:
-    - **Technologies and Tools**: Specify clearly the technologies and tools used in the project (for instance: HTML, CSS, JavaScript, NodeJS, etc.).
-    - **GUI Screen Shots**: Include screenshots of the main screens.
-    - **Source Code**: Snapshot of the important parts of the source code (few pages) to describe the main scenario(s).
-    - **Open source code reusability**: If you have integrated any existing code or used any framework, mention it here clearly.
-    - **Learnings from the project**.
-    - **Limitations of your work**.
-    - **What would you do differently if you had more time**.
-    - **Time-sheet**: A worksheet describing the implementation timeline and the tasks of each team member.
+### 7. [Documentation](project%20guidelines/7%20-%20Project%20documentation.md)
+- Record a 5 to 7-minute demo video and upload it to YouTube.
+- Submit a final report (PDF), including an AI Usage Statement covering the whole project.
 
 ## Conclusion
 

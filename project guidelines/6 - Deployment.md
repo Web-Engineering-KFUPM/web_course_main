@@ -1,9 +1,9 @@
-# Milestone 6️⃣ Deployment of the Final Application
+# Milestone 6 Deployment of the Final Application
 
-## 🎯 Objective:
+## Objective:
 Deploy your web application to a live environment, making it accessible to users via a public URL. This milestone focuses on ensuring your project is fully functional, accessible online, and represents a polished, production-ready version of your application.
 
-## 🥋 Instructions:
+## Instructions:
 
 ### 1. Deployment Platform:
 - Deploy your application on **any hosting platform of your choice**. Examples include:
@@ -34,13 +34,30 @@ Deploy your web application to a live environment, making it accessible to users
   - The application performs well under typical usage (both in mobile and desktop views).
 
 ### 5. Submission Guidelines:
+
+#### 5.1 Live Application:
 - Submit the URL of your live application via Blackboard under the designated assignment.
 - Ensure the URL is accessible to anyone with the link (no authentication required to view the main page).
 - If applicable, include any additional credentials (e.g., demo user login details) in the submission to facilitate testing.
 - It’s fine if there are still some bugs or small features that are not finished. As long as you tell us where they are, what is the solution to it's problem, and all of it can be resolved before the presentation day.
+
+#### 5.2 Video:
 - Short video about how to use your website properly.
 
-## 📊 Grading Rubric:
+#### 5.3 AI Usage Declaration (Required):
+- Every submission for this milestone **must** include an AI Usage Declaration, following the [AI Usage Declaration Guidelines](./0%20-%20AI%20Usage%20Guidelines.md).
+- Submit via Blackboard:
+  1. `Team [N] SWE 363-[SEC] - Phase 6 - AI Declaration.pdf`, with an individual declaration from **every** team member, signed by all members.
+  2. `Team [N] SWE 363-[SEC] - Phase 6 - AI Evidence.zip`, containing **full copies of all AI conversations and intermediate artifacts** (required if any member used AI).
+- In your GitHub repository, **append** a **"Phase 6 – Deployment"** section to `AI_USAGE.md`.
+- **Never** paste production secrets (environment variables, database URIs, API keys, hosting tokens) into AI tools or into the logs. If a secret was exposed, rotate it immediately.
+- If no member used AI, you must still submit the declaration, with each member choosing the **"I did not use any AI tools"** option, and state this in `AI_USAGE.md`.
+- **No declaration = 0 for this milestone.** A declaration that reports AI use without the full conversations and artifacts is treated as missing.
+- A false "No AI" declaration, or undeclared AI use, will be treated as a **plagiarism case** and handled according to KFUPM regulations.
+
+## Grading Rubric:
+> The AI Usage Declaration is a mandatory requirement. Without it, the grade for this milestone is **0**, regardless of the rubric below.
+
 The submission will be graded out of 100 points, divided as follows:
 
 | **Criteria (Points)** | **Excellent (90-100%)** | **Very Good (80-89%)** | **Good (70-79%)** | **Acceptable (60-69%)** | **Poor (0-59%)** |

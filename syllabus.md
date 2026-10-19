@@ -84,6 +84,8 @@ Cheating will result in severe penalties. The University maintains **zero tolera
 ### Plagiarism
 Use of another person's ideas, processes, results, or words requires appropriate credit or reference to the author. Use of Generative AI tools is subject to the instructor's authorization. Submitting the same work in more than one course without the instructor's permission is not allowed.
 
+**Generative AI in the term project:** Every project phase requires an AI Usage Declaration from every team member, including full copies of AI conversations and intermediate artifacts, or an explicit declaration that no AI was used. A phase submitted without a declaration receives a grade of zero, and a false declaration will be treated as plagiarism. 
+
 ### Class Attendance
 Students are expected to arrive on time for class, consistent with expectations in professional settings. Recording attendance for another student, signing another student's attendance, or asking another student to record yours will be reported for investigation and may result in severe consequences for both students involved.
 
