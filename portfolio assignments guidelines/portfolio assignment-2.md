@@ -1,6 +1,5 @@
 # Assignment 2 – Interactive Features
 
-## **Due: Week 9 | Weight: 2%**
 
 ## Objective 
 
@@ -153,6 +152,22 @@ You must use **AI tools** to assist with at least **one part** of this assignmen
 #### Documentation (Required)
 You must include a report at:`docs/ai-usage-report.md`
 
+#### AI Usage Declaration (Required)
+AI use is encouraged in this assignment, and it must be fully declared.
+- In `docs/ai-usage-report.md`, also include:
+  - **Usage Log**: one row per AI conversation (`C01`, `C02`, ...) or AI-generated artifact (`A01`, `A02`, ...):
+
+    | ID | Tool (model) | Date | Purpose | Files affected | What you changed and how you verified it |
+    |----|--------------|------|---------|----------------|------------------------------------------|
+
+  - **Declaration**, with your name, ID, and date:
+    > I declare that this report and the attached evidence document all of my AI use in this assignment, with complete and unedited conversations, and that I understand and can explain all the code I submitted. I understand that undeclared AI use or a false declaration will be treated as plagiarism according to KFUPM regulations.
+- Submit an **AI Evidence ZIP** on Blackboard with your repository link, named `id-name-assignment2-ai-evidence.zip`. It must contain the full conversations (`conversations/`) and the intermediate artifacts, i.e., what the AI produced before your edits (`artifacts/`). Do not commit the logs or the ZIP to your repository.
+- Credit AI in the commit message of commits containing AI-assisted code, e.g., `Assisted-by: ChatGPT (GPT-x)`.
+- If you did not use AI, state that explicitly in the report. The AI Integration criteria in the rubric will not be awarded.
+- **Missing declaration or evidence = 0 for this assignment.** A false declaration or undeclared AI use will be treated as a **plagiarism case** according to KFUPM regulations.
+- See the [AI Usage Guidelines](../project%20guidelines/0%20-%20AI%20Usage%20Guidelines.md) for what counts as AI use and how to export conversations.
+
 
 
 ### 7. Documentation
@@ -169,7 +184,7 @@ Your `README.md` should include:
 2. Develop and test all required features.  
 3. Update `README.md` and technical documentation.  
 4. Review to ensure all requirements are met.  
-5. Submit your repository link through Blackboard.  
+5. Submit your repository link and AI Evidence ZIP through Blackboard.  
 
 
 ### 9. Academic Integrity
@@ -188,6 +203,8 @@ Your `README.md` should include:
 `Always be transparent: document how you used AI or peer help, and ensure you understand your solution.`  
 
 ### 10. Grading Rubric
+
+> The AI Usage Declaration is a mandatory requirement. Without it, the grade for this assignment is **0**, regardless of the rubric below.
 
 The submission will be graded out of 100 points, divided as follows:
 
