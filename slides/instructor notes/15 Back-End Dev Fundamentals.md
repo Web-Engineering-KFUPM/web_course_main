@@ -96,121 +96,119 @@ footer: 'SWE 363 | KFUPM'
 ---
 
 
+
 Web Engineering & Development (SWE 363) 
 # Back-End Development Fundamentals
 
 ---
 
-# Announcements
-- Midterm on Thursday, **April 2nd**
-  - 7:00-9:00 PM
-  - Location: B22 (Rooms 119, 125, 127, 130, 134)
-
----
-
 # In today's lecture:
-- Full-stack development (Node)
+- Full-stack development
+- A first look at Express
 
 ### Reference: 
-- Zybook: 6.1
+- Zybook: 6.1, 6.4 (intro only)
+---
+
+<!-- _class: activity -->
+
+> Activity: Think-Pair-Share (2 min)
+
+You log in to the KFUPM portal and see your grades.
+
+1. What happened between clicking Login and seeing your grades?
+2. Which parts ran on your laptop? Which ran somewhere else?
+3. Where are the grades actually stored?
+
+<!--
+Answers:
+1. The browser sent a request to the web server. The server got your grades from the database and sent a response back. The browser then displayed the page.
+2. Your laptop (web browser): the page, the button, and displaying the grades. Somewhere else (web server): fetching the grades from the database.
+3. In a database that the web server talks to, not in the browser.
+Tip: collect answers on the board in three columns (browser / server / database) and reuse them on the next two slides.
+-->
+
 ---
 # 6.1 Full-stack Development
+
+<!-- Timing: ~15 min for 6.1 (including activities) -->
 
 ---
 
 # What is Full-Stack Development?
 
-<div class="two-column-slide">
+- **Front end** → runs in the **web browser** (HTML, CSS, JavaScript)
+- **Back end** → runs on the **web server** (PHP, Node.js, Python)
+- **Database** → stores the application data
+- **Full-stack development** → developing **both** ends
 
-<div class="column-left">
-
-## Front-End (Client-Side)
-- Code that runs **in the browser**
-- What users **see and interact with**
-- Built with: **React**, HTML, CSS, JavaScript
-- Examples: buttons, forms, navigation
-
-</div>
-
-<div class="column-right">
-
-## Back-End (Server-Side)
-- Code that runs **on the server**
-- Handles **data and business logic**
-- Built with: **Node.js + Express**
-- Examples: databases, APIs, authentication
-
-</div>
-
-</div>
+```
+Front End (Web browser)       Back End (Web server)         Database
+     │ ──── 1. REQUEST ───────────> │                           │
+     │                              │ ──── 2. Query ──────────> │
+     │                              │ <─── 3. Data ──────────── │
+     │ <─── 4. RESPONSE ─────────── │                           │
+```
 
 ---
 
-# Front-End vs Back-End
+<!-- _class: activity -->
 
-<!-- _class: boxes -->
+> Activity: Front end, back end, or database? (hands up)
 
-- **Front-End**
-  User interface 
-  
-  Running in browser
-  
-  React components
-  
-- **Back-End**
-  Server logic
-  
-  Running on server
+1. An "Add to cart" button styled with CSS
+2. Code that fetches and modifies product information
+3. The table that stores every product
+4. A React component that shows a product card
+5. A Python program that generates a personalized webpage
+6. A layout that works on different screen sizes
 
-  Handles requests
-  
-- **Full-Stack**
-  
-  Both together!
-  
-  Complete applications
+<!--
+Answers:
+1. Front end
+2. Back end
+3. Database
+4. Front end
+5. Back end
+6. Front end
+-->
 
 ---
 
-# What is Node.js?
+# Front-End Development
 
-> **Node.js** is a JavaScript runtime environment
+- Focuses on the **user interface (UI)**
+- Must work on **different devices and screen sizes**
+- Must be **accessible** (e.g., screen readers)
 
-- Allows you to run JavaScript **outside the browser**
-- Makes it possible to write **back-end code** using JavaScript
-- Same language for front-end and back-end!
+**Library** = functions for a related set of tasks
+**Framework** = a suite of libraries, a more complete platform
+
+| Name | Type |
+|------|------|
+| Bootstrap, Tailwind | CSS framework |
+| **React** | JavaScript library |
+| Vue.js, Angular | JavaScript framework |
 
 ---
 
-# Before Node.js
+# Back-End Development: Two Approaches
 
 <div class="two-column-slide">
 
 <div class="column-left">
 
-**Without Node.js:**
-
-**Front-End:**
-- JavaScript 
-
-**Back-End:**
-- Python, Java, PHP, etc.
-
-**Different languages!**
+## Dynamic Webpage
+- Page **generated on the web server** when requested
+- Personalized to the user
 
 </div>
 
 <div class="column-right">
 
-**Now with Node.js:**
-
-**Front-End:**
-- JavaScript 
-
-**Back-End:**
-- JavaScript 
-
-**Same language!**
+## Web API
+- Functions invoked using **HTTP**
+- The front end uses **JavaScript** to call them
 
 </div>
 
@@ -218,197 +216,223 @@ Web Engineering & Development (SWE 363)
 
 ---
 
-# How Does Node.js Help Back-End?
+<!-- _class: activity -->
 
-Node.js allows the server to:
+> Activity: Dynamic webpage or web API?
 
-- **Handle server requests** from browsers
-- **Read/write files** on the server
-- **Respond with data** to the browser
-- **Manage databases** and APIs
+1. Becky is shown a webpage that lists the items in her shopping cart.
+2. A retailer's front end uses JavaScript to request all sale items, then displays them.
+3. A PHP program generates a profile page for the logged-in user.
+
+<!--
+Answers:
+1. Dynamic webpage
+2. Web API
+3. Dynamic webpage
+Tip: point out that today's lab builds a tiny web API.
+-->
+
+---
+
+# Server-Side Platforms
+
+| Platform | Language | Popular Frameworks |
+|----------|----------|--------------------|
+| ASP.NET | C# | Blazor, MVC |
+| Java | Java | Spring Boot |
+| **Node.js** | **JavaScript** | **Express**, NestJS |
+| PHP | PHP | Laravel, Symfony |
+| Python | Python | Django, Flask, FastAPI |
+
+### In this course: **Node.js + Express**
+
+---
+
+# Databases
+
+<div class="two-column-slide">
+
+<div class="column-left">
+
+## Relational (SQL)
+- Data in **tables**
+- MySQL, PostgreSQL
+
+```sql
+SELECT * FROM product
+WHERE price < 900;
+```
+
+</div>
+
+<div class="column-right">
+
+## Document (NoSQL)
+- Data in **JSON** format
+- **MongoDB**
+
+```js
+db.products.find(
+  { price: { $lt: 900 } }
+);
+```
+
+</div>
+
+</div>
+
+---
+
+<!-- _class: activity -->
+
+> Activity: Predict
+
+| id | title | price |
+|----|-------|-------|
+| 123 | Laptop | 350.99 |
+| 445 | Smart TV | 1199.99 |
+| 876 | Tablet | 499.99 |
+
+&nbsp;
+
+1. Which products does `SELECT * FROM product WHERE price < 900;` return?
+2. Adding a fourth product adds a new table, row, or column?
+3. True or False: the front end pulls data directly from the database.
+
+<!--
+Answers:
+1. Laptop (350.99) and Tablet (499.99)
+2. Row
+3. False: the front end interacts with the back end, and the back end works with the database.
+-->
+
+---
+
+# A First Look at Express
+
+<!-- Timing: ~12 min. Only what the 6.1 lab needs; static files, POST routes, and middleware come with the full 6.4 lecture. -->
 
 ---
 
 # What is Express?
 
-> **Express** is a minimal web framework built on top of Node.js
+> **Express** is a popular **Node.js framework** for creating web applications and **web APIs**
 
-- Makes back-end development **easier**
-- Provides tools to create **routes**
-- Handles **requests** and **responses** simply
-
----
-
-# Why Use Express?
-
-- **Simple** to create APIs
-- **Handles JSON** easily
-- **Less code** than raw Node.js
--  **Fast** to set up routes
-
----
-
-# Request and Response
-
-<div class="two-column-slide">
-
-<div class="column-left">
-
-## Request
-**When the front-end asks for something**
-
-Example:
-> "Give me all students"
-
-Browser sends:
-```
-GET /api/students
-```
-
-</div>
-
-<div class="column-right">
-
-## Response
-**When the server sends back the answer**
-
-Example:
-> Server responds with JSON
-
-```json
-[
-  { "id": 1, "name": "Ali" },
-  { "id": 2, "name": "Sara" }
-]
-```
-
-</div>
-
-</div>
-
----
-
-# HTTP Methods
-
-Two main methods we'll use:
-
-| Method | Purpose | Example |
-|--------|---------|---------|
-| **GET** | Request data | "Show me all students" |
-| **POST** | Send data | "Add a new student" |
-
----
-
-# Creating Routes in Express
-
-A **route** is a path on the server that handles requests
-
-```javascript
-// GET route - request data
-app.get('/api/students', (req, res) => {
-  res.json(students);
-});
-```
-
-- `/api/students` → the URL path
-- `req` → the request from front-end
-- `res` → the response we send back
-
----
-
-# POST Route Example
-
-```javascript
-// POST route - send data to server
-app.post('/api/students', (req, res) => {
-  const newStudent = req.body; // data from front-end
-  // Add to database/array
-  students.push(newStudent);
-  res.json(newStudent); // send back the new student
-});
-```
-
----
-
-# How Data Flows
-
-<div class="two-column-slide">
-
-<div class="column-left">
-
-## 1. Front-End
-```javascript
-fetch('http://localhost:3000/api/students')
-  .then(r => r.json())
-  .then(data => setStudents(data));
-```
-
-**Sends REQUEST** →
-
-</div>
-
-<div class="column-right">
-
-## 2. Back-End
-```javascript
-app.get('/api/students', (req, res) => {
-  res.json(students);
-});
-```
-
-**← Sends RESPONSE**
-
-</div>
-
-</div>
-
----
-
-# Complete Flow Diagram
-
-```
-Front-End (React)          Back-End (Express)
-     │                            │
-     │ 1. REQUEST                 │
-     │ GET /api/students ────────>│
-     │                            │
-     │                            │ 2. Process request
-     │                            │    Find students data
-     │                            │
-     │ 3. RESPONSE                │
-     │ <──────────────── JSON ────│
-     │                            │
-     │ 4. Update UI               │
-     │    Display students        │
-```
-
----
-
-# Testing the Back-End
-
-1. **Start the server:**
+**Install it with npm:**
 ```bash
-node server.js
+npm install express
 ```
 
-2. **Open browser:**
-```
-http://localhost:3000/api/students
-```
-
-3. **See JSON directly in browser!** 
+After installing, the package is in the project's `node_modules` directory
 
 ---
 
+# A Minimal Express Server
+
+```js
+// server.js
+const express = require("express");   // import the express module
+const app = express();                 // create the Express app object
+
+// routes go here
+
+app.listen(3000, function() {          // start listening on port 3000
+  console.log("Listening on port 3000...");
+});
+```
+
+```bash
+node server.js     # stop with Ctrl+C
+```
+
+- `express()` **creates** the app; it does not start the server
+- `app.listen()` **starts** the server
+
+---
+
+# Routes
+
+> A **route** = an HTTP method + a URL path + a **callback function**: `app.method(path, callback)`
+
+```js
+// Called for GET request to http://localhost:3000/hello
+app.get("/hello", function(req, res) {
+  res.send("<h1>Hello, Express!</h1>");
+});
+
+// Called for GET request to http://localhost:3000/course
+app.get("/course", function(req, res) {
+  res.json({ code: "SWE 363", title: "Web Engineering" });
+});
+```
+
+- `req` / `res` → the HTTP **request** and **response**
+- `res.send()` → sends HTML; `res.json()` → sends an object as **JSON**
+
+<!--
+Live: add the /hello route, restart the server, and refresh the browser.
+-->
+
+---
+
+<!-- _class: activity -->
+
+> Activity: Predict what the browser shows
+
+```js
+app.get("/hello", function(req, res) {
+  res.send("<h1>Hello, Express!</h1>");
+});
+app.get("/course", function(req, res) {
+  res.json({ code: "SWE 363" });
+});
+app.listen(3000);
+```
+
+1. `http://localhost:3000/hello`
+2. `http://localhost:3000/course`
+3. `http://localhost:3000/contact`
+4. `http://localhost/hello`
+
+<!--
+Answers:
+1. The heading "Hello, Express!"
+2. The JSON { "code": "SWE 363" }
+3. A 404 error: no route matches /contact.
+4. It doesn't reach the server: the URL is missing port 3000.
+-->
+
+---
+
+<!-- _class: activity -->
+
+> Activity: Put the steps in order
+
+A. `app.listen()` starts the server on port 3000
+
+B. The browser requests `http://localhost:3000/hello`
+
+C. `require("express")` imports Express, and `express()` creates the app
+
+D. `res.send()` sends the response, and the browser displays it
+
+E. The `/hello` route's callback function runs
+
+<!--
+Answer:
+C → A → B → E → D
+Follow-up: which steps happen on the server, and which in the browser? (Server: C, A, E, D. Browser: B and displaying the result.)
+-->
+
+---
 
 # Key Takeaways
 
-- **Full-stack** = Front-end + Back-end
-- **Node.js** = Run JavaScript on server
-- **Express** = Framework to build APIs easily
-- **Request** = Front-end asks for data
-- **Response** = Back-end sends data (JSON)
-- **Routes** = Server paths that handle requests
+- **Front end** = browser, **back end** = server, **database** = stored data
+- Back ends generate **dynamic webpages** or provide a **web API**
+- **Express:** `express()` creates the app, `app.listen()` starts it
+- **Route:** `app.method(path, callback)`
+- `res.send()` → HTML, `res.json()` → JSON
 
 ---
 
@@ -416,10 +440,20 @@ http://localhost:3000/api/students
 
 >30m
 # Demo
-6.1 Introduction to Node
+6.1 Back-End Fundamentals
+
+<!--
+Setup: npm install; npm install express cors; npm run dev (front end); cd backend && node server.js (back end, 2nd terminal).
+Tasks: backend/server.js (import Express, create app, enable cors, listen on 3000, routes /, /about, /student) and src/App.jsx (fetch /student on load, store in state, display it).
+Not in zyBooks ch6 (the lab's TODO hints explain them):
+- import express from "express" (the lab uses import instead of require; ES modules are covered in 6.3 next lecture)
+- cors (covered in zyBooks ch7): needed because React (port 5173) and Express (port 3000) run on different origins
+- fetch / useEffect / useState in React (from zyBooks 5.17)
+-->
 
 ---
 
 # Next Class
 
-- More on NodeJS
+- Node.js & npm (6.2)
+- Modules (6.3)

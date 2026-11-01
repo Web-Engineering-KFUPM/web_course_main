@@ -96,13 +96,15 @@ footer: 'SWE 363 | KFUPM'
 ---
 
 
+
 Web Engineering & Development (SWE 363) 
-# Back-end Development Fundamentals
+# Back-end Development Fundamentals II
 
 ---
 
 # In today's lecture:
 - Node.js
+- npm
 - Modules
 
 ### Reference: 
@@ -110,133 +112,54 @@ Web Engineering & Development (SWE 363)
 ---
 # 6.2 Node.js
 
+<!-- Timing: ~22 min for 6.2 (including activities) -->
+
 ---
 
 # What is Node.js?
 
-> **Node.js** is a JavaScript runtime environment
+> **Node.js** is a JavaScript runtime environment, mainly used to run **server-side** web applications
 
-- Allows you to run JavaScript **outside the browser**
-- Makes it possible to write **back-end code** using JavaScript
-- Same language for front-end and back-end!
+- **Event-driven, non-blocking I/O** → handles high loads
+- **JavaScript** on both the server and the client
+- Simple way to create and share **modules**
+- Works well with **MongoDB** and **JSON**
 
----
-
-# Before Node.js
-
-<div class="two-column-slide">
-
-<div class="column-left">
-
-**Without Node.js:**
-
-**Front-End:**
-- JavaScript 
-
-**Back-End:**
-- Python, Java, PHP, etc.
-
-**Different languages!**
-
-</div>
-
-<div class="column-right">
-
-**Now with Node.js:**
-
-**Front-End:**
-- JavaScript 
-
-**Back-End:**
-- JavaScript 
-
-**Same language!**
-
-</div>
-
-</div>
-
----
-
-# What Can Node.js Do?
-
-- Run JavaScript on **command line** (CLI tools)
-- Build **web servers** and APIs
-- Read/write **files** on the server
-- Connect to **databases**
-- Handle **server requests** and responses
-
----
-
-# Installing Node.js
-
-**Download from:** [nodejs.org](https://nodejs.org/)
-
-**Verify installation:**
-```bash
-node -v
-npm -v
-```
-
-**macOS:** Use Homebrew or download installer  
-**Windows:** Download and run installer
+**Used by:** Netflix, Walmart, eBay, LinkedIn
 
 ---
 
 # Running Node.js
 
-**Run a JavaScript file:**
-```bash
-node filename.js
-```
-
-**Example:**
-```bash
-node calculator.js
-```
-
-**Run JavaScript interactively:**
-```bash
-node
-> console.log("Hello Node.js!")
-Hello Node.js!
-```
-
----
-
-# What is npm?
-
-> **npm** (Node Package Manager) is the default package manager for Node.js
-
-**npm allows you to:**
-- Install third-party packages
-- Manage project dependencies
-- Initialize new projects
-- Run scripts
-
-**npm comes with Node.js** - no separate installation needed!
-
----
-
-# npm vs Node.js
-
 <div class="two-column-slide">
 
 <div class="column-left">
 
-## Node.js
-- JavaScript **runtime**
-- Runs JavaScript code
-- Command: `node`
+**Interactive shell**
+```bash
+$ node
+> console.log("Hello, Node.js!")
+Hello, Node.js!
+undefined
+> x = 2
+2
+> .exit
+```
 
 </div>
 
 <div class="column-right">
 
-## npm
-- Package **manager**
-- Installs packages
-- Command: `npm`
+**Run a file**
+```js
+// hello.js
+for (let i = 0; i < 3; i++) {
+  console.log("Hello, Node.js!");
+}
+```
+```bash
+$ node hello.js
+```
 
 </div>
 
@@ -244,169 +167,224 @@ Hello Node.js!
 
 ---
 
-# Initiating a Project with npm
+<!-- _class: activity -->
 
-**Create a new project:**
-```bash
-npm init
-```
-Interactive prompts for project details
+> Activity: Predict the output
 
-**Quick start (skip prompts):**
+1. What does the shell display?
 ```bash
-npm init -y
+$ node
+> console.log("Hi")
+> x = 5
+> .exit
 ```
-Creates `package.json` with default values
+
+2. True or False: `node test.js` starts the interactive shell.
+
+3. True or False: Node.js programs run in the web browser.
+
+<!--
+Answers:
+1. Hi, then undefined (as in the zyBooks shell example); then 5; then the shell exits.
+2. False: it runs the program in test.js.
+3. False: Node.js programs run on the server (or on the command line).
+-->
 
 ---
 
-# What is package.json?
+# A Simple Web Server: the `http` Module
 
-**package.json** is a configuration file that:
-- Defines project metadata (name, version, description)
-- Lists project dependencies
-- Contains project scripts
+```js
+// server.js
+const http = require("http");
+
+http.createServer(function(request, response) {
+  response.writeHead(200, {"Content-Type": "text/html"});
+  response.write("<h1>Hello, Node.js!</h1>");
+  response.end();
+}).listen(3000);
+```
+
+- `require()` → imports a module (CommonJS)
+- `createServer()` → creates the server; the callback runs on each HTTP request
+- `writeHead()` → sets the **status code** and content type
+- `write()` / `end()` → writes the HTML / **sends** the response
+- `listen(3000)` → starts listening → `http://localhost:3000/` (stop with **Ctrl+C**)
 
 ---
-# What is package.json?
 
-**package.json** is a configuration 
-**Example:**
+# npm & Node.js Projects
+
+- **Project** → a directory of JavaScript files, packages, and configuration files
+- **Package** → a directory with one or more modules + a `package.json` file
+- **npm** (Node Package Manager) → downloads, installs, and updates packages
+  - Installed with Node.js: `npm -v`
+
+```
+myproject
+├── node_modules
+│   └── underscore
+├── package.json
+├── package-lock.json
+└── server.js
+```
+
+---
+
+# Local vs. Global Install
+
+<div class="two-column-slide">
+
+<div class="column-left">
+
+## Local (default)
+```bash
+npm install underscore
+```
+- Saved in the project's `node_modules`
+- For **project dependencies**
+
+</div>
+
+<div class="column-right">
+
+## Global (`-g`)
+```bash
+npm install nodemon --global
+```
+- Saved in `{prefix}/node_modules`
+- For **command-line tools**
+
+</div>
+
+</div>
+
+**Dependency** = a package the project must be able to access to run
+
+`nodemon server.js` → restarts the app whenever project files change
+
+---
+
+# Common npm Commands
+
+| Command | Example |
+|---------|---------|
+| Install a package locally / globally | `npm install lodash` / `npm install nodemon -g` |
+| Install **all** project dependencies | `npm install` |
+| List local / global packages | `npm list` / `npm list -g` |
+| Update a package | `npm update lodash` |
+| Uninstall a package | `npm uninstall lodash` |
+| Show the global install location | `npm config get prefix` |
+
+---
+
+# package.json
+
 ```json
 {
-  "name": "calculator",
+  "name": "my-web-server",
   "version": "1.0.0",
-  "description": "CLI calculator",
-  "main": "calculator.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\""
-  },
-  "dependencies": {
-    "lodash": "^4.17.21"
-  }
+  "description": "A simple web server",
+  "main": "server.js",
+  "dependencies": { "underscore": "^1.13.6" },
+  "scripts": { "start": "node server.js" },
+  "license": "ISC"
 }
 ```
 
----
-
-# Installing npm Packages
-
-**Install a package:**
-```bash
-npm install package-name
-# or
-npm i package-name
-```
-
-**Install as dependency:**
-```bash
-npm install --save package-name
-```
-
-**Install as development dependency:**
-```bash
-npm install --save-dev package-name
-```
+- Lists the project's name, version, license, and **dependencies**
+- Create it by hand or with `npm init`
+- `npm install` → installs **all** dependencies listed
+- `"start"` script → `npm start` runs `node server.js`
 
 ---
 
-# Viewing Installed Packages
+# Versions & package-lock.json
 
-**List installed packages:**
+**Semantic versioning:** `major.minor.patch` → `1.9.1`
+- **major** → new functionality; may change how old functions work
+- **minor** → bug fixes and minor changes
+- **patch** → a bug fix to a minor version
+
+`"^1.9.1"` → highest version with major number **1** (1.9.2 yes, 2.0.0 no)
+
+**package-lock.json** → records the **exact** versions to use
+- The same versions on every machine
+- Created or modified when dependencies are added or removed
+
+---
+
+<!-- _class: activity -->
+
+> Activity: Answer the following questions
+
+1. In the `http` server, which method starts listening for requests: `require()`, `createServer()`, or `listen()`?
+
+2. What URL accesses a web server running locally on port 8080?
+
+3. Where does `npm install grunt -g` install the package?
+
+4. `"lodash": "^4.17.0"`, and versions `4.17.21`, `4.18.0`, `5.0.0` exist. With no package-lock.json, which is installed?
+
+5. A project has package.json but no `node_modules`. What single command installs everything?
+
+<!--
+Answers:
+1. listen()
+2. http://localhost:8080/
+3. {prefix}/node_modules (find {prefix} with npm config get prefix)
+4. 4.18.0: the highest version with major number 4.
+5. npm install
+-->
+
+---
+
+# Using a Third-Party Package
+
 ```bash
-npm list
+npm install underscore
 ```
-
-**Check specific package:**
-```bash
-npm list lodash
-```
-
-**View package.json dependencies:**
-```bash
-cat package.json
-```
-
----
-
-# package-lock.json
-
-**package-lock.json:**
-- Records **exact versions** of installed packages
-- Ensures **consistent installs** across machines
-- **Automatically generated** - don't edit manually!
-
-**Why it matters:**
-- Team members get same versions
-- Production deployments are predictable
-
----
-
-# Using Third-Party Packages
-
-**Import a package:**
-```js
-import packageName from "package-name";
-```
-
-**Example with lodash:**
-```js
-import _ from "lodash";
-
-const numbers = [1, 2, 3, 4, 5];
-const sum = _.sum(numbers); // 15
-```
-
-**Use package functions:**
-```js
-packageName.function();
-```
-
----
-
-# Command Line Arguments
-
-Node.js provides access to command-line arguments through `process.argv`
-
-**process.argv is an array:**
-- `process.argv[0]` = path to Node.js
-- `process.argv[1]` = path to your script
-- `process.argv[2+]` = your arguments
-
----
-
-# Command Line Arguments Example
-
-**Run:**
-```bash
-node script.js add 5 10
-```
-
-**In script.js:**
-```js
-const operation = process.argv[2]; // "add"
-const num1 = process.argv[3];      // "5"
-const num2 = process.argv[4];      // "10"
-```
-
-**Note:** All arguments are **strings** - convert to numbers if needed!
-
----
-
-# Command Line Arguments Practice
-
-**What would this code output?**
 
 ```js
-console.log(process.argv[0]);
-console.log(process.argv[1]);
-console.log(process.argv[2]);
+const _ = require("underscore");   // underscore is usually named _
+
+// Use underscore to get a random number between 1 and 6
+let randNum = _.random(1, 6);
 ```
 
-**When run as:**
-```bash
-node test.js hello
+- The module is stored in `node_modules/underscore`
+- Good practice: name the variable after the module (`http` for "http")
+
+---
+
+<!-- _class: activity -->
+
+> Activity: Predict
+
+```js
+const http = require("http");
+const _ = require("underscore");
+
+http.createServer(function(request, response) {
+  response.writeHead(200, {"Content-Type": "text/html"});
+  for (let i = 0; i < 5; i++) {
+    let randNum = _.random(1, 6);
+    response.write("<p>" + randNum + "</p>");
+  }
+  response.end();
+}).listen(3000);
 ```
+
+1. How many numbers does `http://localhost:3000/` show? In what range?
+2. What happens when you refresh the page?
+3. What happens if `npm install underscore` was never run?
+
+<!--
+Answers:
+1. 5 numbers, each between 1 and 6 (a dice roll).
+2. New random numbers: the callback runs again for every request.
+3. require("underscore") fails: the package isn't in node_modules.
+-->
 
 ---
 
@@ -414,36 +392,52 @@ node test.js hello
 
 # 6.3 Modules
 
----
-
-# What Are Modules?
-
-> **Modules** allow breaking code into smaller, reusable files
-
-**Why use modules?**
-- **Organization** - code is easier to find
-- **Reusability** - write once, use many times
-- **Maintainability** - easier to update and debug
-- **Separation of concerns** - each file has a purpose
+<!-- Timing: ~12 min for 6.3 (including activities) -->
 
 ---
 
-# Module Example
+# Why Modules?
 
-**Instead of one big file:**
+<div class="two-column-slide">
+
+<div class="column-left">
+
+## Separate files
+```js
+// flights.js
+const max = 10;
+function purchaseTicket() { ... }
+
+// hotels.js
+const max = 10;   // Error: max conflicts
+function bookRoom() { ... }
 ```
-calculator.js (500 lines)
+```html
+<script src="flights.js"></script>
+<script src="hotels.js"></script>
 ```
 
-**Use modules:**
-```
-calculator.js (main logic)
-utils/
-  ├── operations.js (math functions)
-  └── parser.js (input parsing)
-```
+</div>
 
-**Much easier to understand!**
+<div class="column-right">
+
+## Separate modules
+```js
+// flights.js
+const max = 10;
+function purchaseTicket() { ... }
+export { purchaseTicket };
+
+// hotels.js
+const max = 10;   // no error
+function bookRoom() { ... }
+export { bookRoom };
+```
+You control **what is exported**
+
+</div>
+
+</div>
 
 ---
 
@@ -453,159 +447,165 @@ utils/
 
 <div class="column-left">
 
-## ES Modules (ESM)
-- Modern format
-- Uses `import` / `export`
-- Supported by modern Node.js
+## ES Modules
+- Supported by all major browsers
+- `import` / `export`
+
+```js
+import { bookRoom } from "./hotels.js";
+```
 
 </div>
 
 <div class="column-right">
 
 ## CommonJS
-- Traditional format
-- Uses `require()` / `module.exports`
-- Older Node.js style
+- Commonly used in Node.js
+- `require()`
+
+```js
+const http = require("http");
+```
 
 </div>
 
 </div>
 
-**We'll focus on ES Modules!**
+**This section covers ES modules**
 
 ---
 
-# Exporting from a Module
+# Exporting
 
-**Export a single function:**
+<div class="two-column-slide">
+
+<div class="column-left">
+
+## Named exports (many)
 ```js
-// operations.js
-export function add(numbers) {
-  return numbers.reduce((sum, num) => sum + num, 0);
-}
+// hello.js
+function sayHello() { alert("Hello!"); }
+function sayHi() { alert("Hi!"); }
+
+export { sayHello, sayHi };
+```
+or before each declaration:
+```js
+export function sayHello() { ... }
 ```
 
-**Export multiple functions:**
+</div>
+
+<div class="column-right">
+
+## Default export (one)
 ```js
-export function add(numbers) { ... }
-export function subtract(numbers) { ... }
-export function multiply(numbers) { ... }
+// goodbye.js
+function sayGoodbye() { alert("Goodbye!"); }
+
+export default sayGoodbye;
 ```
+or before the declaration:
+```js
+export default function sayGoodbye() { ... }
+```
+
+</div>
+
+</div>
 
 ---
 
-# Importing from a Module
+# Importing
 
-**Import a single function:**
 ```js
-import { add } from "./utils/operations.js";
+import { sayHello, sayHi } from "./hello.js";   // non-default → braces
+import sayGoodbye from "./goodbye.js";          // default → no braces
 ```
 
-**Import multiple functions:**
-```js
-import { add, subtract, multiply } from "./utils/operations.js";
+- `"./"` → the file is in the **same directory**
+
+**In a webpage:**
+```html
+<script type="module">
+  import { sayHello, sayHi } from "./hello.js";
+  sayHello();
+</script>
 ```
 
-**Import default export:**
-```js
-import lodash from "lodash";
-```
+- `type="module"` is **required** for `import` to work
+- Files must be on a **web server** (not opened with `file://`)
 
 ---
 
-# Import/Export Example
+<!-- _class: activity -->
 
-**utils/operations.js:**
+> Activity: What happens if (each change on its own)
+
 ```js
-export function add(numbers) {
-  return numbers.reduce((sum, num) => sum + num, 0);
-}
-
-export function subtract(numbers) {
-  return numbers[0] - numbers.slice(1)
-    .reduce((diff, num) => diff - num, 0);
-}
+// hello.js                          // index.html
+export { sayHello, sayHi };          <script type="module">
+                                       import { sayHello, sayHi } from "./hello.js";
+// goodbye.js                          import sayGoodbye from "./goodbye.js";
+export default sayGoodbye;             sayHello(); sayHi(); sayGoodbye();
+                                     </script>
 ```
 
-**calculator.js:**
-```js
-import { add, subtract } from "./utils/operations.js";
+1. The call `sayHi();` is removed from index.html?
+2. `sayHi` is removed from the export in hello.js?
+3. `type="module"` is removed from the `<script>` tag?
+4. The import uses `"hello.js"` instead of `"./hello.js"`?
+5. `export default function sayAdios() {...}` is added to goodbye.js?
 
-const result = add([5, 10, 15]); // 30
-```
+<!--
+Answers:
+1. Runs without errors.
+2. Error when importing sayHi: it is not exported.
+3. Error when executing the hello.js import statement.
+4. Error when executing the hello.js import statement.
+5. Error: a module can only have one default export.
+-->
 
 ---
 
-# File Extensions Matter
+<!-- _class: activity -->
 
-**Always include `.js` extension:**
+> Activity: Find the 3 bugs
+
 ```js
-import { add } from "./utils/operations.js";  //correct
-import { add } from "./utils/operations";    //Incorrect
+// hello.js
+function sayHello() { alert("Hello!"); }
+
+// goodbye.js
+export default function sayGoodbye() { alert("Goodbye!"); }
+export default function sayAdios() { alert("Adios!"); }
 ```
 
-**Why?**
-- ES Modules require explicit file extensions
-- Helps Node.js find the correct file
+```html
+<script type="module">
+  import { sayHello } from "./hello.js";
+  import { sayGoodbye } from "./goodbye.js";
+  sayHello();
+  sayGoodbye();
+</script>
+```
+
+<!--
+Answers:
+1. hello.js doesn't export sayHello → add export { sayHello };
+2. goodbye.js has two default exports → only one is allowed.
+3. sayGoodbye is a default export → import it without braces: import sayGoodbye from "./goodbye.js";
+-->
 
 ---
 
-# Module Paths
+# Key Takeaways
 
-**Relative path (same folder):**
-```js
-import { func } from "./file.js";
-```
-
-**Relative path (parent folder):**
-```js
-import { func } from "../utils/file.js";
-```
-
-**Absolute path (node_modules):**
-```js
-import _ from "lodash";
-```
-
----
-
-# Creating a Custom Module
-
-**Step 1: Create the module file**
-```js
-// utils/parser.js
-import _ from "lodash";
-
-export function parseNumbers(input) {
-  const numbers = _.map(input, (str) => Number(str));
-  return _.compact(numbers);
-}
-```
-
-**Step 2: Import and use**
-```js
-// calculator.js
-import { parseNumbers } from "./utils/parser.js";
-
-const nums = parseNumbers(["5", "10", "15"]);
-```
-
----
-
-# Module Best Practices
-
-**One responsibility per module:**
-- `operations.js` → math operations only
-- `parser.js` → input parsing only
-- `validator.js` → validation only
-
-**Clear file names:**
-- `utils/operations.js` 
-
-**Organize in folders:**
-- `utils/` for utility functions
-- `models/` for data models
-
+- **Node.js** runs JavaScript on the server: `node file.js`
+- The **http** module: `createServer()`, `writeHead()`, `end()`, `listen()`
+- **npm** installs packages locally (`node_modules`) or globally (`-g`)
+- **package.json** = dependency ranges; **package-lock.json** = exact versions
+- **Modules:** named exports `{ }` or one default export; local paths start with `./`
 
 ---
 
@@ -616,9 +616,18 @@ const nums = parseNumbers(["5", "10", "15"]);
 6.2 Introduction to Node
 
 **Build a CLI calculator using:**
-- Node.js command line arguments
-- npm packages (lodash)
+- npm packages
 - Custom modules
+
+<!--
+Setup: npm init -y; npm install lodash; add "type": "module" to package.json (avoids Node's module-type warning).
+Test: node calculator.js add 5 10 15 → Result: 30
+Not in zyBooks ch6 (calculator.js and the README explain them):
+- process.argv (command-line arguments; all values are strings)
+- lodash functions _.map, _.compact, _.includes (zyBooks uses underscore)
+- import _ from "lodash" (importing an npm package with ES module syntax)
+- npm init -y and "type": "module"
+-->
 
 ---
 
