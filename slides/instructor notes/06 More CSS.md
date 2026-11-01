@@ -43,7 +43,7 @@ style: |
     }
     section.center {text-align:center}
     section.big-code pre {font-size:2rem}
-footer: 'SWE 363 | 252 | KFUPM'
+footer: 'SWE 363 | KFUPM'
 ---
 
 <!-- 

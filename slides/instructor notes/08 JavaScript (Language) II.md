@@ -44,7 +44,7 @@ style: |
     section.center {text-align:center}
     section.big-code pre {font-size:2rem}
     pre {font-size:0.8rem}
-footer: 'SWE 363 | 252 | KFUPM'
+footer: 'SWE 363 | KFUPM'
 ---
 # Announcements 📣
 - Project Phase #2 Project Proposal is due this week Saturday at 11:59 PM

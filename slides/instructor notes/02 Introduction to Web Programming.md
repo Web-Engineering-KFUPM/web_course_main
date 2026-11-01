@@ -40,7 +40,7 @@ style: |
         border-radius: 5px;
         overflow-x: auto;
     }
-footer: 'SWE 363 | 252 | KFUPM'
+footer: 'SWE 363 | KFUPM'
 
 
 ---
