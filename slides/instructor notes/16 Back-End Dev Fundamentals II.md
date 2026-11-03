@@ -613,7 +613,7 @@ Answers:
 
 >30m
 # Demo
-6.2 Introduction to Node
+6.2 CLI calculator
 
 **Build a CLI calculator using:**
 - npm packages
