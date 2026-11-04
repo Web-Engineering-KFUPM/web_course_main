@@ -16,7 +16,7 @@
 | 5.5 React Advance | Forms, Controlled inputs, Routes | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/5-5-react-advance/accept?k=swe363) |
 | 5.6 React Styling & Fetching | CSS, Bootstrap, Fetch data | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/5-6-react-styling-and-fetching/accept?k=swe363) |
 | 6.1 Back-end Fundamentals | full-stack fundamentals, node, express, routes, server, data flow | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/6-1-introduction-to-node/accept?k=swe363) |
-| 6.2 Introduction to Node | node, modules, package.json files | [View Exercise]() |
+| 6.2 Introduction to Node | node, modules, package.json files | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/6-2-cli-calculator/accept?k=swe363) |
 | 6.3 Express | express, middleware functions, routes, cors, request & response | [View Exercise]() |
 | 6.4 Request Data in Express | query parmeters, routes, middleware functions | [View Exercise]() |
 | 7.1 mongoDB | mongoDB cloud, mongosh, mongoose | [View Exercise]() |
