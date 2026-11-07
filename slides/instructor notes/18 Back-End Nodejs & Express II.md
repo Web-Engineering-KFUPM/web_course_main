@@ -375,7 +375,8 @@ Live: request /users/jblack, then /users/abc, then /users/ (404).
 
 <!-- _class: activity -->
 
-> Activity: Which req property (`req.query`, `req.params`, or `req.body`)? What value?
+> Activity: 
+Which req property (`req.query`, `req.params`, or `req.body`)? What value?
 
 1. Route `/users/:username`, request `GET /users/abc`
 2. Route `/search`, request `GET /search?term=node`
