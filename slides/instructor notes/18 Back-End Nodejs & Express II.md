@@ -96,475 +96,445 @@ footer: 'SWE 363 | KFUPM'
 ---
 
 
+
+
 Web Engineering & Development (SWE 363) 
-# Back-end Development Fundamentals
+# Back-End Development: Node.js & Express II
 
 ---
 
 # In today's lecture:
-- Express.js Request data 
-  - Query String Parameters
-  - Route Parameters
-  - Param Middleware
-  - Request Body
-  - Sending JSON Responses
-  - Status Codes
+- Query string parameters
+- Posting form data
+- Route parameters
+- Route parameter middleware
 
 ### Reference: 
 - Zybook: 6.5
 ---
-# 6.5 Express request data 
+
+<!-- _class: activity -->
+
+> Activity: Warm-up from last lecture (2 min)
+
+```js
+const logRequest = function(req, res, next) {
+  console.log(`Request: ${req.method} for ${req.path}`);
+  next();
+};
+app.use(logRequest);
+app.use(express.static("public"));
+app.post("/goodbye", function(req, res) {
+  res.send("<h1>Goodbye, Express!</h1>");
+});
+```
+
+1. Which route matches a GET request to `/goodbye`?
+2. What do the parameters `req`, `res`, and `next` represent?
+3. If `next()` is removed, what is logged for `GET /goodbye`?
+4. To be served, must `hello.html` be in `public` or in `node_modules`?
+
+<!--
+Answers:
+1. Neither: the only /goodbye route is a POST route, so the server returns a 404 status code.
+2. req = the HTTP request object, res = the HTTP response object, next = the callback that lets the next middleware or route run.
+3. "Request: GET for /goodbye" is still logged, but nothing after logRequest runs.
+4. In the public directory.
+Tip: today every route reads data from req.
+-->
+
+---
+
+# 6.5 Express Request Data
+
+<!-- Timing: ~35 min for 6.5 (including activities) -->
 
 ---
 
 # How do we get data from the client?
 
-When a client makes a request to our server, they often send **data**:
+| Data | Example request | Read it from |
+|------|-----------------|----------------|
+| **Query string** | `GET /hello?name=Bob&age=21` | `req.query` |
+| **Posted form data** | `POST /hello` with body `name=Tamika&age=24` | `req.body` |
+| **Route parameter** | `GET /users/jblack` | `req.params` |
 
-- **Query parameters**: `/search?q=react&page=2`
-- **Route parameters**: `/users/123` or `/profile/John/Doe`
-- **Request body**: JSON data, form data, etc.
+&nbsp;
 
-Today we'll learn how to **read** this data in Express!
-
----
-
-# Three ways to send data
-
-| Method | Location | Example | Use Case |
-|--------|----------|---------|----------|
-| **Query String** | URL | `/search?q=react&page=2` | Optional filters, search terms |
-| **Route Parameters** | URL path | `/users/123` | Identifying specific resources |
-| **Request Body** | HTTP body | POST with JSON | Creating/updating data |
-
----
-
-# 1. Query String Parameters
+Each one is an object: `req.query.name`, `req.body.name`, `req.params.username`
 
 ---
 
 # What are Query String Parameters?
 
-**Query strings** are key-value pairs added to URLs after `?`
+> A **query string** = `name=value` pairs after the `?` in a URL, separated by `&`
 
 ```
-http://localhost:3000/search?q=react&page=2&sort=date
+http://localhost:3000/hello?name=Bob&age=21
 ```
-**Format**: `?key1=value1&key2=value2&key3=value3`
 
----
-
-# Why use Query Strings?
-
-**Optional** - can be added or removed easily  
-**Bookmarkable** - URLs can be saved/shared  
-**Cacheable** - browsers can cache different query combinations  
-**Flexible** - don't change the resource path
-
-**Common uses**: Search terms, filters, pagination, sorting
+- Path → `/hello`
+- Query string → `name=Bob&age=21`
+- Express **automatically parses** it into the **`req.query`** object
+- Forms with `method="get"` send their data this way
 
 ---
 
 # Reading Query Parameters in Express
 
-Use `req.query` to access query string parameters
-
 ```js
-app.get("/search", (req, res) => {
-  const { q, page, sort } = req.query;
-  // q = "react"
-  // page = "2"
-  // sort = "date"
-  
-  res.json({ query: q, page, sort });
+// GET http://localhost:3000/hello?name=Bob&age=21
+app.get("/hello", function(req, res) {
+  const html = `<h1>Hello, ${req.query.name}!</h1>
+    <p>You are ${req.query.age} years old.</p>`;
+  res.send(html);
 });
 ```
 
-**Important**: Values are always **strings**!
+**Browser shows:** Hello, Bob! You are 21 years old.
+
+- The query string doesn't change the route: `/hello` still matches
+
+<!--
+Live: run the /hello route, then change the URL: different name, remove age, add an extra parameter.
+-->
 
 ---
 
-# Query Parameters: Important Notes
+<!-- _class: activity -->
 
- **Values are strings** - convert if needed:
-```js
-const page = Number(req.query.page) || 1;
-```
-
- **Always validate** - check if required params exist:
-```js
-if (!req.query.name) {
-  return res.status(400).json({ error: "name required" });
-}
-```
-
- **Optional by nature** - missing params are `undefined`
-
----
-
-# 2. Route Parameters
-
----
-
-# What are Route Parameters?
-
-**Route parameters** are **named placeholders** in the URL path
+> Activity: Predict what the page shows
 
 ```js
-app.get("/users/:userId", (req, res) => {
-  // :userId is a route parameter
+app.get("/hello", function(req, res) {
+  const html = `<h1>Hello, ${req.query.name}!</h1>
+    <p>You are ${req.query.age} years old.</p>`;
+  res.send(html);
 });
 ```
 
-**URL**: `/users/123`  
-**Parameter**: `userId = "123"`
+1. `/hello?name=Sara&age=20`
+2. `/hello?age=20`
+3. `/hello?name=Doctor+Who&age=900` (in a URL, `+` encodes a space)
+4. `/hello?city=Dallas`: is the city in `res.query.city` or `req.query.city`?
 
-They identify **specific resources** in the path!
-
----
-
-# Why use Route Parameters?
-
-**Clean URLs** - `/users/123` vs `/users?id=123`  
-**RESTful** - follows REST API conventions  
-**Descriptive** - makes the resource clear  
-**Hierarchical** - supports nested resources
-
-**Example**: `/orders/987/items/2` (order 987, item 2)
+<!--
+Answers:
+1. Hello, Sara! You are 20 years old.
+2. Hello, undefined! You are 20 years old. (name is not in the query string)
+3. Hello, Doctor Who! A space in form data is URL-encoded as + (zyBooks 2.8), and Express decodes it back to a space, so the page does not say "Doctor+Who".
+4. req.query.city (res is the response object). The page itself shows "Hello, undefined! You are undefined years old."
+-->
 
 ---
 
-# Reading Route Parameters
+# Posting Form Data
 
-Use `req.params` to access route parameters
+> A form that **posts** to an Express route sends its data **URL-encoded** in the **body**
 
-```js
-app.get("/users/:userId", (req, res) => {
-  const { userId } = req.params;
-  // userId = "123" (string)
-  
-  res.json({ userId });
-});
+**public/hello.html** and the **HTTP request** it sends on Submit:
+```html
+<form method="post" action="/hello">
+  <p><label>Name? <input type="text" name="name"></label></p>
+  <p><label>Age? <input type="number" name="age"></label></p>
+  <input type="submit" value="Submit">
+</form>
 ```
-
-**URL**: `/users/123` → `userId = "123"`
-
----
-
-# Multiple Route Parameters
-
-You can have multiple parameters in one route:
-
-```js
-app.get("/profile/:first/:last", (req, res) => {
-  const { first, last } = req.params;
-  
-  res.json({
-    ok: true,
-    fullName: `${first} ${last}`
-  });
-});
 ```
+POST /hello HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
 
-**URL**: `/profile/Jack/Black`  
-**Result**: `{ ok: true, fullName: "Jack Black" }`
-
----
-
-# Route Parameters: Important Notes
-
- **Values are strings** - convert to numbers if needed:
-```js
-const userId = Number(req.params.userId);
+name=Tamika&age=24
 ```
-
- **Required by route** - if missing, route won't match
-
- **Order matters** - `/users/:id/posts/:postId` vs `/users/:postId/posts/:id`
-
----
-
-# Query vs Route Parameters
-
-| Feature | Query Parameters | Route Parameters |
-|--------|------------------|------------------|
-| **Syntax** | `?key=value` | `/:paramName` |
-| **Required?** | Optional | Required (for route match) |
-| **Use Case** | Filters, search, pagination | Resource identification |
-| **Example** | `/search?q=react` | `/users/123` |
-| **Access** | `req.query` | `req.params` |
-
----
-
-# 3. Route Parameter Middleware
-
----
-
-# The Problem: Repeated Validation
-
-What if multiple routes use the same parameter? **Problem**: Code duplication! 
-
-```js
-app.get("/users/:userId", (req, res) => {
-  const userId = Number(req.params.userId);
-  if (!Number.isFinite(userId) || userId < 1) {
-    return res.status(400).json({ error: "Invalid userId" });
-  }
-  // ... use userId
-});
-
-app.delete("/users/:userId", (req, res) => {
-  const userId = Number(req.params.userId);
-  if (!Number.isFinite(userId) || userId < 1) {
-    return res.status(400).json({ error: "Invalid userId" });
-  }
-  // ... same validation again!
-});
-```
-
----
-
-# Solution: Param Middleware
-
-`app.param()` runs **once** when a route with that parameter matches
-
-```js
-app.param("userId", (req, res, next, userId) => {
-  const num = Number(userId);
-  if (!Number.isFinite(num) || num < 1) {
-    return res.status(400).json({
-      ok: false,
-      error: "userId must be positive number"
-    });
-  }
-  req.userIdNum = num; // Store validated value
-  next(); // Continue to route handler
-});
-```
-
-**Runs automatically** for any route with `:userId`!
-
----
-
-# Using Param Middleware
-
-After defining param middleware, routes can use the validated value:
-
-```js
-// Middleware (runs first)
-app.param("userId", (req, res, next, userId) => {
-  const num = Number(userId);
-  if (!Number.isFinite(num) || num < 1) {
-    return res.status(400).json({ 
-      ok: false, error: "userId must be positive number"
-    });
-  }
-  req.userIdNum = num;
-  next();
-});
-// Route (uses validated value)
-app.get("/users/:userId", (req, res) => {
-  res.json({ ok: true, userId: req.userIdNum });
-});
-```
-
----
-
-# Param Middleware: How It Works
-
-1. **Request comes in**: `/users/42`
-2. **Express matches route**: `GET /users/:userId`
-3. **Param middleware runs**: `app.param("userId", ...)`
-   - Validates and converts `"42"` → `42`
-   - Stores in `req.userIdNum`
-   - Calls `next()`
-4. **Route handler runs**: Uses `req.userIdNum`
-
-**One validation, multiple routes benefit!** 
-
----
-
-# Param Middleware: Benefits
-
-**DRY** - Don't Repeat Yourself  
-**Centralized validation** - one place to fix bugs  
-**Consistent** - all routes get same validation  
-**Reusable** - works for GET, POST, DELETE, etc.
-
-**Best for**: Type conversion, validation, normalization
-
----
-
-# 4. Receiving JSON Data
-
----
-
-# Request Body: Another Way to Send Data
-
-So far we've seen data in URLs (query strings, route params)
-
-**Request body** is data sent in the HTTP request body:
-
-- **JSON**: `{ "name": "Ali", "age": 22 }`
-- **Form data**: `name=Ali&age=22`
-- **Files**: multipart/form-data
-
-Common for **POST** and **PUT** requests
-
----
-
-# Why Use Request Body?
-
-**URLs have limits**:
-- Query strings get long and messy
-- Route params are for resource IDs
-- Sensitive data shouldn't be in URLs
-
-**Request body is better for**:
-- Large amounts of data
-- Complex objects
-- Sensitive information (passwords, etc.)
-- Creating/updating resources
-
----
-
-# Receiving JSON in Express
-
-To receive JSON data, you need **middleware** to parse it:
-
-```js
-import express from "express";
-const app = express();
-
-// Enable JSON parsing middleware
-app.use(express.json());
-
-// Now you can read JSON from req.body
-app.post("/users", (req, res) => {
-  const { name, age } = req.body;
-  // name = "Ali"
-  // age = 22
-  res.json({ ok: true, user: { name, age } });
-});
-```
-
-**Important**: `app.use(express.json())` must come **before** your routes!
 
 ---
 
 # Receiving URL-Encoded Data
 
-For traditional HTML forms, use `express.urlencoded()`:
+```js
+const express = require("express");
+const app = express();
+
+app.use(express.static("public"));               // serves hello.html
+app.use(express.urlencoded({extended: false}));  // parses the form data
+
+app.post("/hello", function(req, res) {
+  const html = `<h1>Hello, ${req.body.name}!</h1>
+    <p>You are ${req.body.age} years old.</p>`;
+  res.send(html);
+});
+
+app.listen(3000);
+```
+
+- `express.urlencoded()` → **middleware** that adds the parsed values to **`req.body`**
+- Only parses bodies with `Content-Type: application/x-www-form-urlencoded`
+
+<!--
+Live: open http://localhost:3000/hello.html, submit Tamika / 24. Then comment out the express.urlencoded() line, restart, and submit again (sets up the next activity).
+-->
+
+---
+
+<!-- _class: activity -->
+
+> Activity: Put the steps in order
+
+A. The middleware parses the body and attaches the data to `req.body`
+
+B. The browser requests `hello.html`, and `express.static()` serves it
+
+C. The `/hello` POST route sends back "Hello, Tamika!"
+
+D. The user types Tamika and 24 and presses Submit
+
+E. The browser sends `POST /hello` with `name=Tamika&age=24` in the body
+
+<!--
+Answer:
+B → D → E → A → C
+Follow-up: which steps happen in the browser (B's request, D, E) and which on the server (B's response, A, C)?
+-->
+
+---
+
+<!-- _class: activity -->
+
+> Activity: What happens if... (each change on its own)
+
+<div class="two-column-slide">
+
+<div class="column-left">
+
+```html
+<!-- public/hello.html -->
+<form method="post" action="/hello">
+  <input type="text" name="name">
+  <input type="number" name="age">
+  <input type="submit" value="Submit">
+</form>
+```
 
 ```js
-app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
+app.use(express.urlencoded({extended: false}));
 
-app.post("/login", (req, res) => {
-  const { username, password } = req.body;
-  // Data comes from form: username=john&password=secret
-  // ...
+app.post("/hello", function(req, res) {
+  res.send(`<h1>Hello, ${req.body.name}!</h1>`);
 });
 ```
 
-**Difference**:
-- `express.json()` - parses JSON bodies
-- `express.urlencoded()` - parses form data (`key=value&key2=value2`)
+</div>
+
+<div class="column-right">
+
+1. Submit is clicked with no name?
+2. `express.urlencoded()` is removed?
+3. The form uses `method="get"`?
+4. The request's Content-Type is `application/json` instead of `application/x-www-form-urlencoded`?
+5. `app.use(express.static("public"))` is removed?
+
+</div>
+
+</div>
+
+<!--
+Answers:
+1. The page says "Hello, !" (the name is empty).
+2. Nothing parses the body, so req.body.name can't be read: the server responds with an error instead of the greeting.
+3. The data goes in the query string (GET /hello?name=Tamika&age=24). There is no GET /hello route, so the server returns a 404 status code.
+4. express.urlencoded() only parses bodies with Content-Type: application/x-www-form-urlencoded, so req.body is not filled in and the name can't be read.
+5. hello.html is no longer served: http://localhost:3000/hello.html returns a 404, so the user never sees the form.
+Follow-up (ask aloud): is express.static() middleware? Yes: it is enabled with app.use(), like express.urlencoded().
+-->
 
 ---
 
-# Request Body: Important Notes
+# What are Route Parameters?
 
-**Always validate** - check required fields:
-```js
-if (!req.body.name) {
-  return res.status(400).json({ error: "name required" });
-}
-```
-
-**Middleware order matters** - `app.use(express.json())` before routes
-
-**Data types** - JSON preserves types (numbers, booleans, etc.)
-
-**Security** - validate and sanitize all input!
-
----
-
-# Summary: All Ways to Get Data
-
-| Source | Access | Example | Use Case |
-|--------|--------|---------|----------|
-| **Query String** | `req.query` | `/search?q=react` | Optional filters |
-| **Route Params** | `req.params` | `/users/123` | Resource ID |
-| **Request Body** | `req.body` | POST with JSON | Creating/updating data |
-
----
-
-# 5. Sending JSON Responses
-
----
-
-# Sending JSON in Express
-
-Use `res.json()` to send JSON responses:
+> A **route parameter** = a value near or at the end of the URL path; its name is defined with a **colon** (`:`)
 
 ```js
-app.get("/data", (req, res) => {
-  res.json({ ok: true, message: "Success!" });
+// GET http://localhost:3000/users/jblack
+app.get("/users/:username", function(req, res) {
+  const username = req.params.username;   // jblack
+  res.send("<h1>Profile for " + username + "</h1>");
 });
 ```
 
-**Automatically**:
-- Sets `Content-Type: application/json`
-- Converts object to JSON string
-- Sends response
+- Route parameters are attached to the **`req.params`** object
+- One route → a **dynamic webpage** for every username
+
+**Browser shows:** Profile for jblack
+
+<!--
+Live: request /users/jblack, then /users/abc, then /users/ (404).
+-->
 
 ---
 
-# Setting Status Codes
+<!-- _class: activity -->
 
-Use `res.status()` before `res.json()`:
+> Activity: Which req property (`req.query`, `req.params`, or `req.body`)? What value?
+
+1. Route `/users/:username`, request `GET /users/abc`
+2. Route `/search`, request `GET /search?term=node`
+3. Route `app.post("/major", ...)`, a form posts `major=SWE`
+4. Route `/city/:cityName`, `GET /city/Denver`: is it `req.params.city`?
+5. Route `/users/:username`, request `GET /users/`: does the page say "Profile for "?
+
+<!--
+Answers:
+1. req.params.username is abc, so the page says "Profile for abc".
+2. req.query.term is node.
+3. req.body.major is SWE (needs app.use(express.urlencoded(...))).
+4. No: it is req.params.cityName (the name after the colon).
+5. No: /users/ has no value for :username, so the route doesn't match and the server returns a 404 status code.
+-->
+
+---
+
+# Route Parameter Middleware
+
+> `app.param()` defines **parameter middleware** that executes **before** a route's callback function
+
+- The middleware function has a **fourth parameter** → the route parameter's value
+- It can add data to `req` for the route to use, then calls `next()`
+
+```
+GET /users/jblack
+  → app.param("username", ...)         sets req.user, calls next()
+  → app.get("/users/:username", ...)   uses req.user
+  → Profile for Jack Black
+```
+
+A real application would look up the user in a **database** (next class)
+
+---
+
+# Param Middleware Example
 
 ```js
-// Success (200 is default)
-res.json({ ok: true, data: result });
-
-// Error (400 Bad Request)
-res.status(400).json({
-  ok: false,
-  error: "Invalid input"
+// Parameter middleware executes before the route
+app.param("username", function(req, res, next, username) {
+  // Check if username is recognized
+  if (username === "jblack") {
+    req.user = { name: "Jack Black", username: username };
+  }
+  else {
+    req.user = { name: "Unknown", username: username };
+  }
+  // Continue processing the request
+  next();
 });
 
-// Not Found (404)
-res.status(404).json({
-  ok: false,
-  error: "Resource not found"
+app.get("/users/:username", function(req, res) {
+  // req.user contains the user info set in the parameter middleware
+  res.send("<h1>Profile for " + req.user.name + "</h1>");
 });
 ```
 
----
-
-# Common Status Codes
-
-| Code | Meaning | Use Case |
-|------|---------|----------|
-| `200` | OK | Successful request |
-| `400` | Bad Request | Invalid input/parameters |
-| `404` | Not Found | Resource doesn't exist |
-| `500` | Server Error | Server-side error |
-
-**Always include status codes for errors!**
+<!--
+Live: request /users/jblack (Jack Black) and /users/sara (Unknown). Add a console.log in app.param to show it runs first.
+-->
 
 ---
 
-# Summary: Request Data in Express
+# Sending JSON Responses
 
-| Type | Access | Example | Use Case |
-|------|--------|---------|----------|
-| **Query** | `req.query` | `/search?q=react` | Optional filters |
-| **Route** | `req.params` | `/users/123` | Resource ID |
-| **Body** | `req.body` | POST with JSON | Creating/updating data |
-| **Param Middleware** | `app.param()` | Validates route params | Reusable validation |
+```js
+app.get("/users/:username", function(req, res) {
+  if (req.user.name !== "Unknown") {
+    res.json(req.user);
+  }
+  else {
+    res.status(404).json({ error: "Unknown user" });
+  }
+});
+```
 
+- `res.json()` → encodes a JavaScript object as **JSON** (`application/json`)
+- `res.status(404)` → sets the **status code** (404 = Not Found) before sending
+- `/users/jblack` → `{ "name": "Jack Black", "username": "jblack" }`
+- `/users/sara` → 404 and `{ "error": "Unknown user" }`
+
+<!--
+Live: replace res.send() with this route; show the 404 status in DevTools (Network tab).
+-->
+
+---
+
+<!-- _class: activity -->
+
+> Activity: Predict the response
+
+```js
+app.param("zip", function(req, res, next, zip) {
+  if (zip === "80015") {
+    req.forecast = {high: 95, low: 72};
+  }
+  next();
+});
+app.get("/weather/:zip", function(req, res) {
+  if (req.forecast) { res.json(req.forecast); }
+  else { res.status(404).json({ error: "Unknown ZIP code" }); }
+});
+```
+
+1. `/weather/80015`
+2. `/weather/12345`: what status code?
+3. `next()` is removed: `/weather/80015`?
+4. `app.param("zipcode", ...)` instead of `"zip"`: `/weather/80015`?
+
+<!--
+Answers:
+1. The JSON { "high": 95, "low": 72 } (status 200).
+2. The JSON { "error": "Unknown ZIP code" } with a 404 status code.
+3. The server does not return a response (the route callback never runs).
+4. { "error": "Unknown ZIP code" } with 404: no route has a :zipcode parameter, so the middleware never runs and req.forecast is never set.
+-->
+
+---
+
+<!-- _class: activity -->
+
+> Activity: Exit ticket: find the 4 bugs
+
+```js
+app.param("courseId", function(req, res, next, courseId) {
+  req.course = { code: courseId, title: "Web Engineering" };
+});
+app.get("/courses/:code", function(req, res) {
+  res.json(req.course);
+});
+// GET /search?term=node
+app.get("/search", function(req, res) {
+  res.send("Searching for " + req.params.term);
+});
+// A form posts major=SWE (no other app.use() calls)
+app.post("/major", function(req, res) {
+  res.send("Major: " + req.body.major);
+});
+```
+
+<!--
+Answers:
+1. app.param() never calls next() → add next(); at the end of the middleware.
+2. The parameter names don't match: app.param("courseId") but the route uses :code → use the same name in both.
+3. term is in the query string → req.query.term, not req.params.term.
+4. No express.urlencoded() middleware → add app.use(express.urlencoded({extended: false})); before the routes so req.body is filled in.
+Tip: bugs 1, 2, and 3 are the most common mistakes in the lab.
+-->
+
+---
+
+# Key Takeaways
+
+- **Query string** (`?name=Bob&age=21`) → `req.query`
+- **Posted form data** → `express.urlencoded()` parses it into `req.body`
+- **Route parameter** (`/users/:username`) → `req.params`
+- `app.param()` runs **before** the route's callback and must call `next()`
+- `res.json()` sends JSON; `res.status(404).json()` also sets the status code
 
 ---
 
@@ -573,3 +543,31 @@ res.status(404).json({
 >30m
 # Demo
 6.4 Request Data in Express
+
+- Query string parameters
+- Route parameters
+- Param middleware
+- JSON responses with status codes
+
+<!--
+Setup: cd 6-4-express-request-data; npm install; node server.js (prints "API running at http://localhost:3000").
+Tasks (TODOs in server.js): 1 create the app and listen on 3000; 2 GET /echo reads name and age from req.query (400 JSON if one is missing); 3 GET /profile/:first/:last returns fullName; 4 app.param("userId") converts to a number, 400 JSON if not positive, else req.userIdNum and next(); 5 GET /users/:userId returns req.userIdNum.
+Test: the URLs listed at the end of the server.js comment block (browser for GET routes, curl -i to see the status codes).
+Not in zyBooks ch6 (the lab's TODO hints and README explain them):
+- import express from "express" and "type": "module" in package.json: ch6 examples use require(); 6.3 covers import/export but not importing an npm package.
+- Arrow functions (req, res) => { ... }: zyBooks 4.6; ch6 uses function(req, res).
+- Object destructuring const { name, age } = req.query: zyBooks only covers array destructuring (5.9 useState).
+- Status code 400 with res.status(400): zyBooks 7.4 (Music API); ch6 only shows 404, and Table 1.3.2 doesn't list 400.
+- return res.status(...).json(...) to stop the callback early: zyBooks 8.2.
+- Converting to a number and checking "positive": Number() / Number.isFinite() are not in zyBooks (parseInt() and isNaN() are in ch4); the lab README shows Number.isFinite().
+- Two route parameters in one path (/profile/:first/:last): ch6 only shows one; the TODO hint gives the route.
+- curl for testing: not in zyBooks.
+- express.json() (JSON request bodies): zyBooks 7.3; mentioned in the README but not needed for the TODOs.
+-->
+
+---
+
+# Next Class
+
+- Mongoose (7.1)
+- MongoDB (7.2)

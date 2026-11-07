@@ -322,11 +322,11 @@ npm install nodemon --global
 
 2. What URL accesses a web server running locally on port 8080?
 
-3. Where does `npm install grunt -g` install the package?
+3. Where does `npm install grunt -g` install the package: `./node_modules` or `{prefix}/node_modules`?
 
-4. `"lodash": "^4.17.0"`, and versions `4.17.21`, `4.18.0`, `5.0.0` exist. With no package-lock.json, which is installed?
+4. `"lodash": "^4.17.0"` (^ keeps the major number), and versions `4.17.21`, `4.18.0`, `5.0.0` exist. With no package-lock.json, which is installed?
 
-5. A project has package.json but no `node_modules`. What single command installs everything?
+5. A project has package.json but no `node_modules`. Which command installs everything: `npm install`, `npm list`, or `npm update`?
 
 <!--
 Answers:

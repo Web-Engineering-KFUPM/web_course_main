@@ -96,59 +96,84 @@ footer: 'SWE 363 | KFUPM'
 ---
 
 
+
 Web Engineering & Development (SWE 363) 
-# Back-end Development Fundamentals
+# Back-End Development: Node.js & Express
 
 ---
 
 # In today's lecture:
-- Express.js
-  - Web Servers
-  - Routes
-  - Middleware
+- Serving static files
+- Routes: GET and POST
+- Middleware and `next()`
+- Third-party middleware (morgan)
+- The Express application generator
 
 ### Reference: 
 - Zybook: 6.4
 ---
-# 6.4 Express.js
+
+<!-- _class: activity -->
+
+> Activity: Warm-up, remember Lecture 15? (2 min)
+
+```js
+const express = require("express");
+const app = ______();
+
+app.___("/hello", function(req, res) {
+  res.send("<h1>Hello, Express!</h1>");
+});
+
+app.______(3000, function() {
+  console.log("Listening on port 3000...");
+});
+```
+
+1. Fill in the three blanks. Word bank: `listen`, `get`, `express`, `send`
+2. True or False: `express()` starts the Express server.
+3. Which method sends an object as JSON: `res.send()` or `res.json()`?
+4. What does the browser get for `http://localhost:3000/bye`?
+
+<!--
+Answers:
+1. express, get, listen
+2. False: express() creates the app object; app.listen() starts the server.
+3. res.json()
+4. A 404 error: no route matches /bye.
+Tip: today we add static files, POST routes, and middleware to this same server.
+-->
+
+---
+# 6.4 Express
+
+<!-- Timing: ~36 min for 6.4 (including activities): ~20 min content + ~16 min activities -->
 
 ---
 
-# What is Express.js?
-
-> **Express.js** is a web framework for Node.js
-
-**Express simplifies:**
-- Creating web servers
-- Handling HTTP requests and responses
-- Defining routes (URLs)
-- Using middleware
-
-**Think of Express as a toolkit** that makes building web servers much easier!
-
----
-
-# Why Use Express.js?
+# The public Directory
 
 <div class="two-column-slide">
 
 <div class="column-left">
 
-**Without Express:**
-- Write lots of code
-- Handle HTTP manually
-- Complex routing logic
-- More time-consuming
+```
+myproject
+├── node_modules
+│   └── express
+├── public
+│   └── hello.html
+├── package.json
+└── server.js
+```
 
 </div>
 
 <div class="column-right">
 
-**With Express:**
-- Simple, clean code
-- Built-in HTTP handling
-- Easy route definition
-- Fast development
+- `node_modules/express` → the installed **express** package
+- **public** → stores **static files** (HTML, images, etc.) served by the Express server
+- **server.js** → the application code, run with `node server.js`
 
 </div>
 
@@ -156,470 +181,381 @@ Web Engineering & Development (SWE 363)
 
 ---
 
-# Installing Express
+# Serving Static Files
 
-**Create a new project:**
-```bash
-npm init -y
-```
-
-**Install Express:**
-```bash
-npm install express
-```
-
-**Install Cross-Origin Resource Sharing (CORS) (for frontend communication):**
-```bash
-npm install cors
-```
-
----
-
-# Creating Your First Express Server
-
-**Basic server setup:**
 ```js
-import express from "express";
-
+// server.js
+const express = require("express");
 const app = express();
-const PORT = 3000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+// Serve static files from the public dir
+app.use(express.static("public"));
+
+// Start the web server
+app.listen(3000, function() {
+  console.log("Listening on port 3000...");
 });
 ```
 
-**Run the server:**
-```bash
-node server.js
+- `express.static()` → names the directory with the static files
+- `app.use()` → applies it to the Express app
+- `http://localhost:3000/hello.html` → the server responds with `hello.html`
+
+<!--
+Live: create public/hello.html, run node server.js, open /hello.html, then try /bye.html (404).
+-->
+
+---
+
+<!-- _class: activity -->
+
+> Activity: Predict what the browser shows
+
+```
+myproject
+├── public
+│   └── hello.html
+└── server.js       // app.use(express.static("public"));
 ```
 
----
+1. `http://localhost:3000/hello.html`
+2. `http://localhost:3000/bye.html`
+3. `http://localhost:3000/public/hello.html`
+4. To serve `images/dog.jpg`, the `images` directory must be in `public` or `node_modules`?
 
-# What is a Web Server?
-
-> A **web server** listens for requests and sends responses
-
-**Simple analogy:**
-- **Restaurant:** Server listens for orders (requests)
-- **Kitchen:** Server processes the order
-- **Waiter:** Server brings food back (response)
-
-**In web development:**
-- Browser sends a **request** (asks for data)
-- Server processes the request
-- Server sends a **response** (returns data)
+<!--
+Answers:
+1. The hello.html page ("Hello, Express!").
+2. A 404 status code: there is no bye.html in public.
+3. A 404 status code: URLs start inside public, so "public" is not part of the URL.
+4. public (then the URL is http://localhost:3000/images/dog.jpg).
+-->
 
 ---
 
-# Understanding Requests and Responses
+# Routes
 
-<div class="two-column-slide">
+> An Express **route** = a URL **path** + an HTTP request **method**, with an assigned **callback function**
 
-<div class="column-left">
-
-## Request (req)
-- Data **from** the client
-- URL, method (GET/POST)
-- Headers, body
-- Query parameters
-
-</div>
-
-<div class="column-right">
-
-## Response (res)
-- Data **to** the client
-- Status code (200, 404, etc.)
-- JSON, HTML, text
-- Headers
-
-</div>
-
-</div>
-
----
-
-# What are Routes?
-
-> **Routes** define what happens when someone visits a specific URL
-
-**Example:**
-- `/` → Home page
-- `/api/quote` → Get a random quote
-- `/api/users` → Get user data
-
-**Routes organize your API** - each URL does something different!
-
----
-
-# Why Do We Need Routes?
-
-- **Organization:** Each URL has a specific purpose
-- **Clarity:** Easy to understand what each endpoint does
-- **Separation:** Different features in different routes
-- **Scalability:** Easy to add new features
-
-**Example:**
-```
-/api/students  → Student data
-/api/teachers  → Teacher data
-/api/courses   → Course data
-```
-
----
-
-# Creating Your First Route
-
-**Basic GET route:**
 ```js
-app.get("/", (req, res) => {
-  res.send("Welcome to my API!");
+app.method(path, callback)
+```
+
+- `app` → the Express instance
+- `method` → the HTTP request method (`get`, `post`, etc.)
+- `path` → the URL path
+- `callback` → the function executed when the route **matches**
+  - Parameters `req` and `res` → the HTTP request and response
+
+---
+
+# GET vs. POST Routes
+
+```js
+// Called for GET request to http://localhost:3000/hello
+app.get("/hello", function(req, res) {
+  res.send("<h1>Hello, Express!</h1>");
+});
+
+// Called for POST request to http://localhost:3000/goodbye
+app.post("/goodbye", function(req, res) {
+  res.send("<h1>Goodbye, Express!</h1>");
 });
 ```
 
-**What this does:**
-- When someone visits `http://localhost:3000/`
-- Server responds with: "Welcome to my API!"
+- **GET** → requests a resource (the most common browser request)
+- **POST** → often sends information from a web form: `<form method="POST">`
+- A route matches only when **both** the method and the path match
+
+<!--
+Live: add the POST /goodbye route, then type /goodbye in the browser's address bar. The browser sends a GET request, so no route matches (404).
+-->
 
 ---
 
-# Route Syntax
+<!-- _class: activity -->
 
-**General format:**
-```js
-app.METHOD(path, handler)
-```
-
-**Components:**
-- `app` → Express application
-- `METHOD` → HTTP method (get, post, put, delete)
-- `path` → URL path (e.g., "/api/quote")
-- `handler` → Function that handles the request
-
----
-
-# HTTP Methods
-
-| Method | Purpose | Example |
-|--------|---------|---------|
-| **GET** | Retrieve data | Get a quote |
-| **POST** | Create data | Create a user |
-| **PUT** | Update data | Update user info |
-| **DELETE** | Delete data | Delete a user |
-
----
-
-# GET Route Example
-
-**Simple GET route:**
-```js
-app.get("/api/quote", (req, res) => {
-  const quote = "Talk is cheap. Show me the code.";
-  res.json({ quote: quote });
-});
-```
-
-**Test it:**
-- Visit: `http://localhost:3000/api/quote`
-- Response: `{ "quote": "Talk is cheap. Show me the code." }`
-
----
-
-# Sending Different Response Types
-
-**Send plain text:**
-```js
-res.send("Hello World");
-```
-
-**Send JSON:**
-```js
-res.json({ message: "Success", data: [...] });
-```
-
-**Send status code:**
-```js
-res.status(404).send("Not Found");
-```
-
----
-
-# Multiple Routes Example
+> Activity: Which route matches? (server on port 3000)
 
 ```js
-app.get("/", (req, res) => {
-  res.send("Welcome to the Quote Generator API");
-});
-
-app.get("/api/quote", (req, res) => {
-  const quote = getRandomQuote();
-  res.json({ quote });
-});
-
-app.get("/api/about", (req, res) => {
-  res.json({ 
-    name: "Quote API",
-    version: "1.0.0" 
-  });
-});
+app.get("/hello", callback);
+app.post("/goodbye", callback);
+app.get("/droids", callback);
 ```
+
+1. A POST request to `/hello`: `/hello`, `/goodbye`, or neither?
+2. Which URL matches `/droids`?
+   `http://localhost/droids`, `http://localhost:3000/droidssss`, or `http://localhost:3000/Droids`
+3. Which route matches a POST request to `http://localhost:3000/apply`?
+   `app.get("/apply", cb)`, `app.post("/apply", cb)`, or `app.post("http://localhost:3000/apply", cb)`
+
+<!--
+Answers:
+1. Neither route: /hello only matches GET, and /goodbye has a different path.
+2. http://localhost:3000/Droids (the first URL is missing the port, and "droidssss" is a different path; Express paths are not case-sensitive by default).
+3. app.post("/apply", cb): the path is only the URL path, not the full URL.
+-->
 
 ---
 
 # What is Middleware?
 
-> **Middleware** are functions that run between a request and a response
+> A **middleware function** (or just **middleware**) examines or modifies the **request** and/or **response** objects
 
-**Think of middleware as:**
-- **Security guards** checking requests
-- **Helpers** that process data before it reaches your route
-- **Loggers** that record what's happening
+**Why use middleware?**
+- Runs **before** the route, for **every** request
+- Write common code **once** with `app.use()`, instead of in every route
+- Ex: `express.static()` serves files, **morgan** logs requests
+
+**Three parameters:** `req` (request), `res` (response), `next` (call when done)
+
+```
+Request → middleware → next() → route → Response
+```
+
+<!--
+Ask: without middleware, how would you log every request? (Copy console.log into every route: repetitive and easy to forget.)
+-->
 
 ---
 
-# Middleware Flow
+# A Middleware That Logs Requests
 
-```
-Request → Middleware 1 → Middleware 2 → Route Handler → Response
-```
-
-**Example:**
-1. Request arrives
-2. CORS middleware checks origin
-3. Logger middleware records request
-4. Route handler processes request
-5. Response sent back
-
----
-
-# Using Middleware
-
-**Basic middleware:**
 ```js
-app.use((req, res, next) => {
-  console.log("Request received:", req.url);
-  next(); // Continue to next middleware/route
+const logRequest = function(req, res, next) {
+  console.log(`Request: ${req.method} for ${req.path}`);
+  next();
+};
+
+app.use(logRequest);
+app.get("/hello", function(req, res) {
+  res.send("<h1>Hello, Express!</h1>");
+});
+// app.listen(3000, ...) as before
+```
+
+**Console** after the browser requests `http://localhost:3000/hello`:
+```
+Listening on port 3000...
+Request: GET for /hello
+```
+
+<!--
+Live: add logRequest, request /hello and then /, and watch the server console.
+-->
+
+---
+
+<!-- _class: activity -->
+
+> Activity: What happens if (each change on its own)
+
+```js
+const logRequest = function(req, res, next) {
+  console.log(`Request: ${req.method} for ${req.path}`);
+  next();
+};
+app.use(logRequest);
+app.get("/hello", function(req, res) {
+  res.send("<h1>Hello, Express!</h1>");
 });
 ```
 
-**Important:** Always call `next()` to continue!
+1. The browser requests `/`, which has no route: what is logged?
+2. `app.use()` is removed: what does GET `/hello` log?
+3. `next()` is removed: what does GET `/hello` log? What does the browser show?
+4. `app.use()` is moved after `app.get()`: what does GET `/hello` log?
+
+<!--
+Answers:
+1. Request: GET for / (the middleware runs for every request; then no route matches, so 404).
+2. Nothing is logged: the middleware is never enabled.
+3. Request: GET for /hello is logged, but the /hello route never runs, so the browser never gets "Hello, Express!".
+4. Nothing is logged: the /hello route responds first and does not call next(), so logRequest() never runs.
+Tip: try each change live and restart the server between changes.
+-->
 
 ---
 
-# CORS Middleware
+# Middleware: Order and `next()`
 
-> **CORS** (Cross-Origin Resource Sharing) allows frontend to communicate with backend
+- `next()` → allows **other middleware** and the **route** to execute
+- No `next()` → the request stops in the middleware
+- `app.use()` **before** the routes → the middleware runs first
 
-**Why we need it:**
-- Frontend runs on `http://localhost:5173`
-- Backend runs on `http://localhost:3000`
-- Browsers block cross-origin requests by default
-
-**Solution:**
-```js
-import cors from "cors";
-app.use(cors());
 ```
+app.use(logRequest);     →  logs "Request: GET for /hello", then /hello responds
+app.get("/hello", ...);
+
+app.get("/hello", ...);  →  /hello responds; logRequest() never runs
+app.use(logRequest);
+```
+
+- `express.static("public")` is also enabled with `app.use()`
 
 ---
 
-# CORS Example
+# Third-Party Middleware: morgan
 
-**Without CORS:**
+Many useful middleware functions can be **installed with npm**
+
+<div class="two-column-slide">
+
+<div class="column-left">
+
+```bash
+npm install morgan
 ```
-Frontend (port 5173) → ❌ Blocked → Backend (port 3000)
-```
-
-**With CORS:**
-```js
-import cors from "cors";
-app.use(cors());
-```
-```
-Frontend (port 5173) → ✅ Allowed → Backend (port 3000)
-```
-
----
-
-# Built-in Express Middleware
-
-**Parse JSON data:**
-```js
-app.use(express.json());
-```
-
-**Parse URL-encoded data:**
-```js
-app.use(express.urlencoded({ extended: true }));
-```
-
-**These allow your server to read request body data!**
-
----
-
-# Complete Server Example
 
 ```js
-import express from "express";
-import cors from "cors";
-
+const express = require("express");
+const morgan = require("morgan");
 const app = express();
-const PORT = 3000;
 
-// Middleware
-app.use(cors());
-app.use(express.json());
+// Show HTTP requests in the console
+app.use(morgan("dev"));
 
-// Routes
-app.get("/", (req, res) => {
-  res.send("Welcome to the Quote Generator API");
-});
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+app.listen(3000);
 ```
+
+</div>
+
+<div class="column-right">
+
+**Example console logging of requests:**
+```
+GET /hello.html 200 8.645 ms - 132
+POST /hello 200 4.280 ms - 25
+GET /blah 404 1.297 ms - -
+```
+
+- **morgan** logs HTTP requests
+- `"dev"` → the output format
+
+</div>
+
+</div>
+
+<!--
+Live: npm install morgan, add app.use(morgan("dev")), refresh the browser, and request a missing page to show a 404 line.
+-->
 
 ---
 
-# Request Object (req)
+<!-- _class: activity -->
 
-**Common properties:**
+> Activity: Put the steps in order
+
+A. `app.use(morgan("dev"));` enables morgan
+
+B. `npm install morgan`
+
+C. The browser requests `http://localhost:3000/hello.html`
+
+D. `const morgan = require("morgan");` imports morgan
+
+E. The console shows `GET /hello.html 200 8.645 ms - 132`
+
+F. `node server.js` starts the server
+
+<!--
+Answer:
+B → D → A → F → C → E
+Follow-up: what would E show if hello.html were not in public? (GET /hello.html 404 ...)
+-->
+
+---
+
+# Popular Third-Party Middleware
+
+| Middleware | Description |
+|------------|-------------|
+| **morgan** | Logs HTTP request information |
+| **cookie-parser** | Parses the cookie header in an HTTP request |
+| **errorhandler** | Aids debugging during development |
+| **csurf** | Protects against cross-site request forgery (CSRF) |
+| **compression** | Compresses response bodies |
+| **express-session** | Manages session data on the server |
+
+---
+
+<!-- _class: activity -->
+
+> Activity: Which middleware?
+
+Choose from: morgan, cookie-parser, errorhandler, csurf, compression, express-session
+
+1. Indicates that an HTTP request returned a 404 status code
+2. Protects an Express server from a malicious CSRF attack
+3. Tracks the user's temporary session data
+4. Makes response bodies smaller
+5. Reads the cookie header of a request
+6. Aids debugging during development
+
+<!--
+Answers:
+1. morgan
+2. csurf
+3. express-session
+4. compression
+5. cookie-parser
+6. errorhandler
+-->
+
+---
+
+# Express Application Generator
+
+> **express-generator** automatically creates an Express **application skeleton**
+
+- Saves time writing code that is common to many Express applications
+- Generated projects use the **Pug** template engine to create views (webpages)
+- The views interact with the **MongoDB** database
+
+---
+
+<!-- _class: activity -->
+
+> Activity: Find the 3 bugs (exit ticket)
+
+Goal: `http://localhost:3000/hello` shows "Hello!" and every request is logged.
+
 ```js
-app.get("/api/user/:id", (req, res) => {
-  req.params.id      // URL parameters
-  req.query.search   // Query string (?search=hello)
-  req.body           // Request body (POST data)
-  req.headers        // Request headers
-  req.url            // Request URL
+const express = require("express");
+const app = express();
+
+const logRequest = function(req, res) {
+  console.log(`Request: ${req.method} for ${req.path}`);
+};
+
+app.use(morgan("dev"));
+app.use(logRequest);
+
+app.post("/hello", function(req, res) {
+  res.send("<h1>Hello!</h1>");
 });
+
+app.listen(3000);
 ```
 
----
-
-# Response Object (res)
-
-**Common methods:**
-```js
-res.send("Text")           // Send text
-res.json({ data })         // Send JSON
-res.status(404)             // Set status code
-res.sendStatus(200)        // Send status + message
-res.redirect("/")          // Redirect to URL
-```
+<!--
+Answers:
+1. morgan is never imported → npm install morgan and add const morgan = require("morgan");
+2. logRequest() never calls next() → add the next parameter and call next(); otherwise the request stops in the middleware.
+3. Typing the URL in the browser sends a GET request, but the route uses app.post() → use app.get("/hello", ...).
+Tip: these are the most common mistakes in today's lab (forgetting to install/import morgan, and route method/path mismatches).
+-->
 
 ---
 
-# Route Parameters
+# Key Takeaways
 
-**Dynamic routes:**
-```js
-app.get("/api/user/:id", (req, res) => {
-  const userId = req.params.id;
-  res.json({ userId });
-});
-```
-
-**Example:**
-- URL: `/api/user/123`
-- `req.params.id` = `"123"`
-
----
-
-# Query Parameters
-
-**Query strings:**
-```js
-app.get("/api/search", (req, res) => {
-  const query = req.query.q;
-  res.json({ search: query });
-});
-```
-
-**Example:**
-- URL: `/api/search?q=javascript`
-- `req.query.q` = `"javascript"`
-
----
-
-# POST Route Example
-
-**Handle POST requests:**
-```js
-app.post("/api/users", (req, res) => {
-  const newUser = req.body;
-  // Save user to database
-  res.status(201).json({ 
-    message: "User created",
-    user: newUser 
-  });
-});
-```
-
-**Note:** Requires `app.use(express.json())` middleware!
-
----
-
-# Error Handling
-
-**Basic error handling:**
-```js
-app.get("/api/data", (req, res) => {
-  try {
-    // Your code here
-    res.json({ data: "success" });
-  } catch (error) {
-    res.status(500).json({ 
-      error: "Something went wrong" 
-    });
-  }
-});
-```
-
----
-
-# package.json Review
-
-**What is package.json?**
-- Configuration file for your project
-- Lists all dependencies
-- Defines project metadata
-- Contains scripts
-```json
-{
-  "name": "quote-api",
-  "version": "1.0.0",
-  "dependencies": {
-    "express": "^4.18.2",
-    "cors": "^2.8.5" }
-}
-```
-
----
-
-# package-lock.json
-
-**What is package-lock.json?**
-- Records **exact versions** of all packages
-- Ensures **consistent installs**
-- **Auto-generated** - don't edit manually!
-
-**Why it matters:**
-- Team members get same versions
-- Production deployments are predictable
-- Prevents "works on my machine" issues
-
----
-
-# Summary Table
-
-| Concept | Purpose | Example |
-|---------|---------|--------|
-| **Express** | Web framework | `const app = express()` |
-| **Route** | Handle URL | `app.get("/", handler)` |
-| **Middleware** | Process requests | `app.use(cors())` |
-| **req** | Request data | `req.params`, `req.body` |
-| **res** | Send response | `res.json()`, `res.send()` |
+- `app.use(express.static("public"))` → serves the static files in **public**
+- **Route:** `app.method(path, callback)` → method **and** path must match
+- **Middleware** `(req, res, next)` is enabled with `app.use()`
+- Call `next()` so other middleware and the route can execute
+- **Third-party middleware** is installed with npm, e.g., `morgan("dev")`
+- **express-generator** creates an Express application skeleton
 
 ---
 
@@ -629,8 +565,25 @@ app.get("/api/data", (req, res) => {
 # Demo
 6.3 Express
 
-- Set up Express server
-- Create routes
-- Use middleware (CORS)
-- Connect frontend to backend
+- Routes that send text and JSON
+- Logging requests with morgan
+- Connect the React front end
 
+<!--
+Setup: cd 6-3-node-express; npm install; npm install morgan (morgan is not in package.json yet); npm run dev (front end). In a 2nd terminal: cd backend && node server.js (back end).
+Tasks: TODO 1–7. backend/server.js: create the app and PORT, enable cors, enable morgan("dev"), routes / (plain text) and /api/quote (JSON), app.listen. backend/utils/random.js: getRandomInt(max). backend/quotes.js: getRandomQuote().
+Test: http://localhost:3000/ and http://localhost:3000/api/quote in the browser; click Get Quote in the React app; check the morgan lines in the backend terminal.
+Not in zyBooks ch6 (the lab's TODO hints in utils/random.js explain them):
+- import express from "express" / import morgan from "morgan" with "type": "module" (ES modules from 6.3; the 6.4 examples use require)
+- cors (zyBooks 7.4; the CORS concept is in 5.3): needed because React (port 5173) and Express (port 3000) are different origins
+- Arrow-function route callbacks in the hints (arrow functions are in zyBooks 4.6; 6.4 uses function(req, res))
+- Math.random() / Math.floor() for getRandomInt (zyBooks 4.13)
+- fetch / async / await / useState in App.jsx (zyBooks 5.17 and 5.9; already written in the starter)
+-->
+
+---
+
+# Next Class
+
+- Express request data (6.5)
+- Query strings, form data, and route parameters
