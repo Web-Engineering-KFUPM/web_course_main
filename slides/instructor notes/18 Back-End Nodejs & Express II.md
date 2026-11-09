@@ -104,10 +104,9 @@ Web Engineering & Development (SWE 363)
 ---
 
 # In today's lecture:
-- Query string parameters
-- Posting form data
-- Route parameters
+- Three ways to send data: query string, form body, route parameter
 - Route parameter middleware
+- Sending JSON responses
 
 ### Reference: 
 - Zybook: 6.5
@@ -147,40 +146,29 @@ Tip: today every route reads data from req.
 
 # 6.5 Express Request Data
 
-<!-- Timing: ~35 min for 6.5 (including activities) -->
+<!-- Timing: ~32 min for 6.5 (including activities) -->
 
 ---
 
-# How do we get data from the client?
+# Three Ways to Send Data
+
+> The client sends data in the **query string**, the request **body**, or the URL **path**
+
+Express puts each one in its own object on `req`, ready for the route to use
 
 | Data | Example request | Read it from |
-|------|-----------------|----------------|
-| **Query string** | `GET /hello?name=Bob&age=21` | `req.query` |
-| **Posted form data** | `POST /hello` with body `name=Tamika&age=24` | `req.body` |
-| **Route parameter** | `GET /users/jblack` | `req.params` |
-
-&nbsp;
-
-Each one is an object: `req.query.name`, `req.body.name`, `req.params.username`
+|------|-----------------|--------------|
+| **Query string** | `GET /hello?name=Bob` | `req.query.name` |
+| **Form POST body** | `POST /hello` (body `name=Tamika`) | `req.body.name` |
+| **Route parameter** | `GET /users/jblack` | `req.params.username` |
 
 ---
 
-# What are Query String Parameters?
+# Query String Parameters
 
-> A **query string** = `name=value` pairs after the `?` in a URL, separated by `&`
+> Express **automatically parses** the `name=value` pairs after the `?` into **`req.query`**
 
-```
-http://localhost:3000/hello?name=Bob&age=21
-```
-
-- Path → `/hello`
-- Query string → `name=Bob&age=21`
-- Express **automatically parses** it into the **`req.query`** object
-- Forms with `method="get"` send their data this way
-
----
-
-# Reading Query Parameters in Express
+The same route can greet anyone: only the URL changes
 
 ```js
 // GET http://localhost:3000/hello?name=Bob&age=21
@@ -193,9 +181,11 @@ app.get("/hello", function(req, res) {
 
 **Browser shows:** Hello, Bob! You are 21 years old.
 
-- The query string doesn't change the route: `/hello` still matches
-
 <!--
+Details to say aloud:
+- Path = /hello; query string = name=Bob&age=21 (pairs separated by &).
+- The query string doesn't change the route: /hello still matches.
+- Forms with method="get" send their data this way (zyBooks 2.8).
 Live: run the /hello route, then change the URL: different name, remove age, add an extra parameter.
 -->
 
@@ -230,70 +220,54 @@ Answers:
 
 # Posting Form Data
 
-> A form that **posts** to an Express route sends its data **URL-encoded** in the **body**
+> A form with `method="post"` sends its data **URL-encoded** in the **body** of the HTTP request
 
-**public/hello.html** and the **HTTP request** it sends on Submit:
+The data reaches the server without appearing in the URL
+
 ```html
+<!-- public/hello.html -->
 <form method="post" action="/hello">
-  <p><label>Name? <input type="text" name="name"></label></p>
-  <p><label>Age? <input type="number" name="age"></label></p>
+  <label>Name? <input type="text" name="name"></label>
+  <label>Age? <input type="number" name="age"></label>
   <input type="submit" value="Submit">
 </form>
 ```
-```
+
+Body sent on Submit: `name=Tamika&age=24`
+
+<!--
+The full HTTP request the browser sends:
 POST /hello HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 
 name=Tamika&age=24
-```
+Each input's name attribute becomes a key in the body.
+-->
 
 ---
 
-# Receiving URL-Encoded Data
+# Reading Form Data
+
+> `express.urlencoded()` is **middleware** that parses the URL-encoded body and adds the values to **`req.body`**
+
+Enable it with `app.use()` before the route that reads `req.body`
 
 ```js
-const express = require("express");
-const app = express();
-
 app.use(express.static("public"));               // serves hello.html
-app.use(express.urlencoded({extended: false}));  // parses the form data
+app.use(express.urlencoded({extended: false}));  // body → req.body
 
 app.post("/hello", function(req, res) {
   const html = `<h1>Hello, ${req.body.name}!</h1>
     <p>You are ${req.body.age} years old.</p>`;
   res.send(html);
 });
-
-app.listen(3000);
 ```
 
-- `express.urlencoded()` → **middleware** that adds the parsed values to **`req.body`**
-- Only parses bodies with `Content-Type: application/x-www-form-urlencoded`
-
 <!--
+Details to say aloud:
+- express.urlencoded() only parses bodies with Content-Type: application/x-www-form-urlencoded.
+- The full flow: the browser requests hello.html (express.static serves it) → the user types Tamika / 24 and presses Submit → the browser sends POST /hello with name=Tamika&age=24 in the body → the middleware attaches the data to req.body → the /hello POST route sends "Hello, Tamika!".
 Live: open http://localhost:3000/hello.html, submit Tamika / 24. Then comment out the express.urlencoded() line, restart, and submit again (sets up the next activity).
--->
-
----
-
-<!-- _class: activity -->
-
-> Activity: Put the steps in order
-
-A. The middleware parses the body and attaches the data to `req.body`
-
-B. The browser requests `hello.html`, and `express.static()` serves it
-
-C. The `/hello` POST route sends back "Hello, Tamika!"
-
-D. The user types Tamika and 24 and presses Submit
-
-E. The browser sends `POST /hello` with `name=Tamika&age=24` in the body
-
-<!--
-Answer:
-B → D → E → A → C
-Follow-up: which steps happen in the browser (B's request, D, E) and which on the server (B's response, A, C)?
 -->
 
 ---
@@ -307,10 +281,8 @@ Follow-up: which steps happen in the browser (B's request, D, E) and which on th
 <div class="column-left">
 
 ```html
-<!-- public/hello.html -->
 <form method="post" action="/hello">
   <input type="text" name="name">
-  <input type="number" name="age">
   <input type="submit" value="Submit">
 </form>
 ```
@@ -318,9 +290,8 @@ Follow-up: which steps happen in the browser (B's request, D, E) and which on th
 ```js
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: false}));
-
 app.post("/hello", function(req, res) {
-  res.send(`<h1>Hello, ${req.body.name}!</h1>`);
+  res.send("Hello, " + req.body.name + "!");
 });
 ```
 
@@ -331,8 +302,8 @@ app.post("/hello", function(req, res) {
 1. Submit is clicked with no name?
 2. `express.urlencoded()` is removed?
 3. The form uses `method="get"`?
-4. The request's Content-Type is `application/json` instead of `application/x-www-form-urlencoded`?
-5. `app.use(express.static("public"))` is removed?
+4. The body is sent as `application/json`?
+5. The `express.static()` line is removed?
 
 </div>
 
@@ -342,17 +313,19 @@ app.post("/hello", function(req, res) {
 Answers:
 1. The page says "Hello, !" (the name is empty).
 2. Nothing parses the body, so req.body.name can't be read: the server responds with an error instead of the greeting.
-3. The data goes in the query string (GET /hello?name=Tamika&age=24). There is no GET /hello route, so the server returns a 404 status code.
+3. The data goes in the query string (GET /hello?name=Tamika). There is no GET /hello route, so the server returns a 404 status code.
 4. express.urlencoded() only parses bodies with Content-Type: application/x-www-form-urlencoded, so req.body is not filled in and the name can't be read.
-5. hello.html is no longer served: http://localhost:3000/hello.html returns a 404, so the user never sees the form.
+5. hello.html (the form page in public) is no longer served: http://localhost:3000/hello.html returns a 404, so the user never sees the form.
 Follow-up (ask aloud): is express.static() middleware? Yes: it is enabled with app.use(), like express.urlencoded().
 -->
 
 ---
 
-# What are Route Parameters?
+# Route Parameters
 
-> A **route parameter** = a value near or at the end of the URL path; its name is defined with a **colon** (`:`)
+> A **route parameter** is a value in the URL path, named with a **colon** (`:username`); Express attaches it to **`req.params`**
+
+One route makes a dynamic webpage for every username
 
 ```js
 // GET http://localhost:3000/users/jblack
@@ -362,12 +335,12 @@ app.get("/users/:username", function(req, res) {
 });
 ```
 
-- Route parameters are attached to the **`req.params`** object
-- One route → a **dynamic webpage** for every username
-
 **Browser shows:** Profile for jblack
 
 <!--
+Details to say aloud:
+- A route parameter is near or at the end of the URL path.
+- The name after the colon is the property name: :username → req.params.username.
 Live: request /users/jblack, then /users/abc, then /users/ (404).
 -->
 
@@ -397,45 +370,27 @@ Answers:
 
 # Route Parameter Middleware
 
-> `app.param()` defines **parameter middleware** that executes **before** a route's callback function
+> `app.param()` defines middleware that runs **before** the route's callback; its **fourth parameter** is the parameter's value
 
-- The middleware function has a **fourth parameter** → the route parameter's value
-- It can add data to `req` for the route to use, then calls `next()`
-
-```
-GET /users/jblack
-  → app.param("username", ...)         sets req.user, calls next()
-  → app.get("/users/:username", ...)   uses req.user
-  → Profile for Jack Black
-```
-
-A real application would look up the user in a **database** (next class)
-
----
-
-# Param Middleware Example
+It prepares data (`req.user`) for the route, then **must call `next()`**
 
 ```js
-// Parameter middleware executes before the route
 app.param("username", function(req, res, next, username) {
-  // Check if username is recognized
-  if (username === "jblack") {
-    req.user = { name: "Jack Black", username: username };
-  }
-  else {
-    req.user = { name: "Unknown", username: username };
-  }
-  // Continue processing the request
-  next();
+  if (username === "jblack") { req.user = { name: "Jack Black" }; }
+  else { req.user = { name: "Unknown" }; }
+  next();   // continue processing the request
 });
 
 app.get("/users/:username", function(req, res) {
-  // req.user contains the user info set in the parameter middleware
   res.send("<h1>Profile for " + req.user.name + "</h1>");
 });
 ```
 
 <!--
+Flow to draw on the board:
+GET /users/jblack → app.param("username", ...) sets req.user, calls next() → app.get("/users/:username", ...) uses req.user → Profile for Jack Black
+- zyBooks Figure 6.5.1 is the same example (it also stores username in req.user).
+- A real application would replace the if-else with a database query (next class).
 Live: request /users/jblack (Jack Black) and /users/sara (Unknown). Add a console.log in app.param to show it runs first.
 -->
 
@@ -443,23 +398,25 @@ Live: request /users/jblack (Jack Black) and /users/sara (Unknown). Add a consol
 
 # Sending JSON Responses
 
+> `res.json()` encodes a JavaScript object as **JSON**; `res.status(404)` sets the **status code** before it
+
+A **web API** sends data (JSON) instead of an HTML page
+
 ```js
 app.get("/users/:username", function(req, res) {
   if (req.user.name !== "Unknown") {
-    res.json(req.user);
+    res.json(req.user);                               // {"name":"Jack Black"}
   }
   else {
-    res.status(404).json({ error: "Unknown user" });
+    res.status(404).json({ error: "Unknown user" });  // 404 = Not Found
   }
 });
 ```
 
-- `res.json()` → encodes a JavaScript object as **JSON** (`application/json`)
-- `res.status(404)` → sets the **status code** (404 = Not Found) before sending
-- `/users/jblack` → `{ "name": "Jack Black", "username": "jblack" }`
-- `/users/sara` → 404 and `{ "error": "Unknown user" }`
-
 <!--
+Details to say aloud:
+- res.json() sends the response with Content-Type: application/json.
+- Without res.status(), a successful response has the 200 status code.
 Live: replace res.send() with this route; show the 404 status in DevTools (Network tab).
 -->
 
@@ -503,19 +460,13 @@ Answers:
 
 ```js
 app.param("courseId", function(req, res, next, courseId) {
-  req.course = { code: courseId, title: "Web Engineering" };
+  req.course = { code: courseId };
 });
-app.get("/courses/:code", function(req, res) {
-  res.json(req.course);
-});
+app.get("/courses/:code", function(req, res) { res.json(req.course); });
 // GET /search?term=node
-app.get("/search", function(req, res) {
-  res.send("Searching for " + req.params.term);
-});
+app.get("/search", function(req, res) { res.send(req.params.term); });
 // A form posts major=SWE (no other app.use() calls)
-app.post("/major", function(req, res) {
-  res.send("Major: " + req.body.major);
-});
+app.post("/major", function(req, res) { res.send(req.body.major); });
 ```
 
 <!--
@@ -532,7 +483,7 @@ Tip: bugs 1, 2, and 3 are the most common mistakes in the lab.
 # Key Takeaways
 
 - **Query string** (`?name=Bob&age=21`) → `req.query`
-- **Posted form data** → `express.urlencoded()` parses it into `req.body`
+- **Form POST body** → `express.urlencoded()` parses it into `req.body`
 - **Route parameter** (`/users/:username`) → `req.params`
 - `app.param()` runs **before** the route's callback and must call `next()`
 - `res.json()` sends JSON; `res.status(404).json()` also sets the status code

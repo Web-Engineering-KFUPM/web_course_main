@@ -188,7 +188,7 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-;" data-marpit-pagination-total="22">
+;" data-marpit-pagination-total="19">
 <p>Web Engineering &amp; Development (SWE 363)</p>
 <h1 id="back-end-development-nodejs--express-ii">Back-End Development: Node.js &amp; Express II</h1>
 <footer>SWE 363 | KFUPM</footer>
@@ -373,13 +373,12 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-;" data-marpit-pagination-total="22">
+;" data-marpit-pagination-total="19">
 <h1 id="in-todays-lecture">In today's lecture:</h1>
 <ul>
-<li>Query string parameters</li>
-<li>Posting form data</li>
-<li>Route parameters</li>
+<li>Three ways to send data: query string, form body, route parameter</li>
 <li>Route parameter middleware</li>
+<li>Sending JSON responses</li>
 </ul>
 <h3 id="reference">Reference:</h3>
 <ul>
@@ -567,7 +566,7 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-;" data-marpit-pagination-total="22">
+;" data-marpit-pagination-total="19">
 <blockquote>
 <p>Activity: Warm-up from last lecture (2 min)</p>
 </blockquote>
@@ -769,7 +768,7 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-;" data-marpit-pagination-total="22">
+;" data-marpit-pagination-total="19">
 <h1 id="65-express-request-data">6.5 Express Request Data</h1>
 <footer>SWE 363 | KFUPM</footer>
 </section>
@@ -953,8 +952,12 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-;" data-marpit-pagination-total="22">
-<h1 id="how-do-we-get-data-from-the-client">How do we get data from the client?</h1>
+;" data-marpit-pagination-total="19">
+<h1 id="three-ways-to-send-data">Three Ways to Send Data</h1>
+<blockquote>
+<p>The client sends data in the <strong>query string</strong>, the request <strong>body</strong>, or the URL <strong>path</strong></p>
+</blockquote>
+<p>Express puts each one in its own object on <code>req</code>, ready for the route to use</p>
 <table>
 <thead>
 <tr>
@@ -966,23 +969,21 @@ pre {font-size:0.8rem}
 <tbody>
 <tr>
 <td><strong>Query string</strong></td>
-<td><code>GET /hello?name=Bob&amp;age=21</code></td>
-<td><code>req.query</code></td>
+<td><code>GET /hello?name=Bob</code></td>
+<td><code>req.query.name</code></td>
 </tr>
 <tr>
-<td><strong>Posted form data</strong></td>
-<td><code>POST /hello</code> with body <code>name=Tamika&amp;age=24</code></td>
-<td><code>req.body</code></td>
+<td><strong>Form POST body</strong></td>
+<td><code>POST /hello</code> (body <code>name=Tamika</code>)</td>
+<td><code>req.body.name</code></td>
 </tr>
 <tr>
 <td><strong>Route parameter</strong></td>
 <td><code>GET /users/jblack</code></td>
-<td><code>req.params</code></td>
+<td><code>req.params.username</code></td>
 </tr>
 </tbody>
 </table>
-<p> </p>
-<p>Each one is an object: <code>req.query.name</code>, <code>req.body.name</code>, <code>req.params.username</code></p>
 <footer>SWE 363 | KFUPM</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-paginate="true" data-footer="SWE 363 | KFUPM" data-style=":root {
@@ -1165,203 +1166,12 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-;" data-marpit-pagination-total="22">
-<h1 id="what-are-query-string-parameters">What are Query String Parameters?</h1>
+;" data-marpit-pagination-total="19">
+<h1 id="query-string-parameters">Query String Parameters</h1>
 <blockquote>
-<p>A <strong>query string</strong> = <code>name=value</code> pairs after the <code>?</code> in a URL, separated by <code>&amp;</code></p>
+<p>Express <strong>automatically parses</strong> the <code>name=value</code> pairs after the <code>?</code> into <strong><code>req.query</code></strong></p>
 </blockquote>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code>http://localhost:3000/hello?name=Bob&amp;age=21
-</code></pre>
-<ul>
-<li>Path → <code>/hello</code></li>
-<li>Query string → <code>name=Bob&amp;age=21</code></li>
-<li>Express <strong>automatically parses</strong> it into the <strong><code>req.query</code></strong> object</li>
-<li>Forms with <code>method=&quot;get&quot;</code> send their data this way</li>
-</ul>
-<footer>SWE 363 | KFUPM</footer>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-paginate="true" data-footer="SWE 363 | KFUPM" data-style=":root {
-  --background:rgb(25, 27, 32);
-  --background-light:rgb(93, 102, 121);
-  --foreground: #ffffff;
-  --light-background: #ffffff;
-  --accent: #ffcc00;
-  --sedondary:rgb(76, 22, 114);
-}
-section { background-color: var(--background); color: var(--foreground); }
-h1,h2,h3,h4,h5 {color:var(--foreground);}
-section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
-section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
-blockquote { color: white; }
-strong { color: var(--accent); }
-header, footer {width:100%; margin:0 auto; color:var(--background-light)}
-section.activity { background: var(--accent); color:var(--background)}
-section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
-section.activity footer { display: none; }
-section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
-background-color:var(--background)}
-section.activity a {
-    color: var(--background);
-    text-decoration: underline;
-    font-weight: bold;
-}
-a { color:var(--accent) }
-section.demo { background: var(--sedondary); color:var(--foreground)}
-section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
-section.demo footer, section.footer-none footer { display: none; }
-section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
-section.light { background-color: var(--light-background); color: var(--background); }
-section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
-section.grraph pre {
-    background-color: #ffffff;
-    color: var(--background);
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-}
-table {
-    background: transparent !important;
-    background-color: transparent !important;
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-}
-table, table * {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-table th, table td {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: 1px solid var(--foreground);
-    padding: 8px;
-}
-table th {
-    background: transparent !important;
-    background-color: transparent !important;
-    font-weight: bold;
-}
-/* Override Marp default table styles */
-section table {
-    background: transparent !important;
-    background-color: transparent !important;
-    margin: 0 auto;
-    text-align: center;
-}
-section table th,
-section table td {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-section.center {text-align:center}
-section.big-code pre {font-size:2rem}
-pre {font-size:0.8rem}
-.two-column-slide {
-  display: flex;
-  height: 100%; /* Ensure the container takes full slide height */
-}
-
-.column-left {
-  flex: 1; /* Distribute space equally */
-  padding: 20px;
-}
-
-.column-right {
-  flex: 1;
-  padding: 20px;
-}
-" lang="C" data-marpit-pagination="7" style="--paginate:true;--footer:SWE 363 | KFUPM;--style::root {
-  --background:rgb(25, 27, 32);
-  --background-light:rgb(93, 102, 121);
-  --foreground: #ffffff;
-  --light-background: #ffffff;
-  --accent: #ffcc00;
-  --sedondary:rgb(76, 22, 114);
-}
-section { background-color: var(--background); color: var(--foreground); }
-h1,h2,h3,h4,h5 {color:var(--foreground);}
-section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
-section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
-blockquote { color: white; }
-strong { color: var(--accent); }
-header, footer {width:100%; margin:0 auto; color:var(--background-light)}
-section.activity { background: var(--accent); color:var(--background)}
-section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
-section.activity footer { display: none; }
-section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
-background-color:var(--background)}
-section.activity a {
-    color: var(--background);
-    text-decoration: underline;
-    font-weight: bold;
-}
-a { color:var(--accent) }
-section.demo { background: var(--sedondary); color:var(--foreground)}
-section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
-section.demo footer, section.footer-none footer { display: none; }
-section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
-section.light { background-color: var(--light-background); color: var(--background); }
-section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
-section.grraph pre {
-    background-color: #ffffff;
-    color: var(--background);
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-}
-table {
-    background: transparent !important;
-    background-color: transparent !important;
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-}
-table, table * {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-table th, table td {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: 1px solid var(--foreground);
-    padding: 8px;
-}
-table th {
-    background: transparent !important;
-    background-color: transparent !important;
-    font-weight: bold;
-}
-/* Override Marp default table styles */
-section table {
-    background: transparent !important;
-    background-color: transparent !important;
-    margin: 0 auto;
-    text-align: center;
-}
-section table th,
-section table td {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-section.center {text-align:center}
-section.big-code pre {font-size:2rem}
-pre {font-size:0.8rem}
-.two-column-slide {
-  display: flex;
-  height: 100%; /* Ensure the container takes full slide height */
-}
-
-.column-left {
-  flex: 1; /* Distribute space equally */
-  padding: 20px;
-}
-
-.column-right {
-  flex: 1;
-  padding: 20px;
-}
-;" data-marpit-pagination-total="22">
-<h1 id="reading-query-parameters-in-express">Reading Query Parameters in Express</h1>
+<p>The same route can greet anyone: only the URL changes</p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-js"><span class="hljs-comment">// GET http://localhost:3000/hello?name=Bob&amp;age=21</span>
 app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/hello&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {
   <span class="hljs-keyword">const</span> html = <span class="hljs-string">`&lt;h1&gt;Hello, <span class="hljs-subst">${req.query.name}</span>!&lt;/h1&gt;
@@ -1370,12 +1180,9 @@ app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quo
 });
 </code></pre>
 <p><strong>Browser shows:</strong> Hello, Bob! You are 21 years old.</p>
-<ul>
-<li>The query string doesn't change the route: <code>/hello</code> still matches</li>
-</ul>
 <footer>SWE 363 | KFUPM</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-paginate="true" data-footer="SWE 363 | KFUPM" data-class="activity" data-style=":root {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-paginate="true" data-footer="SWE 363 | KFUPM" data-class="activity" data-style=":root {
   --background:rgb(25, 27, 32);
   --background-light:rgb(93, 102, 121);
   --foreground: #ffffff;
@@ -1465,7 +1272,7 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-" lang="C" class="activity" data-marpit-pagination="8" style="--paginate:true;--footer:SWE 363 | KFUPM;--class:activity;--style::root {
+" lang="C" class="activity" data-marpit-pagination="7" style="--paginate:true;--footer:SWE 363 | KFUPM;--class:activity;--style::root {
   --background:rgb(25, 27, 32);
   --background-light:rgb(93, 102, 121);
   --foreground: #ffffff;
@@ -1555,7 +1362,7 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-;" data-marpit-pagination-total="22">
+;" data-marpit-pagination-total="19">
 <blockquote>
 <p>Activity: Predict what the page shows</p>
 </blockquote>
@@ -1571,6 +1378,202 @@ pre {font-size:0.8rem}
 <li><code>/hello?name=Doctor+Who&amp;age=900</code> (in a URL, <code>+</code> encodes a space)</li>
 <li><code>/hello?city=Dallas</code>: is the city in <code>res.query.city</code> or <code>req.query.city</code>?</li>
 </ol>
+<footer>SWE 363 | KFUPM</footer>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-paginate="true" data-footer="SWE 363 | KFUPM" data-style=":root {
+  --background:rgb(25, 27, 32);
+  --background-light:rgb(93, 102, 121);
+  --foreground: #ffffff;
+  --light-background: #ffffff;
+  --accent: #ffcc00;
+  --sedondary:rgb(76, 22, 114);
+}
+section { background-color: var(--background); color: var(--foreground); }
+h1,h2,h3,h4,h5 {color:var(--foreground);}
+section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
+section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
+blockquote { color: white; }
+strong { color: var(--accent); }
+header, footer {width:100%; margin:0 auto; color:var(--background-light)}
+section.activity { background: var(--accent); color:var(--background)}
+section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
+section.activity footer { display: none; }
+section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
+background-color:var(--background)}
+section.activity a {
+    color: var(--background);
+    text-decoration: underline;
+    font-weight: bold;
+}
+a { color:var(--accent) }
+section.demo { background: var(--sedondary); color:var(--foreground)}
+section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
+section.demo footer, section.footer-none footer { display: none; }
+section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
+section.light { background-color: var(--light-background); color: var(--background); }
+section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
+section.grraph pre {
+    background-color: #ffffff;
+    color: var(--background);
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+table {
+    background: transparent !important;
+    background-color: transparent !important;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+}
+table, table * {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+table th, table td {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: 1px solid var(--foreground);
+    padding: 8px;
+}
+table th {
+    background: transparent !important;
+    background-color: transparent !important;
+    font-weight: bold;
+}
+/* Override Marp default table styles */
+section table {
+    background: transparent !important;
+    background-color: transparent !important;
+    margin: 0 auto;
+    text-align: center;
+}
+section table th,
+section table td {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+section.center {text-align:center}
+section.big-code pre {font-size:2rem}
+pre {font-size:0.8rem}
+.two-column-slide {
+  display: flex;
+  height: 100%; /* Ensure the container takes full slide height */
+}
+
+.column-left {
+  flex: 1; /* Distribute space equally */
+  padding: 20px;
+}
+
+.column-right {
+  flex: 1;
+  padding: 20px;
+}
+" lang="C" data-marpit-pagination="8" style="--paginate:true;--footer:SWE 363 | KFUPM;--style::root {
+  --background:rgb(25, 27, 32);
+  --background-light:rgb(93, 102, 121);
+  --foreground: #ffffff;
+  --light-background: #ffffff;
+  --accent: #ffcc00;
+  --sedondary:rgb(76, 22, 114);
+}
+section { background-color: var(--background); color: var(--foreground); }
+h1,h2,h3,h4,h5 {color:var(--foreground);}
+section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
+section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
+blockquote { color: white; }
+strong { color: var(--accent); }
+header, footer {width:100%; margin:0 auto; color:var(--background-light)}
+section.activity { background: var(--accent); color:var(--background)}
+section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
+section.activity footer { display: none; }
+section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
+background-color:var(--background)}
+section.activity a {
+    color: var(--background);
+    text-decoration: underline;
+    font-weight: bold;
+}
+a { color:var(--accent) }
+section.demo { background: var(--sedondary); color:var(--foreground)}
+section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
+section.demo footer, section.footer-none footer { display: none; }
+section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
+section.light { background-color: var(--light-background); color: var(--background); }
+section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
+section.grraph pre {
+    background-color: #ffffff;
+    color: var(--background);
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+table {
+    background: transparent !important;
+    background-color: transparent !important;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+}
+table, table * {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+table th, table td {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: 1px solid var(--foreground);
+    padding: 8px;
+}
+table th {
+    background: transparent !important;
+    background-color: transparent !important;
+    font-weight: bold;
+}
+/* Override Marp default table styles */
+section table {
+    background: transparent !important;
+    background-color: transparent !important;
+    margin: 0 auto;
+    text-align: center;
+}
+section table th,
+section table td {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+section.center {text-align:center}
+section.big-code pre {font-size:2rem}
+pre {font-size:0.8rem}
+.two-column-slide {
+  display: flex;
+  height: 100%; /* Ensure the container takes full slide height */
+}
+
+.column-left {
+  flex: 1; /* Distribute space equally */
+  padding: 20px;
+}
+
+.column-right {
+  flex: 1;
+  padding: 20px;
+}
+;" data-marpit-pagination-total="19">
+<h1 id="posting-form-data">Posting Form Data</h1>
+<blockquote>
+<p>A form with <code>method=&quot;post&quot;</code> sends its data <strong>URL-encoded</strong> in the <strong>body</strong> of the HTTP request</p>
+</blockquote>
+<p>The data reaches the server without appearing in the URL</p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-html"><span class="hljs-comment">&lt;!-- public/hello.html --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/hello&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Name? <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Age? <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;age&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Submit&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
+<p>Body sent on Submit: <code>name=Tamika&amp;age=24</code></p>
 <footer>SWE 363 | KFUPM</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="9" data-paginate="true" data-footer="SWE 363 | KFUPM" data-style=":root {
@@ -1753,228 +1756,24 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-;" data-marpit-pagination-total="22">
-<h1 id="posting-form-data">Posting Form Data</h1>
+;" data-marpit-pagination-total="19">
+<h1 id="reading-form-data">Reading Form Data</h1>
 <blockquote>
-<p>A form that <strong>posts</strong> to an Express route sends its data <strong>URL-encoded</strong> in the <strong>body</strong></p>
+<p><code>express.urlencoded()</code> is <strong>middleware</strong> that parses the URL-encoded body and adds the values to <strong><code>req.body</code></strong></p>
 </blockquote>
-<p><strong>public/hello.html</strong> and the <strong>HTTP request</strong> it sends on Submit:</p>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/hello&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Name? <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Age? <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;age&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Submit&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-</code></pre>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code>POST /hello HTTP/1.1
-Content-Type: application/x-www-form-urlencoded
-
-name=Tamika&amp;age=24
-</code></pre>
-<footer>SWE 363 | KFUPM</footer>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-paginate="true" data-footer="SWE 363 | KFUPM" data-style=":root {
-  --background:rgb(25, 27, 32);
-  --background-light:rgb(93, 102, 121);
-  --foreground: #ffffff;
-  --light-background: #ffffff;
-  --accent: #ffcc00;
-  --sedondary:rgb(76, 22, 114);
-}
-section { background-color: var(--background); color: var(--foreground); }
-h1,h2,h3,h4,h5 {color:var(--foreground);}
-section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
-section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
-blockquote { color: white; }
-strong { color: var(--accent); }
-header, footer {width:100%; margin:0 auto; color:var(--background-light)}
-section.activity { background: var(--accent); color:var(--background)}
-section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
-section.activity footer { display: none; }
-section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
-background-color:var(--background)}
-section.activity a {
-    color: var(--background);
-    text-decoration: underline;
-    font-weight: bold;
-}
-a { color:var(--accent) }
-section.demo { background: var(--sedondary); color:var(--foreground)}
-section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
-section.demo footer, section.footer-none footer { display: none; }
-section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
-section.light { background-color: var(--light-background); color: var(--background); }
-section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
-section.grraph pre {
-    background-color: #ffffff;
-    color: var(--background);
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-}
-table {
-    background: transparent !important;
-    background-color: transparent !important;
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-}
-table, table * {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-table th, table td {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: 1px solid var(--foreground);
-    padding: 8px;
-}
-table th {
-    background: transparent !important;
-    background-color: transparent !important;
-    font-weight: bold;
-}
-/* Override Marp default table styles */
-section table {
-    background: transparent !important;
-    background-color: transparent !important;
-    margin: 0 auto;
-    text-align: center;
-}
-section table th,
-section table td {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-section.center {text-align:center}
-section.big-code pre {font-size:2rem}
-pre {font-size:0.8rem}
-.two-column-slide {
-  display: flex;
-  height: 100%; /* Ensure the container takes full slide height */
-}
-
-.column-left {
-  flex: 1; /* Distribute space equally */
-  padding: 20px;
-}
-
-.column-right {
-  flex: 1;
-  padding: 20px;
-}
-" lang="C" data-marpit-pagination="10" style="--paginate:true;--footer:SWE 363 | KFUPM;--style::root {
-  --background:rgb(25, 27, 32);
-  --background-light:rgb(93, 102, 121);
-  --foreground: #ffffff;
-  --light-background: #ffffff;
-  --accent: #ffcc00;
-  --sedondary:rgb(76, 22, 114);
-}
-section { background-color: var(--background); color: var(--foreground); }
-h1,h2,h3,h4,h5 {color:var(--foreground);}
-section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
-section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
-blockquote { color: white; }
-strong { color: var(--accent); }
-header, footer {width:100%; margin:0 auto; color:var(--background-light)}
-section.activity { background: var(--accent); color:var(--background)}
-section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
-section.activity footer { display: none; }
-section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
-background-color:var(--background)}
-section.activity a {
-    color: var(--background);
-    text-decoration: underline;
-    font-weight: bold;
-}
-a { color:var(--accent) }
-section.demo { background: var(--sedondary); color:var(--foreground)}
-section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
-section.demo footer, section.footer-none footer { display: none; }
-section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
-section.light { background-color: var(--light-background); color: var(--background); }
-section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
-section.grraph pre {
-    background-color: #ffffff;
-    color: var(--background);
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-}
-table {
-    background: transparent !important;
-    background-color: transparent !important;
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-}
-table, table * {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-table th, table td {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: 1px solid var(--foreground);
-    padding: 8px;
-}
-table th {
-    background: transparent !important;
-    background-color: transparent !important;
-    font-weight: bold;
-}
-/* Override Marp default table styles */
-section table {
-    background: transparent !important;
-    background-color: transparent !important;
-    margin: 0 auto;
-    text-align: center;
-}
-section table th,
-section table td {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-section.center {text-align:center}
-section.big-code pre {font-size:2rem}
-pre {font-size:0.8rem}
-.two-column-slide {
-  display: flex;
-  height: 100%; /* Ensure the container takes full slide height */
-}
-
-.column-left {
-  flex: 1; /* Distribute space equally */
-  padding: 20px;
-}
-
-.column-right {
-  flex: 1;
-  padding: 20px;
-}
-;" data-marpit-pagination-total="22">
-<h1 id="receiving-url-encoded-data">Receiving URL-Encoded Data</h1>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-js"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;express&quot;</span>);
-<span class="hljs-keyword">const</span> app = <span class="hljs-title function_">express</span>();
-
-app.<span class="hljs-title function_">use</span>(express.<span class="hljs-title function_">static</span>(<span class="hljs-string">&quot;public&quot;</span>));               <span class="hljs-comment">// serves hello.html</span>
-app.<span class="hljs-title function_">use</span>(express.<span class="hljs-title function_">urlencoded</span>({<span class="hljs-attr">extended</span>: <span class="hljs-literal">false</span>}));  <span class="hljs-comment">// parses the form data</span>
+<p>Enable it with <code>app.use()</code> before the route that reads <code>req.body</code></p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-js">app.<span class="hljs-title function_">use</span>(express.<span class="hljs-title function_">static</span>(<span class="hljs-string">&quot;public&quot;</span>));               <span class="hljs-comment">// serves hello.html</span>
+app.<span class="hljs-title function_">use</span>(express.<span class="hljs-title function_">urlencoded</span>({<span class="hljs-attr">extended</span>: <span class="hljs-literal">false</span>}));  <span class="hljs-comment">// body → req.body</span>
 
 app.<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;/hello&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {
   <span class="hljs-keyword">const</span> html = <span class="hljs-string">`&lt;h1&gt;Hello, <span class="hljs-subst">${req.body.name}</span>!&lt;/h1&gt;
     &lt;p&gt;You are <span class="hljs-subst">${req.body.age}</span> years old.&lt;/p&gt;`</span>;
   res.<span class="hljs-title function_">send</span>(html);
 });
-
-app.<span class="hljs-title function_">listen</span>(<span class="hljs-number">3000</span>);
 </code></pre>
-<ul>
-<li><code>express.urlencoded()</code> → <strong>middleware</strong> that adds the parsed values to <strong><code>req.body</code></strong></li>
-<li>Only parses bodies with <code>Content-Type: application/x-www-form-urlencoded</code></li>
-</ul>
 <footer>SWE 363 | KFUPM</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-paginate="true" data-footer="SWE 363 | KFUPM" data-class="activity" data-style=":root {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-paginate="true" data-footer="SWE 363 | KFUPM" data-class="activity" data-style=":root {
   --background:rgb(25, 27, 32);
   --background-light:rgb(93, 102, 121);
   --foreground: #ffffff;
@@ -2064,7 +1863,7 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-" lang="C" class="activity" data-marpit-pagination="11" style="--paginate:true;--footer:SWE 363 | KFUPM;--class:activity;--style::root {
+" lang="C" class="activity" data-marpit-pagination="10" style="--paginate:true;--footer:SWE 363 | KFUPM;--class:activity;--style::root {
   --background:rgb(25, 27, 32);
   --background-light:rgb(93, 102, 121);
   --foreground: #ffffff;
@@ -2154,15 +1953,229 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-;" data-marpit-pagination-total="22">
+;" data-marpit-pagination-total="19">
 <blockquote>
-<p>Activity: Put the steps in order</p>
+<p>Activity: What happens if... (each change on its own)</p>
 </blockquote>
-<p>A. The middleware parses the body and attaches the data to <code>req.body</code></p>
-<p>B. The browser requests <code>hello.html</code>, and <code>express.static()</code> serves it</p>
-<p>C. The <code>/hello</code> POST route sends back &quot;Hello, Tamika!&quot;</p>
-<p>D. The user types Tamika and 24 and presses Submit</p>
-<p>E. The browser sends <code>POST /hello</code> with <code>name=Tamika&amp;age=24</code> in the body</p>
+<div class="two-column-slide">
+<div class="column-left">
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/hello&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Submit&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+</code></pre>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-js">app.<span class="hljs-title function_">use</span>(express.<span class="hljs-title function_">static</span>(<span class="hljs-string">&quot;public&quot;</span>));
+app.<span class="hljs-title function_">use</span>(express.<span class="hljs-title function_">urlencoded</span>({<span class="hljs-attr">extended</span>: <span class="hljs-literal">false</span>}));
+app.<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;/hello&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {
+  res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;Hello, &quot;</span> + req.<span class="hljs-property">body</span>.<span class="hljs-property">name</span> + <span class="hljs-string">&quot;!&quot;</span>);
+});
+</code></pre>
+</div>
+<div class="column-right">
+<ol>
+<li>Submit is clicked with no name?</li>
+<li><code>express.urlencoded()</code> is removed?</li>
+<li>The form uses <code>method=&quot;get&quot;</code>?</li>
+<li>The body is sent as <code>application/json</code>?</li>
+<li>The <code>express.static()</code> line is removed?</li>
+</ol>
+</div>
+</div>
+<footer>SWE 363 | KFUPM</footer>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-paginate="true" data-footer="SWE 363 | KFUPM" data-style=":root {
+  --background:rgb(25, 27, 32);
+  --background-light:rgb(93, 102, 121);
+  --foreground: #ffffff;
+  --light-background: #ffffff;
+  --accent: #ffcc00;
+  --sedondary:rgb(76, 22, 114);
+}
+section { background-color: var(--background); color: var(--foreground); }
+h1,h2,h3,h4,h5 {color:var(--foreground);}
+section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
+section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
+blockquote { color: white; }
+strong { color: var(--accent); }
+header, footer {width:100%; margin:0 auto; color:var(--background-light)}
+section.activity { background: var(--accent); color:var(--background)}
+section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
+section.activity footer { display: none; }
+section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
+background-color:var(--background)}
+section.activity a {
+    color: var(--background);
+    text-decoration: underline;
+    font-weight: bold;
+}
+a { color:var(--accent) }
+section.demo { background: var(--sedondary); color:var(--foreground)}
+section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
+section.demo footer, section.footer-none footer { display: none; }
+section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
+section.light { background-color: var(--light-background); color: var(--background); }
+section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
+section.grraph pre {
+    background-color: #ffffff;
+    color: var(--background);
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+table {
+    background: transparent !important;
+    background-color: transparent !important;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+}
+table, table * {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+table th, table td {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: 1px solid var(--foreground);
+    padding: 8px;
+}
+table th {
+    background: transparent !important;
+    background-color: transparent !important;
+    font-weight: bold;
+}
+/* Override Marp default table styles */
+section table {
+    background: transparent !important;
+    background-color: transparent !important;
+    margin: 0 auto;
+    text-align: center;
+}
+section table th,
+section table td {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+section.center {text-align:center}
+section.big-code pre {font-size:2rem}
+pre {font-size:0.8rem}
+.two-column-slide {
+  display: flex;
+  height: 100%; /* Ensure the container takes full slide height */
+}
+
+.column-left {
+  flex: 1; /* Distribute space equally */
+  padding: 20px;
+}
+
+.column-right {
+  flex: 1;
+  padding: 20px;
+}
+" lang="C" data-marpit-pagination="11" style="--paginate:true;--footer:SWE 363 | KFUPM;--style::root {
+  --background:rgb(25, 27, 32);
+  --background-light:rgb(93, 102, 121);
+  --foreground: #ffffff;
+  --light-background: #ffffff;
+  --accent: #ffcc00;
+  --sedondary:rgb(76, 22, 114);
+}
+section { background-color: var(--background); color: var(--foreground); }
+h1,h2,h3,h4,h5 {color:var(--foreground);}
+section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
+section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
+blockquote { color: white; }
+strong { color: var(--accent); }
+header, footer {width:100%; margin:0 auto; color:var(--background-light)}
+section.activity { background: var(--accent); color:var(--background)}
+section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
+section.activity footer { display: none; }
+section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
+background-color:var(--background)}
+section.activity a {
+    color: var(--background);
+    text-decoration: underline;
+    font-weight: bold;
+}
+a { color:var(--accent) }
+section.demo { background: var(--sedondary); color:var(--foreground)}
+section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
+section.demo footer, section.footer-none footer { display: none; }
+section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
+section.light { background-color: var(--light-background); color: var(--background); }
+section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
+section.grraph pre {
+    background-color: #ffffff;
+    color: var(--background);
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+table {
+    background: transparent !important;
+    background-color: transparent !important;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+}
+table, table * {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+table th, table td {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: 1px solid var(--foreground);
+    padding: 8px;
+}
+table th {
+    background: transparent !important;
+    background-color: transparent !important;
+    font-weight: bold;
+}
+/* Override Marp default table styles */
+section table {
+    background: transparent !important;
+    background-color: transparent !important;
+    margin: 0 auto;
+    text-align: center;
+}
+section table th,
+section table td {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+section.center {text-align:center}
+section.big-code pre {font-size:2rem}
+pre {font-size:0.8rem}
+.two-column-slide {
+  display: flex;
+  height: 100%; /* Ensure the container takes full slide height */
+}
+
+.column-left {
+  flex: 1; /* Distribute space equally */
+  padding: 20px;
+}
+
+.column-right {
+  flex: 1;
+  padding: 20px;
+}
+;" data-marpit-pagination-total="19">
+<h1 id="route-parameters">Route Parameters</h1>
+<blockquote>
+<p>A <strong>route parameter</strong> is a value in the URL path, named with a <strong>colon</strong> (<code>:username</code>); Express attaches it to <strong><code>req.params</code></strong></p>
+</blockquote>
+<p>One route makes a dynamic webpage for every username</p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-js"><span class="hljs-comment">// GET http://localhost:3000/users/jblack</span>
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/users/:username&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {
+  <span class="hljs-keyword">const</span> username = req.<span class="hljs-property">params</span>.<span class="hljs-property">username</span>;   <span class="hljs-comment">// jblack</span>
+  res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;&lt;h1&gt;Profile for &quot;</span> + username + <span class="hljs-string">&quot;&lt;/h1&gt;&quot;</span>);
+});
+</code></pre>
+<p><strong>Browser shows:</strong> Profile for jblack</p>
 <footer>SWE 363 | KFUPM</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-paginate="true" data-footer="SWE 363 | KFUPM" data-class="activity" data-style=":root {
@@ -2345,37 +2358,18 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-;" data-marpit-pagination-total="22">
+;" data-marpit-pagination-total="19">
 <blockquote>
-<p>Activity: What happens if... (each change on its own)</p>
+<p>Activity:<br />
+Which req property (<code>req.query</code>, <code>req.params</code>, or <code>req.body</code>)? What value?</p>
 </blockquote>
-<div class="two-column-slide">
-<div class="column-left">
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-html"><span class="hljs-comment">&lt;!-- public/hello.html --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/hello&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;age&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Submit&quot;</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-</code></pre>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-js">app.<span class="hljs-title function_">use</span>(express.<span class="hljs-title function_">static</span>(<span class="hljs-string">&quot;public&quot;</span>));
-app.<span class="hljs-title function_">use</span>(express.<span class="hljs-title function_">urlencoded</span>({<span class="hljs-attr">extended</span>: <span class="hljs-literal">false</span>}));
-
-app.<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;/hello&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {
-  res.<span class="hljs-title function_">send</span>(<span class="hljs-string">`&lt;h1&gt;Hello, <span class="hljs-subst">${req.body.name}</span>!&lt;/h1&gt;`</span>);
-});
-</code></pre>
-</div>
-<div class="column-right">
 <ol>
-<li>Submit is clicked with no name?</li>
-<li><code>express.urlencoded()</code> is removed?</li>
-<li>The form uses <code>method=&quot;get&quot;</code>?</li>
-<li>The request's Content-Type is <code>application/json</code> instead of <code>application/x-www-form-urlencoded</code>?</li>
-<li><code>app.use(express.static(&quot;public&quot;))</code> is removed?</li>
+<li>Route <code>/users/:username</code>, request <code>GET /users/abc</code></li>
+<li>Route <code>/search</code>, request <code>GET /search?term=node</code></li>
+<li>Route <code>app.post(&quot;/major&quot;, ...)</code>, a form posts <code>major=SWE</code></li>
+<li>Route <code>/city/:cityName</code>, <code>GET /city/Denver</code>: is it <code>req.params.city</code>?</li>
+<li>Route <code>/users/:username</code>, request <code>GET /users/</code>: does the page say &quot;Profile for &quot;?</li>
 </ol>
-</div>
-</div>
 <footer>SWE 363 | KFUPM</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-paginate="true" data-footer="SWE 363 | KFUPM" data-style=":root {
@@ -2558,25 +2552,25 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-;" data-marpit-pagination-total="22">
-<h1 id="what-are-route-parameters">What are Route Parameters?</h1>
+;" data-marpit-pagination-total="19">
+<h1 id="route-parameter-middleware">Route Parameter Middleware</h1>
 <blockquote>
-<p>A <strong>route parameter</strong> = a value near or at the end of the URL path; its name is defined with a <strong>colon</strong> (<code>:</code>)</p>
+<p><code>app.param()</code> defines middleware that runs <strong>before</strong> the route's callback; its <strong>fourth parameter</strong> is the parameter's value</p>
 </blockquote>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-js"><span class="hljs-comment">// GET http://localhost:3000/users/jblack</span>
+<p>It prepares data (<code>req.user</code>) for the route, then <strong>must call <code>next()</code></strong></p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-js">app.<span class="hljs-title function_">param</span>(<span class="hljs-string">&quot;username&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res, next, username</span>) {
+  <span class="hljs-keyword">if</span> (username === <span class="hljs-string">&quot;jblack&quot;</span>) { req.<span class="hljs-property">user</span> = { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Jack Black&quot;</span> }; }
+  <span class="hljs-keyword">else</span> { req.<span class="hljs-property">user</span> = { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Unknown&quot;</span> }; }
+  <span class="hljs-title function_">next</span>();   <span class="hljs-comment">// continue processing the request</span>
+});
+
 app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/users/:username&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {
-  <span class="hljs-keyword">const</span> username = req.<span class="hljs-property">params</span>.<span class="hljs-property">username</span>;   <span class="hljs-comment">// jblack</span>
-  res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;&lt;h1&gt;Profile for &quot;</span> + username + <span class="hljs-string">&quot;&lt;/h1&gt;&quot;</span>);
+  res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;&lt;h1&gt;Profile for &quot;</span> + req.<span class="hljs-property">user</span>.<span class="hljs-property">name</span> + <span class="hljs-string">&quot;&lt;/h1&gt;&quot;</span>);
 });
 </code></pre>
-<ul>
-<li>Route parameters are attached to the <strong><code>req.params</code></strong> object</li>
-<li>One route → a <strong>dynamic webpage</strong> for every username</li>
-</ul>
-<p><strong>Browser shows:</strong> Profile for jblack</p>
 <footer>SWE 363 | KFUPM</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-paginate="true" data-footer="SWE 363 | KFUPM" data-class="activity" data-style=":root {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-paginate="true" data-footer="SWE 363 | KFUPM" data-style=":root {
   --background:rgb(25, 27, 32);
   --background-light:rgb(93, 102, 121);
   --foreground: #ffffff;
@@ -2666,7 +2660,7 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-" lang="C" class="activity" data-marpit-pagination="14" style="--paginate:true;--footer:SWE 363 | KFUPM;--class:activity;--style::root {
+" lang="C" data-marpit-pagination="14" style="--paginate:true;--footer:SWE 363 | KFUPM;--style::root {
   --background:rgb(25, 27, 32);
   --background-light:rgb(93, 102, 121);
   --foreground: #ffffff;
@@ -2756,21 +2750,227 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-;" data-marpit-pagination-total="22">
+;" data-marpit-pagination-total="19">
+<h1 id="sending-json-responses">Sending JSON Responses</h1>
 <blockquote>
-<p>Activity:<br />
-Which req property (<code>req.query</code>, <code>req.params</code>, or <code>req.body</code>)? What value?</p>
+<p><code>res.json()</code> encodes a JavaScript object as <strong>JSON</strong>; <code>res.status(404)</code> sets the <strong>status code</strong> before it</p>
 </blockquote>
+<p>A <strong>web API</strong> sends data (JSON) instead of an HTML page</p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-js">app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/users/:username&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {
+  <span class="hljs-keyword">if</span> (req.<span class="hljs-property">user</span>.<span class="hljs-property">name</span> !== <span class="hljs-string">&quot;Unknown&quot;</span>) {
+    res.<span class="hljs-title function_">json</span>(req.<span class="hljs-property">user</span>);                               <span class="hljs-comment">// {&quot;name&quot;:&quot;Jack Black&quot;}</span>
+  }
+  <span class="hljs-keyword">else</span> {
+    res.<span class="hljs-title function_">status</span>(<span class="hljs-number">404</span>).<span class="hljs-title function_">json</span>({ <span class="hljs-attr">error</span>: <span class="hljs-string">&quot;Unknown user&quot;</span> });  <span class="hljs-comment">// 404 = Not Found</span>
+  }
+});
+</code></pre>
+<footer>SWE 363 | KFUPM</footer>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-paginate="true" data-footer="SWE 363 | KFUPM" data-class="activity" data-style=":root {
+  --background:rgb(25, 27, 32);
+  --background-light:rgb(93, 102, 121);
+  --foreground: #ffffff;
+  --light-background: #ffffff;
+  --accent: #ffcc00;
+  --sedondary:rgb(76, 22, 114);
+}
+section { background-color: var(--background); color: var(--foreground); }
+h1,h2,h3,h4,h5 {color:var(--foreground);}
+section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
+section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
+blockquote { color: white; }
+strong { color: var(--accent); }
+header, footer {width:100%; margin:0 auto; color:var(--background-light)}
+section.activity { background: var(--accent); color:var(--background)}
+section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
+section.activity footer { display: none; }
+section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
+background-color:var(--background)}
+section.activity a {
+    color: var(--background);
+    text-decoration: underline;
+    font-weight: bold;
+}
+a { color:var(--accent) }
+section.demo { background: var(--sedondary); color:var(--foreground)}
+section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
+section.demo footer, section.footer-none footer { display: none; }
+section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
+section.light { background-color: var(--light-background); color: var(--background); }
+section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
+section.grraph pre {
+    background-color: #ffffff;
+    color: var(--background);
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+table {
+    background: transparent !important;
+    background-color: transparent !important;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+}
+table, table * {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+table th, table td {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: 1px solid var(--foreground);
+    padding: 8px;
+}
+table th {
+    background: transparent !important;
+    background-color: transparent !important;
+    font-weight: bold;
+}
+/* Override Marp default table styles */
+section table {
+    background: transparent !important;
+    background-color: transparent !important;
+    margin: 0 auto;
+    text-align: center;
+}
+section table th,
+section table td {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+section.center {text-align:center}
+section.big-code pre {font-size:2rem}
+pre {font-size:0.8rem}
+.two-column-slide {
+  display: flex;
+  height: 100%; /* Ensure the container takes full slide height */
+}
+
+.column-left {
+  flex: 1; /* Distribute space equally */
+  padding: 20px;
+}
+
+.column-right {
+  flex: 1;
+  padding: 20px;
+}
+" lang="C" class="activity" data-marpit-pagination="15" style="--paginate:true;--footer:SWE 363 | KFUPM;--class:activity;--style::root {
+  --background:rgb(25, 27, 32);
+  --background-light:rgb(93, 102, 121);
+  --foreground: #ffffff;
+  --light-background: #ffffff;
+  --accent: #ffcc00;
+  --sedondary:rgb(76, 22, 114);
+}
+section { background-color: var(--background); color: var(--foreground); }
+h1,h2,h3,h4,h5 {color:var(--foreground);}
+section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
+section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
+blockquote { color: white; }
+strong { color: var(--accent); }
+header, footer {width:100%; margin:0 auto; color:var(--background-light)}
+section.activity { background: var(--accent); color:var(--background)}
+section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
+section.activity footer { display: none; }
+section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
+background-color:var(--background)}
+section.activity a {
+    color: var(--background);
+    text-decoration: underline;
+    font-weight: bold;
+}
+a { color:var(--accent) }
+section.demo { background: var(--sedondary); color:var(--foreground)}
+section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
+section.demo footer, section.footer-none footer { display: none; }
+section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
+section.light { background-color: var(--light-background); color: var(--background); }
+section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
+section.grraph pre {
+    background-color: #ffffff;
+    color: var(--background);
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+table {
+    background: transparent !important;
+    background-color: transparent !important;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+}
+table, table * {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+table th, table td {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: 1px solid var(--foreground);
+    padding: 8px;
+}
+table th {
+    background: transparent !important;
+    background-color: transparent !important;
+    font-weight: bold;
+}
+/* Override Marp default table styles */
+section table {
+    background: transparent !important;
+    background-color: transparent !important;
+    margin: 0 auto;
+    text-align: center;
+}
+section table th,
+section table td {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+section.center {text-align:center}
+section.big-code pre {font-size:2rem}
+pre {font-size:0.8rem}
+.two-column-slide {
+  display: flex;
+  height: 100%; /* Ensure the container takes full slide height */
+}
+
+.column-left {
+  flex: 1; /* Distribute space equally */
+  padding: 20px;
+}
+
+.column-right {
+  flex: 1;
+  padding: 20px;
+}
+;" data-marpit-pagination-total="19">
+<blockquote>
+<p>Activity: Predict the response</p>
+</blockquote>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-js">app.<span class="hljs-title function_">param</span>(<span class="hljs-string">&quot;zip&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res, next, zip</span>) {
+  <span class="hljs-keyword">if</span> (zip === <span class="hljs-string">&quot;80015&quot;</span>) {
+    req.<span class="hljs-property">forecast</span> = {<span class="hljs-attr">high</span>: <span class="hljs-number">95</span>, <span class="hljs-attr">low</span>: <span class="hljs-number">72</span>};
+  }
+  <span class="hljs-title function_">next</span>();
+});
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/weather/:zip&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {
+  <span class="hljs-keyword">if</span> (req.<span class="hljs-property">forecast</span>) { res.<span class="hljs-title function_">json</span>(req.<span class="hljs-property">forecast</span>); }
+  <span class="hljs-keyword">else</span> { res.<span class="hljs-title function_">status</span>(<span class="hljs-number">404</span>).<span class="hljs-title function_">json</span>({ <span class="hljs-attr">error</span>: <span class="hljs-string">&quot;Unknown ZIP code&quot;</span> }); }
+});
+</code></pre>
 <ol>
-<li>Route <code>/users/:username</code>, request <code>GET /users/abc</code></li>
-<li>Route <code>/search</code>, request <code>GET /search?term=node</code></li>
-<li>Route <code>app.post(&quot;/major&quot;, ...)</code>, a form posts <code>major=SWE</code></li>
-<li>Route <code>/city/:cityName</code>, <code>GET /city/Denver</code>: is it <code>req.params.city</code>?</li>
-<li>Route <code>/users/:username</code>, request <code>GET /users/</code>: does the page say &quot;Profile for &quot;?</li>
+<li><code>/weather/80015</code></li>
+<li><code>/weather/12345</code>: what status code?</li>
+<li><code>next()</code> is removed: <code>/weather/80015</code>?</li>
+<li><code>app.param(&quot;zipcode&quot;, ...)</code> instead of <code>&quot;zip&quot;</code>: <code>/weather/80015</code>?</li>
 </ol>
 <footer>SWE 363 | KFUPM</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-paginate="true" data-footer="SWE 363 | KFUPM" data-style=":root {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-paginate="true" data-footer="SWE 363 | KFUPM" data-class="activity" data-style=":root {
   --background:rgb(25, 27, 32);
   --background-light:rgb(93, 102, 121);
   --foreground: #ffffff;
@@ -2860,7 +3060,7 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-" lang="C" data-marpit-pagination="15" style="--paginate:true;--footer:SWE 363 | KFUPM;--style::root {
+" lang="C" class="activity" data-marpit-pagination="16" style="--paginate:true;--footer:SWE 363 | KFUPM;--class:activity;--style::root {
   --background:rgb(25, 27, 32);
   --background-light:rgb(93, 102, 121);
   --foreground: #ffffff;
@@ -2950,222 +3150,18 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-;" data-marpit-pagination-total="22">
-<h1 id="route-parameter-middleware">Route Parameter Middleware</h1>
+;" data-marpit-pagination-total="19">
 <blockquote>
-<p><code>app.param()</code> defines <strong>parameter middleware</strong> that executes <strong>before</strong> a route's callback function</p>
+<p>Activity: Exit ticket: find the 4 bugs</p>
 </blockquote>
-<ul>
-<li>The middleware function has a <strong>fourth parameter</strong> → the route parameter's value</li>
-<li>It can add data to <code>req</code> for the route to use, then calls <code>next()</code></li>
-</ul>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code>GET /users/jblack
-  → app.param(&quot;username&quot;, ...)         sets req.user, calls next()
-  → app.get(&quot;/users/:username&quot;, ...)   uses req.user
-  → Profile for Jack Black
-</code></pre>
-<p>A real application would look up the user in a <strong>database</strong> (next class)</p>
-<footer>SWE 363 | KFUPM</footer>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-paginate="true" data-footer="SWE 363 | KFUPM" data-style=":root {
-  --background:rgb(25, 27, 32);
-  --background-light:rgb(93, 102, 121);
-  --foreground: #ffffff;
-  --light-background: #ffffff;
-  --accent: #ffcc00;
-  --sedondary:rgb(76, 22, 114);
-}
-section { background-color: var(--background); color: var(--foreground); }
-h1,h2,h3,h4,h5 {color:var(--foreground);}
-section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
-section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
-blockquote { color: white; }
-strong { color: var(--accent); }
-header, footer {width:100%; margin:0 auto; color:var(--background-light)}
-section.activity { background: var(--accent); color:var(--background)}
-section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
-section.activity footer { display: none; }
-section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
-background-color:var(--background)}
-section.activity a {
-    color: var(--background);
-    text-decoration: underline;
-    font-weight: bold;
-}
-a { color:var(--accent) }
-section.demo { background: var(--sedondary); color:var(--foreground)}
-section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
-section.demo footer, section.footer-none footer { display: none; }
-section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
-section.light { background-color: var(--light-background); color: var(--background); }
-section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
-section.grraph pre {
-    background-color: #ffffff;
-    color: var(--background);
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-}
-table {
-    background: transparent !important;
-    background-color: transparent !important;
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-}
-table, table * {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-table th, table td {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: 1px solid var(--foreground);
-    padding: 8px;
-}
-table th {
-    background: transparent !important;
-    background-color: transparent !important;
-    font-weight: bold;
-}
-/* Override Marp default table styles */
-section table {
-    background: transparent !important;
-    background-color: transparent !important;
-    margin: 0 auto;
-    text-align: center;
-}
-section table th,
-section table td {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-section.center {text-align:center}
-section.big-code pre {font-size:2rem}
-pre {font-size:0.8rem}
-.two-column-slide {
-  display: flex;
-  height: 100%; /* Ensure the container takes full slide height */
-}
-
-.column-left {
-  flex: 1; /* Distribute space equally */
-  padding: 20px;
-}
-
-.column-right {
-  flex: 1;
-  padding: 20px;
-}
-" lang="C" data-marpit-pagination="16" style="--paginate:true;--footer:SWE 363 | KFUPM;--style::root {
-  --background:rgb(25, 27, 32);
-  --background-light:rgb(93, 102, 121);
-  --foreground: #ffffff;
-  --light-background: #ffffff;
-  --accent: #ffcc00;
-  --sedondary:rgb(76, 22, 114);
-}
-section { background-color: var(--background); color: var(--foreground); }
-h1,h2,h3,h4,h5 {color:var(--foreground);}
-section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
-section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
-blockquote { color: white; }
-strong { color: var(--accent); }
-header, footer {width:100%; margin:0 auto; color:var(--background-light)}
-section.activity { background: var(--accent); color:var(--background)}
-section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
-section.activity footer { display: none; }
-section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
-background-color:var(--background)}
-section.activity a {
-    color: var(--background);
-    text-decoration: underline;
-    font-weight: bold;
-}
-a { color:var(--accent) }
-section.demo { background: var(--sedondary); color:var(--foreground)}
-section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
-section.demo footer, section.footer-none footer { display: none; }
-section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
-section.light { background-color: var(--light-background); color: var(--background); }
-section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
-section.grraph pre {
-    background-color: #ffffff;
-    color: var(--background);
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-}
-table {
-    background: transparent !important;
-    background-color: transparent !important;
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-}
-table, table * {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-table th, table td {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: 1px solid var(--foreground);
-    padding: 8px;
-}
-table th {
-    background: transparent !important;
-    background-color: transparent !important;
-    font-weight: bold;
-}
-/* Override Marp default table styles */
-section table {
-    background: transparent !important;
-    background-color: transparent !important;
-    margin: 0 auto;
-    text-align: center;
-}
-section table th,
-section table td {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-section.center {text-align:center}
-section.big-code pre {font-size:2rem}
-pre {font-size:0.8rem}
-.two-column-slide {
-  display: flex;
-  height: 100%; /* Ensure the container takes full slide height */
-}
-
-.column-left {
-  flex: 1; /* Distribute space equally */
-  padding: 20px;
-}
-
-.column-right {
-  flex: 1;
-  padding: 20px;
-}
-;" data-marpit-pagination-total="22">
-<h1 id="param-middleware-example">Param Middleware Example</h1>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-js"><span class="hljs-comment">// Parameter middleware executes before the route</span>
-app.<span class="hljs-title function_">param</span>(<span class="hljs-string">&quot;username&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res, next, username</span>) {
-  <span class="hljs-comment">// Check if username is recognized</span>
-  <span class="hljs-keyword">if</span> (username === <span class="hljs-string">&quot;jblack&quot;</span>) {
-    req.<span class="hljs-property">user</span> = { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Jack Black&quot;</span>, <span class="hljs-attr">username</span>: username };
-  }
-  <span class="hljs-keyword">else</span> {
-    req.<span class="hljs-property">user</span> = { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Unknown&quot;</span>, <span class="hljs-attr">username</span>: username };
-  }
-  <span class="hljs-comment">// Continue processing the request</span>
-  <span class="hljs-title function_">next</span>();
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-js">app.<span class="hljs-title function_">param</span>(<span class="hljs-string">&quot;courseId&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res, next, courseId</span>) {
+  req.<span class="hljs-property">course</span> = { <span class="hljs-attr">code</span>: courseId };
 });
-
-app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/users/:username&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {
-  <span class="hljs-comment">// req.user contains the user info set in the parameter middleware</span>
-  res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;&lt;h1&gt;Profile for &quot;</span> + req.<span class="hljs-property">user</span>.<span class="hljs-property">name</span> + <span class="hljs-string">&quot;&lt;/h1&gt;&quot;</span>);
-});
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/courses/:code&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) { res.<span class="hljs-title function_">json</span>(req.<span class="hljs-property">course</span>); });
+<span class="hljs-comment">// GET /search?term=node</span>
+app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/search&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) { res.<span class="hljs-title function_">send</span>(req.<span class="hljs-property">params</span>.<span class="hljs-property">term</span>); });
+<span class="hljs-comment">// A form posts major=SWE (no other app.use() calls)</span>
+app.<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;/major&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) { res.<span class="hljs-title function_">send</span>(req.<span class="hljs-property">body</span>.<span class="hljs-property">major</span>); });
 </code></pre>
 <footer>SWE 363 | KFUPM</footer>
 </section>
@@ -3349,621 +3345,18 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-;" data-marpit-pagination-total="22">
-<h1 id="sending-json-responses">Sending JSON Responses</h1>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-js">app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/users/:username&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {
-  <span class="hljs-keyword">if</span> (req.<span class="hljs-property">user</span>.<span class="hljs-property">name</span> !== <span class="hljs-string">&quot;Unknown&quot;</span>) {
-    res.<span class="hljs-title function_">json</span>(req.<span class="hljs-property">user</span>);
-  }
-  <span class="hljs-keyword">else</span> {
-    res.<span class="hljs-title function_">status</span>(<span class="hljs-number">404</span>).<span class="hljs-title function_">json</span>({ <span class="hljs-attr">error</span>: <span class="hljs-string">&quot;Unknown user&quot;</span> });
-  }
-});
-</code></pre>
-<ul>
-<li><code>res.json()</code> → encodes a JavaScript object as <strong>JSON</strong> (<code>application/json</code>)</li>
-<li><code>res.status(404)</code> → sets the <strong>status code</strong> (404 = Not Found) before sending</li>
-<li><code>/users/jblack</code> → <code>{ &quot;name&quot;: &quot;Jack Black&quot;, &quot;username&quot;: &quot;jblack&quot; }</code></li>
-<li><code>/users/sara</code> → 404 and <code>{ &quot;error&quot;: &quot;Unknown user&quot; }</code></li>
-</ul>
-<footer>SWE 363 | KFUPM</footer>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" data-paginate="true" data-footer="SWE 363 | KFUPM" data-class="activity" data-style=":root {
-  --background:rgb(25, 27, 32);
-  --background-light:rgb(93, 102, 121);
-  --foreground: #ffffff;
-  --light-background: #ffffff;
-  --accent: #ffcc00;
-  --sedondary:rgb(76, 22, 114);
-}
-section { background-color: var(--background); color: var(--foreground); }
-h1,h2,h3,h4,h5 {color:var(--foreground);}
-section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
-section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
-blockquote { color: white; }
-strong { color: var(--accent); }
-header, footer {width:100%; margin:0 auto; color:var(--background-light)}
-section.activity { background: var(--accent); color:var(--background)}
-section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
-section.activity footer { display: none; }
-section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
-background-color:var(--background)}
-section.activity a {
-    color: var(--background);
-    text-decoration: underline;
-    font-weight: bold;
-}
-a { color:var(--accent) }
-section.demo { background: var(--sedondary); color:var(--foreground)}
-section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
-section.demo footer, section.footer-none footer { display: none; }
-section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
-section.light { background-color: var(--light-background); color: var(--background); }
-section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
-section.grraph pre {
-    background-color: #ffffff;
-    color: var(--background);
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-}
-table {
-    background: transparent !important;
-    background-color: transparent !important;
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-}
-table, table * {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-table th, table td {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: 1px solid var(--foreground);
-    padding: 8px;
-}
-table th {
-    background: transparent !important;
-    background-color: transparent !important;
-    font-weight: bold;
-}
-/* Override Marp default table styles */
-section table {
-    background: transparent !important;
-    background-color: transparent !important;
-    margin: 0 auto;
-    text-align: center;
-}
-section table th,
-section table td {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-section.center {text-align:center}
-section.big-code pre {font-size:2rem}
-pre {font-size:0.8rem}
-.two-column-slide {
-  display: flex;
-  height: 100%; /* Ensure the container takes full slide height */
-}
-
-.column-left {
-  flex: 1; /* Distribute space equally */
-  padding: 20px;
-}
-
-.column-right {
-  flex: 1;
-  padding: 20px;
-}
-" lang="C" class="activity" data-marpit-pagination="18" style="--paginate:true;--footer:SWE 363 | KFUPM;--class:activity;--style::root {
-  --background:rgb(25, 27, 32);
-  --background-light:rgb(93, 102, 121);
-  --foreground: #ffffff;
-  --light-background: #ffffff;
-  --accent: #ffcc00;
-  --sedondary:rgb(76, 22, 114);
-}
-section { background-color: var(--background); color: var(--foreground); }
-h1,h2,h3,h4,h5 {color:var(--foreground);}
-section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
-section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
-blockquote { color: white; }
-strong { color: var(--accent); }
-header, footer {width:100%; margin:0 auto; color:var(--background-light)}
-section.activity { background: var(--accent); color:var(--background)}
-section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
-section.activity footer { display: none; }
-section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
-background-color:var(--background)}
-section.activity a {
-    color: var(--background);
-    text-decoration: underline;
-    font-weight: bold;
-}
-a { color:var(--accent) }
-section.demo { background: var(--sedondary); color:var(--foreground)}
-section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
-section.demo footer, section.footer-none footer { display: none; }
-section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
-section.light { background-color: var(--light-background); color: var(--background); }
-section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
-section.grraph pre {
-    background-color: #ffffff;
-    color: var(--background);
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-}
-table {
-    background: transparent !important;
-    background-color: transparent !important;
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-}
-table, table * {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-table th, table td {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: 1px solid var(--foreground);
-    padding: 8px;
-}
-table th {
-    background: transparent !important;
-    background-color: transparent !important;
-    font-weight: bold;
-}
-/* Override Marp default table styles */
-section table {
-    background: transparent !important;
-    background-color: transparent !important;
-    margin: 0 auto;
-    text-align: center;
-}
-section table th,
-section table td {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-section.center {text-align:center}
-section.big-code pre {font-size:2rem}
-pre {font-size:0.8rem}
-.two-column-slide {
-  display: flex;
-  height: 100%; /* Ensure the container takes full slide height */
-}
-
-.column-left {
-  flex: 1; /* Distribute space equally */
-  padding: 20px;
-}
-
-.column-right {
-  flex: 1;
-  padding: 20px;
-}
-;" data-marpit-pagination-total="22">
-<blockquote>
-<p>Activity: Predict the response</p>
-</blockquote>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-js">app.<span class="hljs-title function_">param</span>(<span class="hljs-string">&quot;zip&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res, next, zip</span>) {
-  <span class="hljs-keyword">if</span> (zip === <span class="hljs-string">&quot;80015&quot;</span>) {
-    req.<span class="hljs-property">forecast</span> = {<span class="hljs-attr">high</span>: <span class="hljs-number">95</span>, <span class="hljs-attr">low</span>: <span class="hljs-number">72</span>};
-  }
-  <span class="hljs-title function_">next</span>();
-});
-app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/weather/:zip&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {
-  <span class="hljs-keyword">if</span> (req.<span class="hljs-property">forecast</span>) { res.<span class="hljs-title function_">json</span>(req.<span class="hljs-property">forecast</span>); }
-  <span class="hljs-keyword">else</span> { res.<span class="hljs-title function_">status</span>(<span class="hljs-number">404</span>).<span class="hljs-title function_">json</span>({ <span class="hljs-attr">error</span>: <span class="hljs-string">&quot;Unknown ZIP code&quot;</span> }); }
-});
-</code></pre>
-<ol>
-<li><code>/weather/80015</code></li>
-<li><code>/weather/12345</code>: what status code?</li>
-<li><code>next()</code> is removed: <code>/weather/80015</code>?</li>
-<li><code>app.param(&quot;zipcode&quot;, ...)</code> instead of <code>&quot;zip&quot;</code>: <code>/weather/80015</code>?</li>
-</ol>
-<footer>SWE 363 | KFUPM</footer>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="19" data-paginate="true" data-footer="SWE 363 | KFUPM" data-class="activity" data-style=":root {
-  --background:rgb(25, 27, 32);
-  --background-light:rgb(93, 102, 121);
-  --foreground: #ffffff;
-  --light-background: #ffffff;
-  --accent: #ffcc00;
-  --sedondary:rgb(76, 22, 114);
-}
-section { background-color: var(--background); color: var(--foreground); }
-h1,h2,h3,h4,h5 {color:var(--foreground);}
-section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
-section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
-blockquote { color: white; }
-strong { color: var(--accent); }
-header, footer {width:100%; margin:0 auto; color:var(--background-light)}
-section.activity { background: var(--accent); color:var(--background)}
-section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
-section.activity footer { display: none; }
-section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
-background-color:var(--background)}
-section.activity a {
-    color: var(--background);
-    text-decoration: underline;
-    font-weight: bold;
-}
-a { color:var(--accent) }
-section.demo { background: var(--sedondary); color:var(--foreground)}
-section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
-section.demo footer, section.footer-none footer { display: none; }
-section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
-section.light { background-color: var(--light-background); color: var(--background); }
-section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
-section.grraph pre {
-    background-color: #ffffff;
-    color: var(--background);
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-}
-table {
-    background: transparent !important;
-    background-color: transparent !important;
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-}
-table, table * {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-table th, table td {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: 1px solid var(--foreground);
-    padding: 8px;
-}
-table th {
-    background: transparent !important;
-    background-color: transparent !important;
-    font-weight: bold;
-}
-/* Override Marp default table styles */
-section table {
-    background: transparent !important;
-    background-color: transparent !important;
-    margin: 0 auto;
-    text-align: center;
-}
-section table th,
-section table td {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-section.center {text-align:center}
-section.big-code pre {font-size:2rem}
-pre {font-size:0.8rem}
-.two-column-slide {
-  display: flex;
-  height: 100%; /* Ensure the container takes full slide height */
-}
-
-.column-left {
-  flex: 1; /* Distribute space equally */
-  padding: 20px;
-}
-
-.column-right {
-  flex: 1;
-  padding: 20px;
-}
-" lang="C" class="activity" data-marpit-pagination="19" style="--paginate:true;--footer:SWE 363 | KFUPM;--class:activity;--style::root {
-  --background:rgb(25, 27, 32);
-  --background-light:rgb(93, 102, 121);
-  --foreground: #ffffff;
-  --light-background: #ffffff;
-  --accent: #ffcc00;
-  --sedondary:rgb(76, 22, 114);
-}
-section { background-color: var(--background); color: var(--foreground); }
-h1,h2,h3,h4,h5 {color:var(--foreground);}
-section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
-section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
-blockquote { color: white; }
-strong { color: var(--accent); }
-header, footer {width:100%; margin:0 auto; color:var(--background-light)}
-section.activity { background: var(--accent); color:var(--background)}
-section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
-section.activity footer { display: none; }
-section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
-background-color:var(--background)}
-section.activity a {
-    color: var(--background);
-    text-decoration: underline;
-    font-weight: bold;
-}
-a { color:var(--accent) }
-section.demo { background: var(--sedondary); color:var(--foreground)}
-section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
-section.demo footer, section.footer-none footer { display: none; }
-section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
-section.light { background-color: var(--light-background); color: var(--background); }
-section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
-section.grraph pre {
-    background-color: #ffffff;
-    color: var(--background);
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-}
-table {
-    background: transparent !important;
-    background-color: transparent !important;
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-}
-table, table * {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-table th, table td {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: 1px solid var(--foreground);
-    padding: 8px;
-}
-table th {
-    background: transparent !important;
-    background-color: transparent !important;
-    font-weight: bold;
-}
-/* Override Marp default table styles */
-section table {
-    background: transparent !important;
-    background-color: transparent !important;
-    margin: 0 auto;
-    text-align: center;
-}
-section table th,
-section table td {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-section.center {text-align:center}
-section.big-code pre {font-size:2rem}
-pre {font-size:0.8rem}
-.two-column-slide {
-  display: flex;
-  height: 100%; /* Ensure the container takes full slide height */
-}
-
-.column-left {
-  flex: 1; /* Distribute space equally */
-  padding: 20px;
-}
-
-.column-right {
-  flex: 1;
-  padding: 20px;
-}
-;" data-marpit-pagination-total="22">
-<blockquote>
-<p>Activity: Exit ticket: find the 4 bugs</p>
-</blockquote>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-js">app.<span class="hljs-title function_">param</span>(<span class="hljs-string">&quot;courseId&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res, next, courseId</span>) {
-  req.<span class="hljs-property">course</span> = { <span class="hljs-attr">code</span>: courseId, <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;Web Engineering&quot;</span> };
-});
-app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/courses/:code&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {
-  res.<span class="hljs-title function_">json</span>(req.<span class="hljs-property">course</span>);
-});
-<span class="hljs-comment">// GET /search?term=node</span>
-app.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/search&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {
-  res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;Searching for &quot;</span> + req.<span class="hljs-property">params</span>.<span class="hljs-property">term</span>);
-});
-<span class="hljs-comment">// A form posts major=SWE (no other app.use() calls)</span>
-app.<span class="hljs-title function_">post</span>(<span class="hljs-string">&quot;/major&quot;</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) {
-  res.<span class="hljs-title function_">send</span>(<span class="hljs-string">&quot;Major: &quot;</span> + req.<span class="hljs-property">body</span>.<span class="hljs-property">major</span>);
-});
-</code></pre>
-<footer>SWE 363 | KFUPM</footer>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="20" data-paginate="true" data-footer="SWE 363 | KFUPM" data-style=":root {
-  --background:rgb(25, 27, 32);
-  --background-light:rgb(93, 102, 121);
-  --foreground: #ffffff;
-  --light-background: #ffffff;
-  --accent: #ffcc00;
-  --sedondary:rgb(76, 22, 114);
-}
-section { background-color: var(--background); color: var(--foreground); }
-h1,h2,h3,h4,h5 {color:var(--foreground);}
-section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
-section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
-blockquote { color: white; }
-strong { color: var(--accent); }
-header, footer {width:100%; margin:0 auto; color:var(--background-light)}
-section.activity { background: var(--accent); color:var(--background)}
-section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
-section.activity footer { display: none; }
-section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
-background-color:var(--background)}
-section.activity a {
-    color: var(--background);
-    text-decoration: underline;
-    font-weight: bold;
-}
-a { color:var(--accent) }
-section.demo { background: var(--sedondary); color:var(--foreground)}
-section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
-section.demo footer, section.footer-none footer { display: none; }
-section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
-section.light { background-color: var(--light-background); color: var(--background); }
-section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
-section.grraph pre {
-    background-color: #ffffff;
-    color: var(--background);
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-}
-table {
-    background: transparent !important;
-    background-color: transparent !important;
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-}
-table, table * {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-table th, table td {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: 1px solid var(--foreground);
-    padding: 8px;
-}
-table th {
-    background: transparent !important;
-    background-color: transparent !important;
-    font-weight: bold;
-}
-/* Override Marp default table styles */
-section table {
-    background: transparent !important;
-    background-color: transparent !important;
-    margin: 0 auto;
-    text-align: center;
-}
-section table th,
-section table td {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-section.center {text-align:center}
-section.big-code pre {font-size:2rem}
-pre {font-size:0.8rem}
-.two-column-slide {
-  display: flex;
-  height: 100%; /* Ensure the container takes full slide height */
-}
-
-.column-left {
-  flex: 1; /* Distribute space equally */
-  padding: 20px;
-}
-
-.column-right {
-  flex: 1;
-  padding: 20px;
-}
-" lang="C" data-marpit-pagination="20" style="--paginate:true;--footer:SWE 363 | KFUPM;--style::root {
-  --background:rgb(25, 27, 32);
-  --background-light:rgb(93, 102, 121);
-  --foreground: #ffffff;
-  --light-background: #ffffff;
-  --accent: #ffcc00;
-  --sedondary:rgb(76, 22, 114);
-}
-section { background-color: var(--background); color: var(--foreground); }
-h1,h2,h3,h4,h5 {color:var(--foreground);}
-section.boxes ul { display: flex; list-style: none; padding: 0; width: 100%; }
-section.boxes li { background-color:var(--foreground); color:var(--background); padding: 20px; margin: 10px; border-radius: 10px; flex: 1; text-align: center; font-size: 0.85em; overflow: auto; }
-blockquote { color: white; }
-strong { color: var(--accent); }
-header, footer {width:100%; margin:0 auto; color:var(--background-light)}
-section.activity { background: var(--accent); color:var(--background)}
-section.activity h1,section.activity h2, section.activity h3, section.activity h4, section.activity h5 { color: var(--background) }
-section.activity footer { display: none; }
-section.activity blockquote {display:inline-block; border: 4px solid black; color: white; border-radius: 10px; 
-background-color:var(--background)}
-section.activity a {
-    color: var(--background);
-    text-decoration: underline;
-    font-weight: bold;
-}
-a { color:var(--accent) }
-section.demo { background: var(--sedondary); color:var(--foreground)}
-section.demo h1,section.demo h2, section.demo h3, section.demo h4, section.demo h5 { color: var(--foreground) }
-section.demo footer, section.footer-none footer { display: none; }
-section.demo blockquote {display:inline-block; color: var(--sedondary); border-radius: 10px; background-color: var(--foreground)}
-section.light { background-color: var(--light-background); color: var(--background); }
-section.light h1, section.light h2, section.light h3, section.light h4, section.light h5 { color: var(--background); }
-section.grraph pre {
-    background-color: #ffffff;
-    color: var(--background);
-    padding: 10px;
-    border-radius: 5px;
-    overflow-x: auto;
-}
-table {
-    background: transparent !important;
-    background-color: transparent !important;
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-}
-table, table * {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-table th, table td {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: 1px solid var(--foreground);
-    padding: 8px;
-}
-table th {
-    background: transparent !important;
-    background-color: transparent !important;
-    font-weight: bold;
-}
-/* Override Marp default table styles */
-section table {
-    background: transparent !important;
-    background-color: transparent !important;
-    margin: 0 auto;
-    text-align: center;
-}
-section table th,
-section table td {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-section.center {text-align:center}
-section.big-code pre {font-size:2rem}
-pre {font-size:0.8rem}
-.two-column-slide {
-  display: flex;
-  height: 100%; /* Ensure the container takes full slide height */
-}
-
-.column-left {
-  flex: 1; /* Distribute space equally */
-  padding: 20px;
-}
-
-.column-right {
-  flex: 1;
-  padding: 20px;
-}
-;" data-marpit-pagination-total="22">
+;" data-marpit-pagination-total="19">
 <h1 id="key-takeaways">Key Takeaways</h1>
 <ul>
 <li><strong>Query string</strong> (<code>?name=Bob&amp;age=21</code>) → <code>req.query</code></li>
-<li><strong>Posted form data</strong> → <code>express.urlencoded()</code> parses it into <code>req.body</code></li>
+<li><strong>Form POST body</strong> → <code>express.urlencoded()</code> parses it into <code>req.body</code></li>
 <li><strong>Route parameter</strong> (<code>/users/:username</code>) → <code>req.params</code></li>
 <li><code>app.param()</code> runs <strong>before</strong> the route's callback and must call <code>next()</code></li>
 <li><code>res.json()</code> sends JSON; <code>res.status(404).json()</code> also sets the status code</li>
 </ul>
 <footer>SWE 363 | KFUPM</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="21" data-paginate="true" data-footer="SWE 363 | KFUPM" data-class="demo" data-style=":root {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" data-paginate="true" data-footer="SWE 363 | KFUPM" data-class="demo" data-style=":root {
   --background:rgb(25, 27, 32);
   --background-light:rgb(93, 102, 121);
   --foreground: #ffffff;
@@ -4053,7 +3446,7 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-" lang="C" class="demo" data-marpit-pagination="21" style="--paginate:true;--footer:SWE 363 | KFUPM;--class:demo;--style::root {
+" lang="C" class="demo" data-marpit-pagination="18" style="--paginate:true;--footer:SWE 363 | KFUPM;--class:demo;--style::root {
   --background:rgb(25, 27, 32);
   --background-light:rgb(93, 102, 121);
   --foreground: #ffffff;
@@ -4143,7 +3536,7 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-;" data-marpit-pagination-total="22">
+;" data-marpit-pagination-total="19">
 <blockquote>
 <p>30m</p>
 </blockquote>
@@ -4157,7 +3550,7 @@ pre {font-size:0.8rem}
 </ul>
 <footer>SWE 363 | KFUPM</footer>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="22" data-paginate="true" data-footer="SWE 363 | KFUPM" data-style=":root {
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="19" data-paginate="true" data-footer="SWE 363 | KFUPM" data-style=":root {
   --background:rgb(25, 27, 32);
   --background-light:rgb(93, 102, 121);
   --foreground: #ffffff;
@@ -4247,7 +3640,7 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-" lang="C" data-marpit-pagination="22" style="--paginate:true;--footer:SWE 363 | KFUPM;--style::root {
+" lang="C" data-marpit-pagination="19" style="--paginate:true;--footer:SWE 363 | KFUPM;--style::root {
   --background:rgb(25, 27, 32);
   --background-light:rgb(93, 102, 121);
   --foreground: #ffffff;
@@ -4337,7 +3730,7 @@ pre {font-size:0.8rem}
   flex: 1;
   padding: 20px;
 }
-;" data-marpit-pagination-total="22">
+;" data-marpit-pagination-total="19">
 <h1 id="next-class">Next Class</h1>
 <ul>
 <li>Mongoose (7.1)</li>
@@ -4351,33 +3744,53 @@ pre {font-size:0.8rem}
 2. req = the HTTP request object, res = the HTTP response object, next = the callback that lets the next middleware or route run.
 3. &quot;Request: GET for /goodbye&quot; is still logged, but nothing after logRequest runs.
 4. In the public directory.
-Tip: today every route reads data from req.</p></div><div class="bespoke-marp-note" data-index="3" tabindex="0"><p>Timing: ~35 min for 6.5 (including activities)</p></div><div class="bespoke-marp-note" data-index="6" tabindex="0"><p>Live: run the /hello route, then change the URL: different name, remove age, add an extra parameter.</p></div><div class="bespoke-marp-note" data-index="7" tabindex="0"><p>Answers:
+Tip: today every route reads data from req.</p></div><div class="bespoke-marp-note" data-index="3" tabindex="0"><p>Timing: ~32 min for 6.5 (including activities)</p></div><div class="bespoke-marp-note" data-index="5" tabindex="0"><p>Details to say aloud:
+- Path = /hello; query string = name=Bob&amp;age=21 (pairs separated by &amp;).
+- The query string doesn't change the route: /hello still matches.
+- Forms with method=&quot;get&quot; send their data this way (zyBooks 2.8).
+Live: run the /hello route, then change the URL: different name, remove age, add an extra parameter.</p></div><div class="bespoke-marp-note" data-index="6" tabindex="0"><p>Answers:
 1. Hello, Sara! You are 20 years old.
 2. Hello, undefined! You are 20 years old. (name is not in the query string)
 3. Hello, Doctor Who! A space in form data is URL-encoded as + (zyBooks 2.8), and Express decodes it back to a space, so the page does not say &quot;Doctor+Who&quot;.
-4. req.query.city (res is the response object). The page itself shows &quot;Hello, undefined! You are undefined years old.&quot;</p></div><div class="bespoke-marp-note" data-index="9" tabindex="0"><p>Live: open http://localhost:3000/hello.html, submit Tamika / 24. Then comment out the express.urlencoded() line, restart, and submit again (sets up the next activity).</p></div><div class="bespoke-marp-note" data-index="10" tabindex="0"><p>Answer:
-B → D → E → A → C
-Follow-up: which steps happen in the browser (B's request, D, E) and which on the server (B's response, A, C)?</p></div><div class="bespoke-marp-note" data-index="11" tabindex="0"><p>Answers:
+4. req.query.city (res is the response object). The page itself shows &quot;Hello, undefined! You are undefined years old.&quot;</p></div><div class="bespoke-marp-note" data-index="7" tabindex="0"><p>The full HTTP request the browser sends:
+POST /hello HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+name=Tamika&amp;age=24
+Each input's name attribute becomes a key in the body.</p></div><div class="bespoke-marp-note" data-index="8" tabindex="0"><p>Details to say aloud:
+- express.urlencoded() only parses bodies with Content-Type: application/x-www-form-urlencoded.
+- The full flow: the browser requests hello.html (express.static serves it) → the user types Tamika / 24 and presses Submit → the browser sends POST /hello with name=Tamika&amp;age=24 in the body → the middleware attaches the data to req.body → the /hello POST route sends &quot;Hello, Tamika!&quot;.
+Live: open http://localhost:3000/hello.html, submit Tamika / 24. Then comment out the express.urlencoded() line, restart, and submit again (sets up the next activity).</p></div><div class="bespoke-marp-note" data-index="9" tabindex="0"><p>Answers:
 1. The page says &quot;Hello, !&quot; (the name is empty).
 2. Nothing parses the body, so req.body.name can't be read: the server responds with an error instead of the greeting.
-3. The data goes in the query string (GET /hello?name=Tamika&amp;age=24). There is no GET /hello route, so the server returns a 404 status code.
+3. The data goes in the query string (GET /hello?name=Tamika). There is no GET /hello route, so the server returns a 404 status code.
 4. express.urlencoded() only parses bodies with Content-Type: application/x-www-form-urlencoded, so req.body is not filled in and the name can't be read.
-5. hello.html is no longer served: http://localhost:3000/hello.html returns a 404, so the user never sees the form.
-Follow-up (ask aloud): is express.static() middleware? Yes: it is enabled with app.use(), like express.urlencoded().</p></div><div class="bespoke-marp-note" data-index="12" tabindex="0"><p>Live: request /users/jblack, then /users/abc, then /users/ (404).</p></div><div class="bespoke-marp-note" data-index="13" tabindex="0"><p>Answers:
+5. hello.html (the form page in public) is no longer served: http://localhost:3000/hello.html returns a 404, so the user never sees the form.
+Follow-up (ask aloud): is express.static() middleware? Yes: it is enabled with app.use(), like express.urlencoded().</p></div><div class="bespoke-marp-note" data-index="10" tabindex="0"><p>Details to say aloud:
+- A route parameter is near or at the end of the URL path.
+- The name after the colon is the property name: :username → req.params.username.
+Live: request /users/jblack, then /users/abc, then /users/ (404).</p></div><div class="bespoke-marp-note" data-index="11" tabindex="0"><p>Answers:
 1. req.params.username is abc, so the page says &quot;Profile for abc&quot;.
 2. req.query.term is node.
 3. req.body.major is SWE (needs app.use(express.urlencoded(...))).
 4. No: it is req.params.cityName (the name after the colon).
-5. No: /users/ has no value for :username, so the route doesn't match and the server returns a 404 status code.</p></div><div class="bespoke-marp-note" data-index="15" tabindex="0"><p>Live: request /users/jblack (Jack Black) and /users/sara (Unknown). Add a console.log in app.param to show it runs first.</p></div><div class="bespoke-marp-note" data-index="16" tabindex="0"><p>Live: replace res.send() with this route; show the 404 status in DevTools (Network tab).</p></div><div class="bespoke-marp-note" data-index="17" tabindex="0"><p>Answers:
+5. No: /users/ has no value for :username, so the route doesn't match and the server returns a 404 status code.</p></div><div class="bespoke-marp-note" data-index="12" tabindex="0"><p>Flow to draw on the board:
+GET /users/jblack → app.param(&quot;username&quot;, ...) sets req.user, calls next() → app.get(&quot;/users/:username&quot;, ...) uses req.user → Profile for Jack Black
+- zyBooks Figure 6.5.1 is the same example (it also stores username in req.user).
+- A real application would replace the if-else with a database query (next class).
+Live: request /users/jblack (Jack Black) and /users/sara (Unknown). Add a console.log in app.param to show it runs first.</p></div><div class="bespoke-marp-note" data-index="13" tabindex="0"><p>Details to say aloud:
+- res.json() sends the response with Content-Type: application/json.
+- Without res.status(), a successful response has the 200 status code.
+Live: replace res.send() with this route; show the 404 status in DevTools (Network tab).</p></div><div class="bespoke-marp-note" data-index="14" tabindex="0"><p>Answers:
 1. The JSON { &quot;high&quot;: 95, &quot;low&quot;: 72 } (status 200).
 2. The JSON { &quot;error&quot;: &quot;Unknown ZIP code&quot; } with a 404 status code.
 3. The server does not return a response (the route callback never runs).
-4. { &quot;error&quot;: &quot;Unknown ZIP code&quot; } with 404: no route has a :zipcode parameter, so the middleware never runs and req.forecast is never set.</p></div><div class="bespoke-marp-note" data-index="18" tabindex="0"><p>Answers:
+4. { &quot;error&quot;: &quot;Unknown ZIP code&quot; } with 404: no route has a :zipcode parameter, so the middleware never runs and req.forecast is never set.</p></div><div class="bespoke-marp-note" data-index="15" tabindex="0"><p>Answers:
 1. app.param() never calls next() → add next(); at the end of the middleware.
 2. The parameter names don't match: app.param(&quot;courseId&quot;) but the route uses :code → use the same name in both.
 3. term is in the query string → req.query.term, not req.params.term.
 4. No express.urlencoded() middleware → add app.use(express.urlencoded({extended: false})); before the routes so req.body is filled in.
-Tip: bugs 1, 2, and 3 are the most common mistakes in the lab.</p></div><div class="bespoke-marp-note" data-index="20" tabindex="0"><p>Setup: cd 6-4-express-request-data; npm install; node server.js (prints &quot;API running at http://localhost:3000&quot;).
+Tip: bugs 1, 2, and 3 are the most common mistakes in the lab.</p></div><div class="bespoke-marp-note" data-index="17" tabindex="0"><p>Setup: cd 6-4-express-request-data; npm install; node server.js (prints &quot;API running at http://localhost:3000&quot;).
 Tasks (TODOs in server.js): 1 create the app and listen on 3000; 2 GET /echo reads name and age from req.query (400 JSON if one is missing); 3 GET /profile/:first/:last returns fullName; 4 app.param(&quot;userId&quot;) converts to a number, 400 JSON if not positive, else req.userIdNum and next(); 5 GET /users/:userId returns req.userIdNum.
 Test: the URLs listed at the end of the server.js comment block (browser for GET routes, curl -i to see the status codes).
 Not in zyBooks ch6 (the lab's TODO hints and README explain them):
