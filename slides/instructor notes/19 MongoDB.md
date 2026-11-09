@@ -139,87 +139,56 @@ Tip: keep the three words (collection, document, field) on the board for the nex
 ---
 # 7.2 MongoDB
 
-<!-- Timing: ~16 min for 7.2 (including activities) -->
+<!-- Timing: ~14 min for 7.2 (including activities) -->
 
 ---
 
 # What is MongoDB?
 
-> **MongoDB** is the most popular **NoSQL** database used by Node.js developers
+> **MongoDB** stores data as **documents** (field/value pairs, like JSON), grouped into **collections**
 
-- **Document** → a single data object made of **field/value pairs** (like JSON)
-- **Collection** → a group of related documents
-- Documents are stored internally as **BSON** (Binary JSON)
-  - JSON + extra type information: string, integer, double, date, boolean, null, ...
-  - A BSON document may not exceed **16 MB**
-
----
-
-# MongoDB Structure
-
-<div class="two-column-slide">
-
-<div class="column-left">
-
-## A document
-```js
-{
-  name: "Sue",      // string
-  gpa: 3.1,         // double
-  interests: ["biking", "reading"],
-  address: {        // nested
-    city: "Dallas",
-    state: "TX"
-  }
-}
-```
-
-</div>
-
-<div class="column-right">
-
-## A collection
-```js
-// students collection
-{ name: "Sue", gpa: 3.1, ... }
-{ name: "Larry", gpa: 2.5, ... }
-{ name: "Anne", gpa: 4.0, ... }
-```
+- **Why:** Node.js works seamlessly with MongoDB: JSON data, JavaScript queries
+- **Field/value pair:** `gpa: 3.1` → field `gpa`, value `3.1`
 
 ```
 mydb database
   → students collection
-    → documents
+    → { name: "Sue", gpa: 3.1, interests: ["biking", "reading"] }
+    → { name: "Larry", gpa: 2.5, interests: ["RPGs", "chess"] }
+    → { name: "Anne", gpa: 4.0, interests: ["coding", "Pilates"] }
 ```
 
-</div>
-
-</div>
+<!--
+MongoDB is the most popular NoSQL database used by Node.js developers.
+Extra details (zyBooks 7.2):
+- Documents are stored internally as BSON (Binary JSON): JSON + extra type information (string, integer, double, date, boolean, null, ...). A BSON document may not exceed 16 MB.
+- Documents may contain nested documents, e.g. address: { city: "Dallas", state: "TX" }.
+- All documents in a collection; a database holds collections.
+-->
 
 ---
 
 # MongoDB Shell (mongosh)
 
-- **MongoDB Shell** → a command-line interface; the `mongosh` command starts it
-- The MongoDB installer also includes **MongoDB Compass**, a GUI for MongoDB
+> **MongoDB Shell** is a command-line interface for MongoDB; the `mongosh` command starts it
+
+- **Why:** create, query, and delete documents by typing commands
 
 ```
 $ mongosh
-Connecting to: mongodb://127.0.0.1:27017/...
-test> use mydb                // creates or selects the "mydb" database
+test> use mydb            // creates or selects the "mydb" database
 switched to db mydb
-mydb> db.students.insertOne({ _id: 123, name: "Sue", gpa: 3.1 })
-{ acknowledged: true, insertedId: 123 }
-mydb> db.students.find()
-[ { "_id" : 123, "name" : "Sue", "gpa" : 3.1 } ]
-mydb> show dbs                // lists all databases
-mydb> show collections        // lists all collections in the current database
-mydb> help                    // summary of all shell commands
-mydb> exit                    // quits the MongoDB Shell
+mydb> show dbs            // lists all databases
+mydb> show collections    // lists all collections in mydb
+mydb> exit                // quits the shell
 ```
 
 <!--
-Live: run mongosh, then use mydb, insert Sue, find(), show dbs, and show collections. Point out that use mydb creates mydb because it does not exist.
+Live: run mongosh, use mydb, show dbs, show collections. use mydb creates mydb because it does not exist.
+Extra details (zyBooks 7.2):
+- mongosh connects to MongoDB running on the local computer (mongodb://127.0.0.1:27017).
+- help → summary of shell commands; db.autos.help() → summary of collection methods.
+- Install MongoDB Community Edition and MongoDB Shell from the MongoDB website; the installer includes MongoDB Compass, a GUI.
 -->
 
 ---
@@ -258,84 +227,69 @@ Tip: ask what db.autos.help() shows (a summary of all collection methods).
 
 # Inserting Documents
 
-- `insertOne()` → **one** document; `insertMany()` → **multiple** documents
-- `_id` → the **primary key**: uniquely identifies each document; always the first field
-- No `_id` given → MongoDB assigns an **ObjectId** (12-byte BSON type, shown in hex)
+> `insertOne()` inserts a single document into a collection
+
+- **Why:** this is how data gets into MongoDB (the C in CRUD)
+- Every document gets a unique `_id`, the **primary key**
 
 ```
 mydb> db.students.insertOne({ name: "Sue", gpa: 3.1 })
 { acknowledged: true, insertedId: ObjectId("62794229fc4ebd4933877a9d") }
-mydb> students = [ { name: "Maria", gpa: 4.0 }, { name: "Xiu", gpa: 3.8 },
-... { name: "Braden", gpa: 2.5 } ]
-mydb> db.students.insertMany(students)
-{ acknowledged: true,
-  insertedIds: { '0': ObjectId("627942f6fc4ebd4933877a9e"),
-                 '1': ObjectId("627942f6fc4ebd4933877a9f"),
-                 '2': ObjectId("627942f6fc4ebd4933877aa0") } }
-```
-
----
-
-# Finding Documents & Query Operators
-
-- `find()` → returns **all** documents, or those that match an optional query
-- `findOne()` → returns only the **first** matching document (`null` if none)
-
-```js
-db.students.find({ name: 'Sue' })                     // field: value → equal to the value
-db.students.find({ name: { $ne: "Sue" } })            // $eq / $ne    → = or ≠ the value
-db.students.find({ gpa: { $gt: 3.5 } })               // $gt / $gte   → > or ≥ the value
-db.students.findOne({ gpa: { $lte: 3.0 } })           // $lt / $lte   → < or ≤ the value
-db.students.find({ name: { $in: ["Sue", "Susie"] } }) // $in / $nin   → in or not in an array
-
-// $and / $or → matches both / either clause: gpa >= 3.9 or gpa <= 3.0
-db.students.find({ $or: [{ gpa: { $gte: 3.9 } }, { gpa: { $lte: 3.0 } }] })
 ```
 
 <!--
-Live: run db.students.find({ gpa: { $gte: 3.0 } }) (Sue, Maria, Xiu) and the $or example in mongosh.
+Live: insert Sue, then db.students.find() to show the _id.
+Extra details (zyBooks 7.2):
+- insertMany(array) inserts multiple documents: db.students.insertMany([{ name: "Maria", gpa: 4.0 }, { name: "Xiu", gpa: 3.8 }, { name: "Braden", gpa: 2.5 }])
+- _id is always the first field. It may be assigned (e.g., _id: 123) or auto-incrementing; otherwise MongoDB assigns an ObjectId (a 12-byte BSON type shown as a hexadecimal number).
 -->
 
 ---
 
-# Updating Documents
+# Finding Documents
 
-- `updateOne()` / `updateMany()` → modify **one** / **multiple** documents
-- Parameters: a **query** (`{}` matches **all**) and an **update operator**
+> `find()` returns the documents that match a query; `findOne()` returns only the first
+
+- **Why:** queries read just the data you need
+- **Query operators** compare values: `$gt` means greater than
+
+```js
+db.students.find()                            // all students
+db.students.find({ name: "Sue" })             // students named Sue
+db.students.find({ gpa: { $gt: 3.5 } })       // students with gpa > 3.5
+db.students.findOne({ gpa: { $gt: 3.5 } })    // only the first match
+```
+
+<!--
+Live: insert Maria (4.0), Xiu (3.8), Braden (2.5), then run the queries.
+Extra details (zyBooks 7.2, Table 7.2.1):
+- $eq / $ne (= / ≠), $gt / $gte (> / ≥), $lt / $lte (< / ≤), $in / $nin (in / not in an array)
+- $and / $or: { $or: [{ gpa: { $gte: 3.9 } }, { gpa: { $lte: 3.0 } }] }
+- findOne() returns null when nothing matches.
+-->
+
+---
+
+# Updating & Deleting Documents
+
+> `updateOne()` changes the first matching document; `deleteOne()` removes it
+
+- **Why:** keep data current and remove what is no longer needed
+- `updateMany()` / `deleteMany()` → all matching documents
 
 ```
 mydb> db.students.updateOne({ name: 'Sue' }, { $set: { gpa: 3.3 } })
 { acknowledged: true, insertedId: null, matchedCount: 1, modifiedCount: 1, upsertedCount: 0 }
-```
-
-```js
-{ $set: { gpa: 4.0 } }                   // $set → sets a field's value
-{ $inc: { gpa: 0.1 } }                   // $inc → increments a field's value by the amount
-{ $unset: { gpa: "", birthDate: "" } }   // $unset → removes fields
-{ $rename: { name: 'firstName' } }       // $rename → renames a field
-{ $currentDate: { birthDate: true } }    // $currentDate → sets the current date/time
-```
-
----
-
-# Deleting Documents
-
-- `deleteOne()` / `deleteMany()` → delete **one** / **multiple** matching documents
-- Returns `deletedCount` → how many documents were deleted
-
-```
 mydb> db.students.deleteOne({ gpa: { $lt: 3.5 } })
 { acknowledged: true, deletedCount: 1 }
-
-mydb> db.students.deleteMany({ gpa: { $gt: 3.5 } })
-{ acknowledged: true, deletedCount: 2 }
-
-mydb> db.students.find()
-[ { _id: ObjectId("627942f6fc4ebd4933877aa0"), name: 'Braden', gpa: 2.5 } ]
 ```
 
 <!--
-Live: deleteOne removed Sue (the first student with GPA < 3.5); deleteMany removed Maria and Xiu.
+Live: updateOne Sue, find() to confirm, then deleteOne.
+Extra details (zyBooks 7.2):
+- updateOne/updateMany take a query ({} matches all documents) and an update operator.
+- Update operators: $set (sets a value), $inc (increments, e.g. { $inc: { gpa: 0.1 } }), $unset (removes fields), $rename (renames a field), $currentDate (sets the current date/time).
+- matchedCount / modifiedCount / deletedCount report how many documents matched, changed, or were deleted.
 -->
 
 ---
@@ -351,112 +305,99 @@ Live: deleteOne removed Sue (the first student with GPA < 3.5); deleteMany remov
 | 300 | Dodge | 2012 | 10800 |
 | 400 | Toyota | 2013 | 13400 |
 
-Key: `$gt` >, `$gte` ≥, `$lt` <, `$ne` ≠, `$or` either condition, `$set` sets a field
+Key: `$gt` >, `$gte` ≥, `$lt` <, `$set` sets a field
 
 ```js
 db.autos.find({ year: { $gte: 2013 } })                                   // 1.
 db.autos.findOne({ year: { $gte: 2013 } })                                // 2.
-db.autos.find({ $or: [ { make: "Honda" }, { year: { $ne: 2013 } } ] })    // 3.
+db.autos.find({ price: { $lt: 13500 } })                                  // 3.
 db.autos.updateOne({ price: { $gt: 13000 } }, { $set: { sold: true } })   // 4.
-db.autos.deleteMany({ price: { $lt: 13500 } })                            // 5.
+db.autos.deleteOne({ year: 2013 })                                        // 5.
 ```
 
 <!--
 Answers:
 1. _id 100, 200, 400
 2. _id 100 (only the first match)
-3. _id 100, 200, 300
+3. _id 300, 400
 4. Only auto 100 (the first match) gets a new field sold: true.
-5. Autos 300 and 400 are deleted → deletedCount: 2
+5. Auto 200 is deleted (the first auto with year 2013) → deletedCount: 1
 Tip: each command runs on the original collection. Ask what updateMany would do in 4 (autos 100, 200, and 400 get sold: true).
 -->
 
 ---
 # 7.1 Mongoose
 
-<!-- Timing: ~18 min for 7.1 (including activities and the exit ticket) -->
+<!-- Timing: ~17 min for 7.1 (including activities and the exit ticket) -->
 
 ---
 
 # What is Mongoose?
 
-> The **mongoose** module provides **object data mapping (ODM)** and structured schemas to MongoDB collections
+> The **mongoose** module adds **structured schemas** to MongoDB collections in Node.js
 
-- **ODM** → converts data from a database into a **JavaScript object**
-- The `mongodb` module also works, with many of the same functions as the shell
-- Many developers prefer Mongoose → it **simplifies** some MongoDB operations
-
-```bash
-npm install mongoose
-```
+- **Why:** documents follow a defined structure, and some operations get simpler
+- `connect()` must run before any database operation
 
 ```js
+// npm install mongoose
 const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost/mydb");   // creates mydb if it doesn't exist
 ```
+
+<!--
+Extra details (zyBooks 7.1):
+- Mongoose provides object data mapping (ODM): converting data from a database into a JavaScript object.
+- The mongodb module can also be used; it supports many of the same functions as the shell.
+-->
 
 ---
 
-# Mongoose Schemas
+# Schemas & Models
 
-> A **schema** defines the structure of documents within a MongoDB collection
+> A **schema** defines the structure of documents; a **model** is a constructor compiled from a schema
+
+- **Why:** every student needs a `name`; `gpa` must be 0 to 4
+- Model `"Student"` → collection **"students"** (the plural)
 
 ```js
 const studentSchema = new mongoose.Schema({
   name: { type: String, required: true },
   gpa: { type: Number, min: 0, max: 4 },
-  birthDate: { type: Date, default: Date.now },
-  interests: [ String ]
+  birthDate: { type: Date, default: Date.now }
 });
-```
-
-**Data types:** `String`, `Number`, `Date`, `Buffer` (binary), `Boolean`, `Mixed` (any), `ObjectId`, `Array` (e.g., `[Number]`)
-
----
-
-# Mongoose Models
-
-> A **model** is a constructor compiled from a schema
-
-```js
-// Create a "Student" model from the studentSchema schema
 const Student = mongoose.model("Student", studentSchema);
-
-// Create a student document from the Student model
-const stu = new Student({
-  name: "Sue Black",
-  gpa: 3.1,
-  birthDate: new Date(2006, 11, 2),
-  interests: ["biking", "reading"]
-});
 ```
 
-- Model name `"Student"` → collection **"students"** (the plural)
-- Good practice: capitalize model names and variables (`Card`, not `card`)
+<!--
+Extra details (zyBooks 7.1):
+- Data types: String, Number, Date, Buffer (binary), Boolean, Mixed (any), ObjectId, Array (e.g., [String]).
+- required: true → saving without the field fails; min/max → allowed range; default → value used when the field is missing.
+- Good practice: capitalize model names and model variables ("Card", not "card").
+-->
 
 ---
 
-# Connecting & Saving Documents
+# Saving Documents
+
+> `save()` stores a model instance (a **document**) in the database
+
+- **Why:** `new Student(...)` alone does not touch the database
+- `await` waits for the save to finish; the document then has an `_id`
 
 ```js
-const express = require("express");
-const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/mydb");
-// ... studentSchema and Student model ...
-const app = express();
 app.get("/create", async function(req, res) {
   const stu = new Student({ name: "Sue Black", gpa: 3.1 });
   await stu.save();
   res.send(`Saved ${stu.name}.`);
 });
-app.listen(8080);
 ```
-
-- `connect()` → connects **before** any operations; creates `mydb` if needed
-- `await stu.save()` → saves the document and assigns its `_id`
-- `Student.create()` → also saves one document or an array of documents
 
 <!--
 Live: node server.js, visit http://localhost:8080/create, then check the students collection in mongosh (note the __v field = versionKey).
+Extra details (zyBooks 7.1):
+- Student.create() also saves one document or an array of documents.
+- Full program: require express and mongoose, connect, define the schema and model, create the app, the route above, app.listen(8080).
 -->
 
 ---
@@ -514,136 +455,58 @@ Follow-up (ask aloud): True or False, Mongoose is the only way a Node.js app can
 
 ---
 
-# Finding Documents with Mongoose
+# CRUD with Mongoose
 
-| Method | Finds |
-|--------|-------|
-| `Model.find()` | All documents that match the conditions |
-| `Model.findOne()` | The first document that matches |
-| `Model.findById()` | The document with the given id |
+> Model methods work like the shell's `find()`, `findOne()`, `updateOne()`, and `deleteOne()`
+
+- **Why:** same queries and operators, now inside Node.js (use `await`)
 
 ```js
-// Find all students with gpa >= 3
 const students = await Student.find({ gpa: { $gte: 3 } });
+const stu = await Student.findOne({ name: "Sue Black" });
 
-// Find the student with this ObjectId
-const stu = await Student.findById("66901e8c09a55e28d1acc296");
-if (stu === null) {
-  console.log("No student found");
-}
+const result = await Student.updateOne({ name: "Sue Black" }, { $set: { gpa: 3.9 } });
+console.log("Docs updated: " + result.modifiedCount);
+
+const result2 = await Student.deleteOne({ name: "Sue Black" });
+console.log("Docs deleted: " + result2.deletedCount);
 ```
 
----
-
-# Chaining Query Methods
-
-All find methods return a **Query** object → chain methods for a readable query
-
-```js
-async function findStudents() {
-  const students = await Student.find({ gpa: { $gte: 3 } })
-    .where("interests").in(["fishing", "biking"])
-    .sort({ "birthDate": "desc" })
-    .limit(2)
-    .exec();
-  students.forEach(function(stu) {
-    console.log(stu.name);
-  });
-}
-```
-
-- `where()` → filter on a path; `sort()` → set the sort order
-- `limit()` → limit the number of documents; `exec()` → called **last** to run the query
+<!--
+Live: add these to an async function and run them one at a time.
+Extra details (zyBooks 7.1):
+- findById("66901e8c09a55e28d1acc296") finds by _id; findOne/findById return null when nothing matches.
+- updateMany() / deleteMany() change or delete all matching documents.
+- save() can also update: find a document, change it (stu.gpa += 0.1), then await stu.save().
+- Find methods return a Query object; methods can be chained: .where("interests").in(["fishing", "biking"]).sort({ "birthDate": "desc" }).limit(2).exec()
+-->
 
 ---
 
 <!-- _class: activity -->
 
-> Activity: Predict the output of findStudents()
+> Activity: Predict the result (each line on its own)
+
+| name | Sue | Mara | Dana | Li |
+|------|-----|------|------|----|
+| gpa | 3.1 | 2.6 | 3.3 | 4.0 |
 
 ```js
-Student.find({ gpa: { $gte: 3 } }).where("interests").in(["fishing", "biking"])
-  .sort({ "birthDate": "desc" }).limit(2).exec();   // then prints each stu.name
+await Student.find({ gpa: { $gte: 3.2 } });                         // 1. which students?
+await Student.findOne({ gpa: { $lt: 3.5 } });                       // 2. which student?
+await Student.updateOne({ gpa: { $gt: 3 } }, { $set: { gpa: 4 } }); // 3. who changes?
+await Student.deleteOne({ name: "Greg" });                          // 4. deletedCount?
 ```
 
-<div class="two-column-slide">
-
-<div class="column-left">
-
-| name | gpa | birthDate | interests |
-|------|-----|-----------|-----------|
-| Sue | 3.1 | 2006-11-2 | biking, reading |
-| Mara | 2.6 | 2002-5-6 | dancing, coding |
-| Dana | 3.3 | 2008-1-15 | gardening, biking |
-| Li | 4.0 | 2001-2-6 | rock climbing |
-| Greg | 3.2 | 1998-6-30 | fishing, tennis |
-
-</div>
-
-<div class="column-right">
-
-1. What is printed?
-2. What if `.limit(2)` becomes `.limit(3)`?
-3. What if `"desc"` becomes `"asc"`?
-4. What if the `.where(...)` line is removed?
-
-</div>
-
-</div>
+Key: `$gt` >, `$gte` ≥, `$lt` <, `$set` sets a field
 
 <!--
 Answers:
-1. Dana, Sue (gpa ≥ 3 → Sue, Dana, Li, Greg; fishing or biking → Sue, Dana, Greg; newest birthDate first; first 2)
-2. Dana, Sue, Greg
-3. Greg, Sue (oldest first)
-4. Dana, Sue (Li is third: born 2001)
+1. Dana and Li
+2. Sue (the first match)
+3. Sue (the first student with gpa > 3) → gpa 4, modifiedCount 1
+4. 0: no student is named Greg, so nothing is deleted.
 -->
-
----
-
-# Update & Delete Methods
-
-<div class="two-column-slide">
-
-<div class="column-left">
-
-## Update
-```js
-// Change Sue's birthDate to 2008-12-02
-const result = await Student.updateOne(
-  { name: "Sue Black" },
-  { birthDate: new Date(2008, 11, 2) });
-
-// Add 0.5 to all GPAs <= 3.5
-const result = await Student.updateMany(
-  { gpa: { $lte: 3.5 } },
-  { $inc: { gpa: 0.5 } });
-
-// save() also updates a found document
-stu.gpa += 0.1;
-await stu.save();
-```
-
-</div>
-
-<div class="column-right">
-
-## Delete
-```js
-// Delete student with given id
-const result = await Student.deleteOne(
-  { _id: "668fe18cda9cd0d66eee9a76" });
-
-// Delete all students with GPA < 3
-const result = await Student.deleteMany(
-  { gpa: { $lt: 3 } });
-console.log("Docs deleted: " +
-  result.deletedCount);
-```
-
-</div>
-
-</div>
 
 ---
 
@@ -683,12 +546,12 @@ Tip: a wrong connection string and a missing await are the most common lab mista
 
 # Key Takeaways
 
-- MongoDB stores **documents** (field/value pairs, saved as BSON) in **collections**
-- **mongosh:** `use`, `show dbs`, `show collections`, `db.collection.method()`
-- **CRUD:** `insertOne/Many`, `find/findOne`, `updateOne/Many`, `deleteOne/Many`
-- **Query operators** (`$gt`, `$in`, `$or`) filter; **update operators** (`$set`, `$inc`) modify
-- **Mongoose:** schema → model → document → `save()` or `Model.create()`
-- Chain Mongoose **Query** methods: `where()`, `sort()`, `limit()`, `exec()`
+- MongoDB stores **documents** (field/value pairs) in **collections** inside databases
+- **mongosh:** `use mydb`, `show dbs`, `show collections`
+- **Shell CRUD:** `insertOne()`, `find()`, `updateOne()` with `$set`, `deleteOne()`
+- **Query operators** like `$gt` and `$lt` filter documents
+- **Mongoose:** `connect()` → schema → model → document → `save()`
+- **Mongoose CRUD:** the same methods, called on the model with `await`
 
 <!--
 Mongoose uses the same CRUD method names as the shell (find, findOne, updateOne, updateMany, deleteOne, deleteMany), plus save(), Model.create(), and findById().

@@ -96,6 +96,7 @@ footer: 'SWE 363 | KFUPM'
 ---
 
 
+
 Web Engineering & Development (SWE 363) 
 # Web Security
 
@@ -103,815 +104,420 @@ Web Engineering & Development (SWE 363)
 
 # In today's lecture:
 - Third-party web APIs
-- Token-based user authentication
+- Token-based user authentication (JWT)
 - Password hashing
 
 ### Reference: 
 - Zybook: 8.1-8.3
 ---
-# Third-party web APIs 
+
+<!-- _class: activity -->
+
+> Activity: Think-Pair-Share (2 min)
+
+You log in to Blackboard once, then open many pages without typing your password again.
+
+1. How could the server know it is still you on every request?
+2. Should the server store your actual password? What could it store instead?
+3. A weather widget on the page shows today's forecast. Who produced that data?
+
+<!--
+Answers:
+1. (Model answer) After login, the server gives the browser something that proves you logged in (a token). The browser sends it with every request, and the server checks it.
+2. (Model answer) No. If the database is stolen, every password is exposed. The server stores a password hash instead.
+3. (Model answer) Probably another organization: a third-party web API (e.g., a weather service).
+Tip: write "token", "hash", and "third-party API" on the board; they are today's three sections.
+-->
 
 ---
 
-# What is a Third-Party Web API?
+# 8.1 Third-Party Web APIs
 
-**API** = Application Programming Interface
-
-A **third-party web API** is a service provided by another company that your application can use
-
-**Key idea:**
-- You don't need to build everything yourself
-- Use existing services to add features to your app
-- Access data and services over the internet
+<!-- Timing: ~6 min for 8.1 (including activities), plus 2 min for the warm-up -->
 
 ---
 
-# Examples of Third-Party APIs
+# Third-Party Web APIs
 
-**Weather APIs:**
-- Get current weather, forecasts, historical data
+> A **third-party web API** is a web API hosted by another person or organization that any web client may use
 
-**Social Media APIs:**
-- Twitter, Facebook, Instagram integration
-
-**Payment APIs:**
-- Stripe, PayPal for processing payments
-
-**Maps APIs:**
-- Google Maps, Mapbox for location services
-
----
-
-# How Third-Party APIs Work
+- Why: weather data, maps, and more, without building them
+- Usually needs an **API key** that identifies who is using it
 
 ```
-Your Application → HTTP Request → Third-Party API Server
-                                    ↓
-Your Application ← HTTP Response ← Third-Party API Server
+http://api.openweathermap.org/data/2.5/weather?zip=90210&units=imperial&appid=APIKEY
 ```
 
-**Flow:**
-1. Your app sends a request to the API
-2. API processes the request
-3. API sends back data (usually JSON)
-4. Your app uses the data
+<!--
+Book examples (Table 8.1.1): Google Maps Platform APIs, OpenWeatherMap API, NASA Image and Video Library API (key required); Pokémon API, Trivia API (no key).
+API keys help third parties track usage and may limit the number of requests in a fixed time period.
+OpenWeatherMap Weather API: GET requests, JSON by default. Query string parameters: zip (five-digit US ZIP code), units (standard, metric, or imperial), appid (the developer's API key, sent in all requests).
+Live: open the URL in the browser with the literal APIKEY to show the "invalid API key" error, then (if you have a key) the real JSON.
+-->
 
 ---
 
-# Making API Requests with fetch()
+# Calling a Third-Party API with fetch()
 
-The `fetch()` function is built into JavaScript for making HTTP requests
+> The web server sends the request with **fetch()** and gets **JSON** back
 
-**Basic syntax:**
-```javascript
-fetch(url)
+```js
+app.get("/weather", function(req, res) {
+  const zip = 90210;
+  const params = new URLSearchParams({
+    zip: zip, units: "imperial", appid: "APIKEY"});
+  fetch("http://api.openweathermap.org/data/2.5/weather?" + params)
+    .then(response => response.json())       // JSON → JavaScript objects
+    .then(data => res.render("weather", { data: data, zip: zip }))
+    .catch(error => console.log(error))
+});
+```
+
+- `URLSearchParams` builds the query string; `fetch()` needs **Node 18** or above
+
+<!--
+Book code (Figure in 8.1): the locals object { data: data, zip: zip } is passed to res.render("weather", locals); weather.pug shows data.main.temp, data.weather[0].description, and data.main.humidity. Pug isn't the point today; the lab returns JSON with res.json().
+fetch() returns a Promise; the first then() runs after the response arrives, the second right after the first.
+Note for the lab: the lab's routes use async/await instead of then() (students saw this in 5.17 and 7.5):
+  app.get("/weather", async function(req, res) { ... const response = await fetch(url + params); if (response.ok) { const data = await response.json(); ... } });
+await waits for the response like then(); response.ok is true for a 2xx status code. Mention it verbally; it is not the book's 8.1 code.
+-->
+
+---
+
+<!-- _class: activity -->
+
+> Activity: Predict
+
+<div class="two-column-slide">
+
+<div class="column-left">
+
+```js
+const params = new URLSearchParams({
+  zip: 10001, units: "metric", appid: "KEY"});
+fetch("http://api.openweathermap.org/data/2.5/weather?"
+  + params)
   .then(response => response.json())
   .then(data => {
-    // Use the data
-  })
-  .catch(error => {
-    // Handle errors
+    console.log(data.main.temp);
   });
 ```
 
----
-
-# Using fetch() with async/await
-
-**Modern approach using async/await:**
-```javascript
-async function getWeather(city) {
-  try {
-    const response = await fetch(
-      `https://goweather.herokuapp.com/weather/${city}`
-    );
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching weather:", error);
-  }
-}
+Part of the JSON response:
+```json
+{ "main": { "temp": 21.5 },
+  "wind": { "speed": 4.1 } }
 ```
-
----
-
-# Handling API Responses
-
-**Check if response is successful:**
-```javascript
-if (!response.ok) {
-  // Handle error
-  return res.status(500).json({ error: "API error" });
-}
-```
-
-**Parse JSON data:**
-```javascript
-const data = await response.json();
-```
-
-**Use the data:**
-```javascript
-res.json({ city: city, temp: data.temperature });
-```
-
----
-
-# URL Encoding
-
-**Why encode URLs?**
-- City names may contain special characters
-- Spaces, Arabic characters, etc. need encoding
-
-**How to encode:**
-```javascript
-const city = "New York";
-const encoded = encodeURIComponent(city);
-// Result: "New%20York"
-
-const url = `https://api.example.com/weather/${encoded}`;
-```
-
-**Always encode user input in URLs!**
-
----
-
-# Error Handling for APIs
-
-**Common errors:**
-- API server is down
-- Invalid request parameters
-- Network connection issues
-- Rate limiting (too many requests)
-
----
-
-# Error Handling for APIs
-
-**Best practice:**
-```javascript
-try {
-  const response = await fetch(url);
-  if (!response.ok) {
-    return res.status(500).json({ error: "API error" });
-  }
-  const data = await response.json();
-  res.json(data);
-} catch (error) {
-  res.status(500).json({ error: "Server error" });
-}
-```
-
----
-
-# Benefits of Using Third-Party APIs
-
-**Advantages:**
-- Save development time
-- Access to specialized data/services
-- Regular updates and maintenance by provider
-- Focus on your core application features
-
-**Considerations:**
-- API may change or become unavailable
-- May have usage limits or costs
-- Dependency on external service
-
----
-
-# Token-based User Authentication
-
----
-
-# What is Authentication?
-
-**Authentication** = Verifying who a user is
-
-**Why we need it:**
-- Protect sensitive resources
-- Ensure only authorized users access data
-- Track user actions
-- Personalize user experience
-
-**Example:**
-- Only logged-in users can view their profile
-- Only authenticated users can access protected routes
-
----
-
-# Authentication Methods
-
-**Common authentication approaches:**
-<div class="two-column-slide">
-<div class="column-left">
-
-**1. Session-Based Authentication:**
-- Server creates session after login
-- Session ID stored in cookie
-- Server maintains session state
-- Traditional approach, widely used
 
 </div>
+
 <div class="column-right">
 
-**2. Token-Based Authentication:**
-- Server creates token after login
-- Token sent with each request
-- Server doesn't store session state
-- Modern approach, scalable
+1. When does the first then() run?
+2. When does the second then() run?
+3. Wind speed: data.main.temp, data.wind.speed, or data.main.speed?
+4. Celsius: standard, metric, or imperial?
+5. What query string does params create?
 
 </div>
+
 </div>
+
+<!--
+Answers:
+1. After the API response is received.
+2. Immediately after the first then() arrow function completes.
+3. data.wind.speed
+4. metric
+5. zip=10001&units=metric&appid=KEY
+Tip: these are zyBooks 8.1.2 and 8.1.4.
+-->
+
 
 ---
 
-# Authentication Methods
+# 8.2 Token-Based User Authentication
 
-**Common authentication approaches:**
-**3. API Key Authentication:**
-- Simple key for API access
-- Used for service-to-service communication
-- Less secure for user authentication
-
----
-
-# Traditional Authentication Problem
-
-**Session-based authentication:**
-- Server stores session information
-- Requires server to remember each user
-- Difficult to scale across multiple servers
-- Server must maintain session state
-
-**Problem:**
-- What if you have multiple servers?
-- What if server restarts?
-- How to share sessions across servers?
+<!-- Timing: ~11 min for 8.2 (including activities) -->
 
 ---
 
 # Token-Based Authentication
 
-**Solution: Token-based authentication**
+> **Token-based authentication:** the client uses a **signed token** to "prove" to the server that it has successfully authenticated
 
-**How it works:**
-1. User logs in with credentials
-2. Server verifies credentials
-3. Server creates a token and sends it to client
-4. Client sends token with each request
-5. Server verifies token to authenticate user
+- Why: the user logs in **once**, not on every request
 
-**Key advantage:** Stateless - server doesn't store session data
+```
+1. POST /api/auth   username + password  → server sends a token
+2. Client stores the token
+3. GET /api/status  X-Auth: token        → server validates it, sends data
+```
+
+<!--
+User authentication = verifying that a user is who the user claims to be. Username + password is the most common form (not foolproof; some sites add security questions or images).
+Signed token = a string produced with a secret key that uniquely identifies the entity that created it.
+Book animation (8.2.1): bsmith logs in, then the web app requests GET api/calendar with the token and gets bsmith's calendar.
+Browser side (8.2, mention only): the front end saves the token with localStorage.setItem("token", ...) and sends it with fetch(..., { headers: { "X-Auth": token } }). The lab is server-side and is tested with Postman instead.
+-->
 
 ---
 
-# What is a JWT?
+# JSON Web Tokens (JWT)
 
-**JWT** = JSON Web Token
+> A **JWT** is a string with three parts, **header.payload.signature**, signed with a **secret key** known only by the server
 
-A **JWT** is a compact, URL-safe token that contains information about a user
+- Why: if the client changes the payload, the signature no longer matches
 
-**Structure:**
 ```
-header.payload.signature
+header     eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9          {"typ":"JWT","alg":"HS256"}
+payload    eyJ1c2VybmFtZSI6ImJvYiJ9                      {"username":"bob"}
+signature  Mm0fNOZMBFOrFu99NlnHdz3jkp5IE_BQCNOz4sh1epQ   secret key "supersecret"
 ```
 
-**Example:**
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20ifQ.signature
-```
+<!--
+JWT is pronounced "jot". The header and payload are JSON, base64 encoded (64 printable characters). The signature is HMAC SHA256 over the encoded header + encoded payload + the secret key.
+Validating: the server builds a new signature from the received header and payload with its secret key; if the payload wasn't modified, the new signature is identical to the JWT's signature.
+-->
 
 ---
 
-# JWT Structure (**Three parts**)
+# jwt-simple: encode() and decode()
 
-**1. Header:**
-- Describes the token type and encryption method
-- Example: `{"alg": "HS256", "typ": "JWT"}`
+> The **jwt-simple** module creates and validates JWTs: `npm install jwt-simple`
 
-**2. Payload:**
-- Contains user information (claims)
-- Example: `{"email": "user@example.com", "exp": 1234567890}`
+```js
+const jwt = require("jwt-simple");
+const secret = "supersecret";
 
-**3. Signature:**
-- Verifies token authenticity
-- Created using secret key
+// Create a JWT (after a successful login)
+const token = jwt.encode({ username: "bsmith" }, secret);
+
+// Decode a JWT (on later requests)
+const decoded = jwt.decode(token, secret);
+console.log(decoded.username);   // bsmith
+```
+
+- A changed or fake token makes `jwt.decode()` fail
+
+<!--
+Book Figure 8.2.1 uses const payload = { username: "bsmith" }; jwt.encode(payload, secret).
+Good practice (book): store the secret key in a configuration file and use a long randomized string.
+Live: run this file with node and show the three parts of the token (two periods).
+-->
 
 ---
 
-# JWT Advantages
+# The X-Auth Header
 
-<div class="two-column-slide" >
-<div class="column-left">
+> The client sends the token in the **X-Auth** header; the server validates it
 
-**Stateless:**
-- No session storage needed
-- Server doesn't need to remember users
+- Login route: correct password → `jwt.encode()` → token; else **401**
 
-**Scalable:**
-- Works across multiple servers
-- No shared session storage required
-</div >
-<div class="column-right">
-
-**Compact:**
-- Small size, easy to send in HTTP headers
-- Can be stored in cookies 
-
-**Secure:**
-- Digitally signed
-- Can expire automatically
-
-</div>
-</div>
-
----
-
-# Installing JWT Library
-
-**Install jsonwebtoken:**
-```bash
-npm install jsonwebtoken
-```
-
-**Import in your server:**
-```javascript
-const jwt = require("jsonwebtoken");
-```
-
-**Set a secret key:**
-```javascript
-const JWT_SECRET = "your-secret-key-here";
-// In production, use environment variables!
-```
-
----
-
-# Creating a JWT Token
-
-**After successful login:**
-```javascript
-const token = jwt.sign(
-  { email: user.email },  // Payload (user data)
-  JWT_SECRET,             // Secret key
-  { expiresIn: "1h" }     // Expiration time
-);
-
-res.json({ token });
-```
-
-**Token contains:**
-- User email (or other identifying info)
-- Expiration time (1 hour)
-- Digital signature
-
----
-
-# Sending Token in Requests
-
-**Client sends token in Authorization header:**
-
-```
-Authorization: Bearer <token>
-```
-
-**Important:**
-- Must include the word "Bearer"
-- One space between "Bearer" and token
-- No quotes around the token
-
-**Example:**
-```
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
-```
-
----
-
-# Verifying Token on Server
-
-**Extract and verify token:**
-```javascript
-app.get("/protected-route", (req, res) => {
-  // 1. Get Authorization header
-  const auth = req.headers.authorization;
-
-  // 2. Extract token (remove "Bearer ")
-  const token = auth.split(" ")[1];
-
-  // 3. Verify token
+```js
+router.get("/status", function(req, res) {
+  const token = req.headers["x-auth"];
   try {
-    const decoded = jwt.verify(token, JWT_SECRET);
-    // Token is valid, user is authenticated
-    res.json({ message: "Access granted", user: decoded });
-  } catch (error) {
-    return res.status(401).json({ error: "Invalid token" });
-  } });
-```
-
----
-
-# Complete Login Flow
-
-**1. User sends credentials:**
-```javascript
-POST /login
-Body: { "email": "user@example.com", "password": "password123" }
-```
-
-**2. Server verifies credentials:**
-```javascript
-const user = users.find(u => u.email === email);
-const match = await bcrypt.compare(password, user.passwordHash);
-```
-
-**3. Server creates token:**
-```javascript
-const token = jwt.sign({ email }, JWT_SECRET, { expiresIn: "1h" });
-res.json({ token });
-```
-
----
-
-# Using Token for Protected Routes
-
-**4. Client stores token:**
-```javascript
-// Save token from login response
-localStorage.setItem("token", response.token);
-```
-
-**5. Client sends token with requests:**
-```javascript
-fetch("/protected-route", {
-  headers: { "Authorization": `Bearer ${token}` }
+    const decoded = jwt.decode(token, secret);
+    res.json({status: "Enjoying a beautiful day!"});
+  }
+  catch (ex) {
+    res.status(401).json({ error: "Invalid JWT" });
+  }
 });
 ```
 
-**6. Server verifies token:**
-```javascript
-const decoded = jwt.verify(token, JWT_SECRET); // User is authenticated!
-```
+<!--
+Book login route (Figure 8.2.2):
+  router.post("/auth", function(req, res) {
+    if (req.body.username === "bsmith" && req.body.password === "pass") {
+      const token = jwt.encode({username: "bsmith"}, secret);
+      res.json({ token: token });
+    }
+    else { res.status(401).json({ error: "Bad username/password" }); }
+  });
+The status route above is simplified from Figure 8.2.2. The book's full version also:
+- sets up const router = express.Router(); router.use(express.urlencoded({ extended: false })); app.use("/api", router);
+- checks if (!req.headers["x-auth"]) first → 401 { error: "Missing X-Auth header" }
+- returns "Enjoying a beautiful day!" for bsmith and "Working hard!" for any other username.
+Live: POST username=bsmith&password=pass to /api/auth, copy the token, then GET /api/status with and without the X-Auth header.
+-->
 
 ---
 
-# Token Expiration
+<!-- _class: activity -->
 
-**Why tokens expire:**
-- Security: Limits damage if token is stolen
-- Forces re-authentication periodically
-- Reduces risk of unauthorized access
+> Activity: What happens if... (status code + message)
 
-**Setting expiration:**
-```javascript
-jwt.sign(
-  { email },
-  JWT_SECRET,
-  { expiresIn: "1h" }  // Expires in 1 hour
-);
 ```
+POST /api/auth    not bsmith / pass        → 401 { error: "Bad username/password" }
+GET  /api/status  no X-Auth header         → 401 { error: "Missing X-Auth header" }
+GET  /api/status  jwt.decode(X-Auth) fails → 401 { error: "Invalid JWT" }
+Success: /api/auth → { token: ... }, /api/status → { status: ... }
+```
+
+1. POST /api/auth with username=bmsith&password=opensesame
+2. GET /api/status with no X-Auth header
+3. GET /api/status with X-Auth: bsmith
+4. One character of a valid token is changed, then GET /api/status
+
+<!--
+Answers:
+1. 401 { "error": "Bad username/password" }
+2. 401 { "error": "Missing X-Auth header" }
+3. 401 { "error": "Invalid JWT" }: "bsmith" is not a valid JWT, so jwt.decode() fails and the catch runs.
+4. 401 { "error": "Invalid JWT" }: the new signature no longer matches.
+Follow-up (ask aloud): a client learns the server's secret key. What can it do? Create JWTs with any payload that the server accepts as valid: the secret must stay on the server.
+Tip: zyBooks 8.2.4, 8.2.5, and 8.2.6.
+-->
+
 
 ---
 
-# Handling Expired Tokens
+# 8.3 Password Hashing
 
-**When token expires:**
-```javascript
-try { const decoded = jwt.verify(token, JWT_SECRET);
-} catch (error) {
-  if (error.name === "TokenExpiredError") {
-    return res.status(401).json({ error: "Token expired" });
-  }
-  return res.status(401).json({ error: "Invalid token" });
-}
-```
-
-**Client response:**
-- Redirect to login page
-- Request new token
-- Show appropriate error message
+<!-- Timing: ~12 min for 8.3 (including activities and the exit ticket) -->
 
 ---
 
 # Password Hashing
 
----
+> A **cryptographic hash function** converts text of any length into a fixed-length **hash**; the hash can't be directly converted back
 
-# Why Hash Passwords?
+- Why: **never store passwords**; store hashes, so a stolen database doesn't reveal them
 
-**NEVER store passwords in plain text!**
-
-**If database is compromised:**
-- Plain text: Attackers can read all passwords immediately
-- Hashed: Attackers see random strings, not actual passwords
-
-**Real-world example:**
-- Many companies have been hacked
-- If passwords were hashed, damage is limited
-- If passwords were plain text, all accounts are compromised
-
----
-
-# What is Password Hashing?
-
-**Hashing** = Converting password into a fixed-length string
-
-**Properties:**
-- **One-way:** Cannot reverse hash to get original password
-- **Deterministic:** Same password always produces same hash
-- **Unique:** Different passwords produce different hashes
-
-**Example:**
 ```
-Password: "mypassword123"
-Hash:     "$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy"
+Register:  opensesame → hash → BC029G8A38   stored in the database
+Login:     OpenSesame → hash → 75EE39FA90   ≠ stored → denied
+Login:     opensesame → hash → BC029G8A38   = stored → correct password
 ```
+
+<!--
+Hash functions in the book: MD5, SHA-1, bcrypt, PBKDF2. The output is the hash digest ("hash"); changing one character of the input completely changes the hash (try an online MD5 generator: "password" → 5f4dcc3b5aa765d61d8327deb882cf99).
+The book's pgreen animation (8.3.2) is the example above.
+A site that stores only hashes can't recover a lost password.
+-->
 
 ---
 
-# Hash Functions
+# Salt
 
-**Simple hash (NOT secure for passwords):**
-```javascript
-// MD5, SHA-1 - Fast but insecure
-// Can be cracked quickly with rainbow tables
+> A **salt** is a random string combined with a password so two identical passwords produce **different hashes**
+
+- Why: cracking salted hashes is much harder
+
+```
+opensesame + salt 33M.4Zn7R7k3jHOISHxCe. → yUqI4vl9mv4/oeiLuhHDQZcfySVg6wC
+opensesame + salt ByrTcHizkol25k1WOnlV2e → gFI3DdRzo9.xrjal/IyiaKd8X5diFpi
 ```
 
-**Secure hash for passwords:**
-```javascript
-// bcrypt - Slow by design, secure
-// Designed specifically for password hashing
-```
-
-**Why slow is good:**
-- Makes brute force attacks impractical
-- Each attempt takes time  and attackers cannot quickly try many passwords
+<!--
+Password cracking = recovering passwords from data, like a compromised website's database.
+Dictionary attack: hash many likely passwords (e.g., dictionary words) and compare them with the stolen hashes; attackers precompute dictionary tables. With salt, the attacker needs a table for each salt value.
+Strong passwords (book): no dictionary words, upper/lowercase letters + digits (+ punctuation), at least 10 characters, never used before, no popular patterns (initial capital, 2-4 digits or ! at the end).
+2012 LinkedIn breach: 6.5 million SHA1 hashes without salt; more than 60% of the unique passwords were cracked.
+The salts and digests above come from the book's bcrypt hashes of "opensesame" (next slide).
+-->
 
 ---
 
-# What is Salt?
+# bcryptjs: hashSync() and compareSync()
 
-**Salt** = Random data added to password before hashing
+> **bcryptjs** (`npm install bcryptjs`) hashes passwords with a random salt
 
-**Why salt is important:**
-- Same password produces different hashes
-- Prevents rainbow table attacks
-- Makes each hash unique
-
-**Example:**
-```
-Password: "password123"
-Salt:     "randomSalt123"
-Hash:     hash(password + salt)
-```
----
-
-# What is Salt?
-**Example:**
-```
-Password: "password123"
-Salt:     "randomSalt123"
-Hash:     hash(password + salt)
-```
-
-**Without salt:**
-- Two users with same password have same hash
-- Attackers can identify common passwords
-
----
-
-# bcrypt Library
-
-**bcrypt** = Popular password hashing library
-
-**Features:**
-- Automatically generates salt
-- Configurable cost factor (how slow)
-- Secure and widely used
-- Built for password hashing
-
----
-
-# bcrypt Library
-**Install:**
-```bash
-npm install bcryptjs
-```
-
-**Import:**
-```javascript
+```js
 const bcrypt = require("bcryptjs");
+
+// Register: store the hash, not the password
+const hash = bcrypt.hashSync("opensesame", 10);   // 10 = cost factor
+
+// Login: compare the submitted password with the stored hash
+if (bcrypt.compareSync("opensesame", hash)) {
+  console.log("Same!");
+}
 ```
+
+- Same password → a different hash each time, so don't compare hashes with `===`
+
+<!--
+hashSync() returns a 60-character hash: $2a$10$33M.4Zn7R7k3jHOISHxCe.yUqI4vl9mv4/oeiLuhHDQZcfySVg6wC → "2a" = bcrypt, "10" = cost factor, 22-character salt, 31-character hash digest. The salt is stored inside the hash.
+A larger cost factor → hashSync() takes more time. Book: MD5 and SHA-1 have known weaknesses; bcrypt, scrypt, and PBKDF2 purposely execute slowly, making password cracking significantly more difficult.
+compareSync(password, hash) returns true if the password is the one used to create the hash, false otherwise.
+Putting it together (8.3 "Using a database"): POST /api/user → hashSync() → save username + hash + status; POST /api/auth → compareSync() → true: jwt.encode() → JWT, false: 401; GET /api/status → X-Auth → jwt.decode().
+Live: hash "opensesame" three times in a loop to show three different hashes; then change the compareSync() argument to "OpenSesame" → no output.
+-->
 
 ---
 
-# Hashing Passwords with bcrypt
+<!-- _class: activity -->
 
-**During user registration:**
-```javascript
-const password = req.body.password;
-const saltRounds = 10;  // Cost factor (higher = slower but more secure)
+> Activity: Predict
 
-const hash = await bcrypt.hash(password, saltRounds);
+```js
+const hash = bcrypt.hashSync("qwerty", 10);
+if (bcrypt.compareSync("Qwerty", hash)) {
+  console.log("Same!");
+}
+else {
+  console.log("Not the same");
+}
+```
 
-// Store hash in database
-users.push({
-  email: email,
-  passwordHash: hash  // Store hash, NOT plain password!
+1. What does the code output?
+2. What if hashSync("qwerty", 10) runs twice: are the two hashes equal?
+3. What if the cost factor changes from 10 to 12: does hashSync() take less or more time?
+4. Can a website that stores only password hashes recover a user's lost password?
+
+<!--
+Answers:
+1. Not the same: "Qwerty" and "qwerty" are different passwords.
+2. No: each call uses a new random salt.
+3. More time.
+4. No: the hash can't be converted back into the password.
+Tip: zyBooks 8.3.3 and 8.3.5.
+-->
+
+---
+
+<!-- _class: activity -->
+
+> Activity: Exit ticket: find the 4 bugs
+
+users is an object: username → saved password data.
+
+```js
+router.post("/user", function(req, res) {
+  users[req.body.username] = req.body.password;
+  res.json({ message: "User added" });
+});
+router.post("/auth", function(req, res) {
+  const hash = bcrypt.hashSync(req.body.password, 10);
+  if (hash === users[req.body.username]) {
+    res.json({ token: jwt.encode({ username: req.body.username }) });
+  } else { res.status(200).json({ error: "Bad username/password" }); }
 });
 ```
 
-**Important:** Never store the original password!
+<!--
+Answers:
+1. /user stores the plain-text password → store bcrypt.hashSync(req.body.password, 10) instead.
+2. /auth compares two hashes with === → a new salt makes them always different; use bcrypt.compareSync(req.body.password, users[req.body.username]).
+3. jwt.encode() is missing the secret key → jwt.encode({ username: req.body.username }, secret).
+4. A failed login returns 200 → it should be 401 (unauthorized).
+Tip: bugs 1 and 2 are the most common lab mistakes (the lab uses the async bcrypt.hash()/bcrypt.compare(), but the idea is the same).
+-->
 
 ---
 
-# Comparing Passwords with bcrypt
+# Key Takeaways
 
-**During user login:**
-```javascript
-const { email, password } = req.body;
-
-// Find user
-const user = users.find(u => u.email === email);
-
-// Compare password with stored hash
-const match = await bcrypt.compare(password, user.passwordHash);
-
-if (match) {
-  // Password is correct
-  // Create token and send to client
-} else {
-  // Password is incorrect
-  res.status(400).json({ error: "Wrong password" });
-}
-```
-
----
-
-# bcrypt.compare() Function
-
-**How it works:**
-```javascript
-bcrypt.compare(plainPassword, hashedPassword)
-```
-
-**Process:**
-1. Takes plain password from user
-2. Takes stored hash from database
-3. Hashes plain password with same salt
-4. Compares the two hashes
-5. Returns `true` if they match, `false` otherwise
-
-**You don't need to extract salt manually!**
-
----
-
-# Password Security Best Practices
-
-**1. Always hash passwords:** Never store plain text passwords
-
-**2. Use strong hashing:** Use bcrypt or similar (not MD5, SHA-1)
-
-**3. Use appropriate cost factor:**
-- Balance between security and performance
-- Typically 10-12 rounds
-
-**4. Validate password strength:**
-- Minimum length
-- Require special characters
-- Check against common passwords
-
----
-
-# Password Cracking Attacks
-
-<div class="two-column-slide">
-<div class="column-left">
-
-**Dictionary Attack:**
-- Try common passwords from a list
-- "password", "123456", "qwerty"
-
-**Rainbow Tables:**
-- Pre-computed hash tables
-- Salt prevents this attack
-</div >
-<div class="column-right">
-
-**Brute Force:**
-- Try every possible combination
-- Slow hashing makes this impractical
-
-**Protection:**
-- Strong passwords
-- Password hashing with salt
-- Rate limiting login attempts
-</div>
-</div>
-
----
-
-# Complete Registration Flow
-
-**1. User submits registration:**
-```javascript
-POST /register
-Body: { "email": "user@example.com", "password": "mypassword123" }
-```
-
-**2. Server validates input:**
-```javascript
-if (!email || !password) {
-  return res.status(400).json({ error: "Email and password required" });
-}
-```
-
----
-
-# Complete Registration Flow
-
-**3. Server hashes password:**
-```javascript
-const hash = await bcrypt.hash(password, 10);
-```
-
-**4. Server stores user:**
-```javascript
-users.push({ email, passwordHash: hash });
-res.status(201).json({ message: "User registered!" });
-```
-
----
-
-# Complete Login Flow with Hashing
-
-**1. User submits login:**
-```javascript
-POST /login
-Body: { "email": "user@example.com", "password": "mypassword123" }
-```
-
-**2. Server finds user:**
-```javascript
-const user = users.find(u => u.email === email);
-if (!user) {
-  return res.status(400).json({ error: "User not found" });
-}
-```
----
-
-# Complete Login Flow with Hashing
-**3. Server compares password:**
-```javascript
-const match = await bcrypt.compare(password, user.passwordHash);
-if (!match) {
-  return res.status(400).json({ error: "Wrong password" });
-}
-```
-
-**4. Server creates token:**
-```javascript
-const token = jwt.sign({ email }, JWT_SECRET, { expiresIn: "1h" });
-res.json({ token });
-```
-
----
-
-# Security Summary
-
-**Three layers of security:**
-
-**1. Password Hashing:** Protects passwords if database is compromised. Use bcrypt with salt. 
-
-**2. Token Authentication:**
-- Verifies user identity for each request
-- Stateless and scalable
-
-**3. Protected Routes:**
-- Only authenticated users can access
-- Token must be valid and not expired
-
----
-
-# Common Mistakes to Avoid
-
-<div class="two-column-slide">
-<div class="column-left">
-
-**Password mistakes:**
-- Storing plain text passwords
-- Using weak hashing (MD5, SHA-1)
-- Not using salt
-- Storing salt separately from hash
-</div>
-<div class="column-right">
-
-**Token mistakes:**
-- Not checking token expiration
-- Using weak secret keys
-- Not validating token on every request
-- Storing tokens insecurely on client
-</div>
-</div>
+- A **third-party web API** is called from the server with `fetch()`; usually needs an **API key**
+- **Token-based auth:** log in once, then send a **signed token** with each request
+- **JWT** = header.payload.signature, signed with the server's **secret key**
+- jwt-simple: `jwt.encode()` / `jwt.decode()`; token in the **X-Auth** header
+- **Never store passwords:** store hashes; **salt** makes equal passwords hash differently
+- bcryptjs: `hashSync()` to register, `compareSync()` to log in
 
 ---
 
@@ -919,7 +525,29 @@ res.json({ token });
 
 >30m
 # Demo
-
 8.1 Third-Party APIs and Authentication
 
+**Build a secure weather API with:**
+- Password hashing
+- Token-based authentication
+- A third-party weather API
 
+<!--
+Setup: npm install; node server.js → http://localhost:3000/ shows "Server is running". Test with Postman or Thunder Client (VS Code extensions), Body → raw → JSON.
+Tasks (server.js TODOs): 1) POST /register: hash the password, store { email, passwordHash } in the in-memory users array, 201. 2) POST /login: compare the password, return a JWT. 3) GET /weather?city=Riyadh: require the token, then fetch the weather and return JSON.
+Not in zyBooks ch8 (the TODO comments in server.js give the exact code):
+- jsonwebtoken: jwt.sign(payload, secret, { expiresIn: "1h" }) and jwt.verify(token, secret) (zyBooks uses jwt-simple's jwt.encode()/jwt.decode(); same idea, plus an expiry time).
+- Authorization: Bearer <token> header and auth.split(" ")[1] (zyBooks uses the X-Auth header). One space after "Bearer", no quotes.
+- await bcrypt.hash() / await bcrypt.compare(): the async versions of hashSync()/compareSync(); same bcryptjs package and cost factor 10.
+- wttr.in weather API with encodeURIComponent(city) (zyBooks uses OpenWeatherMap with URLSearchParams). No API key needed. The README says "GoWeather", but server.js uses wttr.in; data.temperature/description/wind may come back undefined, while raw shows the full response.
+- Arrow-function route handlers, const { email, password } = req.body || {}, and users.find(...): plain JavaScript, given verbatim in the TODOs.
+- express.json() for JSON request bodies (covered in zyBooks 7.3); cors is in package.json (zyBooks 7.4) but not used by server.js; dotenv / .env is only mentioned in a comment.
+- The lab returns 400 for "User not found" / "Wrong password" (zyBooks returns 401); follow the lab so the grader passes.
+-->
+
+---
+
+# Next Class
+
+- Course review
+- Final project work
