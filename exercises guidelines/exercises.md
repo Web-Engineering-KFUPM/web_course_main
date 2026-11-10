@@ -18,7 +18,7 @@
 | 6.1 Back-end Fundamentals | full-stack fundamentals, node, express, routes, server, data flow | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/6-1-introduction-to-node/accept?k=swe363) |
 | 6.2 Introduction to Node | node, modules, package.json files | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/6-2-cli-calculator/accept?k=swe363) |
 | 6.3 Express | express, middleware functions, routes, cors, request & response | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/6-3-express/accept?k=swe363) |
-| 6.4 Request Data in Express | query parmeters, routes, middleware functions | [View Exercise]() |
+| 6.4 Request Data in Express | query parmeters, routes, middleware functions | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/6-4-request-data-in-express/accept?k=swe363) |
 | 7.1 mongoDB | mongoDB cloud, mongosh, mongoose | [View Exercise]() |
 | 7.2 RESTful APIs | CRUD operations, fetch | [View Exercise]() |
 | 8.1 Third-Party APIs and Authentication | Third-Party API, Token based authentication, password hasing | [View Exercise]() |
