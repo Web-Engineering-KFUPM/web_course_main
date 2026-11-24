@@ -20,5 +20,5 @@
 | 6.3 Express | express, middleware functions, routes, cors, request & response | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/6-3-express/accept?k=swe363) |
 | 6.4 Request Data in Express | query parmeters, routes, middleware functions | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/6-4-request-data-in-express/accept?k=swe363) |
 | 7.1 mongoDB | mongoDB cloud, mongosh, mongoose | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/7-1-mongo-db/accept?k=swe363) |
-| 7.2 RESTful APIs | CRUD operations, fetch | [View Exercise]() |
+| 7.2 RESTful APIs | CRUD operations, fetch | [View Exercise](https://classroom50.org/Web-Engineering-KFUPM/261-kfupm-swe-363/assignments/7-2-restful-apis/accept?k=swe363) |
 | 8.1 Third-Party APIs and Authentication | Third-Party API, Token based authentication, password hasing | [View Exercise]() |
